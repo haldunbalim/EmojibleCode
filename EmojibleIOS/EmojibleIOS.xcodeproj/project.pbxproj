@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		12E81FE095B3E0690D40FEA3 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */; };
 		414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */; };
 		6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */; };
+		8B0C121A2550AB7800EE214D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0C12192550AB7800EE214D /* GoogleService-Info.plist */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
@@ -52,6 +53,7 @@
 		20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B0C12192550AB7800EE214D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 				5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */,
 				20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -162,6 +163,7 @@
 		8BE90CA1255037A000A34B37 /* Default Files */ = {
 			isa = PBXGroup;
 			children = (
+				8B0C12192550AB7800EE214D /* GoogleService-Info.plist */,
 				FC9C42A6254AE8890061E220 /* AppDelegate.swift */,
 				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
 				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
@@ -412,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
+				8B0C121A2550AB7800EE214D /* GoogleService-Info.plist in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
 			);

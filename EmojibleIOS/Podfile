@@ -11,6 +11,10 @@ target 'EmojibleIOS' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
 
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+
 
   target 'EmojibleIOSTests' do
     inherit! :search_paths
