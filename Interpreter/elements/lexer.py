@@ -3,18 +3,15 @@ from elements import TokenType
 
 RESERVED_KEYWORDS = {
     'PROGRAM': Token('PROGRAM', 'PROGRAM'),
-    'VAR': Token('VAR', 'VAR'),
-    'DIV': Token('INTEGER_DIV', 'DIV'),
-    'INTEGER': Token('INTEGER', 'INTEGER'),
-    'REAL': Token('REAL', 'REAL'),
-    'BEGIN': Token('BEGIN', 'BEGIN'),
 }
 
 emoji_dict = {
     '➕': '+',
     '➖': '-',
     '✖️': '*',
-    '➗': '/'
+    '➗': '/',
+    "👉": "=",
+    "📝": "{",
 }
 
 
@@ -54,7 +51,7 @@ class Lexer(object):
             self.advance()
 
     def skip_comment(self):
-        while self.current_char != '}':
+        while self.current_char != '\n':
             self.advance()
         self.advance()  # the closing curly brace
 
@@ -99,7 +96,7 @@ class Lexer(object):
         """
         while self.current_char is not None:
 
-            if self.current_char.isspace():
+            if self.current_char == " ":
                 self.skip_whitespace()
                 continue
 
@@ -123,9 +120,9 @@ class Lexer(object):
             #     self.advance()
             #     return Token(TokenType.PLUS_EQ, '+=')
 
-            if self.current_char == ';':
+            if self.current_char == '\n':
                 self.advance()
-                return Token("SEMI", ';')
+                return Token("LINEBREAK", '\n')
 
             if self.current_char == ':':
                 self.advance()

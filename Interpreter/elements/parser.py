@@ -54,8 +54,8 @@ class Program(AST):
 
 
 class Block(AST):
-    def __init__(self, declarations, compound_statement):
-        self.declarations = declarations
+    def __init__(self, compound_statement):
+        self.declarations = []
         self.compound_statement = compound_statement
 
 
@@ -105,64 +105,12 @@ class Parser(object):
 
     def block(self):
         """block : declarations compound_statement"""
-        declaration_nodes = self.declarations()
         compound_statement_node = self.compound_statement()
-        node = Block(declaration_nodes, compound_statement_node)
-        return node
-
-    def declarations(self):
-        """declarations : VAR (variable_declaration SEMI)+
-                        | empty
-        """
-        declarations = []
-        if self.current_token.type == TokenType.VAR:
-            self.eat(TokenType.VAR)
-            while self.current_token.type == TokenType.ID:
-                var_decl = self.variable_declaration()
-                declarations.extend(var_decl)
-                self.eat(TokenType.SEMI)
-
-        return declarations
-
-    def variable_declaration(self):
-        """variable_declaration : ID (COMMA ID)* COLON type_spec"""
-        var_nodes = [Var(self.current_token)]  # first ID
-        self.eat(TokenType.ID)
-
-        while self.current_token.type == TokenType.COMMA:
-            self.eat(TokenType.COMMA)
-            var_nodes.append(Var(self.current_token))
-            self.eat(TokenType.ID)
-
-        self.eat(TokenType.COLON)
-
-        type_node = self.type_spec()
-        var_declarations = [
-            VarDecl(var_node, type_node)
-            for var_node in var_nodes
-        ]
-        return var_declarations
-
-    def type_spec(self):
-        """type_spec : INTEGER
-                     | REAL
-        """
-        token = self.current_token
-        if self.current_token.type == TokenType.INTEGER:
-            self.eat(TokenType.INTEGER)
-        else:
-            self.eat(TokenType.REAL)
-        node = Type(token)
+        node = Block(compound_statement_node)
         return node
 
     def compound_statement(self):
-        """
-        compound_statement: BEGIN statement_list END
-        """
-        self.eat(TokenType.BEGIN)
         nodes = self.statement_list()
-        #self.eat(TokenType.END)
-
         root = Compound()
         for node in nodes:
             root.children.append(node)
@@ -178,8 +126,8 @@ class Parser(object):
 
         results = [node]
 
-        while self.current_token.type == TokenType.SEMI:
-            self.eat(TokenType.SEMI)
+        while self.current_token.type == TokenType.LINEBREAK:
+            self.eat(TokenType.LINEBREAK)
             results.append(self.statement())
 
         return results
@@ -190,7 +138,7 @@ class Parser(object):
                   | assignment_statement
                   | empty
         """
-        if self.current_token.type == TokenType.BEGIN:
+        if self.current_token.type == TokenType.PROGRAM:
             node = self.compound_statement()
         elif self.current_token.type == TokenType.ID:
             node = self.assignment_statement()
@@ -242,12 +190,10 @@ class Parser(object):
         """term : factor ((MUL | INTEGER_DIV | FLOAT_DIV) factor)*"""
         node = self.factor()
 
-        while self.current_token.type in (TokenType.MUL, TokenType.INTEGER_DIV, TokenType.FLOAT_DIV):
+        while self.current_token.type in (TokenType.MUL, TokenType.FLOAT_DIV):
             token = self.current_token
             if token.type == TokenType.MUL:
                 self.eat(TokenType.MUL)
-            elif token.type == TokenType.INTEGER_DIV:
-                self.eat(TokenType.INTEGER_DIV)
             elif token.type == TokenType.FLOAT_DIV:
                 self.eat(TokenType.FLOAT_DIV)
 
