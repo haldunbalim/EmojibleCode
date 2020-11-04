@@ -1,27 +1,29 @@
-from Interpreter import Lexer
-from Interpreter import Parser
-from Interpreter import SymbolTableBuilder, Interpreter
+from elements import Lexer
+from elements import Parser
+from elements import SymbolTableBuilder
+from elements import Interpreter
 
 
 def main():
     import sys
     text = """
     PROGRAM Part11;
-VAR
-   number : INTEGER;
-   a, b   : INTEGER;
-   y      : REAL;
-
-BEGIN {Part11}
-   number := 2;
-   a := number ;
-   b := 10 * a + 10 * number DIV 4;
-   y := 20 / 7 + 3.14
-END.  {Part11}
+    VAR
+       number : INTEGER;
+       a, b   : INTEGER;
+       y      : REAL;
+    
+    BEGIN {Part11}
+       number := 2;
+       a := number ;
+       b := 10 * a + 10 * number DIV 4;
+       y := 20 / 7 + 3.14
+    END.  {Part11}
     """
 
     lexer = Lexer(text)
-    parser = Parser(lexer)
+    lexer.lex()
+    parser = Parser(lexer.lexed_text)
     tree = parser.parse()
     symtab_builder = SymbolTableBuilder()
     symtab_builder.visit(tree)

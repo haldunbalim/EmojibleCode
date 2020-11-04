@@ -1,27 +1,5 @@
-from .token import Token
-
-INTEGER = 'INTEGER'
-REAL = 'REAL'
-INTEGER_CONST = 'INTEGER_CONST'
-REAL_CONST = 'REAL_CONST'
-PLUS = 'PLUS'
-MINUS = 'MINUS'
-MUL = 'MUL'
-INTEGER_DIV = 'INTEGER_DIV'
-FLOAT_DIV = 'FLOAT_DIV'
-LPAREN = 'LPAREN'
-RPAREN = 'RPAREN'
-ID = 'ID'
-ASSIGN = 'ASSIGN'
-BEGIN = 'BEGIN'
-END = 'END'
-SEMI = 'SEMI'
-DOT = 'DOT'
-PROGRAM = 'PROGRAM'
-VAR = 'VAR'
-COLON = 'COLON'
-COMMA = 'COMMA'
-EOF = 'EOF'
+from elements import Token
+from elements import TokenType
 
 RESERVED_KEYWORDS = {
     'PROGRAM': Token('PROGRAM', 'PROGRAM'),
@@ -112,7 +90,7 @@ class Lexer(object):
             result += self.current_char
             self.advance()
 
-        token = RESERVED_KEYWORDS.get(result, Token(ID, result))
+        token = RESERVED_KEYWORDS.get(result, Token(TokenType.ID, result))
         return token
 
     def get_next_token(self):
@@ -140,48 +118,59 @@ class Lexer(object):
             if self.current_char == ':' and self.peek() == '=':
                 self.advance()
                 self.advance()
-                return Token(ASSIGN, ':=')
+                return Token(TokenType.ASSIGN, ':=')
 
             if self.current_char == ';':
                 self.advance()
-                return Token(SEMI, ';')
+                return Token("SEMI", ';')
 
             if self.current_char == ':':
                 self.advance()
-                return Token(COLON, ':')
+                return Token("COLON", ':')
 
             if self.current_char == ',':
                 self.advance()
-                return Token(COMMA, ',')
+                return Token("COMMA", ',')
 
             if self.current_char == '+':
                 self.advance()
-                return Token(PLUS, '+')
+                return Token("PLUS", '+')
 
             if self.current_char == '-':
                 self.advance()
-                return Token(MINUS, '-')
+                return Token("MINUS", '-')
 
             if self.current_char == '*':
                 self.advance()
-                return Token(MUL, '*')
+                return Token("MUL", '*')
 
             if self.current_char == '/':
                 self.advance()
-                return Token(FLOAT_DIV, '/')
+                return Token("FLOAT_DIV", '/')
 
             if self.current_char == '(':
                 self.advance()
-                return Token(LPAREN, '(')
+                return Token("LPAREN", '(')
 
             if self.current_char == ')':
                 self.advance()
-                return Token(RPAREN, ')')
+                return Token("RPAREN", ')')
 
             if self.current_char == '.':
                 self.advance()
-                return Token(DOT, '.')
+                return Token("DOT", '.')
 
             self.error()
 
-        return Token(EOF, None)
+        return Token("EOF", None)
+
+
+    def lex(self):
+        self.lexed_text = []
+        while self.current_char is not None:
+            self.lexed_text.append(self.get_next_token())
+
+
+    def __repr__(self):
+        return self.lexed_text.__repr__()
+

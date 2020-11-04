@@ -1,6 +1,7 @@
+from elements import TokenType
 class Token(object):
     def __init__(self, type, value):
-        self.type = type
+        self.type = TokenType(type)
         self.value = value
 
     def __str__(self):
@@ -17,3 +18,4 @@ class Token(object):
 
     def __repr__(self):
         return self.__str__()
+
