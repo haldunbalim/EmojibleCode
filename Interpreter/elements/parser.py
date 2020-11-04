@@ -49,8 +49,7 @@ class NoOp(AST):
 
 
 class Program(AST):
-    def __init__(self, name, block):
-        self.name = name
+    def __init__(self, block):
         self.block = block
 
 
@@ -100,12 +99,8 @@ class Parser(object):
     def program(self):
         """program : PROGRAM variable SEMI block DOT"""
         self.eat(TokenType.PROGRAM)
-        var_node = self.variable()
-        prog_name = var_node.value
-        self.eat(TokenType.SEMI)
         block_node = self.block()
-        program_node = Program(prog_name, block_node)
-        self.eat(TokenType.DOT)
+        program_node = Program(block_node)
         return program_node
 
     def block(self):
@@ -166,7 +161,7 @@ class Parser(object):
         """
         self.eat(TokenType.BEGIN)
         nodes = self.statement_list()
-        self.eat(TokenType.END)
+        #self.eat(TokenType.END)
 
         root = Compound()
         for node in nodes:

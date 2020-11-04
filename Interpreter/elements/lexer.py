@@ -8,7 +8,6 @@ RESERVED_KEYWORDS = {
     'INTEGER': Token('INTEGER', 'INTEGER'),
     'REAL': Token('REAL', 'REAL'),
     'BEGIN': Token('BEGIN', 'BEGIN'),
-    'END': Token('END', 'END'),
 }
 
 emoji_dict = {
@@ -115,10 +114,14 @@ class Lexer(object):
             if self.current_char.isdigit():
                 return self.number()
 
-            if self.current_char == ':' and self.peek() == '=':
+            if self.current_char == '=':
                 self.advance()
-                self.advance()
-                return Token(TokenType.ASSIGN, ':=')
+                return Token(TokenType.ASSIGN, '=')
+
+            # if self.current_char == '+' and self.peek() == '=':
+            #     self.advance()
+            #     self.advance()
+            #     return Token(TokenType.PLUS_EQ, '+=')
 
             if self.current_char == ';':
                 self.advance()
@@ -167,6 +170,7 @@ class Lexer(object):
 
     def lex(self):
         self.lexed_text = []
+        self.lexed_text.append(Token('PROGRAM', 'PROGRAM'))
         while self.current_char is not None:
             self.lexed_text.append(self.get_next_token())
 

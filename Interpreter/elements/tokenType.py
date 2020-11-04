@@ -14,7 +14,6 @@ class TokenType(Enum):
     ID = 'ID'
     ASSIGN = 'ASSIGN'
     BEGIN = 'BEGIN'
-    END = 'END'
     SEMI = 'SEMI'
     DOT = 'DOT'
     PROGRAM = 'PROGRAM'
