@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>945676076395-410gmf7403b4ddg25h16s519q9l7n4ut.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.945676076395-410gmf7403b4ddg25h16s519q9l7n4ut</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAWdgJk2smEYjEs8aP8CZ4u1xBvw8iefsk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>945676076395</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.EmojibleIOS.EmojibleIOS</string>
+	<key>PROJECT_ID</key>
+	<string>emojiblec</string>
+	<key>STORAGE_BUCKET</key>
+	<string>emojiblec.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:945676076395:ios:184778c1e5ee6cdee9f82e</string>
+	<key>DATABASE_URL</key>
+	<string>https://emojiblec.firebaseio.com</string>
+</dict>
+</plist>

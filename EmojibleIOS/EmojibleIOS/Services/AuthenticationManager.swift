@@ -12,6 +12,7 @@ import FBSDKLoginKit
 
 class AuthenticationManager {
     let firebaseAuth = Auth.auth()
+    var isLoggedIn = false
 
     private init(){}
     private static let instance = AuthenticationManager()
@@ -21,7 +22,7 @@ class AuthenticationManager {
     
     // TODO: Not Implemented Yet
     public func isUserLoggedIn() -> Bool{
-        return false
+        return isLoggedIn
     }
     
 }
