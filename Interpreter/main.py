@@ -10,7 +10,7 @@ def main():
        number 👉 3.14
        a 👉 number
        b 👉 10 ✖️ a ➕ 10 ✖️ number ➗ 4
-       y 👉 20 / 7 ➕ 3.14
+       y 👉 20 ➗ 7 ➕ 3.14
     """
 
     lexer = Lexer(text)
