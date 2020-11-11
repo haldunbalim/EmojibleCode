@@ -20,6 +20,7 @@ class AssignmentScreenVC: UIViewController, Coordinated{
     }
 }
 
+
 extension AssignmentScreenVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
