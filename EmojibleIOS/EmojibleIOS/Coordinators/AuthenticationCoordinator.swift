@@ -15,6 +15,8 @@ class AuthenticationCoordinator: Coordinator {
     
     enum screenEnum{
         case Login
+        case Register
+        case ForgetPassword
     }
     
     var currentScreen: screenEnum = .Login
@@ -30,10 +32,15 @@ class AuthenticationCoordinator: Coordinator {
         switch screenName{
         case .Login:
             vc = self.storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+        case .Register:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC
+        case .ForgetPassword:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "ForgetPasswordVC") as? ForgetPasswordVC
         }
+        
         vc.coordinator = self
         if pop { navigationController.popViewController(animated: true) }
-        navigationController.present(vc as! UIViewController, animated: false, completion: nil)
+        navigationController.pushViewController(vc as! UIViewController, animated: false)
         currentScreen = screenName
     }
     
@@ -45,6 +52,4 @@ class AuthenticationCoordinator: Coordinator {
     public static func getInstance() -> AuthenticationCoordinator{
         return .instance
     }
-    
-    
 }

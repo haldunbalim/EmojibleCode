@@ -11,9 +11,14 @@ import UIKit
 class StudentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController = UINavigationController()
+    var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
+    
 
     enum screenEnum{
         case MainScreen
+        case CodingScreen
+        case TutorialScreen
+        case AssignmentScreen
     }
     
     var currentScreen: screenEnum = .MainScreen
@@ -28,8 +33,15 @@ class StudentCoordinator: Coordinator {
         
         switch screenName{
         case .MainScreen:
-            vc = StudentMainScreenVC()
+            vc = self.storyboard.instantiateViewController(withIdentifier: "StudentMainScreenVC") as? StudentMainScreenVC
+        case .CodingScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "CodingScreenVC") as? CodingScreenVC
+        case .TutorialScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialScreenVC") as? TutorialScreenVC
+        case .AssignmentScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "AssignmentScreenVC") as? AssignmentScreenVC
         }
+        
         vc.coordinator = self
         navigationController.delegate = self as? UINavigationControllerDelegate
         if pop { navigationController.popViewController(animated: true) }
@@ -38,7 +50,9 @@ class StudentCoordinator: Coordinator {
     }
     
     
-    private init(){}
+    private init(){
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+    }
     private static let instance = StudentCoordinator()
     public static func getInstance() -> StudentCoordinator{
         return .instance

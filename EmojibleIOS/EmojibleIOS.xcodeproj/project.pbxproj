@@ -10,7 +10,6 @@
 		12E81FE095B3E0690D40FEA3 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */; };
 		414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */; };
 		6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */; };
-		8B0C121A2550AB7800EE214D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0C12192550AB7800EE214D /* GoogleService-Info.plist */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
@@ -24,11 +23,23 @@
 		8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */; };
 		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
 		8BE90D32255049A200A34B37 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* User.swift */; };
+		FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* StudentApp.storyboard */; };
+		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
+		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
+		FC80F0852553FC5100B5B86B /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */; };
+		FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */; };
 		FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42A6254AE8890061E220 /* AppDelegate.swift */; };
 		FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42AF254AE88D0061E220 /* Assets.xcassets */; };
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
 		FC9C42BE254AE88D0061E220 /* EmojibleIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */; };
 		FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */; };
+		FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */; };
+		FCCA5C54255448180018FC6D /* TutorialScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */; };
+		FCCA5C65255453B10018FC6D /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C64255453B00018FC6D /* Tutorial.swift */; };
+		FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */; };
+		FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */; };
+		FCCA5C79255469720018FC6D /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C78255469720018FC6D /* Assignment.swift */; };
+		FCCA5C7E25546A180018FC6D /* AssignmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +64,6 @@
 		20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8B0C12192550AB7800EE214D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -71,6 +81,11 @@
 		C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.release.xcconfig"; sourceTree = "<group>"; };
 		CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC80F06A2553584300B5B86B /* StudentApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentApp.storyboard; sourceTree = "<group>"; };
+		FC80F0742553DCDA00B5B86B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
+		FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
+		FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC9C42A3254AE8890061E220 /* EmojibleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojibleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42A6254AE8890061E220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9C42AF254AE88D0061E220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +97,13 @@
 		FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojibleIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibleIOSUITests.swift; sourceTree = "<group>"; };
 		FC9C42CA254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenVC.swift; sourceTree = "<group>"; };
+		FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenCell.swift; sourceTree = "<group>"; };
+		FCCA5C64255453B00018FC6D /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
+		FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentScreenVC.swift; sourceTree = "<group>"; };
+		FCCA5C78255469720018FC6D /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataSource.swift; sourceTree = "<group>"; };
 		FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				8B8323072550583F009C1526 /* LoginVC.swift */,
+				FC80F0742553DCDA00B5B86B /* RegisterVC.swift */,
+				FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -148,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */,
+				FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */,
+				FCCA5C3C255420D70018FC6D /* TutorialViewController */,
+				FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,7 +190,7 @@
 		8BE90CA1255037A000A34B37 /* Default Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B0C12192550AB7800EE214D /* GoogleService-Info.plist */,
+				FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */,
 				FC9C42A6254AE8890061E220 /* AppDelegate.swift */,
 				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
 				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
@@ -176,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				8BE90D31255049A200A34B37 /* User.swift */,
+				FCCA5C64255453B00018FC6D /* Tutorial.swift */,
+				FCCA5C78255469720018FC6D /* Assignment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				8B8322FF2550571A009C1526 /* UserDataSource.swift */,
+				FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */,
+				FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -229,6 +260,7 @@
 		8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
+				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
 				8B15971B2550686B00E3E10A /* ViewControllers */,
 			);
 			path = StudentCoordinatorScenes;
@@ -303,6 +335,15 @@
 				FC9C42CA254AE88D0061E220 /* Info.plist */,
 			);
 			path = EmojibleIOSUITests;
+			sourceTree = "<group>";
+		};
+		FCCA5C3C255420D70018FC6D /* TutorialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
+				FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */,
+			);
+			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,9 +455,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
-				8B0C121A2550AB7800EE214D /* GoogleService-Info.plist in Resources */,
+				FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
+				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,18 +586,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCA5C7E25546A180018FC6D /* AssignmentDataSource.swift in Sources */,
+				FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */,
 				8BE90D32255049A200A34B37 /* User.swift in Sources */,
+				FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
 				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
 				8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
+				FCCA5C65255453B10018FC6D /* Tutorial.swift in Sources */,
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
+				FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */,
+				FCCA5C54255448180018FC6D /* TutorialScreenCell.swift in Sources */,
 				8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */,
+				FCCA5C79255469720018FC6D /* Assignment.swift in Sources */,
 				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
 				8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */,
+				FC80F0852553FC5100B5B86B /* CodingScreenVC.swift in Sources */,
 				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,
+				FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */,
+				FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */,
 				FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
