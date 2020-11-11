@@ -26,3 +26,4 @@ class RegisterVC: UIViewController, Coordinated{
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
     }
 }
+
