@@ -6,19 +6,19 @@ from elements import Interpreter
 def main():
 
     text = """
-        a 👉 [👻 1, 100]
+        🐤 👉 [👻 1, 100] 📝  assign a random number between 1 and 100 to baby chick emoji
 
-        b 👉 [🔢]
+        🐄 👉 [🔢] 📝  assign user input to cow emoji
 
-🪐 [ a = b ] [ 📝  start a loop condition until baby chick is equal to cow
+        🪐 [ 🐄 = 🐤 ] [ 📝  start a loop condition until 🐄 is equal to 🐤
 
-    🤔 [ a < b ] [[📱  🟦 ]] [ [📱  🟥]] 📝  display red if baby chick is less than cow, blue vice versa
+            🤔 [ 🐄 > 🐤 ] [[📱  🟦 ]] [ [📱  🟥]] 📝  display blue if 🐄 is greater than 🐤, red vice versa
 
-    b 👉 [🔢]  📝 get another user input
+            🐄 👉 [🔢]  📝 get another user input
 
-]
-
-[ 📱  🟩 ]
+        ]
+        
+        [ 📱  🟩 ] 📝  display green to indicate the correct answer is given
 
     """
     
@@ -28,8 +28,9 @@ def main():
     tree = parser.parse()
 
     interpreter = Interpreter(tree)
-    result = interpreter.interpret()
+    interpreter.interpret()
 
+    print("")
     print('Run-time GLOBAL_MEMORY contents:')
     for k, v in sorted(interpreter.GLOBAL_MEMORY.items()):
         print('{} = {}'.format(k, v))

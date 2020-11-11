@@ -1,56 +1,29 @@
 from elements import Token
 from elements import TokenType
+from emoji import UNICODE_EMOJI
 
-RESERVED_KEYWORDS = {
-    'PROGRAM': Token('PROGRAM', 'PROGRAM'),
-    "if": Token("IF", "IF"),
-    "while": Token("WHILE", "WHILE"),
-    "for": Token("FOR", "FOR"),
-    "SetScreenColor": Token("SET_SCREEN_COLOR","SET_SCREEN_COLOR"),
-    "Blue": Token("COLOR","BLUE"),
-    "Red": Token("COLOR","RED"),
-    "Green": Token("COLOR","GREEN"),
-    "GetRandomNumber": Token("GET_RANDOM_NUMBER","GET_RANDOM_NUMBER"),
-    "GetNumericUserInput":Token("GET_NUMERIC_USER_INPUT","GET_NUMERIC_USER_INPUT"),
-}
-
-emoji_dict = {
-    '➕': '+',
-    '➖': '-',
-    '✖️': '*',
-    '➗': '/',
-    " = ": " == ",
-    "👉": "=",
-    "📝": "{",
-    "🤔": "if",
-    "🪐": "while",
-    "🔁": "for",
-    "<": "<",
-    ">": ">", 
-    "📱": "SetScreenColor",
+color_dict = {
     "🟦": "Blue",
     "🟥": "Red",
     "🟩": "Green",
-    "👻": "GetRandomNumber",
-    "🔢": "GetNumericUserInput",
 }
 
+bool_dict = {
+    "👍": True,
+    "👎": False,
+}
 
 class Lexer(object):
     def __init__(self, text):
         # client string input, e.g. "4 + 2 * 3 - 6 / 2"
-        self.text = self.convert_from_emoji(text)
+        self.text = text
         # self.pos is an index into self.text
         self.pos = 0
+        self.token_type_values = TokenType.get_values()
         self.current_char = self.text[self.pos]
 
-    def convert_from_emoji(self, text):
-        for emoji in emoji_dict.keys():
-          text = text.replace(emoji, emoji_dict[emoji])
-        return text
-
     def error(self):
-        raise Exception('Invalid character')
+        raise Exception('{} is an invalid character'.format(self.current_char))
 
     def advance(self):
         """Advance the `pos` pointer and set the `current_char` variable."""
@@ -101,14 +74,12 @@ class Lexer(object):
         return token
 
     def _id(self):
-        """Handle identifiers and reserved keywords"""
+        """Handle identifiers """
         result = ''
-        while self.current_char is not None and self.current_char.isalnum():
+        while self.current_char is not None and (self.current_char.isalnum() or self.current_char in UNICODE_EMOJI):
             result += self.current_char
             self.advance()
-
-        token = RESERVED_KEYWORDS.get(result, Token(TokenType.ID, result))
-        return token
+        return Token(TokenType.ID, result)
 
     def get_next_token(self):
         """Lexical analyzer (also known as scanner or tokenizer)
@@ -121,102 +92,55 @@ class Lexer(object):
                 self.skip_whitespace()
                 continue
 
-            if self.current_char == '{':
-                self.advance()
-                self.skip_comment()
-                continue
-
-            if self.current_char.isalpha():
-                return self._id()
-
             if self.current_char.isdigit():
                 return self.number()
 
-            if self.current_char == '=' and self.peek() == "=":
-              self.advance()
-              self.advance()
-              return Token(TokenType.EQUALS, '=')
+            if self.current_char in color_dict:
+                token = Token("COLOR", color_dict[self.current_char])
+                self.advance()
+                return token
 
-            if self.current_char == '=':
+            if self.current_char in bool_dict:
+                token = Token("BOOL_CONST", bool_dict[self.current_char])
                 self.advance()
-                return Token(TokenType.ASSIGN, '=')
+                return token
 
-            # if self.current_char == '+' and self.peek() == '=':
-            #     self.advance()
-            #     self.advance()
-            #     return Token(TokenType.PLUS_EQ, '+=')
+            token = self._read_double_char_symbol()
+            if token is not None:
+                return token
 
-            if self.current_char == '\n':
-                self.advance()
-                return Token("LINEBREAK", '\n')
+            token = self._read_single_char_symbol()
+            if token is not None:
+                if token.type == TokenType.COMMENT:
+                    self.skip_comment()
+                    continue
+                return token
 
-            if self.current_char == ':':
-                self.advance()
-                return Token("COLON", ':')
-
-            if self.current_char == ',':
-                self.advance()
-                return Token("COMMA", ',')
-
-            if self.current_char == '+':
-                self.advance()
-                return Token("PLUS", '+')
-
-            if self.current_char == '-':
-                self.advance()
-                return Token("MINUS", '-')
-
-            if self.current_char == '*':
-                self.advance()
-                return Token("MUL", '*')
-
-            if self.current_char == '/':
-                self.advance()
-                return Token("FLOAT_DIV", '/')
-
-            if self.current_char == '(':
-                self.advance()
-                return Token("LPAREN", '(')
-
-            if self.current_char == ')':
-                self.advance()
-                return Token("RPAREN", ')')
-
-            if self.current_char == "[":
-                self.advance()
-                return Token("LBRACKET", "[")
-
-            if self.current_char == "]":
-                self.advance()
-                return Token("RBRACKET", "]")
-
-            if self.current_char == "<" and self.peek() == "=":
-                self.advance()
-                self.advance()
-                return Token(TokenType.LESSER_EQ, '<=')
-
-            if self.current_char == ">" and self.peek() == "=":
-                self.advance()
-                self.advance()
-                return Token(TokenType.GREATER_EQ, '>=')
-
-            if self.current_char == "<":
-                self.advance()
-                self.advance()
-                return Token(TokenType.LESSER, '<')
-
-            if self.current_char == ">":
-                self.advance()
-                self.advance()
-                return Token(TokenType.GREATER, '>')
-
-            if self.current_char == '.':
-                self.advance()
-                return Token("DOT", '.')
+            if self.current_char.isalpha() or self.current_char in UNICODE_EMOJI:
+                return self._id()
 
             self.error()
 
         return Token("EOF", None)
+
+    def _read_double_char_symbol(self):
+        next_char = self.peek()
+        if next_char is None:
+            return None
+        symbol = self.current_char+next_char
+        token = None
+        if symbol in self.token_type_values:
+            token = Token(symbol, symbol)
+            self.advance()
+            self.advance()
+        return token
+
+    def _read_single_char_symbol(self):
+        token = None
+        if self.current_char in self.token_type_values:
+            token = Token(self.current_char, self.current_char)
+            self.advance()
+        return token
 
 
     def lex(self):

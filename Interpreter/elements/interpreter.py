@@ -93,11 +93,12 @@ class Interpreter(NodeVisitor):
         if bool_cond == True:
           break
         self.visit(node.body)
-        
 
       
     def visit_Var(self, node):
         var_name = node.value
+        if var_name not in self.GLOBAL_MEMORY:
+            raise Exception("{} is an undefined variable".format(var_name))
         var_value = self.GLOBAL_MEMORY.get(var_name)
         return var_value
 
@@ -107,5 +108,5 @@ class Interpreter(NodeVisitor):
     def interpret(self):
         tree = self.tree
         if tree is None:
-            return ''
-        return self.visit(tree)
+            return
+        self.visit(tree)
