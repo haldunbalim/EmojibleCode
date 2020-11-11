@@ -1,20 +1,43 @@
 from enum import Enum
+
 class TokenType(Enum):
-    INTEGER = 'INTEGER'
-    REAL = 'REAL'
+    PROGRAM = 'PROGRAM'
+    EOF = 'EOF'
     INTEGER_CONST = 'INTEGER_CONST'
     REAL_CONST = 'REAL_CONST'
-    PLUS = 'PLUS'
-    MINUS = 'MINUS'
-    MUL = 'MUL'
-    FLOAT_DIV = 'FLOAT_DIV'
-    LPAREN = 'LPAREN'
-    RPAREN = 'RPAREN'
+    BOOL_CONST = "BOOL_CONST"
+    COLOR = "COLOR"
     ID = 'ID'
-    ASSIGN = 'ASSIGN'
-    LINEBREAK = 'LINEBREAK'
-    DOT = 'DOT'
-    PROGRAM = 'PROGRAM'
-    COLON = 'COLON'
-    COMMA = 'COMMA'
-    EOF = 'EOF'
+    IF = "🤔"
+    WHILE = "🪐"
+    FOR = "🔁"
+    SET_SCREEN_COLOR = '📱'
+    GET_RANDOM_NUMBER = '👻'
+    GET_NUMERIC_USER_INPUT = '🔢'
+    PLUS = '➕'
+    MINUS = '➖'
+    MUL = '✖️'
+    FLOAT_DIV = '➗'
+    LPAREN = '('
+    RPAREN = ')'
+    LBRACKET = '['
+    RBRACKET = ']'
+    EQUALS = "="
+    LESSER = "<"
+    GREATER = ">"
+    LESSER_EQ = "<="
+    GREATER_EQ = ">="
+    ASSIGN = '👉'
+    LINEBREAK = '\n'
+    DOT = '.'
+    COLON = ':'
+    COMMA = ','
+    COMMENT = '📝'
+
+    @staticmethod
+    def get_members():
+        return list(TokenType)
+
+    @staticmethod
+    def get_values():
+        return [tokenType.value for tokenType in TokenType]

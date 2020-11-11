@@ -1,4 +1,5 @@
 from elements import TokenType
+from elements import Token
 
 class AST(object):
     pass
@@ -9,25 +10,41 @@ class BinOp(AST):
         self.token = self.op = op
         self.right = right
 
-
-class Num(AST):
+class Value(AST):
     def __init__(self, token):
         self.token = token
         self.value = token.value
 
+class Num(Value):
+    def __init__(self, token):
+        Value.__init__(self,token)
+
+class Bool(Value):
+    def __init__(self, token):
+        Value.__init__(self,token)
+
+class Color(Value):
+    def __init__(self, token):
+        Value.__init__(self,token)
+
+class GetNumericUserInput(AST):
+    def __init__(self, token):
+        self.token = token
+
+class SetScreenColor(AST):
+    def __init__(self, op, color):
+        self.token = self.op = op
+        self.color = color.value
 
 class UnaryOp(AST):
     def __init__(self, op, expr):
         self.token = self.op = op
         self.expr = expr
 
-
 class Compound(AST):
     """Represents a 'BEGIN ... END' block"""
-
     def __init__(self):
         self.children = []
-
 
 class Assign(AST):
     def __init__(self, left, op, right):
@@ -35,10 +52,33 @@ class Assign(AST):
         self.token = self.op = op
         self.right = right
 
+class GetRandomNumber(AST):
+    def __init__(self, token, lower_bound, upper_bound):
+        self.token = self.op = token
+        self.lower_bound = lower_bound
+        self.upper_bound = upper_bound
+
+class If(AST):
+    def __init__(self, op, bool_statement, true_statement, false_statement):
+      self.token = self.op = op
+      self.bool_statement = bool_statement
+      self.true_statement = true_statement
+      self.false_statement = false_statement if false_statement is not None else NoOp()
+
+class For(AST):
+    def __init__(self, op, times, body):
+        self.token = self.op = op
+        self.times = times
+        self.body = body
+
+class While(AST):
+    def __init__(self, op, bool_statement, body):
+        self.token = self.op = op
+        self.bool_statement = bool_statement
+        self.body = body
 
 class Var(AST):
     """The Var node is constructed out of ID token."""
-
     def __init__(self, token):
         self.token = token
         self.value = token.value
@@ -78,6 +118,12 @@ class Parser(object):
         self.curr_idx = 0
         self.current_token = self.lexer_out[self.curr_idx]
 
+    def peek(self):
+        peek_pos = self.curr_idx + 1
+        if peek_pos > len(self.lexer_out) - 1:
+            return None
+        else:
+            return self.lexer_out[peek_pos]
 
     def advance(self):
         self.curr_idx += 1
@@ -142,6 +188,14 @@ class Parser(object):
             node = self.compound_statement()
         elif self.current_token.type == TokenType.ID:
             node = self.assignment_statement()
+        elif self.current_token.type == TokenType.IF:
+            node = self.if_statement()
+        elif self.current_token.type == TokenType.LBRACKET and self.peek().type == TokenType.FOR:
+            node = self.for_statement()
+        elif self.current_token.type == TokenType.WHILE:
+            node = self.while_statement()
+        elif self.current_token.type == TokenType.LBRACKET and self.peek().type == TokenType.SET_SCREEN_COLOR:
+            node = self.set_screen_color()
         else:
             node = self.empty()
         return node
@@ -157,6 +211,75 @@ class Parser(object):
         node = Assign(left, token, right)
         return node
 
+    def set_screen_color(self):
+      self.eat(TokenType.LBRACKET)
+      self.eat(TokenType.SET_SCREEN_COLOR)
+      node = SetScreenColor(TokenType.SET_SCREEN_COLOR, self.current_token)
+      self.eat(TokenType.COLOR)
+      self.eat(TokenType.RBRACKET)
+      return node
+
+    def get_random_number(self):
+      self.eat(TokenType.LBRACKET)
+      self.eat(TokenType.GET_RANDOM_NUMBER)
+      first_arg = self.expr()
+      if self.current_token.type == TokenType.COMMA:
+        self.eat(TokenType.COMMA)
+        second_arg = self.expr()
+        node = GetRandomNumber(TokenType.GET_RANDOM_NUMBER, first_arg, second_arg)
+      else:
+        node = GetRandomNumber(TokenType.GET_RANDOM_NUMBER, Token("INTEGER_CONST",0), first_arg)
+      self.eat(TokenType.RBRACKET)
+      return node
+
+
+    def get_numeric_user_input(self):
+      self.eat(TokenType.LBRACKET)
+      self.eat(TokenType.GET_NUMERIC_USER_INPUT)
+      self.eat(TokenType.RBRACKET)
+      node = GetNumericUserInput(TokenType.GET_NUMERIC_USER_INPUT)
+      return node
+    
+
+    def if_statement(self):
+        self.eat(TokenType.IF) 
+        self.eat(TokenType.LBRACKET)
+        bool_statement = self.expr()
+        self.eat(TokenType.RBRACKET)
+        self.eat(TokenType.LBRACKET)
+        true_statement = self.block()
+        self.eat(TokenType.RBRACKET)
+        false_statement = None
+        if self.current_token.type == TokenType.LBRACKET:
+          self.eat(TokenType.LBRACKET)
+          false_statement = self.block()
+          self.eat(TokenType.RBRACKET)
+
+        node = If(TokenType.IF,bool_statement,true_statement,false_statement)
+        return node
+        
+    def for_statement(self):
+        self.eat(TokenType.LBRACKET)
+        self.eat(TokenType.FOR)
+        times = self.expr()
+        self.eat(TokenType.RBRACKET)
+        self.eat(TokenType.LBRACKET)
+        body = self.block()
+        self.eat(TokenType.RBRACKET)
+        node = For(TokenType.FOR, times, body)
+        return node
+
+    def while_statement(self):
+        self.eat(TokenType.WHILE) 
+        self.eat(TokenType.LBRACKET)
+        bool_statement = self.expr()
+        self.eat(TokenType.RBRACKET)
+        self.eat(TokenType.LBRACKET)
+        body = self.block()
+        self.eat(TokenType.RBRACKET)
+        node = While(TokenType.WHILE,bool_statement,body)
+        return node
+        
     def variable(self):
         """
         variable : ID
@@ -177,13 +300,13 @@ class Parser(object):
 
         while self.current_token.type in (TokenType.PLUS, TokenType.MINUS):
             token = self.current_token
-            if token.type == TokenType.PLUS:
-                self.eat(TokenType.PLUS)
-            elif token.type == TokenType.MINUS:
-                self.eat(TokenType.MINUS)
-
+            self.eat(token.type)
             node = BinOp(left=node, op=token, right=self.term())
 
+        if self.current_token.type in (TokenType.GREATER_EQ, TokenType.LESSER_EQ,TokenType.GREATER,TokenType.LESSER, TokenType.EQUALS):
+            token = self.current_token
+            self.eat(token.type)
+            node = BinOp(left=node, op=token, right=self.term())
         return node
 
     def term(self):
@@ -192,11 +315,7 @@ class Parser(object):
 
         while self.current_token.type in (TokenType.MUL, TokenType.FLOAT_DIV):
             token = self.current_token
-            if token.type == TokenType.MUL:
-                self.eat(TokenType.MUL)
-            elif token.type == TokenType.FLOAT_DIV:
-                self.eat(TokenType.FLOAT_DIV)
-
+            self.eat(token.type)
             node = BinOp(left=node, op=token, right=self.factor())
 
         return node
@@ -224,11 +343,23 @@ class Parser(object):
         elif token.type == TokenType.REAL_CONST:
             self.eat(TokenType.REAL_CONST)
             return Num(token)
+        elif token.type == TokenType.BOOL_CONST:
+            self.eat(TokenType.BOOL_CONST)
+            return Bool(token)
+        elif token.type == TokenType.COLOR:
+            self.eat(TokenType.COLOR)
+            return Color(token)
         elif token.type == TokenType.LPAREN:
             self.eat(TokenType.LPAREN)
             node = self.expr()
             self.eat(TokenType.RPAREN)
             return node
+        elif self.current_token.type == TokenType.LBRACKET and self.peek().type == TokenType.GET_RANDOM_NUMBER:
+            node = self.get_random_number()
+            return node
+        elif self.current_token.type == TokenType.LBRACKET and self.peek().type == TokenType.GET_NUMERIC_USER_INPUT:
+          node = self.get_numeric_user_input()
+          return node
         else:
             node = self.variable()
             return node
