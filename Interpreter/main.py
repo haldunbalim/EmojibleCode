@@ -6,13 +6,22 @@ from elements import Interpreter
 def main():
 
     text = """
-    📝 This is a program for arithmetics
-       number 👉 3.14
-       a 👉 number
-       b 👉 10 ✖️ a ➕ 10 ✖️ number ➗ 4
-       y 👉 20 ➗ 7 ➕ 3.14
-    """
+        a 👉 [👻 1, 100]
 
+        b 👉 [🔢]
+
+🪐 [ a = b ] [ 📝  start a loop condition until baby chick is equal to cow
+
+    🤔 [ a < b ] [[📱  🟦 ]] [ [📱  🟥]] 📝  display red if baby chick is less than cow, blue vice versa
+
+    b 👉 [🔢]  📝 get another user input
+
+]
+
+[ 📱  🟩 ]
+
+    """
+    
     lexer = Lexer(text)
     lexer.lex()
     parser = Parser(lexer.lexed_text)
@@ -21,10 +30,8 @@ def main():
     interpreter = Interpreter(tree)
     result = interpreter.interpret()
 
-    print('')
     print('Run-time GLOBAL_MEMORY contents:')
     for k, v in sorted(interpreter.GLOBAL_MEMORY.items()):
         print('{} = {}'.format(k, v))
-
 
 main()

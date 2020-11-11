@@ -4,6 +4,14 @@ from elements import TokenType
 RESERVED_KEYWORDS = {
     'PROGRAM': Token('PROGRAM', 'PROGRAM'),
     "if": Token("IF", "IF"),
+    "while": Token("WHILE", "WHILE"),
+    "for": Token("FOR", "FOR"),
+    "SetScreenColor": Token("SET_SCREEN_COLOR","SET_SCREEN_COLOR"),
+    "Blue": Token("COLOR","BLUE"),
+    "Red": Token("COLOR","RED"),
+    "Green": Token("COLOR","GREEN"),
+    "GetRandomNumber": Token("GET_RANDOM_NUMBER","GET_RANDOM_NUMBER"),
+    "GetNumericUserInput":Token("GET_NUMERIC_USER_INPUT","GET_NUMERIC_USER_INPUT"),
 }
 
 emoji_dict = {
@@ -11,12 +19,20 @@ emoji_dict = {
     '➖': '-',
     '✖️': '*',
     '➗': '/',
+    " = ": " == ",
     "👉": "=",
     "📝": "{",
     "🤔": "if",
+    "🪐": "while",
+    "🔁": "for",
     "<": "<",
-    ">": ">",
-    "=": "=",
+    ">": ">", 
+    "📱": "SetScreenColor",
+    "🟦": "Blue",
+    "🟥": "Red",
+    "🟩": "Green",
+    "👻": "GetRandomNumber",
+    "🔢": "GetNumericUserInput",
 }
 
 
@@ -30,7 +46,7 @@ class Lexer(object):
 
     def convert_from_emoji(self, text):
         for emoji in emoji_dict.keys():
-            text = text.replace(emoji, emoji_dict[emoji])
+          text = text.replace(emoji, emoji_dict[emoji])
         return text
 
     def error(self):
@@ -115,6 +131,11 @@ class Lexer(object):
 
             if self.current_char.isdigit():
                 return self.number()
+
+            if self.current_char == '=' and self.peek() == "=":
+              self.advance()
+              self.advance()
+              return Token(TokenType.EQUALS, '=')
 
             if self.current_char == '=':
                 self.advance()
