@@ -10,17 +10,23 @@ class BinOp(AST):
         self.right = right
 
 
-class Num(AST):
+class Value(AST):
     def __init__(self, token):
         self.token = token
         self.value = token.value
 
+class Num(Value):
+    def __init__(self, token):
+        super.__init__(token)
+
+class Bool(Value):
+    def __init__(self, token):
+        super.__init__(token)
 
 class UnaryOp(AST):
     def __init__(self, op, expr):
         self.token = self.op = op
         self.expr = expr
-
 
 class Compound(AST):
     """Represents a 'BEGIN ... END' block"""
@@ -142,6 +148,8 @@ class Parser(object):
             node = self.compound_statement()
         elif self.current_token.type == TokenType.ID:
             node = self.assignment_statement()
+        elif self.current_token.type == TokenType.IF:
+            node = self.if_statement()
         else:
             node = self.empty()
         return node
@@ -156,6 +164,9 @@ class Parser(object):
         right = self.expr()
         node = Assign(left, token, right)
         return node
+
+    def if_statement(self):
+        pass
 
     def variable(self):
         """
@@ -175,12 +186,20 @@ class Parser(object):
         """
         node = self.term()
 
-        while self.current_token.type in (TokenType.PLUS, TokenType.MINUS):
+        while self.current_token.type in (TokenType.PLUS, TokenType.MINUS, TokenType.LESSER_EQ,TokenType.GREATER_EQ):
             token = self.current_token
             if token.type == TokenType.PLUS:
                 self.eat(TokenType.PLUS)
             elif token.type == TokenType.MINUS:
                 self.eat(TokenType.MINUS)
+            elif token.type == TokenType.LESSER_EQ:
+                self.eat(TokenType.LESSER_EQ)
+            elif token.type == TokenType.GREATER_EQ:
+                self.eat(TokenType.GREATER_EQ)
+            elif token.type == TokenType.LESSER:
+                self.eat(TokenType.LESSER)
+            elif token.type == TokenType.GREATER:
+                self.eat(TokenType.GREATER)
 
             node = BinOp(left=node, op=token, right=self.term())
 

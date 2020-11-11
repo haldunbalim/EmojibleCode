@@ -1,0 +1,896 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12E81FE095B3E0690D40FEA3 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */; };
+		414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */; };
+		6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */; };
+		8B0C121A2550AB7800EE214D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0C12192550AB7800EE214D /* GoogleService-Info.plist */; };
+		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
+		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
+		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
+		8B9139552553E9A300071726 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9139542553E9A300071726 /* RegisterVC.swift */; };
+		8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CA92550383800A34B37 /* Coordinated.swift */; };
+		8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CAE2550384500A34B37 /* Coordinator.swift */; };
+		8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CB32550387300A34B37 /* AppCoordinator.swift */; };
+		8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */; };
+		8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */; };
+		8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */; };
+		8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */; };
+		8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */; };
+		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
+		8BE90D32255049A200A34B37 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* User.swift */; };
+		FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42A6254AE8890061E220 /* AppDelegate.swift */; };
+		FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42AF254AE88D0061E220 /* Assets.xcassets */; };
+		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
+		FC9C42BE254AE88D0061E220 /* EmojibleIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */; };
+		FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC9C42BA254AE88D0061E220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC9C429B254AE8890061E220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC9C42A2254AE8890061E220;
+			remoteInfo = EmojibleIOS;
+		};
+		FC9C42C5254AE88D0061E220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC9C429B254AE8890061E220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC9C42A2254AE8890061E220;
+			remoteInfo = EmojibleIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B0C12192550AB7800EE214D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
+		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8B9139542553E9A300071726 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		8BE90CA92550383800A34B37 /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
+		8BE90CAE2550384500A34B37 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8BE90CB32550387300A34B37 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoordinator.swift; sourceTree = "<group>"; };
+		8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoordinator.swift; sourceTree = "<group>"; };
+		8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainScreenVC.swift; sourceTree = "<group>"; };
+		8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMainScreenVC.swift; sourceTree = "<group>"; };
+		8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		8BE90D31255049A200A34B37 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.release.xcconfig"; sourceTree = "<group>"; };
+		CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9C42A3254AE8890061E220 /* EmojibleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojibleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9C42A6254AE8890061E220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC9C42AF254AE88D0061E220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC9C42B2254AE88D0061E220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC9C42B4254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC9C42B9254AE88D0061E220 /* EmojibleIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojibleIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibleIOSTests.swift; sourceTree = "<group>"; };
+		FC9C42BF254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojibleIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibleIOSUITests.swift; sourceTree = "<group>"; };
+		FC9C42CA254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC9C42A0254AE8890061E220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC9C42B6254AE88D0061E220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC9C42C1254AE88D0061E220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E81FE095B3E0690D40FEA3 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C450B4A847A3AA6CFADEBB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */,
+				D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */,
+				1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62F6CD4B6EF7C633DBE19BED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */,
+				C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */,
+				8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */,
+				FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */,
+				5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */,
+				20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8B1597142550672900E3E10A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B8323072550583F009C1526 /* LoginVC.swift */,
+				8B9139542553E9A300071726 /* RegisterVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B15971B2550686B00E3E10A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B15971C2550687400E3E10A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8BE90CA1255037A000A34B37 /* Default Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B0C12192550AB7800EE214D /* GoogleService-Info.plist */,
+				FC9C42A6254AE8890061E220 /* AppDelegate.swift */,
+				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
+				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
+				FC9C42B4254AE88D0061E220 /* Info.plist */,
+			);
+			name = "Default Files";
+			sourceTree = "<group>";
+		};
+		8BE90CA2255037CD00A34B37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90D31255049A200A34B37 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8BE90CA3255037D100A34B37 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8BE90CA4255037D800A34B37 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */,
+				8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */,
+				8BE90CDB25503F8E00A34B37 /* TeacherCoordinatorScenes */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8BE90CA6255037FA00A34B37 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				8B8322FF2550571A009C1526 /* UserDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		8BE90CA72550380100A34B37 /* Protocols & Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CA92550383800A34B37 /* Coordinated.swift */,
+				8BE90CAE2550384500A34B37 /* Coordinator.swift */,
+			);
+			path = "Protocols & Extensions";
+			sourceTree = "<group>";
+		};
+		8BE90CA82550380C00A34B37 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CB32550387300A34B37 /* AppCoordinator.swift */,
+				8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */,
+				8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */,
+				8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */ = {
+			isa = PBXGroup;
+			children = (
+				8B15971B2550686B00E3E10A /* ViewControllers */,
+			);
+			path = StudentCoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		8BE90CDB25503F8E00A34B37 /* TeacherCoordinatorScenes */ = {
+			isa = PBXGroup;
+			children = (
+				8B15971C2550687400E3E10A /* ViewControllers */,
+			);
+			path = TeacherCoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */ = {
+			isa = PBXGroup;
+			children = (
+				8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */,
+				8B1597142550672900E3E10A /* ViewControllers */,
+			);
+			path = AuthenticationCoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		FC9C429A254AE8890061E220 = {
+			isa = PBXGroup;
+			children = (
+				FC9C42A5254AE8890061E220 /* EmojibleIOS */,
+				FC9C42BC254AE88D0061E220 /* EmojibleIOSTests */,
+				FC9C42C7254AE88D0061E220 /* EmojibleIOSUITests */,
+				FC9C42A4254AE8890061E220 /* Products */,
+				62F6CD4B6EF7C633DBE19BED /* Pods */,
+				1C450B4A847A3AA6CFADEBB3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FC9C42A4254AE8890061E220 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC9C42A3254AE8890061E220 /* EmojibleIOS.app */,
+				FC9C42B9254AE88D0061E220 /* EmojibleIOSTests.xctest */,
+				FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC9C42A5254AE8890061E220 /* EmojibleIOS */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CA82550380C00A34B37 /* Coordinators */,
+				8BE90CA72550380100A34B37 /* Protocols & Extensions */,
+				8BE90CA6255037FA00A34B37 /* DataSources */,
+				8BE90CA4255037D800A34B37 /* Scenes */,
+				8BE90CA3255037D100A34B37 /* Services */,
+				8BE90CA2255037CD00A34B37 /* Models */,
+				8BE90CA1255037A000A34B37 /* Default Files */,
+			);
+			path = EmojibleIOS;
+			sourceTree = "<group>";
+		};
+		FC9C42BC254AE88D0061E220 /* EmojibleIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */,
+				FC9C42BF254AE88D0061E220 /* Info.plist */,
+			);
+			path = EmojibleIOSTests;
+			sourceTree = "<group>";
+		};
+		FC9C42C7254AE88D0061E220 /* EmojibleIOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */,
+				FC9C42CA254AE88D0061E220 /* Info.plist */,
+			);
+			path = EmojibleIOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC9C42A2254AE8890061E220 /* EmojibleIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC9C42CD254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOS" */;
+			buildPhases = (
+				EC8547DB042278627E5C7894 /* [CP] Check Pods Manifest.lock */,
+				FC9C429F254AE8890061E220 /* Sources */,
+				FC9C42A0254AE8890061E220 /* Frameworks */,
+				FC9C42A1254AE8890061E220 /* Resources */,
+				6E0B3ECA93E2D7D62F1DDACC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmojibleIOS;
+			productName = EmojibleIOS;
+			productReference = FC9C42A3254AE8890061E220 /* EmojibleIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC9C42B8254AE88D0061E220 /* EmojibleIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC9C42D0254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOSTests" */;
+			buildPhases = (
+				BE24252FE72FE13CD2F00A46 /* [CP] Check Pods Manifest.lock */,
+				FC9C42B5254AE88D0061E220 /* Sources */,
+				FC9C42B6254AE88D0061E220 /* Frameworks */,
+				FC9C42B7254AE88D0061E220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC9C42BB254AE88D0061E220 /* PBXTargetDependency */,
+			);
+			name = EmojibleIOSTests;
+			productName = EmojibleIOSTests;
+			productReference = FC9C42B9254AE88D0061E220 /* EmojibleIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FC9C42C3254AE88D0061E220 /* EmojibleIOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC9C42D3254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOSUITests" */;
+			buildPhases = (
+				8514D1199A9FB66085EF7292 /* [CP] Check Pods Manifest.lock */,
+				FC9C42C0254AE88D0061E220 /* Sources */,
+				FC9C42C1254AE88D0061E220 /* Frameworks */,
+				FC9C42C2254AE88D0061E220 /* Resources */,
+				C8A808A9C36A28CAC1CDD066 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC9C42C6254AE88D0061E220 /* PBXTargetDependency */,
+			);
+			name = EmojibleIOSUITests;
+			productName = EmojibleIOSUITests;
+			productReference = FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC9C429B254AE8890061E220 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					FC9C42A2254AE8890061E220 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					FC9C42B8254AE88D0061E220 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = FC9C42A2254AE8890061E220;
+					};
+					FC9C42C3254AE88D0061E220 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = FC9C42A2254AE8890061E220;
+					};
+				};
+			};
+			buildConfigurationList = FC9C429E254AE8890061E220 /* Build configuration list for PBXProject "EmojibleIOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC9C429A254AE8890061E220;
+			productRefGroup = FC9C42A4254AE8890061E220 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC9C42A2254AE8890061E220 /* EmojibleIOS */,
+				FC9C42B8254AE88D0061E220 /* EmojibleIOSTests */,
+				FC9C42C3254AE88D0061E220 /* EmojibleIOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC9C42A1254AE8890061E220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
+				8B0C121A2550AB7800EE214D /* GoogleService-Info.plist in Resources */,
+				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
+				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC9C42B7254AE88D0061E220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC9C42C2254AE88D0061E220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E0B3ECA93E2D7D62F1DDACC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8514D1199A9FB66085EF7292 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOS-EmojibleIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE24252FE72FE13CD2F00A46 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8A808A9C36A28CAC1CDD066 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC8547DB042278627E5C7894 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC9C429F254AE8890061E220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BE90D32255049A200A34B37 /* User.swift in Sources */,
+				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
+				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
+				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
+				8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */,
+				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
+				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
+				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
+				8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */,
+				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
+				8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */,
+				8B9139552553E9A300071726 /* RegisterVC.swift in Sources */,
+				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,
+				FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC9C42B5254AE88D0061E220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC9C42BE254AE88D0061E220 /* EmojibleIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC9C42C0254AE88D0061E220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC9C42BB254AE88D0061E220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC9C42A2254AE8890061E220 /* EmojibleIOS */;
+			targetProxy = FC9C42BA254AE88D0061E220 /* PBXContainerItemProxy */;
+		};
+		FC9C42C6254AE88D0061E220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC9C42A2254AE8890061E220 /* EmojibleIOS */;
+			targetProxy = FC9C42C5254AE88D0061E220 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC9C42B2254AE88D0061E220 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC9C42CB254AE88D0061E220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC9C42CC254AE88D0061E220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC9C42CE254AE88D0061E220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
+				INFOPLIST_FILE = EmojibleIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FC9C42CF254AE88D0061E220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
+				INFOPLIST_FILE = EmojibleIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FC9C42D1254AE88D0061E220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
+				INFOPLIST_FILE = EmojibleIOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmojibleIOS.app/EmojibleIOS";
+			};
+			name = Debug;
+		};
+		FC9C42D2254AE88D0061E220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
+				INFOPLIST_FILE = EmojibleIOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmojibleIOS.app/EmojibleIOS";
+			};
+			name = Release;
+		};
+		FC9C42D4254AE88D0061E220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
+				INFOPLIST_FILE = EmojibleIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EmojibleIOS;
+			};
+			name = Debug;
+		};
+		FC9C42D5254AE88D0061E220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
+				INFOPLIST_FILE = EmojibleIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EmojibleIOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC9C429E254AE8890061E220 /* Build configuration list for PBXProject "EmojibleIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC9C42CB254AE88D0061E220 /* Debug */,
+				FC9C42CC254AE88D0061E220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC9C42CD254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC9C42CE254AE88D0061E220 /* Debug */,
+				FC9C42CF254AE88D0061E220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC9C42D0254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC9C42D1254AE88D0061E220 /* Debug */,
+				FC9C42D2254AE88D0061E220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC9C42D3254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC9C42D4254AE88D0061E220 /* Debug */,
+				FC9C42D5254AE88D0061E220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC9C429B254AE8890061E220 /* Project object */;
+}

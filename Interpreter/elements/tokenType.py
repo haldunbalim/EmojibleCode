@@ -10,6 +10,12 @@ class TokenType(Enum):
     FLOAT_DIV = 'FLOAT_DIV'
     LPAREN = 'LPAREN'
     RPAREN = 'RPAREN'
+    LBRACKET = 'LBRACKET'
+    RBRACKET = 'RBRACKET'
+    LESSER = "LESS"
+    GREATER = "GREATER"
+    LESSER_EQ = "LESSER_EQ"
+    GREATER_EQ = "GREATER_EQ"
     ID = 'ID'
     ASSIGN = 'ASSIGN'
     LINEBREAK = 'LINEBREAK'
@@ -18,3 +24,4 @@ class TokenType(Enum):
     COLON = 'COLON'
     COMMA = 'COMMA'
     EOF = 'EOF'
+    IF = "IF"

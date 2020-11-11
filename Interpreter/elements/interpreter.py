@@ -19,6 +19,8 @@ class Interpreter(NodeVisitor):
             return self.visit(node.left) - self.visit(node.right)
         elif node.op.type == TokenType.MUL:
             return self.visit(node.left) * self.visit(node.right)
+        elif node.op.type == TokenType.MUL:
+            return self.visit(node.left) * self.visit(node.right)
         elif node.op.type == TokenType.FLOAT_DIV:
             return float(self.visit(node.left)) / float(self.visit(node.right))
 

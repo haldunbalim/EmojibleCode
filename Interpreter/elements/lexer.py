@@ -3,6 +3,7 @@ from elements import TokenType
 
 RESERVED_KEYWORDS = {
     'PROGRAM': Token('PROGRAM', 'PROGRAM'),
+    "if": Token("IF", "IF"),
 }
 
 emoji_dict = {
@@ -12,6 +13,10 @@ emoji_dict = {
     '➗': '/',
     "👉": "=",
     "📝": "{",
+    "🤔": "if",
+    "<": "<",
+    ">": ">",
+    "=": "=",
 }
 
 
@@ -155,6 +160,34 @@ class Lexer(object):
             if self.current_char == ')':
                 self.advance()
                 return Token("RPAREN", ')')
+
+            if self.current_char == "[":
+                self.advance()
+                return Token("LBRACKET", "[")
+
+            if self.current_char == "]":
+                self.advance()
+                return Token("RBRACKET", "]")
+
+            if self.current_char == "<" and self.peek() == "=":
+                self.advance()
+                self.advance()
+                return Token(TokenType.LESSER_EQ, '<=')
+
+            if self.current_char == ">" and self.peek() == "=":
+                self.advance()
+                self.advance()
+                return Token(TokenType.GREATER_EQ, '>=')
+
+            if self.current_char == "<":
+                self.advance()
+                self.advance()
+                return Token(TokenType.LESSER, '<')
+
+            if self.current_char == ">":
+                self.advance()
+                self.advance()
+                return Token(TokenType.GREATER, '>')
 
             if self.current_char == '.':
                 self.advance()
