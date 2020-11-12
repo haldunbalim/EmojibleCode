@@ -11,6 +11,23 @@
 		414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */; };
 		6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
+		8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */; };
+		8B7FF782255C82CD0043B0DB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */; };
+		8B7FF787255C82DA0043B0DB /* ClassCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */; };
+		8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */; };
+		8B7FF791255C830A0043B0DB /* CreateNewCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF790255C830A0043B0DB /* CreateNewCodeCoordinator.swift */; };
+		8B7FF79C255C91740043B0DB /* ClassScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */; };
+		8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */; };
+		8B7FF7A6255C93500043B0DB /* UIViewControllerWithAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */; };
+		8B7FF7AE255C936D0043B0DB /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */; };
+		8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */; };
+		8B7FF7DC255CC6D80043B0DB /* AuthStateListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7DB255CC6D80043B0DB /* AuthStateListener.swift */; };
+		8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7E0255CD4CC0043B0DB /* TeacherModel.swift */; };
+		8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */; };
+		8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7ED255CD6620043B0DB /* ClassModel.swift */; };
+		8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */; };
+		8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7F8255CE44E0043B0DB /* UserFactory.swift */; };
+		8B7FF801255CE8550043B0DB /* UserModelListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF800255CE8550043B0DB /* UserModelListener.swift */; };
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
 		8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CA92550383800A34B37 /* Coordinated.swift */; };
@@ -20,9 +37,8 @@
 		8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */; };
 		8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */; };
 		8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */; };
-		8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */; };
 		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
-		8BE90D32255049A200A34B37 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* User.swift */; };
+		8BE90D32255049A200A34B37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* UserModel.swift */; };
 		FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* StudentApp.storyboard */; };
 		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
@@ -35,10 +51,10 @@
 		FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */; };
 		FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */; };
 		FCCA5C54255448180018FC6D /* TutorialScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */; };
-		FCCA5C65255453B10018FC6D /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C64255453B00018FC6D /* Tutorial.swift */; };
+		FCCA5C65255453B10018FC6D /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C64255453B00018FC6D /* TutorialModel.swift */; };
 		FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */; };
 		FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */; };
-		FCCA5C79255469720018FC6D /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C78255469720018FC6D /* Assignment.swift */; };
+		FCCA5C79255469720018FC6D /* AssignmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C78255469720018FC6D /* AssignmentModel.swift */; };
 		FCCA5C7E25546A180018FC6D /* AssignmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +81,23 @@
 		4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiAssignmentCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF790255C830A0043B0DB /* CreateNewCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCodeCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassScreenVC.swift; sourceTree = "<group>"; };
+		8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenVC.swift; sourceTree = "<group>"; };
+		8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerWithAlerts.swift; sourceTree = "<group>"; };
+		8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
+		8B7FF7DB255CC6D80043B0DB /* AuthStateListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateListener.swift; sourceTree = "<group>"; };
+		8B7FF7E0255CD4CC0043B0DB /* TeacherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherModel.swift; sourceTree = "<group>"; };
+		8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		8B7FF7ED255CD6620043B0DB /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
+		8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSignUpVC.swift; sourceTree = "<group>"; };
+		8B7FF7F8255CE44E0043B0DB /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		8B7FF800255CE8550043B0DB /* UserModelListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelListener.swift; sourceTree = "<group>"; };
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8BE90CA92550383800A34B37 /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
@@ -74,9 +107,8 @@
 		8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainScreenVC.swift; sourceTree = "<group>"; };
-		8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMainScreenVC.swift; sourceTree = "<group>"; };
 		8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
-		8BE90D31255049A200A34B37 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8BE90D31255049A200A34B37 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.release.xcconfig"; sourceTree = "<group>"; };
 		CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,10 +131,10 @@
 		FC9C42CA254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenVC.swift; sourceTree = "<group>"; };
 		FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenCell.swift; sourceTree = "<group>"; };
-		FCCA5C64255453B00018FC6D /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		FCCA5C64255453B00018FC6D /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
 		FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
 		FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentScreenVC.swift; sourceTree = "<group>"; };
-		FCCA5C78255469720018FC6D /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		FCCA5C78255469720018FC6D /* AssignmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentModel.swift; sourceTree = "<group>"; };
 		FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataSource.swift; sourceTree = "<group>"; };
 		FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,10 +203,12 @@
 		8B15971B2550686B00E3E10A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */,
+				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
 				FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */,
-				FCCA5C3C255420D70018FC6D /* TutorialViewController */,
 				FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */,
+				8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */,
+				8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */,
+				8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +219,34 @@
 				8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B7FF771255C7CDD0043B0DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8B7FF778255C82A90043B0DB /* StudentCoordinatorChildren */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */,
+				8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */,
+				8B7FF790255C830A0043B0DB /* CreateNewCodeCoordinator.swift */,
+				8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */,
+				8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */,
+			);
+			path = StudentCoordinatorChildren;
+			sourceTree = "<group>";
+		};
+		8B7FF7F7255CE43C0043B0DB /* ModelFactories */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF7F8255CE44E0043B0DB /* UserFactory.swift */,
+			);
+			path = ModelFactories;
 			sourceTree = "<group>";
 		};
 		8BE90CA1255037A000A34B37 /* Default Files */ = {
@@ -202,9 +264,13 @@
 		8BE90CA2255037CD00A34B37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8BE90D31255049A200A34B37 /* User.swift */,
-				FCCA5C64255453B00018FC6D /* Tutorial.swift */,
-				FCCA5C78255469720018FC6D /* Assignment.swift */,
+				8B7FF7F7255CE43C0043B0DB /* ModelFactories */,
+				8BE90D31255049A200A34B37 /* UserModel.swift */,
+				8B7FF7E0255CD4CC0043B0DB /* TeacherModel.swift */,
+				8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */,
+				FCCA5C64255453B00018FC6D /* TutorialModel.swift */,
+				FCCA5C78255469720018FC6D /* AssignmentModel.swift */,
+				8B7FF7ED255CD6620043B0DB /* ClassModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
+				8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -242,6 +309,10 @@
 			children = (
 				8BE90CA92550383800A34B37 /* Coordinated.swift */,
 				8BE90CAE2550384500A34B37 /* Coordinator.swift */,
+				8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */,
+				8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */,
+				8B7FF7DB255CC6D80043B0DB /* AuthStateListener.swift */,
+				8B7FF800255CE8550043B0DB /* UserModelListener.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -249,6 +320,7 @@
 		8BE90CA82550380C00A34B37 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				8B7FF778255C82A90043B0DB /* StudentCoordinatorChildren */,
 				8BE90CB32550387300A34B37 /* AppCoordinator.swift */,
 				8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */,
 				8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */,
@@ -261,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
+				8B7FF771255C7CDD0043B0DB /* ViewModels */,
 				8B15971B2550686B00E3E10A /* ViewControllers */,
 			);
 			path = StudentCoordinatorScenes;
@@ -335,15 +408,6 @@
 				FC9C42CA254AE88D0061E220 /* Info.plist */,
 			);
 			path = EmojibleIOSUITests;
-			sourceTree = "<group>";
-		};
-		FCCA5C3C255420D70018FC6D /* TutorialViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
-				FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */,
-			);
-			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -586,29 +650,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7FF782255C82CD0043B0DB /* SettingsCoordinator.swift in Sources */,
+				8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */,
 				FCCA5C7E25546A180018FC6D /* AssignmentDataSource.swift in Sources */,
+				8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */,
 				FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */,
-				8BE90D32255049A200A34B37 /* User.swift in Sources */,
+				8BE90D32255049A200A34B37 /* UserModel.swift in Sources */,
+				8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */,
 				FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */,
+				8B7FF7A6255C93500043B0DB /* UIViewControllerWithAlerts.swift in Sources */,
+				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
 				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
-				8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */,
+				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
-				FCCA5C65255453B10018FC6D /* Tutorial.swift in Sources */,
+				FCCA5C65255453B10018FC6D /* TutorialModel.swift in Sources */,
+				8B7FF7DC255CC6D80043B0DB /* AuthStateListener.swift in Sources */,
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
+				8B7FF791255C830A0043B0DB /* CreateNewCodeCoordinator.swift in Sources */,
 				FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */,
 				FCCA5C54255448180018FC6D /* TutorialScreenCell.swift in Sources */,
 				8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */,
-				FCCA5C79255469720018FC6D /* Assignment.swift in Sources */,
+				8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */,
+				8B7FF79C255C91740043B0DB /* ClassScreenVC.swift in Sources */,
+				8B7FF801255CE8550043B0DB /* UserModelListener.swift in Sources */,
+				8B7FF7AE255C936D0043B0DB /* ViewControllerExtensions.swift in Sources */,
+				FCCA5C79255469720018FC6D /* AssignmentModel.swift in Sources */,
 				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
 				8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */,
+				8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */,
 				FC80F0852553FC5100B5B86B /* CodingScreenVC.swift in Sources */,
+				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,
 				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,
 				FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */,
+				8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */,
 				FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */,
 				FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */,
+				8B7FF787255C82DA0043B0DB /* ClassCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

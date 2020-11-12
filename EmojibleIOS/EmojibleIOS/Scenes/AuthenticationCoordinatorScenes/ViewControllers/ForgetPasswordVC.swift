@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class ForgetPasswordVC: UIViewController, Coordinated{
+class ForgetPasswordVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
+    var pleaseWaitAlert: UIAlertController?
     var coordinator: Coordinator?
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -19,5 +20,21 @@ class ForgetPasswordVC: UIViewController, Coordinated{
     }
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
+        guard let email = emailTextField.text, email != "" else {
+            showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)
+            return
+        }
+        
+        self.showSpinner(){
+            AuthenticationManager.getInstance().resetPassword(email: email){[unowned self] error in
+                if let error = error {
+                    self.hideSpinner()
+                    showMessagePrompt(error, vcToBePresented: self)
+                }else{
+                    self.hideSpinner()
+                    showMessagePrompt("Password reset e-mail has been sent", vcToBePresented: self)
+                }
+            }
+        }
     }
 }

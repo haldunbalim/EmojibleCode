@@ -11,7 +11,7 @@ class TutorialScreenCell: UICollectionViewCell {
     @IBOutlet weak var tutorialLevelLabel: UILabel!
     @IBOutlet weak var tutorialNumberLabel: UILabel!
     
-    func configure (tutorial: Tutorial) {
+    func configure (tutorial: TutorialModel) {
         self.backgroundColor = tutorial.color
         print(tutorial)
         

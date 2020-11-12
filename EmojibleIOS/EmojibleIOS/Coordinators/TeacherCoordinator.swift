@@ -39,8 +39,11 @@ class TeacherCoordinator: Coordinator {
     
     
     private init(){}
-    private static let instance = TeacherCoordinator()
+    private static var instance: TeacherCoordinator!
     public static func getInstance() -> TeacherCoordinator{
+        if instance == nil{
+            instance = TeacherCoordinator()
+        }
         return .instance
     }
     

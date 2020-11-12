@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Tutorial {
+struct TutorialModel {
     var color: UIColor
     var level: String
     var tutorialNumber: String

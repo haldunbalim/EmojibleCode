@@ -10,13 +10,13 @@ import Foundation
 class AssignmentDataSource {
     
     //Dummy test method
-    public func getAssignmentInfo() -> [Assignment] {
-        return [Assignment(variable: "😀",value: "10"),
-                Assignment(variable: "🥺",value: "3"),
-                Assignment(variable: "🔥",value: "Hot"),
-                Assignment(variable: "🙊",value: "10"),
-                Assignment(variable: "🍊",value: "Orange"),
-                Assignment(variable: "✨",value: "1"),
+    public func getAssignmentInfo() -> [AssignmentModel] {
+        return [AssignmentModel(variable: "😀",value: "10"),
+                AssignmentModel(variable: "🥺",value: "3"),
+                AssignmentModel(variable: "🔥",value: "Hot"),
+                AssignmentModel(variable: "🙊",value: "10"),
+                AssignmentModel(variable: "🍊",value: "Orange"),
+                AssignmentModel(variable: "✨",value: "1"),
                 ]
     }
 
