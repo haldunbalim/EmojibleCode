@@ -12,7 +12,6 @@ class AuthenticationCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var storyboard = UIStoryboard.init(name: "AuthenticationStoryboard", bundle: Bundle.main)
     var navigationController: UINavigationController
-    var registeringUserType:String?
     
     enum screenEnum{
         case Login
@@ -49,11 +48,8 @@ class AuthenticationCoordinator: Coordinator {
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
     }
     
-    private static var instance: AuthenticationCoordinator!
+    private static let instance = AuthenticationCoordinator()
     public static func getInstance() -> AuthenticationCoordinator{
-        if instance == nil{
-            instance = AuthenticationCoordinator()
-        }
         return .instance
     }
 }

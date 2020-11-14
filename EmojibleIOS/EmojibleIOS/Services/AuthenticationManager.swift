@@ -12,22 +12,9 @@ import FBSDKLoginKit
 
 class AuthenticationManager {
     let firebaseAuth = Auth.auth()
-    var currentUser:User?
-    var authStateListeners: [AuthStateListener] = []
+    var isLoggedIn = false
 
-    private init(){
-        _ = Auth.auth().addStateDidChangeListener { [unowned self] (auth, user) in
-            currentUser = Auth.auth().currentUser
-            for listener in self.authStateListeners{
-                listener.notify()
-            }
-        }
-    }
-    
-    public func listenForAuthStateChanges(listener:AuthStateListener){
-        authStateListeners.append(listener)
-    }
-    
+    private init(){}
     private static let instance = AuthenticationManager()
     public static func getInstance() -> AuthenticationManager{
         return .instance
@@ -35,7 +22,7 @@ class AuthenticationManager {
     
     // TODO: Not Implemented Yet
     public func isUserLoggedIn() -> Bool{
-        return firebaseAuth.currentUser != nil
+        return isLoggedIn
     }
     
 }
@@ -60,14 +47,14 @@ extension AuthenticationManager{
             if let error = error{
                 completion(error.localizedDescription)
             }else{
-                completion(nil)
+                self.signInWithEmail(email: email, password: password, completion: completion)
             }
         }
     }
     
     
-    func signInWithEmailAndPassword(email:String, password:String, completion: @escaping ((String?) -> Void)){
-        Auth.auth().signIn(withEmail: email, password: password) {[unowned self] user, error in
+    func signInWithEmail(email:String, password:String, completion: @escaping ((String?) -> Void)){
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if let error = error {
                 completion(error.localizedDescription)
             }else{
@@ -147,12 +134,12 @@ extension AuthenticationManager{
         }
     }
     
-    func resetPassword(email:String, completion: @escaping ((String?) -> Void)) {
+    func resetPassword(email:String, completion: @escaping ((String) -> Void)) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
                 completion(error.localizedDescription)
             }else{
-                completion(nil)
+                completion("Password reset E-mail is sent")
             }
         }
     }

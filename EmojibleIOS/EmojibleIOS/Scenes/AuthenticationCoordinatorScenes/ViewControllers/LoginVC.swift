@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
+class LoginVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
-    var pleaseWaitAlert: UIAlertController?
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
@@ -22,35 +21,18 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     }
 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        guard let email = emailTextField.text, email != "" else {
-            showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)
+        guard let coordinator = coordinator else{
             return
         }
-        
-        guard let password = passwordTextField.text, password != "" else {
-            showMessagePrompt("Password cannot be empty", vcToBePresented: self)
-            return
-        }
-        self.showSpinner(){
-            AuthenticationManager.getInstance().signInWithEmailAndPassword(email: email, password: password){[unowned self] error in
-                if let error = error {
-                    self.hideSpinner()
-                    showMessagePrompt(error, vcToBePresented: self)
-                }else{
-                    self.hideSpinner()
-                }
-            }
-        }
+        AuthenticationManager.getInstance().isLoggedIn = true
+        (coordinator.parentCoordinator as! AppCoordinator).start()
     }
-    
     @IBAction func forgetYourPasswordButtonPressed(_ sender: UIButton) {
         (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .ForgetPassword)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
-        guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
-        coordinator.registeringUserType = sender.tag == 0 ? "Student":"Teacher"
-        coordinator.openScreen(screenName: .Register)
+        (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .Register)
     }
     
 }

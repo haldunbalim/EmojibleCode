@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AssignmentModel {
+struct Assignment {
     var pair : String
     
     init(variable: String, value: String) {

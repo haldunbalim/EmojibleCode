@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: Coordinator, AuthStateListener{
+class AppCoordinator: Coordinator{
     var parentCoordinator: Coordinator? = nil
     
     var authenticationCoordinator = AuthenticationCoordinator.getInstance()
@@ -31,35 +31,37 @@ class AppCoordinator: Coordinator, AuthStateListener{
         authenticationCoordinator.parentCoordinator = self
         studentCoordinator.parentCoordinator = self
         teacherCoordinator.parentCoordinator = self
-        AuthenticationManager.getInstance().listenForAuthStateChanges(listener: self)
+        
+        
+        /*
+        _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user == nil{
+                self.openAuthentication()
+            }
+        }
+        */
+        
     }
     
-    func notify() {
-        start()
-    }
     
     func start(){
         
         if AuthenticationManager.getInstance().isUserLoggedIn(){
-            UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
-                guard let userModel = userModel else {return}
-                UserDataSource.getInstance().startObservingUserModel()
-                if userModel is StudentModel {
-                    self.window.rootViewController = self.studentCoordinator.tabBarController
-                    self.currentCoordinator = self.studentCoordinator
-                }else{
-                    self.window.rootViewController = self.teacherCoordinator.navigationController
-                    self.currentCoordinator = self.teacherCoordinator
-                }
-                self.currentCoordinator!.start()
-                self.window.makeKeyAndVisible()
+            UserDataSource.getInstance().getCurrentUserInfo()
+            if UserDataSource.getInstance().currentUser!.userType == .Student{
+                self.window.rootViewController = self.studentCoordinator.navigationController
+                self.currentCoordinator = self.studentCoordinator
+            }else{
+                self.window.rootViewController = self.teacherCoordinator.navigationController
+                self.currentCoordinator = self.teacherCoordinator
             }
         }else{
             self.window.rootViewController = self.authenticationCoordinator.navigationController
             self.currentCoordinator = self.authenticationCoordinator
-            self.currentCoordinator!.start()
-            self.window.makeKeyAndVisible()
         }
+        
+        self.currentCoordinator!.start()
+        self.window.makeKeyAndVisible()
     }
     
 }

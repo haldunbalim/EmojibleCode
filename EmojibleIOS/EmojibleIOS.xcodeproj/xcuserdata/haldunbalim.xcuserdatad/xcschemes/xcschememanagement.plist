@@ -7,25 +7,7 @@
 		<key>EmojibleIOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>27</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>FC9C42A2254AE8890061E220</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC9C42B8254AE88D0061E220</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC9C42C3254AE88D0061E220</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>25</integer>
 		</dict>
 	</dict>
 </dict>
