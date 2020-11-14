@@ -34,7 +34,7 @@ class StudentCoordinator: Coordinator {
         
         startChildren()
         tabBarController.viewControllers = [tutorialsNC, emojiAssignmentNC, createNewCodeNC , classNC, settingsNC]
-        tabBarController.selectedIndex = 0
+        tabBarController.selectedIndex = 2
     }
     
     func startChildren(){

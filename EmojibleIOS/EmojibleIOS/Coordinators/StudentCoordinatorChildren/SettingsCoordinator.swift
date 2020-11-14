@@ -10,7 +10,7 @@ import UIKit
 
 class SettingsCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
-    var navigationController:UINavigationController
+    var navigationController = UINavigationController()
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
 

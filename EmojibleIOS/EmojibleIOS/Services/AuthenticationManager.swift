@@ -13,23 +13,23 @@ import FBSDKLoginKit
 class AuthenticationManager {
     let firebaseAuth = Auth.auth()
     var currentUser:User?
-    let notificationCenter = NotificationCenter.default
+    var authStateListeners: [AuthStateListener] = []
 
     private init(){
-    }
-    
-    func startListeningForAuthStateChanges(){
         _ = Auth.auth().addStateDidChangeListener { [unowned self] (auth, user) in
             currentUser = Auth.auth().currentUser
-            notificationCenter.post(name: .authStateChanged, object: nil)
+            for listener in self.authStateListeners{
+                listener.notify()
+            }
         }
     }
     
-    private static var instance: AuthenticationManager!
+    public func listenForAuthStateChanges(listener:AuthStateListener){
+        authStateListeners.append(listener)
+    }
+    
+    private static let instance = AuthenticationManager()
     public static func getInstance() -> AuthenticationManager{
-        if instance == nil{
-            instance = AuthenticationManager()
-        }
         return .instance
     }
     
@@ -67,7 +67,7 @@ extension AuthenticationManager{
     
     
     func signInWithEmailAndPassword(email:String, password:String, completion: @escaping ((String?) -> Void)){
-        Auth.auth().signIn(withEmail: email, password: password) {user, error in
+        Auth.auth().signIn(withEmail: email, password: password) {[unowned self] user, error in
             if let error = error {
                 completion(error.localizedDescription)
             }else{

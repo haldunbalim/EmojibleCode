@@ -9,9 +9,10 @@ import Foundation
 import Firebase
 
 class UserDataSource{
+    var currentUser: UserModel?
     let database = Firestore.firestore()
-    var snapshotListener:ListenerRegistration?
-    let notificationCenter = NotificationCenter.default
+    var snapshotListener:ListenerRegistration!
+    var listeners: Array<UserModelListener> = []
     
     private init(){
     }
@@ -37,19 +38,26 @@ class UserDataSource{
         }
     }
     
+    func listenForUserModelChanges <T:UserModelListener> (listener: T){
+        listeners.append(listener)
+    }
+    
     func startObservingUserModel(){
         let currentUser = AuthenticationManager.getInstance().currentUser
         let userDocRef = database.collection("Users").document(currentUser!.uid)
-        snapshotListener = userDocRef.addSnapshotListener{ [unowned self] documentSnapshot, error in
+        var snapshotListener = userDocRef.addSnapshotListener{ [unowned self] documentSnapshot, error in
             guard let document = documentSnapshot else { return }
             guard let dict = document.data() else { return }
-            notificationCenter.post(name: .userModelChanged, object: nil, userInfo:["userModel":UserFactory.getInstance().create(dict: dict)])
+            for listener in self.listeners{
+                listener.notify(userModel: UserFactory.getInstance().create(dict: dict))
+            }
         }
     }
     
     func stopObservingUserModel(){
-        guard let snapshotListener = snapshotListener else { return }
-        snapshotListener.remove()        
+        snapshotListener.remove()
+        listeners = []
+        
     }
     
     public func writeUserData(user:UserModel){

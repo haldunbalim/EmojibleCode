@@ -14,8 +14,6 @@ target 'EmojibleIOS' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  
-  pod 'SwipeCellKit'
 
   target 'EmojibleIOSTests' do
     inherit! :search_paths
