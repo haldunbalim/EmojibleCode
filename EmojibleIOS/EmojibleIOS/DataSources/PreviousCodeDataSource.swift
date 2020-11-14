@@ -1,16 +1,15 @@
 //
-//  TutorialDataSource.swift
+//  PreviousCodeDataSource.swift
 //  EmojibleIOS
 //
-//  Created by Furkan Yakal on 5.11.2020.
+//  Created by Haldun Balim on 14.11.2020.
 //
 
 import Foundation
-
-class TutorialDataSource {
-     
-    // Dummy test method
-    public func getTutorials() -> [CodeModel] {
+class PreviousCodeDataSource{
+    
+    
+    public func getPreviousCodes() -> [CodeModel] {
         return [CodeModel(name: "STT Tutorial", code: "[🦜 💬] 👉 🐤 , 📱 🐤 "),
                 CodeModel(name:"For loops",code:"[🔁 5] [ 📣 🍎 ]"),
                 CodeModel(name:"If statement",code:"🤔 [ 🔉 < 40 ] [ 📣 🍎 ] [ 🤔 [ 🔉 > 80 ] [📣 🍌] ]"),
@@ -34,14 +33,11 @@ class TutorialDataSource {
     }
     
     
+    
     private init(){
     }
-    private static let instance = TutorialDataSource()
-    public static func getInstance() -> TutorialDataSource{
+    private static let instance = PreviousCodeDataSource()
+    public static func getInstance() -> PreviousCodeDataSource{
         return .instance
     }
 }
-
-
-
-

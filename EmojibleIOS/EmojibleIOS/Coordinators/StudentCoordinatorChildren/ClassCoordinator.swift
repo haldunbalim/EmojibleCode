@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 
-class ClassCoordinator: Coordinator, UserModelListener {
+class ClassCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
-    var navigationController = UINavigationController()
+    var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
+    let notificationCenter = NotificationCenter.default
     
 
     enum screenEnum{
@@ -23,12 +24,12 @@ class ClassCoordinator: Coordinator, UserModelListener {
 
     
     func start() {
-        UserDataSource.getInstance().listenForUserModelChanges(listener: self)
-        openScreen(screenName: currentScreen)
+        notificationCenter.addObserver(self, selector: #selector(notify(_:)), name: .userModelChanged, object: nil)
     }
     
-    func notify(userModel: UserModel) {
-            guard let userModel = userModel as? StudentModel else { return }
+    @objc func notify(_ notification: NSNotification) {
+        guard let notificationArgs = notification.userInfo else { return }
+        guard let userModel = notificationArgs["userModel"] as? StudentModel else { return }
         if userModel.classId == nil{
             openScreen(screenName: .SignUp,pop: false)
         }else{

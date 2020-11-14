@@ -1,5 +1,5 @@
 //
-//  SettingsCoordinator.swift
+//  EmojiAssignmentCoordinator.swift
 //  EmojibleIOS
 //
 //  Created by Haldun Balim on 11.11.2020.
@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-class SettingsCoordinator: Coordinator {
+class EmojiAssignmentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
 
     enum screenEnum{
-       case SettingsScreen
+        case AssignmentScreen
     }
     
-    var currentScreen: screenEnum = .SettingsScreen
+    var currentScreen: screenEnum = .AssignmentScreen
 
     
     func start() {
@@ -29,8 +29,9 @@ class SettingsCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
-        case .SettingsScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "SettingsScreenVC") as? SettingsScreenVC
+        
+        case .AssignmentScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "AssignmentScreenVC") as? AssignmentScreenVC
         }
         
         vc.coordinator = self
@@ -42,14 +43,15 @@ class SettingsCoordinator: Coordinator {
     
     
     private init(){
-        navigationController = self.storyboard.instantiateViewController(withIdentifier: "SettingsNavController") as! UINavigationController
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "AssignmentsNavController") as! UINavigationController
     }
-    private static var instance: SettingsCoordinator!
-    public static func getInstance() -> SettingsCoordinator{
+    private static var instance: EmojiAssignmentCoordinator!
+    public static func getInstance() -> EmojiAssignmentCoordinator{
         if(instance == nil){
-            instance = SettingsCoordinator()
+            instance = EmojiAssignmentCoordinator()
         }
         return .instance
     }
     
 }
+

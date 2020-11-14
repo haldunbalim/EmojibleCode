@@ -8,12 +8,13 @@
 import Foundation
 import UIKit
 
-class AppCoordinator: Coordinator, AuthStateListener{
+class AppCoordinator: Coordinator{
     var parentCoordinator: Coordinator? = nil
     
     var authenticationCoordinator = AuthenticationCoordinator.getInstance()
     var studentCoordinator = StudentCoordinator.getInstance()
     var teacherCoordinator = TeacherCoordinator.getInstance()
+    let notificationCenter = NotificationCenter.default
     
     var window: UIWindow
     var currentCoordinator: Coordinator?
@@ -31,10 +32,11 @@ class AppCoordinator: Coordinator, AuthStateListener{
         authenticationCoordinator.parentCoordinator = self
         studentCoordinator.parentCoordinator = self
         teacherCoordinator.parentCoordinator = self
-        AuthenticationManager.getInstance().listenForAuthStateChanges(listener: self)
+        notificationCenter.addObserver(self, selector: #selector(notify), name: .authStateChanged, object: nil)
+        AuthenticationManager.getInstance().startListeningForAuthStateChanges()
     }
     
-    func notify() {
+    @objc func notify() {
         start()
     }
     
@@ -43,7 +45,6 @@ class AppCoordinator: Coordinator, AuthStateListener{
         if AuthenticationManager.getInstance().isUserLoggedIn(){
             UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
                 guard let userModel = userModel else {return}
-                UserDataSource.getInstance().startObservingUserModel()
                 if userModel is StudentModel {
                     self.window.rootViewController = self.studentCoordinator.tabBarController
                     self.currentCoordinator = self.studentCoordinator
@@ -52,9 +53,11 @@ class AppCoordinator: Coordinator, AuthStateListener{
                     self.currentCoordinator = self.teacherCoordinator
                 }
                 self.currentCoordinator!.start()
+                UserDataSource.getInstance().startObservingUserModel()
                 self.window.makeKeyAndVisible()
             }
         }else{
+            UserDataSource.getInstance().stopObservingUserModel()
             self.window.rootViewController = self.authenticationCoordinator.navigationController
             self.currentCoordinator = self.authenticationCoordinator
             self.currentCoordinator!.start()
