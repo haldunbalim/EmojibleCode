@@ -1,5 +1,6 @@
 package com.dji.emojibleandroid.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,25 @@ class VoiceTextActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_voicetext)
 
+        child1LLayout.setOnClickListener {
+
+        }
+
+        child2LLayout.setOnClickListener {
+
+        }
+
+        child3LLayout.setOnClickListener {
+
+        }
+
+        child4LLayout.setOnClickListener {
+
+            showToast("Kullanıcı Ayarları")
+            val intent = Intent(this, NoUserActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
 }

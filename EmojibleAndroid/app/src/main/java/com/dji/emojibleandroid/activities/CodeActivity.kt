@@ -23,6 +23,7 @@ import java.io.File
 private const val FILE_NAME = "photo.jpg"
 private const val REQUEST_CODE = 42
 private lateinit var photoFile: File
+
 class CodeActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {

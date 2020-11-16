@@ -13,6 +13,7 @@ class TutorialsActivity : AppCompatActivity(){
 
         val intent = Intent(this, ListOfEmojiesActivity::class.java)
         startActivity(intent)
+        finish()
 
     }
 

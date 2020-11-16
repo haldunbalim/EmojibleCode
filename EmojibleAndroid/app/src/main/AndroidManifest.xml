@@ -19,22 +19,23 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/fileprovider"/>
         </provider>
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TutorialsActivity"/>
-        <activity android:name=".activities.CodeActivity"/>
-        <activity android:name=".activities.EmojiesActivity"/>
-        <activity android:name=".activities.VoiceTextActivity"/>
-        <activity android:name=".activities.ListOfEmojiesActivity"/>
-        <activity android:name=".activities.LoginActivity"/>
-        <activity android:name=".activities.BaseActivity"/>
-        <activity android:name=".activities.SignUpActivity"/>
-        <activity android:name=".activities.ResultActivity"/>
+        <activity android:name=".activities.TutorialsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.CodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.EmojiesActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.VoiceTextActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.ListOfEmojiesActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.BaseActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SignUpActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ResultActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.NoUserActivity" android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
