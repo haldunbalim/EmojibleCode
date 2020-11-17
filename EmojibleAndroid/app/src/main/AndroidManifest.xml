@@ -36,6 +36,8 @@
         <activity android:name=".activities.SignUpActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activities.ResultActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activities.NoUserActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.ProgramActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.EmojiActivity" android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
