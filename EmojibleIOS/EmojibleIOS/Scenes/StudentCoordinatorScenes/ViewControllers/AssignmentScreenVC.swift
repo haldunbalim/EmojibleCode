@@ -12,8 +12,10 @@ fileprivate let reuseIdentifier = "AssignmentViewModel"
 class AssignmentScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
     var assignments = GlobalMemory.getInstance().getAssignments()
+    
     var addVoiceAlert: AddVoiceAlert!
     var addTextAlert: AddTextAlert!
+    var addFunctionAlert: AddFunctionAlert!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +25,7 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         configureNavigationBar()
         configureAddVoiceAlert()
         configureAddTextAlert()
+        configureAddFunctionAlert()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .assignmentsChanged, object: nil)
     }
     
@@ -55,6 +58,11 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         addTextAlert.delegate = self
     }
     
+    func configureAddFunctionAlert(){
+        addFunctionAlert = AddFunctionAlert()
+        addFunctionAlert.delegate = self
+    }
+    
     @objc func addButtonPressed(){
         let alert = UIAlertController(title: nil, message: "Select Type", preferredStyle: .alert)
         let addTextAction = UIAlertAction(title: "Add Text", style: .default){_ in 
@@ -63,9 +71,13 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         let addVoiceAction = UIAlertAction(title: "Add Voice", style:.default){_ in 
             self.addVoiceAlert.presentOver(viewController:self)
         }
+        let addFunctionAction = UIAlertAction(title: "Add Function", style: .default) {_ in
+            self.addFunctionAlert.presentOver(viewController:self)
+        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alert.addAction(addTextAction)
         alert.addAction(addVoiceAction)
+        alert.addAction(addFunctionAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
     }
@@ -85,9 +97,8 @@ extension AssignmentScreenVC: SwipeTableViewCellDelegate{
 
         return [deleteAction]
     }
-    
-   
 }
+
 
 
 extension AssignmentScreenVC: UITableViewDelegate{
@@ -101,9 +112,11 @@ extension AssignmentScreenVC: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return assignments.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! AssignmentViewModel
     

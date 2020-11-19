@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgramViewModel" customModule="EmojibleIOS" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="q9g-sS-rXV" customClass="ProgramViewModel" customModule="EmojibleIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0jn-bR-2w7">
+                <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uM7-n7-tQt">
+                        <rect key="frame" x="5" y="5" width="161" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="YeD-co-vCp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNq-E0-aYs">
+                        <rect key="frame" x="5" y="30" width="161" height="106"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cy-Vq-y5j">
+                        <rect key="frame" x="5" y="141" width="40" height="20"/>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="6aG-3W-cE9"/>
+                            <constraint firstAttribute="height" constant="20" id="cbP-F7-o9C"/>
+                        </constraints>
+                        <state key="normal" title="View">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="editPressed:" destination="q9g-sS-rXV" eventType="touchUpInside" id="ONS-Yb-5Ma"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erc-ev-abO">
+                        <rect key="frame" x="50" y="141" width="40" height="20"/>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="bs3-Qd-OmE"/>
+                            <constraint firstAttribute="width" constant="40" id="zss-NS-2qw"/>
+                        </constraints>
+                        <state key="normal" title="Run">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="runPressed:" destination="q9g-sS-rXV" eventType="touchUpInside" id="Sef-7l-dfz"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="erc-ev-abO" secondAttribute="bottom" constant="5" id="3Be-Xp-yvd"/>
+                    <constraint firstItem="uM7-n7-tQt" firstAttribute="top" secondItem="0jn-bR-2w7" secondAttribute="top" constant="5" id="IXW-P0-g83"/>
+                    <constraint firstAttribute="trailing" secondItem="NNq-E0-aYs" secondAttribute="trailing" constant="5" id="JLM-r8-inw"/>
+                    <constraint firstItem="erc-ev-abO" firstAttribute="leading" secondItem="3cy-Vq-y5j" secondAttribute="trailing" constant="5" id="Ry2-Rd-oad"/>
+                    <constraint firstItem="NNq-E0-aYs" firstAttribute="top" secondItem="uM7-n7-tQt" secondAttribute="bottom" constant="5" id="WXH-K9-kkN"/>
+                    <constraint firstItem="NNq-E0-aYs" firstAttribute="leading" secondItem="0jn-bR-2w7" secondAttribute="leading" constant="5" id="YXf-i9-LTx"/>
+                    <constraint firstAttribute="trailing" secondItem="uM7-n7-tQt" secondAttribute="trailing" constant="5" id="cel-Yx-idQ"/>
+                    <constraint firstItem="erc-ev-abO" firstAttribute="top" secondItem="NNq-E0-aYs" secondAttribute="bottom" constant="5" id="hDE-Km-Iz1"/>
+                    <constraint firstItem="3cy-Vq-y5j" firstAttribute="leading" secondItem="0jn-bR-2w7" secondAttribute="leading" constant="5" id="hEI-R8-aD8"/>
+                    <constraint firstAttribute="bottom" secondItem="3cy-Vq-y5j" secondAttribute="bottom" constant="5" id="meS-Rz-FfT"/>
+                    <constraint firstItem="uM7-n7-tQt" firstAttribute="leading" secondItem="0jn-bR-2w7" secondAttribute="leading" constant="5" id="ohJ-h0-ynK"/>
+                    <constraint firstItem="3cy-Vq-y5j" firstAttribute="top" secondItem="NNq-E0-aYs" secondAttribute="bottom" constant="5" id="qWd-Ox-wVv"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <size key="customSize" width="171" height="166"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="backgroundView" destination="0jn-bR-2w7" id="QCd-0P-syS"/>
+                <outlet property="codeLabel" destination="NNq-E0-aYs" id="YRl-eC-g1O"/>
+                <outlet property="nameLabel" destination="uM7-n7-tQt" id="cM0-mg-Jzs"/>
+            </connections>
+            <point key="canvasLocation" x="-125.36231884057972" y="90.401785714285708"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -22,7 +22,6 @@ class AuthenticationCoordinator: Coordinator {
     
     var currentScreen: screenEnum = .Login
 
-    
     func start() {
         openScreen(screenName: currentScreen)
     }

@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 import SwipeCellKit
 
-class AssignmentViewModel:SwipeTableViewCell{
-    
+class AssignmentViewModel: SwipeTableViewCell{
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var listenButton: UIButton!
+    
     var model: AssignmentModel!
     
     public func configureView(assignment: AssignmentModel){
@@ -25,11 +25,18 @@ class AssignmentViewModel:SwipeTableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     @IBAction func listenButtonOnPress(_ sender: Any) {
         AudioPlayer.getInstance().playAudio(filename: model!.getValue() as! String)
     }
     
+    @IBAction func editButtonOnPress(_ sender: UIButton) {
     
+    }
+    
+    @IBAction func trashButtonOnPress(_ sender: UIButton) {
+    
+    }
 }

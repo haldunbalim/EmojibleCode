@@ -8,17 +8,18 @@
 import Foundation
 import UIKit
 
-class CreateNewCodeCoordinator: Coordinator {
+class ProgramsCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
 
     enum screenEnum{
+        case ProgramScreen
         case CodingScreen
     }
     
-    var currentScreen: screenEnum = .CodingScreen
+    var currentScreen: screenEnum = .ProgramScreen
 
     
     func start() {
@@ -29,6 +30,9 @@ class CreateNewCodeCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
+        
+        case .ProgramScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "ProgramScreenVC") as? ProgramScreenVC
         case .CodingScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "CodingScreenVC") as? CodingScreenVC
         }
@@ -44,10 +48,10 @@ class CreateNewCodeCoordinator: Coordinator {
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "NewCodeNavController") as! UINavigationController
     }
-    private static var instance: CreateNewCodeCoordinator!
-    public static func getInstance() -> CreateNewCodeCoordinator{
+    private static var instance: ProgramsCoordinator!
+    public static func getInstance() -> ProgramsCoordinator{
         if(instance == nil){
-            instance = CreateNewCodeCoordinator()
+            instance = ProgramsCoordinator()
         }
         return .instance
     }

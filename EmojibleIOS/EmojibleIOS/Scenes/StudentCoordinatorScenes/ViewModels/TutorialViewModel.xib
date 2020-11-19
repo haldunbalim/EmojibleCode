@@ -3,14 +3,14 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CodeViewModel" customModule="EmojibleIOS" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialViewModel" customModule="EmojibleIOS" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Rqt-ll-AfI" customClass="CodeViewModel" customModule="EmojibleIOS" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Rqt-ll-AfI" customClass="TutorialViewModel" customModule="EmojibleIOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HeP-Vs-lE6">
@@ -26,21 +26,54 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIg-JB-xn6">
-                        <rect key="frame" x="5" y="30" width="300" height="131"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIg-JB-xn6">
+                        <rect key="frame" x="5" y="30" width="161" height="106"/>
                         <fontDescription key="fontDescription" type="system" pointSize="7"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXZ-vc-gLf">
+                        <rect key="frame" x="5" y="141" width="40" height="20"/>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="IVs-7y-Xoy"/>
+                            <constraint firstAttribute="height" constant="20" id="agR-2w-Jh0"/>
+                        </constraints>
+                        <state key="normal" title="View">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="viewPressed:" destination="Rqt-ll-AfI" eventType="touchUpInside" id="8sx-iG-aXw"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFj-y5-0lt">
+                        <rect key="frame" x="50" y="141" width="40" height="20"/>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="MfS-4C-4b8"/>
+                            <constraint firstAttribute="width" constant="40" id="hqR-29-kja"/>
+                        </constraints>
+                        <state key="normal" title="Run">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="runPressed:" destination="Rqt-ll-AfI" eventType="touchUpInside" id="D3D-32-dFV"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="pXZ-vc-gLf" firstAttribute="top" secondItem="SIg-JB-xn6" secondAttribute="bottom" constant="5" id="1oI-68-38n"/>
+                    <constraint firstAttribute="bottom" secondItem="mFj-y5-0lt" secondAttribute="bottom" constant="5" id="3pc-fl-pny"/>
                     <constraint firstAttribute="trailing" secondItem="6DZ-uQ-Ou3" secondAttribute="trailing" constant="5" id="4yt-xc-DxC"/>
                     <constraint firstAttribute="trailing" secondItem="SIg-JB-xn6" secondAttribute="trailing" constant="5" id="CfE-bE-JWT"/>
+                    <constraint firstItem="mFj-y5-0lt" firstAttribute="top" secondItem="SIg-JB-xn6" secondAttribute="bottom" constant="5" id="FPu-pj-mgV"/>
                     <constraint firstItem="6DZ-uQ-Ou3" firstAttribute="top" secondItem="HeP-Vs-lE6" secondAttribute="top" constant="5" id="Hhy-Rg-d7m"/>
                     <constraint firstItem="SIg-JB-xn6" firstAttribute="top" secondItem="6DZ-uQ-Ou3" secondAttribute="bottom" constant="5" id="IH6-aj-BWT"/>
                     <constraint firstItem="6DZ-uQ-Ou3" firstAttribute="leading" secondItem="HeP-Vs-lE6" secondAttribute="leading" constant="5" id="Msp-0w-sC9"/>
-                    <constraint firstAttribute="bottom" secondItem="SIg-JB-xn6" secondAttribute="bottom" constant="5" id="Qyt-U8-k7c"/>
+                    <constraint firstItem="pXZ-vc-gLf" firstAttribute="leading" secondItem="HeP-Vs-lE6" secondAttribute="leading" constant="5" id="Mzb-5A-3eG"/>
+                    <constraint firstAttribute="bottom" secondItem="pXZ-vc-gLf" secondAttribute="bottom" constant="5" id="SPB-KX-Gi8"/>
                     <constraint firstItem="SIg-JB-xn6" firstAttribute="leading" secondItem="HeP-Vs-lE6" secondAttribute="leading" constant="5" id="Uv2-y5-oaV"/>
+                    <constraint firstItem="mFj-y5-0lt" firstAttribute="leading" secondItem="pXZ-vc-gLf" secondAttribute="trailing" constant="5" id="l8X-cF-IkN"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CodeViewModel: UICollectionViewCell {
+class TutorialViewModel: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     
@@ -22,6 +22,14 @@ class CodeViewModel: UICollectionViewCell {
              contentView.topAnchor.constraint(equalTo: topAnchor),
              contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
          ])
+    }
+    
+    @IBAction func viewPressed(_ sender: UIButton) {
+    
+    }
+    
+    @IBAction func runPressed(_ sender: Any) {
+    
     }
     
     func configureView (codeModel: CodeModel) {

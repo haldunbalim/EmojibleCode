@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +16,7 @@
                 <navigationController storyboardIdentifier="TutorialsNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gTF-I5-Nyq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nbc-wi-gmr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
@@ -30,11 +31,11 @@
             <objects>
                 <viewController storyboardIdentifier="TutorialScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qkw-jo-WBA" customClass="TutorialScreenVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t37-vW-P7a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mWu-eD-Hzg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jse-ah-48N">
                                     <size key="itemSize" width="100" height="250"/>
@@ -44,7 +45,7 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DZy-hT-Ryc">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="808" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
@@ -72,13 +73,12 @@
             <objects>
                 <viewController storyboardIdentifier="CodingScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A8N-9u-9KD" customClass="CodingScreenVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSm-64-Z4F">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XZQ-oe-rrn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Write your code..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XZQ-oe-rrn">
+                                <rect key="frame" x="44" y="0.0" width="808" height="344"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -98,18 +98,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJQ-Ms-QoO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="477"/>
+            <point key="canvasLocation" x="1732" y="477"/>
         </scene>
         <!--Assignment ScreenVC-->
         <scene sceneID="wsY-cD-5Wz">
             <objects>
                 <viewController storyboardIdentifier="AssignmentScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="94T-bX-fMy" customClass="AssignmentScreenVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HsX-fT-q0o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FcB-oT-9z0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -136,7 +136,7 @@
                 <navigationController storyboardIdentifier="AssignmentsNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kHf-2p-NyX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OjT-MH-y1N">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
@@ -152,7 +152,7 @@
                 <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hYH-qz-Jnh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KYx-fx-2FG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
@@ -167,11 +167,11 @@
             <objects>
                 <viewController storyboardIdentifier="SettingsScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RVW-ZJ-zkR" customClass="SettingsScreenVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x5d-sU-E21">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jVX-7P-xKQ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -195,7 +195,7 @@
                 <navigationController storyboardIdentifier="ClassNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z9j-Fg-bqj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8f0-b8-1zN">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
@@ -210,11 +210,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClassScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kKy-T1-wOk" customClass="ClassScreenVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ikv-0N-Eb6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-zy-nxL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -232,35 +232,77 @@
             </objects>
             <point key="canvasLocation" x="1732" y="1223"/>
         </scene>
+        <!--Program ScreenVC-->
+        <scene sceneID="2A5-BO-WFf">
+            <objects>
+                <viewController storyboardIdentifier="ProgramScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QLS-Ay-MIY" customClass="ProgramScreenVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WFo-IV-Mp6">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HdG-FH-Qkm">
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p5T-3r-ScC">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ygi-2C-DAO">
+                                    <rect key="frame" x="0.0" y="0.0" width="808" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </collectionReusableView>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fJn-eu-J5a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HdG-FH-Qkm" firstAttribute="top" secondItem="fJn-eu-J5a" secondAttribute="top" id="JuO-Cl-bHe"/>
+                            <constraint firstItem="HdG-FH-Qkm" firstAttribute="leading" secondItem="fJn-eu-J5a" secondAttribute="leading" id="bWQ-Us-gq9"/>
+                            <constraint firstItem="fJn-eu-J5a" firstAttribute="bottom" secondItem="HdG-FH-Qkm" secondAttribute="bottom" id="d3Y-m0-Lpt"/>
+                            <constraint firstItem="fJn-eu-J5a" firstAttribute="trailing" secondItem="HdG-FH-Qkm" secondAttribute="trailing" id="xca-c7-vYm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionLayout" destination="p5T-3r-ScC" id="PiM-FT-zh2"/>
+                        <outlet property="collectionView" destination="HdG-FH-Qkm" id="oa2-pF-n5f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Kh-az-yTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="850" y="477"/>
+        </scene>
         <!--Class Sign UpVC-->
         <scene sceneID="JBf-oq-Q9G">
             <objects>
                 <viewController storyboardIdentifier="ClassSignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KVy-gn-UFQ" customClass="ClassSignUpVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4An-6V-dGC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not in a class yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGn-K2-bWd">
-                                <rect key="frame" x="113" y="413.5" width="188" height="20.5"/>
+                                <rect key="frame" x="354" y="-55.5" width="188" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T8C-Am-qg4">
-                                <rect key="frame" x="70" y="464" width="274" height="98"/>
+                                <rect key="frame" x="114" y="-5" width="668" height="98"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-Dw-FcA">
-                                        <rect key="frame" x="0.0" y="0.0" width="274" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="668" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taO-ri-gGF">
-                                        <rect key="frame" x="0.0" y="34" width="274" height="34"/>
+                                        <rect key="frame" x="0.0" y="34" width="668" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-dg-0ks">
-                                        <rect key="frame" x="0.0" y="68" width="274" height="30"/>
+                                        <rect key="frame" x="0.0" y="68" width="668" height="30"/>
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signUpButtonPressed:" destination="KVy-gn-UFQ" eventType="touchUpInside" id="zGo-4v-U3G"/>
@@ -288,6 +330,109 @@
             </objects>
             <point key="canvasLocation" x="851" y="1223"/>
         </scene>
+        <!--Menu BarVC-->
+        <scene sceneID="Qwj-5l-9Za">
+            <objects>
+                <viewController storyboardIdentifier="TabBarController2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fTX-yY-JVl" customClass="MenuBarVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9gn-As-qJn">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="MainStack" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3ia-vf-ZS9">
+                                <rect key="frame" x="44" y="0.0" width="88" height="393"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yx9-pr-1Pz">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="98.5"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Program">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <imageReference key="image" image="terminal" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabPressedWithSender:" destination="fTX-yY-JVl" eventType="touchUpInside" id="1Ri-uj-TvE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faG-iW-M8P">
+                                        <rect key="frame" x="0.0" y="98.5" width="88" height="98"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Tutorials">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <imageReference key="image" image="book" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabPressedWithSender:" destination="fTX-yY-JVl" eventType="touchUpInside" id="fpa-59-LEa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxj-Hy-Zcj">
+                                        <rect key="frame" x="0.0" y="196.5" width="88" height="98.5"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Emojis">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="18"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <imageReference key="image" image="face.smiling" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabPressedWithSender:" destination="fTX-yY-JVl" eventType="touchUpInside" id="3vg-7M-hGt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GeZ-A3-w17">
+                                        <rect key="frame" x="0.0" y="295" width="88" height="98"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Settings">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tabPressedWithSender:" destination="fTX-yY-JVl" eventType="touchUpInside" id="u47-oi-fLX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kse-4h-D8L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3ia-vf-ZS9" firstAttribute="top" secondItem="kse-4h-D8L" secondAttribute="top" id="Gfa-IL-2hE"/>
+                            <constraint firstItem="3ia-vf-ZS9" firstAttribute="centerX" secondItem="9gn-As-qJn" secondAttribute="centerX" constant="-360" id="HKB-Dw-2Zm"/>
+                            <constraint firstItem="3ia-vf-ZS9" firstAttribute="leading" secondItem="kse-4h-D8L" secondAttribute="leading" id="fup-Dj-Suy"/>
+                            <constraint firstItem="kse-4h-D8L" firstAttribute="bottom" secondItem="3ia-vf-ZS9" secondAttribute="bottom" id="yC9-CC-F6X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outletCollection property="tabs" destination="Yx9-pr-1Pz" collectionClass="NSMutableArray" id="SYj-7l-Xj6"/>
+                        <outletCollection property="tabs" destination="faG-iW-M8P" collectionClass="NSMutableArray" id="LCH-nU-pTr"/>
+                        <outletCollection property="tabs" destination="Nxj-Hy-Zcj" collectionClass="NSMutableArray" id="gUo-LN-0Le"/>
+                        <outletCollection property="tabs" destination="GeZ-A3-w17" collectionClass="NSMutableArray" id="fQc-GC-lEa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaZ-jO-MjN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1672.0982142857142" y="-397.10144927536237"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="MK0-Bh-02O">
             <objects>
@@ -309,7 +454,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="CKo-hp-uJW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YEZ-aC-BMX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
@@ -321,6 +466,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="128" height="102"/>
+        <image name="face.smiling" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="terminal" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

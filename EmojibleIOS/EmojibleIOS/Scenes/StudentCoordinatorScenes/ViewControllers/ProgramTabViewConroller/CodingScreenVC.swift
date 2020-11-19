@@ -2,10 +2,9 @@
 //  CodingScreenVC.swift
 //  EmojibleIOS
 //
-//  Created by Furkan Yakal on 5.11.2020.
+//  Created by Furkan Yakal on 19.11.2020.
 //
 
-import Foundation
 import UIKit
 
 class CodingScreenVC: UIViewController, Coordinated{
@@ -45,8 +44,5 @@ class CodingScreenVC: UIViewController, Coordinated{
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePicker.sourceType = .photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
-        
     }
-    
-    
 }

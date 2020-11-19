@@ -1,15 +1,17 @@
 //
-//  CollectionViewController.swift
+//  CodingScreenVC.swift
 //  EmojibleIOS
 //
 //  Created by Furkan Yakal on 5.11.2020.
 //
 
+import Foundation
 import UIKit
 
-private let reuseIdentifier = "TutorialScreenCell"
 
-class TutorialScreenVC: UIViewController, Coordinated {
+private let reuseIdentifier = "ProgramScreenCell"
+
+class ProgramScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
     var tutorials = TutorialDataSource.getInstance().getTutorials()
     var previousCodes = PreviousCodeDataSource.getInstance().getPreviousCodes()
@@ -18,30 +20,30 @@ class TutorialScreenVC: UIViewController, Coordinated {
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
         didSet {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-            //collectionLayout.scrollDirection = .vertical
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Tutorials"
+        self.title = "Programs"
         configureCollectionView()
     }
     
     func configureCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "TutorialViewModel", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(UINib(nibName: "ProgramViewModel", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier)
     }
 }
 
-extension TutorialScreenVC: UICollectionViewDelegate{
+
+extension ProgramScreenVC: UICollectionViewDelegate{
 }
 
-extension TutorialScreenVC: UICollectionViewDelegateFlowLayout{
+extension ProgramScreenVC: UICollectionViewDelegateFlowLayout{
 }
 
-extension TutorialScreenVC: UICollectionViewDataSource{
+extension ProgramScreenVC: UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -54,7 +56,7 @@ extension TutorialScreenVC: UICollectionViewDataSource{
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TutorialViewModel {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProgramViewModel {
             if indexPath.section == 0{
                 cell.configureView(codeModel: tutorials[indexPath.row])
             }else{
