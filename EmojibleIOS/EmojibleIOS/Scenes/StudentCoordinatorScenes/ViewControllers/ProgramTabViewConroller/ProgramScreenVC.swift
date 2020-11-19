@@ -27,6 +27,11 @@ class ProgramScreenVC: UIViewController, Coordinated{
         super.viewDidLoad()
         self.title = "Programs"
         configureCollectionView()
+        configureNavigationBar()
+    }
+    
+    func configureNavigationBar(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newCodeButtonPressed))
     }
     
     func configureCollectionView(){
@@ -34,6 +39,11 @@ class ProgramScreenVC: UIViewController, Coordinated{
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ProgramViewModel", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier)
     }
+    
+    @objc func newCodeButtonPressed(){
+        (self.coordinator as! ProgramsCoordinator).openScreen(screenName: .CodingScreen)
+    }
+    
 }
 
 
