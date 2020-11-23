@@ -30,6 +30,7 @@ class TutorialDataSource {
                           [ 📱  🟩 ] // when the condition is met, display green
 
                         """)
+                
         ]
     }
     

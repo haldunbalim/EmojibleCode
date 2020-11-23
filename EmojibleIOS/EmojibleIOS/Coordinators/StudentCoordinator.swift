@@ -10,97 +10,62 @@ import UIKit
 
 class StudentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
-    
-    //var navigationControllers: [UINavigationController]!
-    //var tabBarController: UIViewController
-    
-    var tabBarController: UITabBarController
+
+    var tabBarController: NavigationMenuBaseController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
+    var programsNC = ProgramsCoordinator.getInstance().navigationController
     var tutorialsNC = TutorialsCoordinator.getInstance().navigationController
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
-    var programsNC = ProgramsCoordinator.getInstance().navigationController
-    //var classNC = ClassCoordinator.getInstance().navigationController
     var settingsNC = SettingsCoordinator.getInstance().navigationController
     
-    /*
-    enum screenEnum{
-        case ProgramScreen
-        case TutorialsScreen
-        case SettingsScreen
-        case AssignmentScreen
-    }
-    var currentScreen : screenEnum = .ProgramScreen
-     */
-    
     func start() {
+        let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(systemName: "terminal"), tag: 0)
         
-        let programTabBarItem =  UITabBarItem(title: "Create Program", image: UIImage(systemName: "plus.circle"), tag: 0)
+        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(systemName: "book"), tag: 1)
         
-        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(systemName: "questionmark.circle"), tag: 1)
-        
-        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(systemName: "equal.circle"), tag: 2)
+        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(systemName: "face.smiling"), tag: 2)
 
-        //let classTabBarItem =   UITabBarItem(title: "My Class", image: UIImage(systemName: "person.3.fill"), tag: 3)
+        let settingsTabBarItem =   UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 3)
         
-        let settingsTabBarItem =   UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 3)
+        /*
+        arrangeLayout(controller: programsNC)
+        arrangeLayout(controller: tutorialsNC)
+        arrangeLayout(controller: emojiAssignmentNC)
+        arrangeLayout(controller: settingsNC)
+        */
         
         programsNC.tabBarItem = programTabBarItem
         tutorialsNC.tabBarItem = tutorialsTabBarItem
         emojiAssignmentNC.tabBarItem = assignmentTabBarItem
-        //classNC.tabBarItem = classTabBarItem
         settingsNC.tabBarItem = settingsTabBarItem
         
         startChildren()
         tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, settingsNC]
         tabBarController.selectedIndex = 0
-        
-        
-        /*
-        startChildren()
-        navigationControllers = [programsNC, tutorialsNC, emojiAssignmentNC, settingsNC]
-        openScreen(screenName: currentScreen)
-         */
+
     }
     
     func startChildren(){
-            TutorialsCoordinator.getInstance().parentCoordinator = self
-            TutorialsCoordinator.getInstance().start()
+        ProgramsCoordinator.getInstance().parentCoordinator = self
+        ProgramsCoordinator.getInstance().start()
+    
+        TutorialsCoordinator.getInstance().parentCoordinator = self
+        TutorialsCoordinator.getInstance().start()
 
-            EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
-            EmojiAssignmentCoordinator.getInstance().start()
-                
-            ProgramsCoordinator.getInstance().parentCoordinator = self
-            ProgramsCoordinator.getInstance().start()
+        EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
+        EmojiAssignmentCoordinator.getInstance().start()
             
-            //ClassCoordinator.getInstance().parentCoordinator = self
-            //ClassCoordinator.getInstance().start()
-                
-            SettingsCoordinator.getInstance().parentCoordinator = self
-            SettingsCoordinator.getInstance().start()
-            
-        }
-    /*
-    func openScreen(screenName: screenEnum, pop: Bool = false){
-        var vc: Coordinated!
-        
-        switch screenName{
-        case .ProgramScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-        case .TutorialsScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "RegisterVC") as? RegisterVC
-        case .SettingsScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "ForgetPasswordVC") as? ForgetPasswordVC
-        case .AssignmentScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "ForgetPasswordVC") as? ForgetPasswordVC
-        }
-        
-        vc.coordinator = self
+        SettingsCoordinator.getInstance().parentCoordinator = self
+        SettingsCoordinator.getInstance().start()
     }
-    */
+    
+    func arrangeLayout(controller: UINavigationController){
+        NSLayoutConstraint.activate([controller.view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor, constant: 90)])
+    }
     
     private init(){
-        tabBarController = self.storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        tabBarController = self.storyboard.instantiateViewController(withIdentifier: "NavigationMenuBaseController") as! UITabBarController as! NavigationMenuBaseController
     }
     
     private static var instance:StudentCoordinator!

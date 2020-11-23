@@ -10,28 +10,34 @@ import UIKit
 class ProgramViewModel: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var codeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        
+        //contentView.translatesAutoresizingMaskIntoConstraints = false
              
+        /*
          NSLayoutConstraint.activate([
              contentView.leftAnchor.constraint(equalTo: leftAnchor),
              contentView.rightAnchor.constraint(equalTo: rightAnchor),
              contentView.topAnchor.constraint(equalTo: topAnchor),
              contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
          ])
+         */
     }
     
 
     @IBAction func editPressed(_ sender: UIButton) {
+    
     }
     
-    @IBAction func runPressed(_ sender: Any) {
+    @IBAction func runPressed(_ sender: UIButton) {
+    
     }
+    
     
     func configureView (codeModel: CodeModel) {
         nameLabel.text = codeModel.name

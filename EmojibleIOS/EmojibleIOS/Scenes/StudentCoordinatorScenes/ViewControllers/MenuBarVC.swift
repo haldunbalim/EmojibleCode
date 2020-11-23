@@ -19,14 +19,12 @@ class MenuBarVC: UIViewController, Coordinated {
         tabPressed(sender: tabs[selectedIndex])
     }
     
-    
     @IBAction func tabPressed(sender: UIButton){
         previousIndex = selectedIndex
         selectedIndex = sender.tag
         tabs[previousIndex!].isSelected = false
         sender.isSelected = true
     }
-    
     
 }
 

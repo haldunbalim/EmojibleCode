@@ -46,8 +46,9 @@ class ProgramsCoordinator: Coordinator {
     
     
     private init(){
-        navigationController = self.storyboard.instantiateViewController(withIdentifier: "NewCodeNavController") as! UINavigationController
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "ProgramsNavController") as! UINavigationController
     }
+    
     private static var instance: ProgramsCoordinator!
     public static func getInstance() -> ProgramsCoordinator{
         if(instance == nil){

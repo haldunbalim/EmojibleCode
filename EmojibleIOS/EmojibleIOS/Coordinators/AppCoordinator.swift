@@ -41,7 +41,6 @@ class AppCoordinator: Coordinator{
     }
     
     func start(){
-        
         if AuthenticationManager.getInstance().isUserLoggedIn(){
             UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
                 guard let userModel = userModel else {return}

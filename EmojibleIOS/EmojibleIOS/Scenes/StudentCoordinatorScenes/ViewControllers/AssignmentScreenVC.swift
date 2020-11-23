@@ -21,6 +21,7 @@ class AssignmentScreenVC: UIViewController, Coordinated{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Emoji Assignments"
         configureTableView()
         configureNavigationBar()
         configureAddVoiceAlert()

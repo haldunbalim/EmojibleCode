@@ -11,4 +11,8 @@ import UIKit
 class SettingsScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Settings"
+    }
 }

@@ -42,6 +42,11 @@
                         <state key="normal" title="View">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="editPressed:" destination="q9g-sS-rXV" eventType="touchUpInside" id="ONS-Yb-5Ma"/>
                         </connections>
@@ -56,6 +61,11 @@
                         <state key="normal" title="Run">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="runPressed:" destination="q9g-sS-rXV" eventType="touchUpInside" id="Sef-7l-dfz"/>
                         </connections>

@@ -55,6 +55,11 @@
 		8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */; };
 		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
 		8BE90D32255049A200A34B37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* UserModel.swift */; };
+		FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */; };
+		FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */; };
+		FC16BFF0256BDC1900180942 /* AddNewProgramProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFEF256BDC1900180942 /* AddNewProgramProtocol.swift */; };
+		FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */; };
+		FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */; };
 		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
 		FC7384212566A85C00432AC6 /* AddRemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* AddRemoveAlert.swift */; };
 		FC7384262566A87500432AC6 /* AddRemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* AddRemoveAlert.xib */; };
@@ -153,6 +158,11 @@
 		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramNewCodeViewModel.xib; sourceTree = "<group>"; };
+		FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramNewCodeViewModel.swift; sourceTree = "<group>"; };
+		FC16BFEF256BDC1900180942 /* AddNewProgramProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProgramProtocol.swift; sourceTree = "<group>"; };
+		FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuBaseController.swift; sourceTree = "<group>"; };
+		FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
 		FC7384202566A85C00432AC6 /* AddRemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveAlert.swift; sourceTree = "<group>"; };
 		FC7384252566A87500432AC6 /* AddRemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRemoveAlert.xib; sourceTree = "<group>"; };
@@ -286,6 +296,8 @@
 				8B7FF879255D69010043B0DB /* AssignmentViewModel.xib */,
 				FCBC737C25665C11006361F8 /* ProgramViewModel.swift */,
 				FCBC738125665C1F006361F8 /* ProgramViewModel.xib */,
+				FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */,
+				FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -419,6 +431,7 @@
 				8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */,
 				8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */,
 				8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */,
+				FC16BFEF256BDC1900180942 /* AddNewProgramProtocol.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -439,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
+				FC228F66256A567000A1A66F /* StudentNavigationMenu */,
 				8B7FF771255C7CDD0043B0DB /* ViewModels */,
 				8B15971B2550686B00E3E10A /* ViewControllers */,
 			);
@@ -460,6 +474,15 @@
 				8B1597142550672900E3E10A /* ViewControllers */,
 			);
 			path = AuthenticationCoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		FC228F66256A567000A1A66F /* StudentNavigationMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */,
+				FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */,
+			);
+			path = StudentNavigationMenu;
 			sourceTree = "<group>";
 		};
 		FC73841C25669D3400432AC6 /* ProgramTabViewConroller */ = {
@@ -643,6 +666,7 @@
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
 				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
 				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
+				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
 				FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
 				FC7384262566A87500432AC6 /* AddRemoveAlert.xib in Resources */,
@@ -795,10 +819,12 @@
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
 				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
 				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
+				FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */,
 				8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
+				FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */,
 				FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */,
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
 				8B7FF791255C830A0043B0DB /* ProgramsCoordinator.swift in Sources */,
@@ -817,8 +843,10 @@
 				FCCA5C79255469720018FC6D /* AssignmentModels.swift in Sources */,
 				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
 				8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */,
+				FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */,
 				8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */,
 				8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */,
+				FC16BFF0256BDC1900180942 /* AddNewProgramProtocol.swift in Sources */,
 				FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */,
 				8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */,
 				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,

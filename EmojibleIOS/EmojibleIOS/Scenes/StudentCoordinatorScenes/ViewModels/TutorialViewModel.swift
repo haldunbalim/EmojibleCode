@@ -14,14 +14,17 @@ class TutorialViewModel: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-             
+        self.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        
+        //contentView.translatesAutoresizingMaskIntoConstraints = false
+         /*
          NSLayoutConstraint.activate([
              contentView.leftAnchor.constraint(equalTo: leftAnchor),
              contentView.rightAnchor.constraint(equalTo: rightAnchor),
              contentView.topAnchor.constraint(equalTo: topAnchor),
              contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
          ])
+        */
     }
     
     @IBAction func viewPressed(_ sender: UIButton) {
