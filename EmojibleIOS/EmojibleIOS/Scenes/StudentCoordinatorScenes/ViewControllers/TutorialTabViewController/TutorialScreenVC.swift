@@ -23,62 +23,73 @@ class TutorialScreenVC: UIViewController, Coordinated {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Tutorials"
+        configureNavigationBar()
         configureCollectionView()
+    }
+    
+    func configureNavigationBar(){
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func configureCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         collectionView.register(UINib(nibName: "TutorialViewModel", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier)
 
         NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 90),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH),
             collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
 }
 
+
+//MARK: - CollectionView methods
+
 extension TutorialScreenVC: UICollectionViewDelegate{
+
 }
 
 extension TutorialScreenVC: UICollectionViewDelegateFlowLayout{
+
 }
 
 extension TutorialScreenVC: UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        //return tutorials.count % 2 == 0 ? tutorials.count/2: Int(tutorials.count/2) + 1
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        /*
-        if tutorials.count % 2 == 0 {
-            return 2
-        }
-        else {
-            let numberOfSections = Int(tutorials.count/2) + 1
-            return section == numberOfSections - 1 ? 1 : 2
-        }
-         */
         return tutorials.count
+    }
+   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20.0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    
         let cellHeight = (self.collectionView.frame.height - 40) / CGFloat(2)
         let cellWidht = (self.collectionView.frame.width - 40) / CGFloat(2)
- 
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TutorialViewModel {
         
-            cell.configureView(codeModel: tutorials[indexPath.section * 2 + indexPath.row])
+            cell.configureView(codeModel: tutorials[indexPath.row])
            
             NSLayoutConstraint.activate([
                 cell.heightAnchor.constraint(equalToConstant: cellHeight),
-                cell.widthAnchor.constraint(equalToConstant: cellWidht),
-            ])
+                cell.widthAnchor.constraint(equalToConstant: cellWidht)])
+            
+            cell.viewDelegate = self
+            cell.runDelegate = self
             
             return cell
         }
@@ -86,10 +97,19 @@ extension TutorialScreenVC: UICollectionViewDataSource{
             return UICollectionViewCell()
         }
     }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0
-    }
- 
 }
+
+//MARK: - Button Action Protocols
+extension TutorialScreenVC:TutorialTabButtonAction{
+    func viewAction(title: String, code: String) {
+        (self.coordinator as! TutorialsCoordinator).tutorialTitle = title
+        (self.coordinator as! TutorialsCoordinator).tutorialCode = code
+        (self.coordinator as! TutorialsCoordinator).openScreen(screenName: .TutorialCodeScreen)
+    }
+    
+    func runAction() {
+        
+    }
+}
+
+

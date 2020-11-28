@@ -11,6 +11,7 @@ import UIKit
 class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
     var pleaseWaitAlert: UIAlertController?
     var coordinator: Coordinator?
+    
     @IBOutlet weak var classCodeTextField: UITextField!
     @IBOutlet weak var classPasswordTextField: UITextField!
     
@@ -25,7 +26,5 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
             showMessagePrompt("Class Password cannot be empty", vcToBePresented: self)
             return
         }
-        
-        
     }
 }

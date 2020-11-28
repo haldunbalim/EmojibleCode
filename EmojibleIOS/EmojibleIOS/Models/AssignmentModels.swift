@@ -36,6 +36,10 @@ class AssignmentModel: Equatable, Hashable, CustomStringConvertible{
         return value.value
     }
     
+    func setValue(value: Any){
+        self.value = Value(value: value)
+    }
+    
     var type: ValueType{
         return self.value.type
     }

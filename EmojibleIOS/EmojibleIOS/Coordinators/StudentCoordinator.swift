@@ -19,6 +19,7 @@ class StudentCoordinator: Coordinator {
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
     var settingsNC = SettingsCoordinator.getInstance().navigationController
     
+    
     func start() {
         let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(systemName: "terminal"), tag: 0)
         
@@ -28,25 +29,20 @@ class StudentCoordinator: Coordinator {
 
         let settingsTabBarItem =   UITabBarItem(title: "Settings", image: UIImage(systemName: "person"), tag: 3)
         
-        /*
-        arrangeLayout(controller: programsNC)
-        arrangeLayout(controller: tutorialsNC)
-        arrangeLayout(controller: emojiAssignmentNC)
-        arrangeLayout(controller: settingsNC)
-        */
         
         programsNC.tabBarItem = programTabBarItem
         tutorialsNC.tabBarItem = tutorialsTabBarItem
         emojiAssignmentNC.tabBarItem = assignmentTabBarItem
         settingsNC.tabBarItem = settingsTabBarItem
         
-        startChildren()
         tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, settingsNC]
         tabBarController.selectedIndex = 0
-
+        
+        startChildren()
     }
     
     func startChildren(){
+        
         ProgramsCoordinator.getInstance().parentCoordinator = self
         ProgramsCoordinator.getInstance().start()
     
@@ -55,13 +51,10 @@ class StudentCoordinator: Coordinator {
 
         EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         EmojiAssignmentCoordinator.getInstance().start()
-            
+        
         SettingsCoordinator.getInstance().parentCoordinator = self
         SettingsCoordinator.getInstance().start()
-    }
-    
-    func arrangeLayout(controller: UINavigationController){
-        NSLayoutConstraint.activate([controller.view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor, constant: 90)])
+ 
     }
     
     private init(){

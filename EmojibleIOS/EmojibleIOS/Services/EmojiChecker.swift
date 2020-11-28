@@ -19,4 +19,9 @@ class EmojiChecker{
     func isValidIdentifier(_ identifier:String) -> Bool{
         return true
     }
+    
+    func getAvailableEmojis() -> [String] {
+        return Constants.EMOJI_LIST
+    }
+    
 }

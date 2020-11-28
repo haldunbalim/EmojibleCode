@@ -13,9 +13,12 @@ class ProgramsCoordinator: Coordinator {
     var navigationController: UINavigationController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
+    var programTitle: String?
+    var programCode: String?
 
     enum screenEnum{
         case ProgramScreen
+        case SavedCodeScreen
         case CodingScreen
     }
     
@@ -35,6 +38,8 @@ class ProgramsCoordinator: Coordinator {
             vc = self.storyboard.instantiateViewController(withIdentifier: "ProgramScreenVC") as? ProgramScreenVC
         case .CodingScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "CodingScreenVC") as? CodingScreenVC
+        case .SavedCodeScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "SavedProgramCodeScreenVC") as? SavedProgramCodeScreenVC
         }
         
         vc.coordinator = self
@@ -44,6 +49,9 @@ class ProgramsCoordinator: Coordinator {
         currentScreen = screenName
     }
     
+    func pop(){
+        navigationController.popViewController(animated: true)
+    }
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "ProgramsNavController") as! UINavigationController

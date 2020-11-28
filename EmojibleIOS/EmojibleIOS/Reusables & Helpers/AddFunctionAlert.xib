@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFunctionAlert" customModule="EmojibleIOS" customModuleProvider="target">
             <connections>
                 <outlet property="alertView" destination="BAn-kj-x1A" id="KSx-br-3hO"/>
-                <outlet property="identifierTextField" destination="qEB-TI-g0i" id="MKO-Ox-W6f"/>
                 <outlet property="valueTextField" destination="wlm-dd-gbc" id="GoX-Ag-T4p"/>
                 <outlet property="view" destination="hTg-JQ-snH" id="FVN-Bl-Gah"/>
             </connections>
@@ -28,27 +27,21 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vxn-1S-NAo">
                             <rect key="frame" x="20" y="20" width="160" height="160"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qEB-TI-g0i">
-                                    <rect key="frame" x="0.0" y="0.0" width="160" height="42.5"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wlm-dd-gbc">
-                                    <rect key="frame" x="0.0" y="42.5" width="160" height="42.5"/>
+                                    <rect key="frame" x="5" y="0.0" width="150" height="58"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfu-TS-zQ0">
-                                    <rect key="frame" x="57" y="85" width="46" height="37.5"/>
+                                    <rect key="frame" x="57" y="58" width="46" height="51"/>
                                     <state key="normal" title="Assign"/>
                                     <connections>
                                         <action selector="assignButtonOnPress:" destination="-1" eventType="touchUpInside" id="2BD-7J-P1w"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-B1-2f1">
-                                    <rect key="frame" x="56" y="122.5" width="48" height="37.5"/>
+                                    <rect key="frame" x="56" y="109" width="48" height="51"/>
                                     <state key="normal" title="Cancel"/>
                                     <connections>
                                         <action selector="cancelButtonOnPress:" destination="-1" eventType="touchUpInside" id="7Z0-fO-WKG"/>
@@ -56,9 +49,8 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="qEB-TI-g0i" secondAttribute="trailing" id="6oU-cF-YPQ"/>
-                                <constraint firstItem="wlm-dd-gbc" firstAttribute="width" secondItem="qEB-TI-g0i" secondAttribute="width" id="KNK-xW-NRZ"/>
-                                <constraint firstItem="qEB-TI-g0i" firstAttribute="leading" secondItem="Vxn-1S-NAo" secondAttribute="leading" id="OfF-ee-fH4"/>
+                                <constraint firstItem="wlm-dd-gbc" firstAttribute="leading" secondItem="Vxn-1S-NAo" secondAttribute="leading" constant="5" id="2uX-iV-9bw"/>
+                                <constraint firstAttribute="trailing" secondItem="wlm-dd-gbc" secondAttribute="trailing" constant="5" id="pMG-8P-gxJ"/>
                             </constraints>
                         </stackView>
                     </subviews>

@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 import SwipeCellKit
 
-class AssignmentViewModel: SwipeTableViewCell{
+class AssignmentViewModel: UICollectionViewCell{
+    
+    var editDelegate: AssignmentTabAssignmentSectionAction?
+    var trashDelegate: AssignmentTabAssignmentSectionAction?
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var listenButton: UIButton!
@@ -25,7 +28,6 @@ class AssignmentViewModel: SwipeTableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     @IBAction func listenButtonOnPress(_ sender: Any) {
@@ -33,10 +35,10 @@ class AssignmentViewModel: SwipeTableViewCell{
     }
     
     @IBAction func editButtonOnPress(_ sender: UIButton) {
-    
+        editDelegate?.editAction(assignment: self.model)
     }
     
     @IBAction func trashButtonOnPress(_ sender: UIButton) {
-    
+        trashDelegate?.trashAction(assignment: self.model)
     }
 }

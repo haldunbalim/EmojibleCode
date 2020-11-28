@@ -34,7 +34,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTU-oU-3rJ">
                         <rect key="frame" x="5" y="141" width="40" height="20"/>
-                        <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.77254901960784317" green="0.38039215686274508" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="jVa-3p-hPC"/>
                             <constraint firstAttribute="width" constant="40" id="oJi-Oi-7VP"/>
@@ -53,7 +53,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOX-tc-Yah">
                         <rect key="frame" x="50" y="141" width="40" height="20"/>
-                        <color key="backgroundColor" red="0.60392156860000001" green="0.70196078429999997" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.77254901960784317" green="0.38039215686274508" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="PDw-io-bVB"/>
                             <constraint firstAttribute="height" constant="20" id="yFt-XV-Ksp"/>

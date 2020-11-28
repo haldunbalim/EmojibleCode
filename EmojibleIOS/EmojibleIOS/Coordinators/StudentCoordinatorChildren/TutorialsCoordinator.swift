@@ -13,9 +13,12 @@ class TutorialsCoordinator: Coordinator {
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
-
+    var tutorialTitle: String?
+    var tutorialCode: String?
+    
     enum screenEnum{
         case TutorialScreen
+        case TutorialCodeScreen
     }
     
     var currentScreen: screenEnum = .TutorialScreen
@@ -31,6 +34,9 @@ class TutorialsCoordinator: Coordinator {
         switch screenName{
         case .TutorialScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialScreenVC") as? TutorialScreenVC
+        
+        case .TutorialCodeScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialCodeScreenVC") as? TutorialCodeScreenVC
         }
         
         vc.coordinator = self
@@ -38,6 +44,9 @@ class TutorialsCoordinator: Coordinator {
         if pop { navigationController.popViewController(animated: true) }
         navigationController.pushViewController(vc as! UIViewController, animated: true)
         currentScreen = screenName
+    }
+    func pop(){
+        navigationController.popViewController(animated: true)
     }
     
     

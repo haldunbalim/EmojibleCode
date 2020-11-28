@@ -45,5 +45,4 @@ class CustomAlertViewController: UIViewController{
         self.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         viewController.present(self, animated: true, completion: nil)
     }
-    
 }

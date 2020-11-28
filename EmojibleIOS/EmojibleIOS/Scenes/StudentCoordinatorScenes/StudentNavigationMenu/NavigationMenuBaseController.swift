@@ -10,7 +10,7 @@ import UIKit
 class NavigationMenuBaseController: UITabBarController, UITabBarControllerDelegate {
     
     var customTabBar: TabNavigationMenu!
-    var tabBarWidth: CGFloat = 90.0
+    var tabBarWidth: CGFloat = Constants.TAB_BAR_WIDTH
     
     override func viewDidLoad() {
         super.viewDidLoad()

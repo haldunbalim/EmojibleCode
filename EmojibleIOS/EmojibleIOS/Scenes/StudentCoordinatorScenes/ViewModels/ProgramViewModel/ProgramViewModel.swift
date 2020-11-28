@@ -1,39 +1,38 @@
 //
-//  CollectionViewCell.swift
+//  CodeViewModel.swift
 //  EmojibleIOS
 //
-//  Created by Furkan Yakal on 5.11.2020.
+//  Created by Furkan Yakal on 19.11.2020.
 //
 
 import UIKit
 
-class TutorialViewModel: UICollectionViewCell {
+class ProgramViewModel: UICollectionViewCell {
+    
+    var editDelegate: ProgramTabButtonAction?
+    var runDelegate: ProgramTabButtonAction?
+    var trashDelegate: ProgramTabButtonAction?
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
-        
-        //contentView.translatesAutoresizingMaskIntoConstraints = false
-         /*
-         NSLayoutConstraint.activate([
-             contentView.leftAnchor.constraint(equalTo: leftAnchor),
-             contentView.rightAnchor.constraint(equalTo: rightAnchor),
-             contentView.topAnchor.constraint(equalTo: topAnchor),
-             contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-         ])
-        */
+        self.backgroundColor = #colorLiteral(red: 0.7525274158, green: 0.8178007007, blue: 0.9784051776, alpha: 1)
     }
     
-    @IBAction func viewPressed(_ sender: UIButton) {
-    
+    @IBAction func editPressed(_ sender: UIButton) {
+        editDelegate?.editAction(title: nameLabel.text ?? "", code: codeLabel.text ?? "")
     }
     
-    @IBAction func runPressed(_ sender: Any) {
-    
+    @IBAction func runPressed(_ sender: UIButton) {
+        runDelegate?.runAction()
     }
+    
+    @IBAction func trashPressed(_ sender: UIButton) {
+        trashDelegate?.trashAction()
+    }
+    
     
     func configureView (codeModel: CodeModel) {
         nameLabel.text = codeModel.name

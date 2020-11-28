@@ -33,7 +33,6 @@
 		8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */; };
 		8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF866255D65580043B0DB /* GlobalMemory.swift */; };
 		8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */; };
-		8B7FF87A255D69010043B0DB /* AssignmentViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B7FF879255D69010043B0DB /* AssignmentViewModel.xib */; };
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
 		8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */; };
@@ -57,12 +56,22 @@
 		8BE90D32255049A200A34B37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* UserModel.swift */; };
 		FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */; };
 		FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */; };
-		FC16BFF0256BDC1900180942 /* AddNewProgramProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFEF256BDC1900180942 /* AddNewProgramProtocol.swift */; };
+		FC16BFFB256C074D00180942 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFFA256C074C00180942 /* Constants.swift */; };
+		FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */; };
+		FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16C017256C2E9E00180942 /* VariablesViewModel.xib */; };
+		FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */; };
 		FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */; };
 		FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */; };
+		FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */; };
+		FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */; };
+		FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57E7DF256FA65100584686 /* TabProtocols.swift */; };
 		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
-		FC7384212566A85C00432AC6 /* AddRemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* AddRemoveAlert.swift */; };
-		FC7384262566A87500432AC6 /* AddRemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* AddRemoveAlert.xib */; };
+		FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* RemoveAlert.swift */; };
+		FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* RemoveAlert.xib */; };
+		FC7D1CFB2571724100DD6B4C /* EditAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D1CFA2571724100DD6B4C /* EditAlert.swift */; };
+		FC7D1D002571725900DD6B4C /* EditAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7D1CFF2571725900DD6B4C /* EditAlert.xib */; };
+		FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */; };
+		FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */; };
 		FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* StudentApp.storyboard */; };
 		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
@@ -73,7 +82,9 @@
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
 		FC9C42BE254AE88D0061E220 /* EmojibleIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */; };
 		FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */; };
-		FCBC73652565A0FC006361F8 /* MenuBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC73642565A0FC006361F8 /* MenuBarVC.swift */; };
+		FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */; };
+		FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */; };
+		FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */; };
 		FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */; };
 		FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */; };
 		FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC737C25665C11006361F8 /* ProgramViewModel.swift */; };
@@ -132,7 +143,6 @@
 		8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		8B7FF866255D65580043B0DB /* GlobalMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMemory.swift; sourceTree = "<group>"; };
 		8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewModel.swift; sourceTree = "<group>"; };
-		8B7FF879255D69010043B0DB /* AssignmentViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentViewModel.xib; sourceTree = "<group>"; };
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewModel.xib; sourceTree = "<group>"; };
@@ -160,12 +170,22 @@
 		EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramNewCodeViewModel.xib; sourceTree = "<group>"; };
 		FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramNewCodeViewModel.swift; sourceTree = "<group>"; };
-		FC16BFEF256BDC1900180942 /* AddNewProgramProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProgramProtocol.swift; sourceTree = "<group>"; };
+		FC16BFFA256C074C00180942 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentViewModel.xib; sourceTree = "<group>"; };
+		FC16C017256C2E9E00180942 /* VariablesViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariablesViewModel.xib; sourceTree = "<group>"; };
+		FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesViewModel.swift; sourceTree = "<group>"; };
 		FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuBaseController.swift; sourceTree = "<group>"; };
 		FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
+		FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCodeScreenVC.swift; sourceTree = "<group>"; };
+		FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProgramCodeScreenVC.swift; sourceTree = "<group>"; };
+		FC57E7DF256FA65100584686 /* TabProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProtocols.swift; sourceTree = "<group>"; };
 		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
-		FC7384202566A85C00432AC6 /* AddRemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveAlert.swift; sourceTree = "<group>"; };
-		FC7384252566A87500432AC6 /* AddRemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRemoveAlert.xib; sourceTree = "<group>"; };
+		FC7384202566A85C00432AC6 /* RemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAlert.swift; sourceTree = "<group>"; };
+		FC7384252566A87500432AC6 /* RemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveAlert.xib; sourceTree = "<group>"; };
+		FC7D1CFA2571724100DD6B4C /* EditAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlert.swift; sourceTree = "<group>"; };
+		FC7D1CFF2571725900DD6B4C /* EditAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAlert.xib; sourceTree = "<group>"; };
+		FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentAlert.xib; sourceTree = "<group>"; };
+		FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAlert.swift; sourceTree = "<group>"; };
 		FC80F06A2553584300B5B86B /* StudentApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentApp.storyboard; sourceTree = "<group>"; };
 		FC80F0742553DCDA00B5B86B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
@@ -182,7 +202,9 @@
 		FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojibleIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibleIOSUITests.swift; sourceTree = "<group>"; };
 		FC9C42CA254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCBC73642565A0FC006361F8 /* MenuBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarVC.swift; sourceTree = "<group>"; };
+		FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentSection.swift; sourceTree = "<group>"; };
+		FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSection.swift; sourceTree = "<group>"; };
 		FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFunctionAlert.swift; sourceTree = "<group>"; };
 		FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFunctionAlert.xib; sourceTree = "<group>"; };
 		FCBC737C25665C11006361F8 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
@@ -260,12 +282,11 @@
 			isa = PBXGroup;
 			children = (
 				FC73841C25669D3400432AC6 /* ProgramTabViewConroller */,
-				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
-				FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */,
+				FC259E1B256FE1A50066E02A /* TutorialTabViewController */,
+				FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */,
 				8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */,
 				8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */,
 				8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */,
-				FCBC73642565A0FC006361F8 /* MenuBarVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,14 +311,9 @@
 		8B7FF771255C7CDD0043B0DB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				FCCA5C53255448180018FC6D /* TutorialViewModel.swift */,
-				8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */,
-				8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */,
-				8B7FF879255D69010043B0DB /* AssignmentViewModel.xib */,
-				FCBC737C25665C11006361F8 /* ProgramViewModel.swift */,
-				FCBC738125665C1F006361F8 /* ProgramViewModel.xib */,
-				FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */,
-				FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */,
+				FC16C015256C2E4800180942 /* ProgramViewModel */,
+				FC16C00D256C2DDF00180942 /* TutorialViewModel */,
+				FC16C00E256C2DF100180942 /* AssignmentViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -342,8 +358,13 @@
 				FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */,
 				FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */,
 				8BDC8FD2255EAF0400A2E229 /* IBInspectables.swift */,
-				FC7384202566A85C00432AC6 /* AddRemoveAlert.swift */,
-				FC7384252566A87500432AC6 /* AddRemoveAlert.xib */,
+				FC7384202566A85C00432AC6 /* RemoveAlert.swift */,
+				FC7384252566A87500432AC6 /* RemoveAlert.xib */,
+				FC7D1CFA2571724100DD6B4C /* EditAlert.swift */,
+				FC7D1CFF2571725900DD6B4C /* EditAlert.xib */,
+				FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */,
+				FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */,
+				FC16BFFA256C074C00180942 /* Constants.swift */,
 			);
 			path = "Reusables & Helpers";
 			sourceTree = "<group>";
@@ -431,7 +452,7 @@
 				8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */,
 				8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */,
 				8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */,
-				FC16BFEF256BDC1900180942 /* AddNewProgramProtocol.swift */,
+				FC57E7DF256FA65100584686 /* TabProtocols.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -476,6 +497,37 @@
 			path = AuthenticationCoordinatorScenes;
 			sourceTree = "<group>";
 		};
+		FC16C00D256C2DDF00180942 /* TutorialViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C53255448180018FC6D /* TutorialViewModel.swift */,
+				8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */,
+			);
+			path = TutorialViewModel;
+			sourceTree = "<group>";
+		};
+		FC16C00E256C2DF100180942 /* AssignmentViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */,
+				FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */,
+				FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */,
+				FC16C017256C2E9E00180942 /* VariablesViewModel.xib */,
+			);
+			path = AssignmentViewModel;
+			sourceTree = "<group>";
+		};
+		FC16C015256C2E4800180942 /* ProgramViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCBC737C25665C11006361F8 /* ProgramViewModel.swift */,
+				FCBC738125665C1F006361F8 /* ProgramViewModel.xib */,
+				FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */,
+				FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */,
+			);
+			path = ProgramViewModel;
+			sourceTree = "<group>";
+		};
 		FC228F66256A567000A1A66F /* StudentNavigationMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,11 +537,21 @@
 			path = StudentNavigationMenu;
 			sourceTree = "<group>";
 		};
+		FC259E1B256FE1A50066E02A /* TutorialTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
+				FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */,
+			);
+			path = TutorialTabViewController;
+			sourceTree = "<group>";
+		};
 		FC73841C25669D3400432AC6 /* ProgramTabViewConroller */ = {
 			isa = PBXGroup;
 			children = (
 				FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */,
 				FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */,
+				FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */,
 			);
 			path = ProgramTabViewConroller;
 			sourceTree = "<group>";
@@ -548,6 +610,25 @@
 				FC9C42CA254AE88D0061E220 /* Info.plist */,
 			);
 			path = EmojibleIOSUITests;
+			sourceTree = "<group>";
+		};
+		FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */,
+				FCA9A4A6256EEE75009F81B5 /* Helpers */,
+			);
+			path = AssignmentsTabViewController;
+			sourceTree = "<group>";
+		};
+		FCA9A4A6256EEE75009F81B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */,
+				FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */,
+				FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -658,18 +739,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
-				8B7FF87A255D69010043B0DB /* AssignmentViewModel.xib in Resources */,
 				8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */,
 				FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
+				FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
 				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
 				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
 				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
 				FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
-				FC7384262566A87500432AC6 /* AddRemoveAlert.xib in Resources */,
+				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,
+				FC7D1D002571725900DD6B4C /* EditAlert.xib in Resources */,
+				FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */,
 				8BDC8FF7255ECE5600A2E229 /* AddTextAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,6 +887,7 @@
 				8B7FF80F255D4A880043B0DB /* ClassesDataSource.swift in Sources */,
 				8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */,
 				8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */,
+				FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */,
 				FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */,
 				8BDC9009255ED4FC00A2E229 /* AudioRecorder.swift in Sources */,
 				8BE90D32255049A200A34B37 /* UserModel.swift in Sources */,
@@ -815,12 +900,14 @@
 				8BDC8FE7255ECB4F00A2E229 /* CustomAlertViewController.swift in Sources */,
 				8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */,
 				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
+				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
 				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
 				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
 				FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */,
 				8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */,
+				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
@@ -828,12 +915,18 @@
 				FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */,
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
 				8B7FF791255C830A0043B0DB /* ProgramsCoordinator.swift in Sources */,
-				FC7384212566A85C00432AC6 /* AddRemoveAlert.swift in Sources */,
-				FCBC73652565A0FC006361F8 /* MenuBarVC.swift in Sources */,
+				FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */,
 				FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */,
+				FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */,
 				FCCA5C54255448180018FC6D /* TutorialViewModel.swift in Sources */,
 				8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */,
+				FC16BFFB256C074D00180942 /* Constants.swift in Sources */,
+				FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */,
+				FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */,
+				FC7D1CFB2571724100DD6B4C /* EditAlert.swift in Sources */,
 				FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */,
+				FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */,
+				FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */,
 				8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */,
 				8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */,
 				8B7FF79C255C91740043B0DB /* ClassScreenVC.swift in Sources */,
@@ -846,7 +939,6 @@
 				FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */,
 				8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */,
 				8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */,
-				FC16BFF0256BDC1900180942 /* AddNewProgramProtocol.swift in Sources */,
 				FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */,
 				8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */,
 				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,

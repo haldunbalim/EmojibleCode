@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTextAlert" customModule="EmojibleIOS" customModuleProvider="target">
             <connections>
                 <outlet property="alertView" destination="kMY-F1-IIV" id="2vK-fy-ZlX"/>
-                <outlet property="identifierTextField" destination="FCx-KX-vba" id="aEb-UV-pZ2"/>
                 <outlet property="valueTextField" destination="mPJ-Jw-SSP" id="Wqk-jP-zbt"/>
                 <outlet property="view" destination="9OP-8L-OVG" id="CEM-UT-Q4u"/>
             </connections>
@@ -28,27 +27,21 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-c8-AdD">
                             <rect key="frame" x="20" y="20" width="160" height="160"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCx-KX-vba">
-                                    <rect key="frame" x="0.0" y="0.0" width="160" height="42.5"/>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPJ-Jw-SSP">
-                                    <rect key="frame" x="0.0" y="42.5" width="160" height="42.5"/>
+                                    <rect key="frame" x="5" y="0.0" width="150" height="58"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7a-sO-3Tl">
-                                    <rect key="frame" x="57" y="85" width="46" height="37.5"/>
+                                    <rect key="frame" x="57" y="58" width="46" height="51"/>
                                     <state key="normal" title="Assign"/>
                                     <connections>
                                         <action selector="assignButtonOnPress:" destination="-1" eventType="touchUpInside" id="Yi4-21-yJ1"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjU-fq-TTS">
-                                    <rect key="frame" x="56" y="122.5" width="48" height="37.5"/>
+                                    <rect key="frame" x="56" y="109" width="48" height="51"/>
                                     <state key="normal" title="Cancel"/>
                                     <connections>
                                         <action selector="cancelButtonOnPress:" destination="-1" eventType="touchUpInside" id="N90-wY-D3d"/>
@@ -56,9 +49,8 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="mPJ-Jw-SSP" firstAttribute="width" secondItem="FCx-KX-vba" secondAttribute="width" id="HP1-2a-Nz3"/>
-                                <constraint firstAttribute="trailing" secondItem="FCx-KX-vba" secondAttribute="trailing" id="MM4-gN-wr1"/>
-                                <constraint firstItem="FCx-KX-vba" firstAttribute="leading" secondItem="QQ1-c8-AdD" secondAttribute="leading" id="T29-lM-0uf"/>
+                                <constraint firstAttribute="trailing" secondItem="mPJ-Jw-SSP" secondAttribute="trailing" constant="5" id="hgX-3m-ZUa"/>
+                                <constraint firstItem="mPJ-Jw-SSP" firstAttribute="leading" secondItem="QQ1-c8-AdD" secondAttribute="leading" constant="5" id="tWB-PM-h4X"/>
                             </constraints>
                         </stackView>
                     </subviews>

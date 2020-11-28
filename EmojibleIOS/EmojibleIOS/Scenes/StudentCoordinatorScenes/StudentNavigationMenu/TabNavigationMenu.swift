@@ -95,7 +95,7 @@ class TabNavigationMenu: UIView {
     
     
     @objc func handleTap(_ sender: UIGestureRecognizer) {
-            self.switchTab(from: self.activeItem, to: sender.view!.tag)
+        self.switchTab(from: self.activeItem, to: sender.view!.tag)
     }
     
     func switchTab(from: Int, to: Int) {
