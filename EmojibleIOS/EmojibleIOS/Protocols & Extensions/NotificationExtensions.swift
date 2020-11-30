@@ -11,5 +11,6 @@ extension Notification.Name{
     static let userModelChanged = Notification.Name(rawValue: "userModelChanged")
     static let authStateChanged = Notification.Name(rawValue: "authStateChanged")
     static let assignmentsChanged = Notification.Name(rawValue: "assignmentsChanged")
+    static let defaultTutorialsChanged = Notification.Name(rawValue: "defaultTutorialsChanged")
 
 }

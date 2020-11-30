@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>945676076395-410gmf7403b4ddg25h16s519q9l7n4ut.apps.googleusercontent.com</string>
+	<string>293053743528-ukac83e09vrtpl75sfkl7r9alrie88ut.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.945676076395-410gmf7403b4ddg25h16s519q9l7n4ut</string>
+	<string>com.googleusercontent.apps.293053743528-ukac83e09vrtpl75sfkl7r9alrie88ut</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAWdgJk2smEYjEs8aP8CZ4u1xBvw8iefsk</string>
+	<string>AIzaSyA47YgCgzymKthzzFT-sZT3w2mGsdyXAKY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>945676076395</string>
+	<string>293053743528</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.EmojibleIOS.EmojibleIOS</string>
+	<string>com.EmojibleIOS.EmojibleIOS.COMP491</string>
 	<key>PROJECT_ID</key>
-	<string>emojiblec</string>
+	<string>emojible-be1c2</string>
 	<key>STORAGE_BUCKET</key>
-	<string>emojiblec.appspot.com</string>
+	<string>emojible-be1c2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:945676076395:ios:184778c1e5ee6cdee9f82e</string>
+	<string>1:293053743528:ios:6749d29443228094addd9d</string>
 	<key>DATABASE_URL</key>
-	<string>https://emojiblec.firebaseio.com</string>
+	<string>https://emojible-be1c2.firebaseio.com</string>
 </dict>
 </plist>

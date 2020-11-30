@@ -15,7 +15,6 @@ class NavigationMenuBaseController: UITabBarController, UITabBarControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        loadTabBar()
     }
     
     public func loadTabBar() {

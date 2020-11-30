@@ -95,14 +95,14 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
                     self.hideSpinner()
                     showMessagePrompt(error, vcToBePresented: self)
                 }else{
+                    let birthdate = CustomDateFormatter.getInstance().getDateFromString(from: birthDate)
+                    guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
+                    UserDataSource.getInstance().writeUserData(user:UserFactory.getInstance().create(userType:coordinator.registeringUserType!,email:email,name:name,surname:surname,birthDate:birthdate))
                     AuthenticationManager.getInstance().signInWithEmailAndPassword(email: email, password:password){[unowned self] error in
                         if let error = error {
                             self.hideSpinner()
                             showMessagePrompt(error, vcToBePresented: self)
                         }else{
-                            let birthdate = CustomDateFormatter.getInstance().getDateFromString(from: birthDate)
-                            guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
-                            UserDataSource.getInstance().writeUserData(user:UserFactory.getInstance().create(userType:coordinator.registeringUserType!,email:email,name:name,surname:surname,birthDate:birthdate))
                             self.hideSpinner()
                         }
                     }

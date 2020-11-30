@@ -11,7 +11,7 @@ private let reuseIdentifier = "TutorialScreenCell"
 
 class TutorialScreenVC: UIViewController, Coordinated {
     var coordinator: Coordinator?
-    var tutorials = TutorialDataSource.getInstance().getTutorials()
+    var tutorials: [CodeModel] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
@@ -25,6 +25,15 @@ class TutorialScreenVC: UIViewController, Coordinated {
         self.title = "Tutorials"
         configureNavigationBar()
         configureCollectionView()
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .defaultTutorialsChanged, object: nil)
+        TutorialDataSource.getInstance().startObservingDefaultTutorials()
+
+    }
+    
+    @objc func notify(_ notification: NSNotification){
+        guard let defaultTutorials = notification.userInfo?["defaultTutorials"] else { return }
+        tutorials = defaultTutorials as! [CodeModel]
+        collectionView.reloadData()
     }
     
     func configureNavigationBar(){

@@ -35,6 +35,7 @@
 		8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */; };
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
+		8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CF22225753B7000743E8E /* GoogleService-Info.plist */; };
 		8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */; };
 		8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */; };
 		8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */; };
@@ -76,7 +77,6 @@
 		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
 		FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */; };
-		FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */; };
 		FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42A6254AE8890061E220 /* AppDelegate.swift */; };
 		FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42AF254AE88D0061E220 /* Assets.xcassets */; };
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
@@ -145,6 +145,7 @@
 		8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewModel.swift; sourceTree = "<group>"; };
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8B9CF22225753B7000743E8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewModel.xib; sourceTree = "<group>"; };
 		8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousCodeDataSource.swift; sourceTree = "<group>"; };
 		8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceAlert.swift; sourceTree = "<group>"; };
@@ -190,7 +191,6 @@
 		FC80F0742553DCDA00B5B86B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramScreenVC.swift; sourceTree = "<group>"; };
-		FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC9C42A3254AE8890061E220 /* EmojibleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojibleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42A6254AE8890061E220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9C42AF254AE88D0061E220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -388,7 +388,7 @@
 		8BE90CA1255037A000A34B37 /* Default Files */ = {
 			isa = PBXGroup;
 			children = (
-				FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */,
+				8B9CF22225753B7000743E8E /* GoogleService-Info.plist */,
 				FC9C42A6254AE8890061E220 /* AppDelegate.swift */,
 				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
 				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
@@ -742,13 +742,13 @@
 				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
 				8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */,
-				FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
 				FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
 				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
 				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
 				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
+				8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */,
 				FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
 				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,

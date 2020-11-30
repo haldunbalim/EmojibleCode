@@ -38,6 +38,7 @@ class StudentCoordinator: Coordinator {
         tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, settingsNC]
         tabBarController.selectedIndex = 0
         
+        tabBarController.loadTabBar()
         startChildren()
     }
     
