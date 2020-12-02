@@ -10,6 +10,7 @@ import UIKit
 class TutorialViewModel: UICollectionViewCell {
     var viewDelegate: TutorialTabButtonAction?
     var runDelegate: TutorialTabButtonAction?
+    var codeModel: CodeModel?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
@@ -20,12 +21,15 @@ class TutorialViewModel: UICollectionViewCell {
     }
     
     func configureView (codeModel: CodeModel) {
+        self.codeModel = codeModel
         nameLabel.text = codeModel.name
         codeLabel.text = removeComments(codeModel.code)
     }
     
     @IBAction func viewPressed(_ sender: UIButton) {
-        viewDelegate?.viewAction(title: nameLabel.text ?? "", code: codeLabel.text ?? "")
+        if let model = self.codeModel {
+            viewDelegate?.viewAction(title: model.name, code: model.code)
+        }
     }
     
     @IBAction func runPressed(_ sender: UIButton) {

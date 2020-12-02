@@ -10,8 +10,9 @@ import UIKit
 
 class SavedProgramCodeScreenVC: UIViewController, Coordinated {
     var coordinator: Coordinator?
+    var programModel: CodeModel?
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var savedProgramTextView: UITextView!
     @IBOutlet weak var runButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -20,6 +21,7 @@ class SavedProgramCodeScreenVC: UIViewController, Coordinated {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        programModel = (self.coordinator as! ProgramsCoordinator).programModel
         configureViews()
         configureTextView()
         configureTitleLabel()
@@ -35,15 +37,17 @@ class SavedProgramCodeScreenVC: UIViewController, Coordinated {
     }
     
     func configureTextView(){
-        savedProgramTextView.text = (self.coordinator as! ProgramsCoordinator).programCode
+        savedProgramTextView.text = self.programModel?.code
     }
     
     func configureTitleLabel(){
-        titleLabel.text = (self.coordinator as! ProgramsCoordinator).programTitle
+        titleField.text = self.programModel?.name
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
-    
+        if titleField.text != self.programModel?.name || savedProgramTextView.text != self.programModel?.code {
+            ProgramDataSource.getInstance().editProgram(oldProgram: self.programModel!, newProgram: CodeModel(name: titleField.text!, code: savedProgramTextView.text))
+        }
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

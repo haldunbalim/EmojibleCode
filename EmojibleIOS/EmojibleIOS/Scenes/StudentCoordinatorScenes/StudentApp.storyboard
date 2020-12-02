@@ -345,7 +345,7 @@
                                 <rect key="frame" x="44" y="55" width="714" height="249"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
@@ -361,7 +361,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PY3-nu-gtL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -530,37 +530,37 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2M-Hm-an3">
-                                <rect key="frame" x="379" y="5" width="44" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TITLE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-DH-iKR">
+                                <rect key="frame" x="224" y="5" width="364" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="qpe-Lv-9js"/>
+                                    <constraint firstAttribute="height" constant="40" id="Xdx-Fi-DeL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7L8-Kr-dh2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tPL-pC-fGh" firstAttribute="leading" secondItem="7L8-Kr-dh2" secondAttribute="leading" id="0nN-kX-hnZ"/>
                             <constraint firstItem="7L8-Kr-dh2" firstAttribute="bottom" secondItem="tPL-pC-fGh" secondAttribute="bottom" constant="5" id="2hs-gs-DGs"/>
+                            <constraint firstItem="7L8-Kr-dh2" firstAttribute="trailing" secondItem="4L7-DH-iKR" secondAttribute="trailing" constant="180" id="61a-02-rL1"/>
                             <constraint firstItem="nFt-Xy-xUr" firstAttribute="top" secondItem="7L8-Kr-dh2" secondAttribute="top" constant="5" id="90x-L9-wCb"/>
                             <constraint firstItem="tPL-pC-fGh" firstAttribute="top" secondItem="8C8-KM-EgY" secondAttribute="bottom" constant="5" id="CIE-WC-BHf"/>
                             <constraint firstItem="8C8-KM-EgY" firstAttribute="leading" secondItem="7L8-Kr-dh2" secondAttribute="leading" id="MCb-78-6V8"/>
+                            <constraint firstItem="4L7-DH-iKR" firstAttribute="leading" secondItem="nFt-Xy-xUr" secondAttribute="trailing" constant="60" id="NpM-zE-1iV"/>
                             <constraint firstItem="nFt-Xy-xUr" firstAttribute="leading" secondItem="7L8-Kr-dh2" secondAttribute="leading" id="QNg-Yo-5DP"/>
-                            <constraint firstItem="y2M-Hm-an3" firstAttribute="centerX" secondItem="8C8-KM-EgY" secondAttribute="centerX" id="heg-Fp-1D1"/>
-                            <constraint firstItem="y2M-Hm-an3" firstAttribute="top" secondItem="7L8-Kr-dh2" secondAttribute="top" constant="5" id="jh7-u9-D95"/>
-                            <constraint firstItem="8C8-KM-EgY" firstAttribute="top" secondItem="y2M-Hm-an3" secondAttribute="bottom" constant="10" id="jhs-Fd-fNW"/>
+                            <constraint firstItem="8C8-KM-EgY" firstAttribute="top" secondItem="4L7-DH-iKR" secondAttribute="bottom" constant="10" id="igj-a7-nUh"/>
                             <constraint firstItem="7L8-Kr-dh2" firstAttribute="trailing" secondItem="8C8-KM-EgY" secondAttribute="trailing" constant="10" id="nMm-vt-1CQ"/>
                             <constraint firstItem="7L8-Kr-dh2" firstAttribute="trailing" secondItem="tPL-pC-fGh" secondAttribute="trailing" constant="10" id="ro2-Db-utb"/>
+                            <constraint firstItem="4L7-DH-iKR" firstAttribute="top" secondItem="7L8-Kr-dh2" secondAttribute="top" constant="5" id="x1Y-oT-Mh7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="nFt-Xy-xUr" id="Jjz-N8-188"/>
                         <outlet property="runButton" destination="tPL-pC-fGh" id="8Rc-au-9fc"/>
                         <outlet property="savedProgramTextView" destination="8C8-KM-EgY" id="aL3-d3-1Y4"/>
-                        <outlet property="titleLabel" destination="y2M-Hm-an3" id="wXc-fP-gCn"/>
+                        <outlet property="titleField" destination="4L7-DH-iKR" id="hn0-VY-4eN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4i-KS-Xtf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

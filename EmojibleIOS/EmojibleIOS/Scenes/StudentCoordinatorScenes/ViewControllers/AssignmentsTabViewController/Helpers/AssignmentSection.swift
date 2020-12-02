@@ -11,7 +11,7 @@ private let reusableIdentifier = "AssignmentViewModel"
 
 class AssignmentSection: UICollectionViewCell{
     
-    var assignments = GlobalMemory.getInstance().getAssignments()
+    var assignments: [AssignmentModel] = []
     var editDelegate: AssignmentTabAssignmentSectionAction?
     var trashDelegate: AssignmentTabAssignmentSectionAction?
     
@@ -51,21 +51,14 @@ class AssignmentSection: UICollectionViewCell{
         collectionView.register(UINib(nibName: "AssignmentViewModel", bundle: .main), forCellWithReuseIdentifier: reusableIdentifier)
     }
     
-    func reload(){
-        assignments = GlobalMemory.getInstance().getAssignments()
+    func reload(assignments: [AssignmentModel]){
+        self.assignments = assignments
         collectionView.reloadData()
     }
-    
 }
 //MARK: - AssignmentCell methods
-
-extension AssignmentSection: UICollectionViewDelegate{
-    
-}
-extension AssignmentSection: UICollectionViewDelegateFlowLayout{
-
-}
-
+extension AssignmentSection: UICollectionViewDelegate{}
+extension AssignmentSection: UICollectionViewDelegateFlowLayout{}
 extension AssignmentSection: UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -10,6 +10,7 @@ import UIKit
 class AddTextAlert: CustomAlertViewController{
     
     var newTextAssignmentDelegate: AssignmentNewAssignmentAlert?
+    var editAssignmentDelegate: AssignmentEditAlert?
     
     @IBOutlet weak var valueTextField: UITextField!
     
@@ -32,7 +33,11 @@ class AddTextAlert: CustomAlertViewController{
         }
         
         if let identifier = newTextAssignmentDelegate?.newAssignmentIdentifier{
-            GlobalMemory.getInstance().addAssignment(assignment: AssignmentModel(identifier: identifier, value: text))
+            AssignmentDataSource.getInstance().writeAssignment(assignment: AssignmentModel(identifier: identifier, value: text))
+        }
+        
+        if let assignment = editAssignmentDelegate?.assignmentToBeEdited {
+            AssignmentDataSource.getInstance().editAssignment(oldAssignment: assignment, newValue: text)
         }
     
         dismiss()
@@ -42,6 +47,7 @@ class AddTextAlert: CustomAlertViewController{
         valueTextField.text = ""
         valueTextField.resignFirstResponder()
         newTextAssignmentDelegate?.newAssignmentIdentifier = nil
+        editAssignmentDelegate?.assignmentToBeEdited = nil
         self.dismiss(animated: true, completion: nil)
     }
 }

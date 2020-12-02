@@ -13,8 +13,7 @@ class ProgramsCoordinator: Coordinator {
     var navigationController: UINavigationController
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
-    var programTitle: String?
-    var programCode: String?
+    var programModel: CodeModel?
 
     enum screenEnum{
         case ProgramScreen

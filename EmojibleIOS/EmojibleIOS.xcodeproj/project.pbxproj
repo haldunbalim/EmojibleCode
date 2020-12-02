@@ -61,6 +61,7 @@
 		FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */; };
 		FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16C017256C2E9E00180942 /* VariablesViewModel.xib */; };
 		FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */; };
+		FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */; };
 		FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */; };
 		FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */; };
 		FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */; };
@@ -77,6 +78,7 @@
 		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
 		FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */; };
+		FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */; };
 		FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42A6254AE8890061E220 /* AppDelegate.swift */; };
 		FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42AF254AE88D0061E220 /* Assets.xcassets */; };
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
@@ -175,6 +177,7 @@
 		FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentViewModel.xib; sourceTree = "<group>"; };
 		FC16C017256C2E9E00180942 /* VariablesViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariablesViewModel.xib; sourceTree = "<group>"; };
 		FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesViewModel.swift; sourceTree = "<group>"; };
+		FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDataSource.swift; sourceTree = "<group>"; };
 		FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuBaseController.swift; sourceTree = "<group>"; };
 		FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCodeScreenVC.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 		FC80F0742553DCDA00B5B86B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramScreenVC.swift; sourceTree = "<group>"; };
+		FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataSource.swift; sourceTree = "<group>"; };
 		FC9C42A3254AE8890061E220 /* EmojibleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojibleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42A6254AE8890061E220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9C42AF254AE88D0061E220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */,
 				8B7FF80E255D4A880043B0DB /* ClassesDataSource.swift */,
 				8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */,
+				FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */,
+				FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -903,12 +909,14 @@
 				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
+				FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */,
 				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
 				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
 				FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */,
 				8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */,
 				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
+				FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
 				FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */,

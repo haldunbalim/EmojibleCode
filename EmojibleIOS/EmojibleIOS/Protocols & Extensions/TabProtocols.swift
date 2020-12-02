@@ -10,9 +10,13 @@ import UIKit
 //MARK: - Program Tab
 protocol ProgramTabButtonAction{
     func newCodeAction()
-    func editAction(title: String, code: String)
+    func editAction(programModel: CodeModel)
     func runAction()
-    func trashAction()
+    func trashAction(programModel: CodeModel)
+}
+
+protocol ProgramRemovalAlert{
+    var programToBeRemoved: CodeModel? { get set }
 }
 
 //MARK: - Tutorial Tab

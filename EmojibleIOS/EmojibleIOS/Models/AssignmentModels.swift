@@ -23,6 +23,18 @@ class AssignmentModel: Equatable, Hashable, CustomStringConvertible{
         self.value = Value(value: value)
     }
     
+    init(dictionary: [String:Any]) {
+        self.identifier = dictionary["identifier"] as! String
+        self.value = Value(value: dictionary["value"] as Any)
+    }
+    
+    var dictionary: [String:Any]{
+        return [
+            "identifier":identifier,
+            "value":value.value,
+        ]
+    }
+    
     static func == (lhs: AssignmentModel, rhs: AssignmentModel) -> Bool {
         return lhs.identifier == rhs.identifier
     }

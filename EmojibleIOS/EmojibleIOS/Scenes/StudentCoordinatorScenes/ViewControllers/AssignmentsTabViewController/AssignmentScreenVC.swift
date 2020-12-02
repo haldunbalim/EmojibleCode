@@ -24,7 +24,8 @@ class AssignmentScreenVC: UIViewController, Coordinated{
     var addTextAlert: AddTextAlert!
     var addFunctionAlert: AddFunctionAlert!
     var removeAlert: RemoveAlert!
-    var editAlert: EditAlert!
+    
+    var assignments: [AssignmentModel] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
@@ -42,11 +43,13 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         configureAddTextAlert()
         configureAddFunctionAlert()
         configureRemoveAlert()
-        configureEditAlert()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .assignmentsChanged, object: nil)
+        AssignmentDataSource.getInstance().startObservingAssignments()
     }
     
-    @objc func notify(){
+    @objc func notify(_ notification: NSNotification){
+        guard let assignmentsFromDB = notification.userInfo?["assignmentsChanged"] else { return }
+        assignments = assignmentsFromDB as! [AssignmentModel]
         collectionView.reloadData()
     }
     
@@ -80,30 +83,27 @@ extension AssignmentScreenVC {
         addVoiceAlert = AddVoiceAlert()
         addVoiceAlert.delegate = self
         addVoiceAlert.newVoiceAssignmentDelegate = self
+        addVoiceAlert.editAssignmentDelegate = self
     }
     
     func configureAddTextAlert(){
         addTextAlert = AddTextAlert()
         addTextAlert.delegate = self
         addTextAlert.newTextAssignmentDelegate = self
+        addTextAlert.editAssignmentDelegate = self
     }
     
     func configureAddFunctionAlert(){
         addFunctionAlert = AddFunctionAlert()
         addFunctionAlert.delegate = self
         addFunctionAlert.newFunctiontAssignmentDelegate = self
+        addFunctionAlert.editAssignmentDelegate = self
     }
     
     func configureRemoveAlert(){
         removeAlert = RemoveAlert()
         removeAlert.delegate = self
         removeAlert.removeAssignmentDelegate = self
-    }
-    
-    func configureEditAlert(){
-        editAlert = EditAlert()
-        editAlert.delegate = self
-        editAlert.editAssignmentDelegate = self
     }
     
     func addButtonPressed(variable: String){
@@ -126,14 +126,29 @@ extension AssignmentScreenVC {
         self.present(alert, animated: true)
     }
     
+    func editButtonPressed(assignment: AssignmentModel){
+        self.assignmentToBeEdited = assignment
+        let alert = UIAlertController(title: nil, message: "Select Update Type", preferredStyle: .alert)
+        let addTextAction = UIAlertAction(title: "Update with Text", style: .default){_ in
+            self.addTextAlert.presentOver(viewController:self)
+        }
+        let addVoiceAction = UIAlertAction(title: "Update with Voice", style:.default){_ in
+            self.addVoiceAlert.presentOver(viewController:self)
+        }
+        let addFunctionAction = UIAlertAction(title: "Update with Function", style: .default) {_ in
+            self.addFunctionAlert.presentOver(viewController:self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(addTextAction)
+        alert.addAction(addVoiceAction)
+        alert.addAction(addFunctionAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
+    
     func trashButtonPressed(assignment: AssignmentModel){
         self.assignmentToBeRemoved = assignment
         self.removeAlert.presentOver(viewController: self)
-    }
-    
-    func editButtonPressed(assignment: AssignmentModel){
-        self.assignmentToBeEdited = assignment
-        self.editAlert.presentOver(viewController: self)
     }
 }
 
@@ -141,7 +156,6 @@ extension AssignmentScreenVC {
 
 extension AssignmentScreenVC: UICollectionViewDelegate{}
 extension AssignmentScreenVC: UICollectionViewDelegateFlowLayout{}
-
 extension AssignmentScreenVC: UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -190,8 +204,8 @@ extension AssignmentScreenVC: UICollectionViewDataSource{
                 
                 cell.editDelegate = self
                 cell.trashDelegate = self
-                
-                cell.reload()
+     
+                cell.reload(assignments: self.assignments)
                 return cell
             }
         }else {

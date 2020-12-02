@@ -12,6 +12,8 @@ class ProgramViewModel: UICollectionViewCell {
     var editDelegate: ProgramTabButtonAction?
     var runDelegate: ProgramTabButtonAction?
     var trashDelegate: ProgramTabButtonAction?
+    
+    var codeModel: CodeModel?
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
@@ -22,7 +24,9 @@ class ProgramViewModel: UICollectionViewCell {
     }
     
     @IBAction func editPressed(_ sender: UIButton) {
-        editDelegate?.editAction(title: nameLabel.text ?? "", code: codeLabel.text ?? "")
+        if let model = self.codeModel {
+            editDelegate?.editAction(programModel: model)
+        }
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
@@ -30,11 +34,13 @@ class ProgramViewModel: UICollectionViewCell {
     }
     
     @IBAction func trashPressed(_ sender: UIButton) {
-        trashDelegate?.trashAction()
+        if let model = self.codeModel {
+            trashDelegate?.trashAction(programModel: model)
+        }
     }
     
-    
     func configureView (codeModel: CodeModel) {
+        self.codeModel = codeModel
         nameLabel.text = codeModel.name
         codeLabel.text = removeComments(codeModel.code)
     }

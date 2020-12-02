@@ -50,9 +50,14 @@ class CodingScreenVC: UIViewController, Coordinated{
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
+        if titleField.text != "" && codingScreen.text != "" {
+            ProgramDataSource.getInstance().writeProgram(program: CodeModel(name: titleField.text!, code: codingScreen.text))
+        }
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
+        titleField.placeholder = "Enter title..."
+        codingScreen.text = "Write your code..."
         (self.coordinator as! ProgramsCoordinator).pop()
     }
 }

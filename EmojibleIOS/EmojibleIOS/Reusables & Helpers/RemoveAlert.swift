@@ -10,6 +10,7 @@ import UIKit
 class RemoveAlert: CustomAlertViewController{
     
     var removeAssignmentDelegate: AssignmentRemovalAlert?
+    var removeProgramDelegate: ProgramRemovalAlert?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +22,19 @@ class RemoveAlert: CustomAlertViewController{
     
     @IBAction func deleteButtonOnPress(_ sender: Any) {
         if let assignment = removeAssignmentDelegate?.assignmentToBeRemoved {
-            GlobalMemory.getInstance().removeContent(assignment: assignment)
+            AssignmentDataSource.getInstance().removeAssignment(assignment: assignment)
         }
+        
+        if let program = removeProgramDelegate?.programToBeRemoved{
+            ProgramDataSource.getInstance().removeProgram(program: program)
+        }
+        
         dismiss()
      }
     
     private func dismiss(){
         removeAssignmentDelegate?.assignmentToBeRemoved = nil
+        removeProgramDelegate?.programToBeRemoved = nil
         self.dismiss(animated: true, completion: nil)
     }
 }

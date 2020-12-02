@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CodeModel {
+class CodeModel:Equatable{
+    
     var name: String
     var code: String
     
@@ -26,6 +27,10 @@ class CodeModel {
     init (dictionary: [String:Any]) {
         name = dictionary["name"] as! String
         code = dictionary["code"] as! String
+    }
+    
+    static func == (lhs: CodeModel, rhs: CodeModel) -> Bool {
+        return lhs.name == rhs.name && lhs.code == rhs.code
     }
     
 }

@@ -11,6 +11,7 @@ import AVFoundation
 
 class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
     var newVoiceAssignmentDelegate: AssignmentNewAssignmentAlert?
+    var editAssignmentDelegate: AssignmentEditAlert?
     
     @IBOutlet weak var recordingLabel: UILabel!
     fileprivate let temporaryAudioFilePath = "temp.m4a"
@@ -61,7 +62,20 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
             
             let newFileName = "\(identifier).m4a"
             _ = FileSystemManager.getInstance().renameFile(previousFilename: temporaryAudioFilePath, newFilename: newFileName)
-            GlobalMemory.getInstance().addAssignment(assignment: AssignmentModel(identifier: identifier, value: newFileName))
+            
+            AssignmentDataSource.getInstance().writeAssignment(assignment: AssignmentModel(identifier: identifier, value: newFileName))
+        }
+        
+        if let assignment = editAssignmentDelegate?.assignmentToBeEdited {
+            if !FileSystemManager.getInstance().fileExists(filename: temporaryAudioFilePath){
+                showMessagePrompt("Please record your voice using microphone button", vcToBePresented: self)
+                return
+            }
+            
+            let newFileName = "\(assignment.identifier).m4a"
+            _ = FileSystemManager.getInstance().renameFile(previousFilename: temporaryAudioFilePath, newFilename: newFileName)
+            
+            GlobalMemory.getInstance().editAssignment(assignment: assignment, newValue: newFileName)
         }
     
         dismiss()
@@ -70,9 +84,7 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
     
     private func dismiss(){
         newVoiceAssignmentDelegate?.newAssignmentIdentifier = nil
+        editAssignmentDelegate?.assignmentToBeEdited = nil
         self.dismiss(animated: true, completion: nil)
     }
-    
-   
-
 }

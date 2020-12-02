@@ -12,7 +12,10 @@ private let reuseIdentifier2 = "ProgramAddCell"
 
 class ProgramScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
-    var previousCodes = PreviousCodeDataSource.getInstance().getPreviousCodes()
+    var previousCodes: [CodeModel] = []
+    
+    var removeAlert: RemoveAlert!
+    var programToBeRemoved : CodeModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
@@ -26,6 +29,15 @@ class ProgramScreenVC: UIViewController, Coordinated{
         self.title = "Programs"
         configureNavigationBar()
         configureCollectionView()
+        configureRemoveAlert()
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .programsChanged, object: nil)
+        ProgramDataSource.getInstance().startObservingProgram()
+    }
+    
+    @objc func notify(_ notification: NSNotification){
+        guard let programsFromDB = notification.userInfo?["programsChanged"] else { return }
+        self.previousCodes = programsFromDB as! [CodeModel]
+        collectionView.reloadData()
     }
     
     func configureNavigationBar(){
@@ -46,17 +58,24 @@ class ProgramScreenVC: UIViewController, Coordinated{
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
+    
+    func configureRemoveAlert(){
+        removeAlert = RemoveAlert()
+        removeAlert.delegate = self
+        removeAlert.removeProgramDelegate = self
+    }
+    
+    func trashButtonPressed(program: CodeModel){
+        self.programToBeRemoved = program
+        self.removeAlert.presentOver(viewController: self)
+    }
 }
 
 //MARK: - CollectionView methods
 
-extension ProgramScreenVC: UICollectionViewDelegate{
-    
-}
+extension ProgramScreenVC: UICollectionViewDelegate{}
 
-extension ProgramScreenVC: UICollectionViewDelegateFlowLayout{
-    
-}
+extension ProgramScreenVC: UICollectionViewDelegateFlowLayout{}
 
 extension ProgramScreenVC: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -102,6 +121,7 @@ extension ProgramScreenVC: UICollectionViewDataSource{
                 
                 cell.editDelegate = self
                 cell.runDelegate = self
+                cell.trashDelegate = self
                 
                 return cell
             }
@@ -117,17 +137,19 @@ extension ProgramScreenVC: ProgramTabButtonAction{
         (self.coordinator as! ProgramsCoordinator).openScreen(screenName: .CodingScreen)
     }
     
-    func editAction(title: String, code: String) {
-        (self.coordinator as! ProgramsCoordinator).programTitle = title
-        (self.coordinator as! ProgramsCoordinator).programCode = code
+    func editAction(programModel: CodeModel) {
+        (self.coordinator as! ProgramsCoordinator).programModel = programModel
         (self.coordinator as! ProgramsCoordinator).openScreen(screenName: .SavedCodeScreen)
     }
     
     func runAction() {
         
     }
-    func trashAction() {
-        
+    
+    func trashAction(programModel: CodeModel) {
+        self.trashButtonPressed(program: programModel)
     }
 }
 
+
+extension ProgramScreenVC: ProgramRemovalAlert {}
