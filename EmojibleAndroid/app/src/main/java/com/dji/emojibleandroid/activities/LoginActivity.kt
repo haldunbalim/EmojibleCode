@@ -188,7 +188,7 @@ class LoginActivity : AppCompatActivity(){
         if(currentUser != null){
             if(currentUser.isEmailVerified){
 
-                val intent = Intent(this, BaseActivity::class.java)
+                val intent = Intent(this, UserActivity::class.java)
                 startActivity(intent)
                 finish()
 

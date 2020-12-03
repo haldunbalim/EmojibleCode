@@ -28,6 +28,7 @@ class NoUserActivity : AppCompatActivity() {
 
     companion object {
         val TAG: String = NoUserActivity::class.java.simpleName
+        var firstTime: Int = 0
     }
 
 
@@ -35,10 +36,51 @@ class NoUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_no_user)
 
-
         popupLayout = findViewById(R.id.popUpLayout)
         toggle = findViewById(R.id.teacherSwitch)
-        popupLayout.bringToFront()
+
+        if (firstTime == 0) {
+            popupLayout.bringToFront()
+            firstTime++
+
+            shutdownButtonPopup.setOnClickListener {
+
+                popupLayout.visibility = View.GONE
+                popupLayout.removeAllViewsInLayout()
+
+            }
+
+            programLayoutPopup.setOnClickListener {
+
+                showToast("Program")
+                val intent = Intent(this, ProgramActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+            emojiLayoutPopup.setOnClickListener {
+
+                showToast("Emoji")
+                val intent = Intent(this, EmojiActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }
+
+            tutorialLayoutPopup.setOnClickListener {
+
+                showToast("Tutorial")
+                val intent = Intent(this, TutorialActivity::class.java)
+                startActivity(intent)
+                finish()
+
+            }
+        }else{
+            popupLayout.visibility = View.GONE
+            popupLayout.removeAllViewsInLayout()
+            popupLayout.removeAllViews()
+        }
+
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
@@ -56,12 +98,7 @@ class NoUserActivity : AppCompatActivity() {
 
         }
 
-        shutdownButtonPopup.setOnClickListener {
 
-            popupLayout.visibility = View.GONE
-            popupLayout.removeAllViewsInLayout()
-
-        }
 
         programLayoutToolbar.setOnClickListener {
 
@@ -99,31 +136,7 @@ class NoUserActivity : AppCompatActivity() {
 
         }
 
-        programLayoutPopup.setOnClickListener {
 
-            showToast("Program")
-            val intent = Intent(this, ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        emojiLayoutPopup.setOnClickListener {
-
-            showToast("Emoji")
-            val intent = Intent(this, EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        tutorialLayoutPopup.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this, TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
     }
 
     override fun onBackPressed() {
@@ -195,12 +208,12 @@ class NoUserActivity : AppCompatActivity() {
         user["userType"] = userType
         user["email"] = emailTextView.text.toString()
 
-        db.collection("Users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
+        db.collection("Users").document(emailTextView.text.toString())
+            .set(user)
+            .addOnSuccessListener {
                 Log.d(
                     TAG,
-                    "DocumentSnapshot added with ID: " + documentReference.id
+                    "DocumentSnapshot added with ID: "
                 )
                 showToast("Success Firestore")
             }
@@ -247,7 +260,6 @@ class NoUserActivity : AppCompatActivity() {
                     //updateUI(null)
                 }
             }
-
 
 
     }

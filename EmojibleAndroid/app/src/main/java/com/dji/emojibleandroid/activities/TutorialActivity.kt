@@ -48,7 +48,7 @@ class TutorialActivity : AppCompatActivity(){
         userLayoutToolbar.setOnClickListener {
 
             showToast("User")
-            val intent = Intent(this,NoUserActivity::class.java)
+            val intent = Intent(this,UserActivity::class.java)
             startActivity(intent)
             finish()
 
