@@ -9,14 +9,15 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.showToast
 import kotlinx.android.synthetic.main.activity_code.cameraImageView
 import kotlinx.android.synthetic.main.activity_program.*
-import kotlinx.android.synthetic.main.list_emojies.*
 import java.io.File
+
 
 private const val FILE_NAME = "photo.jpg"
 private const val REQUEST_CODE = 42
@@ -24,10 +25,48 @@ private lateinit var photoFile: File
 
 class ProgramActivity : AppCompatActivity(){
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program)
+
+        programLayoutToolbar.setOnClickListener {
+
+            showToast("Program")
+            val intent = Intent(this,ProgramActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        tutorialLayoutToolbar.setOnClickListener {
+
+            showToast("Tutorial")
+            val intent = Intent(this,TutorialActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        emojiLayoutToolbar.setOnClickListener {
+
+            showToast("Emoji")
+            val intent = Intent(this,EmojiActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        userLayoutToolbar.setOnClickListener {
+
+            showToast("User")
+            val intent = Intent(this,NoUserActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
 
         cameraImageView.setOnClickListener {
 
@@ -79,6 +118,14 @@ class ProgramActivity : AppCompatActivity(){
 
     }
 
+    companion object {
+        //image pick code
+        private val IMAGE_PICK_CODE = 1000;
+        //Permission code
+        private val PERMISSION_CODE = 1001;
+    }
+
+
     private fun getPhotoFile(fileName: String): File {
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return File.createTempFile(fileName,".jpg",storageDir)
@@ -89,13 +136,7 @@ class ProgramActivity : AppCompatActivity(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_PICK_CODE)
-    }
 
-    companion object {
-        //image pick code
-        private val IMAGE_PICK_CODE = 1000;
-        //Permission code
-        private val PERMISSION_CODE = 1001;
     }
 
     //handle requested permission result

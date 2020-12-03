@@ -30,14 +30,14 @@
         <activity android:name=".activities.CodeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activities.EmojiesActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activities.VoiceTextActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".activities.ListOfEmojiesActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activities.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.LoginActivity" android:screenOrientation="sensorLandscape"/>
         <activity android:name=".activities.BaseActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activities.SignUpActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activities.ResultActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activities.NoUserActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".activities.ProgramActivity" android:screenOrientation="landscape"/>
-        <activity android:name=".activities.EmojiActivity" android:screenOrientation="landscape"/>
+        <activity android:name=".activities.NoUserActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".activities.ProgramActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".activities.EmojiActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name=".activities.TutorialActivity" android:screenOrientation="sensorLandscape"/>
     </application>
 
 </manifest>

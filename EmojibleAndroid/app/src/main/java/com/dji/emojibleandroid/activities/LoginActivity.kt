@@ -14,6 +14,12 @@ import com.dji.emojibleandroid.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.emojiLayoutToolbar
+import kotlinx.android.synthetic.main.activity_login.loginButton
+import kotlinx.android.synthetic.main.activity_login.programLayoutToolbar
+import kotlinx.android.synthetic.main.activity_login.tutorialLayoutToolbar
+import kotlinx.android.synthetic.main.activity_login.userLayoutToolbar
+import kotlinx.android.synthetic.main.activity_no_user.*
 
 class LoginActivity : AppCompatActivity(){
 
@@ -34,22 +40,47 @@ class LoginActivity : AppCompatActivity(){
 
         }
 
-        registerTeacherButton.setOnClickListener(){
+        programLayoutToolbar.setOnClickListener {
 
-            showToast("Sign Up")
-            Log.i(TAG,"Button was clicked")
-            val intent = Intent(this, SignUpActivity::class.java)
-            intent.putExtra(Constants.USER_MSG_KEY,"teacher")
+            showToast("Program")
+            val intent = Intent(this, ProgramActivity::class.java)
             startActivity(intent)
+            finish()
 
         }
 
-        registerStudentButton.setOnClickListener(){
+        tutorialLayoutToolbar.setOnClickListener {
+
+            showToast("Tutorial")
+            val intent = Intent(this, TutorialActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        emojiLayoutToolbar.setOnClickListener {
+
+            showToast("Emoji")
+            val intent = Intent(this, EmojiActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        userLayoutToolbar.setOnClickListener {
+
+            showToast("User")
+            val intent = Intent(this, NoUserActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        registerButton.setOnClickListener(){
 
             showToast("Sign Up")
             Log.i(TAG,"Button was clicked")
-            val intent = Intent(this, SignUpActivity::class.java)
-            intent.putExtra(Constants.USER_MSG_KEY, "student")
+            val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
 
         }
@@ -96,31 +127,31 @@ class LoginActivity : AppCompatActivity(){
     }
 
     private fun doLogin() {
-        if(editTextMail.text.toString().isEmpty()){
+        if(emailTextView2.text.toString().isEmpty()){
 
-            editTextMail.error = "Please enter an email"
-            editTextMail.requestFocus()
+            emailTextView2.error = "Please enter an email"
+            emailTextView2.requestFocus()
             return
 
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(editTextMail.text.toString()).matches()){
+        if(!Patterns.EMAIL_ADDRESS.matcher(emailTextView2.text.toString()).matches()){
 
-            editTextMail.error = "Please enter a valid email"
-            editTextMail.requestFocus()
+            emailTextView2.error = "Please enter a valid email"
+            emailTextView2.requestFocus()
             return
 
         }
 
-        if(editTextPassword.text.toString().isEmpty()){
+        if(passwordTextView2.text.toString().isEmpty()){
 
-            editTextPassword.error = "Please enter a password"
-            editTextPassword.requestFocus()
+            passwordTextView2.error = "Please enter a password"
+            passwordTextView2.requestFocus()
             return
 
         }
 
-        auth.signInWithEmailAndPassword(editTextMail.text.toString(), editTextPassword.text.toString())
+        auth.signInWithEmailAndPassword(emailTextView2.text.toString(), passwordTextView2.text.toString())
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information

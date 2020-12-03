@@ -7,6 +7,101 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/userLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/toolbarLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/emailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:hint="Enter your email" />
+
+        <EditText
+            android:id="@+id/birthTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:hint="Enter your date of birth" />
+
+        <EditText
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:hint="Enter your name" />
+
+        <EditText
+            android:id="@+id/surnameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:hint="Enter your surname" />
+
+        <Switch
+            android:id="@+id/teacherSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:text="Teacher?" />
+
+        <EditText
+            android:id="@+id/passwordTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:hint="Enter your password"
+            android:password="true" />
+
+        <EditText
+            android:id="@+id/repeatPassTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:hint="Repeat your Password"
+            android:password="true" />
+
+        <Button
+            android:id="@+id/signupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="Sign Up" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:text="Already have an account?" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/popUpLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +119,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/programLayout"
+            android:id="@+id/programLayoutPopup"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
@@ -49,7 +144,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/tutorialLayout"
+            android:id="@+id/tutorialLayoutPopup"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
@@ -74,7 +169,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/emojiLayout"
+            android:id="@+id/emojiLayoutPopup"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="40dp"
@@ -99,7 +194,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/shutdownButton"
+            android:id="@+id/shutdownButtonPopup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -118,7 +213,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/child1LLayout"
+            android:id="@+id/programLayoutToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -142,7 +237,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/child2LLayout"
+            android:id="@+id/tutorialLayoutToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -165,7 +260,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/child3LLayout"
+            android:id="@+id/emojiLayoutToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -188,7 +283,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/child4LLayout"
+            android:id="@+id/userLayoutToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -209,6 +304,7 @@
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="12sp" />
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

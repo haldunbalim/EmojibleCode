@@ -23,7 +23,7 @@ class EmojiesActivity : AppCompatActivity(){
 
         recordVoiceImage.setOnClickListener(){
 
-            val intent = Intent(this, VoiceTextActivity::class.java)
+            val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
 
         }

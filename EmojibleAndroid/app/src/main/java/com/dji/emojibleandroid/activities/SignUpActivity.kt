@@ -19,11 +19,12 @@ import kotlinx.android.synthetic.main.activity_signup.*
 class SignUpActivity : AppCompatActivity() {
 
     companion object {
-        val TAG: String = com.dji.emojibleandroid.activities.SignUpActivity::class.java.simpleName
+        val TAG: String = SignUpActivity::class.java.simpleName
     }
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)

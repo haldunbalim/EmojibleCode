@@ -1,17 +1,22 @@
 package com.dji.emojibleandroid.activities
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.adapters.TutorialsAdapter
+import com.dji.emojibleandroid.models.Supplier
 import com.dji.emojibleandroid.showToast
-import kotlinx.android.synthetic.main.activity_emoji.*
+import kotlinx.android.synthetic.main.activity_list_emojies.*
+import kotlinx.android.synthetic.main.activity_tutorial.*
 
-class EmojiActivity : AppCompatActivity(){
+class TutorialActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_emoji)
+        setContentView(R.layout.activity_tutorial)
 
         programLayoutToolbar.setOnClickListener {
 
@@ -49,6 +54,17 @@ class EmojiActivity : AppCompatActivity(){
 
         }
 
+        setupRecyclerView()
+
+
     }
+
+    private fun setupRecyclerView() {
+        val layoutManager = LinearLayoutManager(this,  LinearLayoutManager.VERTICAL,  false)
+        recyclerView.layoutManager = layoutManager
+        val adapter = TutorialsAdapter(this, Supplier.tutorials)
+        recyclerView.adapter = adapter
+    }
+
 
 }

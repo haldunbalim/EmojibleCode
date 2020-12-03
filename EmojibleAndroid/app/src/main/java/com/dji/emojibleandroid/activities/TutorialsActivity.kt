@@ -11,9 +11,6 @@ class TutorialsActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutorials)
 
-        val intent = Intent(this, ListOfEmojiesActivity::class.java)
-        startActivity(intent)
-        finish()
 
     }
 
