@@ -25,15 +25,15 @@
             android:layout_weight="1"
             android:hint="Enter your email" />
 
-        <EditText
+        <TextView
             android:id="@+id/birthTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="1dp"
             android:layout_weight="1"
-            android:hint="Enter your date of birth"
-            android:inputType="date" />
+            android:text="Date of Birth" />
 
         <EditText
             android:id="@+id/nameTextView"

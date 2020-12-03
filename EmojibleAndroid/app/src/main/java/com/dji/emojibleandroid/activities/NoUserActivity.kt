@@ -1,22 +1,28 @@
 package com.dji.emojibleandroid.activities
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.Switch
 import android.widget.Toast
-import android.widget.ToggleButton
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.dji.emojibleandroid.Constants
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_no_user.*
-import kotlinx.android.synthetic.main.activity_signup.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.HashMap
+import kotlin.collections.MutableMap
+import kotlin.collections.set
 
 class NoUserActivity : AppCompatActivity() {
 
@@ -35,7 +41,6 @@ class NoUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_no_user)
-
         popupLayout = findViewById(R.id.popUpLayout)
         toggle = findViewById(R.id.teacherSwitch)
 
@@ -133,6 +138,35 @@ class NoUserActivity : AppCompatActivity() {
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
             finish()
+
+        }
+
+        birthTextView.setOnClickListener {
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Date of Birth")
+            val view = layoutInflater.inflate(R.layout.dialog_datepicker,null)
+            builder.setView(view)
+
+
+            val datePicker = view.findViewById<DatePicker>(R.id.datePicker)
+            val today = Calendar.getInstance()
+            datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+                today.get(Calendar.DAY_OF_MONTH)
+
+            ) { view, year, month, day ->
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
+                    birthTextView.text = LocalDate.of(year, month, day).format(formatter)
+
+                }
+
+            }
+
+            builder.setNegativeButton("Close",DialogInterface.OnClickListener { _, _ ->  })
+            builder.show()
+
+
 
         }
 
