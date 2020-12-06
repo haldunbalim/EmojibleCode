@@ -38,8 +38,8 @@ class UserDataSource{
     }
     
     func startObservingUserModel(){
-        let currentUser = AuthenticationManager.getInstance().currentUser
-        let userDocRef = database.collection("Users").document(currentUser!.uid)
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
+        let userDocRef = database.collection("Users").document(currentUser.uid)
         snapshotListener = userDocRef.addSnapshotListener{ [unowned self] documentSnapshot, error in
             guard let document = documentSnapshot else { return }
             guard let dict = document.data() else { return }
@@ -53,7 +53,8 @@ class UserDataSource{
     }
     
     public func writeUserData(user:UserModel){
-        let uid = AuthenticationManager.getInstance().currentUser!.uid
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
+        let uid = currentUser.uid
         self.database.collection("Users").document(uid).setData(user.dictionary)
     }
     

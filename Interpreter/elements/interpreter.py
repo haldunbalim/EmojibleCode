@@ -43,6 +43,8 @@ class Interpreter(NodeVisitor):
           raise Exception("Random number cannot be called with non integer lower bound")
         if not isinstance(upper_bound,int) and not((isinstance(upper_bound,float) and int(upper_bound) == upper_bound)):
           raise Exception("Random number cannot be called with non integer upper bound")
+        if lower_bound >= upper_bound:
+            raise Exception("lower bound cannot be greater than upper bound")
         return random.randint(lower_bound,upper_bound)
 
     def visit_GetNumericUserInput(self, node):
@@ -90,7 +92,7 @@ class Interpreter(NodeVisitor):
         bool_cond = self.visit(node.bool_statement)
         if not isinstance(bool_cond, bool):
           raise Exception("{} is not a boolean".format(bool_cond))
-        if bool_cond == True:
+        if bool_cond:
           break
         self.visit(node.body)
 

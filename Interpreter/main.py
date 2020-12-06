@@ -6,19 +6,13 @@ from elements import Interpreter
 def main():
 
     text = """
-        🐤 👉 [👻 1, 100] 📝  assign a random number between 1 and 100 to baby chick emoji
-
-        🐄 👉 [🔢] 📝  assign user input to cow emoji
-
-        🪐 [ 🐄 = 🐤 ] [ 📝  start a loop condition until 🐄 is equal to 🐤
-
-            🤔 [ 🐄 > 🐤 ] [[📱  🟦 ]] [ [📱  🟥]] 📝  display blue if 🐄 is greater than 🐤, red vice versa
-
-            🐄 👉 [🔢]  📝 get another user input
-
-        ]
-        
-        [ 📱  🟩 ] 📝  display green to indicate the correct answer is given
+        🐤 👉 [👻 1, 100] 📝  assign a random number between 1 and 100 to baby chick emoji\n
+        🐄 👉 [🔢] 📝  assign user input to cow emoji\n
+        🪐 [ 🐄 = 🐤 ] [ 📝  start a loop condition until 🐄 is equal to 🐤\n
+            🤔 [ 🐄 > 🐤 ] [[📱  🟦 ]] [ [📱  🟥]] 📝  display blue if 🐄 is greater than 🐤, red vice versa\n
+            🐄 👉 [🔢]  📝 get another user input\n
+        ]\n
+        [ 📱  🟩 ] 📝  display green to indicate the correct answer is given\n
 
     """
     

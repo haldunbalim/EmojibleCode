@@ -27,8 +27,8 @@ class TabNavigationMenu: UIView {
         self.isUserInteractionEnabled = true
         self.clipsToBounds = true
         
-        for i in 0 ..< menuItems.count {
-            let itemHeight = self.frame.height / CGFloat(menuItems.count)
+        for i in 0 ..< menuItems.count-1 {
+            let itemHeight = self.frame.height / CGFloat(menuItems.count-1)
             let topAnchor = itemHeight * CGFloat(i)
             
             let itemView = self.createTabItem(item: menuItems[i])
@@ -95,11 +95,11 @@ class TabNavigationMenu: UIView {
     
     
     @objc func handleTap(_ sender: UIGestureRecognizer) {
-        self.switchTab(from: self.activeItem, to: sender.view!.tag)
+        self.switchTab(to: sender.view!.tag)
     }
     
-    func switchTab(from: Int, to: Int) {
-        self.deactivateTab(tab: from)
+    func switchTab(to: Int) {
+        self.deactivateTab(tab: self.activeItem)
         self.activateTab(tab: to)
     }
         

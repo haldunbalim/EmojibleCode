@@ -37,7 +37,6 @@ class AssignmentScreenVC: UIViewController, Coordinated{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Emoji Assignments"
-        configureNavigationBar()
         configureCollectionView()
         configureAddVoiceAlert()
         configureAddTextAlert()
@@ -53,10 +52,6 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         collectionView.reloadData()
     }
     
-    func configureNavigationBar(){
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-
     func configureCollectionView(){
         collectionView.delegate = self
         collectionView.dataSource = self

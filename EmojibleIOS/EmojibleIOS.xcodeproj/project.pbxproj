@@ -10,6 +10,11 @@
 		2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */; };
 		32FD13A34D6ED132E86CEE3C /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */; };
 		65062E14112456082CCF35FB /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */; };
+		8B02EA462579329F00480AFA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA452579329F00480AFA /* Token.swift */; };
+		8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4A2579331D00480AFA /* Lexer.swift */; };
+		8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4F2579344E00480AFA /* StringExtensions.swift */; };
+		8B02EA592579487400480AFA /* Emojis.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B02EA582579487400480AFA /* Emojis.json */; };
+		8B02EA5E25795D9500480AFA /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA5D25795D9500480AFA /* AST.swift */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
 		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
@@ -36,6 +41,9 @@
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
 		8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CF22225753B7000743E8E /* GoogleService-Info.plist */; };
+		8BBD5D16257BF9B70089F2D9 /* RunCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */; };
+		8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBD5D1B257C05100089F2D9 /* RunScreenVC.xib */; };
+		8BBD5D21257C101C0089F2D9 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */; };
 		8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */; };
 		8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */; };
 		8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */; };
@@ -55,6 +63,11 @@
 		8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */; };
 		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
 		8BE90D32255049A200A34B37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* UserModel.swift */; };
+		8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38C0257A400400C24085 /* ColorModel.swift */; };
+		8BEB38C6257A4E4B00C24085 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38C5257A4E4B00C24085 /* Interpreter.swift */; };
+		8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CA257A4ECD00C24085 /* Memory.swift */; };
+		8BEB38D0257A80C400C24085 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CF257A80C400C24085 /* Parser.swift */; };
+		8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */; };
 		FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */; };
 		FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */; };
 		FC16BFFB256C074D00180942 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFFA256C074C00180942 /* Constants.swift */; };
@@ -122,6 +135,11 @@
 		41C27A151447E96F1214CC51 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		47122601B612E98EFD6B6D39 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B503A8BCFA0896294935F97 /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8B02EA452579329F00480AFA /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		8B02EA4A2579331D00480AFA /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		8B02EA4F2579344E00480AFA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		8B02EA582579487400480AFA /* Emojis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Emojis.json; sourceTree = "<group>"; };
+		8B02EA5D25795D9500480AFA /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
 		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		8B69332B255FE9FB00CE97CB /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
@@ -148,6 +166,9 @@
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8B9CF22225753B7000743E8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCodeCoordinator.swift; sourceTree = "<group>"; };
+		8BBD5D1B257C05100089F2D9 /* RunScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunScreenVC.xib; sourceTree = "<group>"; };
+		8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewModel.xib; sourceTree = "<group>"; };
 		8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousCodeDataSource.swift; sourceTree = "<group>"; };
 		8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceAlert.swift; sourceTree = "<group>"; };
@@ -167,6 +188,11 @@
 		8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainScreenVC.swift; sourceTree = "<group>"; };
 		8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		8BE90D31255049A200A34B37 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8BEB38C0257A400400C24085 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		8BEB38C5257A4E4B00C24085 /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
+		8BEB38CA257A4ECD00C24085 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		8BEB38CF257A80C400C24085 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunScreenVC.swift; sourceTree = "<group>"; };
 		ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +298,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8B02EA572579485D00480AFA /* StaticData */ = {
+			isa = PBXGroup;
+			children = (
+				8B02EA582579487400480AFA /* Emojis.json */,
+			);
+			path = StaticData;
+			sourceTree = "<group>";
+		};
 		8B1597142550672900E3E10A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +364,7 @@
 				8B7FF790255C830A0043B0DB /* ProgramsCoordinator.swift */,
 				8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */,
 				8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */,
+				8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */,
 			);
 			path = StudentCoordinatorChildren;
 			sourceTree = "<group>";
@@ -345,10 +380,26 @@
 		8B7FF865255D653F0043B0DB /* Interpreter */ = {
 			isa = PBXGroup;
 			children = (
+				8BDC8FFE255ED05900A2E229 /* EmojiChecker.swift */,
 				8B7FF866255D65580043B0DB /* GlobalMemory.swift */,
 				8B69332B255FE9FB00CE97CB /* TokenType.swift */,
+				8B02EA452579329F00480AFA /* Token.swift */,
+				8B02EA4A2579331D00480AFA /* Lexer.swift */,
+				8B02EA5D25795D9500480AFA /* AST.swift */,
+				8BEB38C5257A4E4B00C24085 /* Interpreter.swift */,
+				8BEB38CA257A4ECD00C24085 /* Memory.swift */,
+				8BEB38CF257A80C400C24085 /* Parser.swift */,
 			);
 			path = Interpreter;
+			sourceTree = "<group>";
+		};
+		8BBD5D1A257C04FA0089F2D9 /* RunScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */,
+				8BBD5D1B257C05100089F2D9 /* RunScreenVC.xib */,
+			);
+			path = RunScreen;
 			sourceTree = "<group>";
 		};
 		8BDC8FC4255EAD2D00A2E229 /* Reusables & Helpers */ = {
@@ -411,6 +462,7 @@
 				8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */,
 				FCCA5C64255453B00018FC6D /* CodeModel.swift */,
 				8B7FF7ED255CD6620043B0DB /* ClassModel.swift */,
+				8BEB38C0257A400400C24085 /* ColorModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,7 +473,6 @@
 				8B3E751B255D952D00AAA915 /* Sensors */,
 				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
 				8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */,
-				8BDC8FFE255ED05900A2E229 /* EmojiChecker.swift */,
 				8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */,
 			);
 			path = Services;
@@ -459,6 +510,8 @@
 				8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */,
 				8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */,
 				FC57E7DF256FA65100584686 /* TabProtocols.swift */,
+				8B02EA4F2579344E00480AFA /* StringExtensions.swift */,
+				8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -478,6 +531,7 @@
 		8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
+				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
 				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
 				FC228F66256A567000A1A66F /* StudentNavigationMenu */,
 				8B7FF771255C7CDD0043B0DB /* ViewModels */,
@@ -595,6 +649,7 @@
 				8BDC8FC4255EAD2D00A2E229 /* Reusables & Helpers */,
 				8BE90CA2255037CD00A34B37 /* Models */,
 				8B7FF865255D653F0043B0DB /* Interpreter */,
+				8B02EA572579485D00480AFA /* StaticData */,
 				8BE90CA1255037A000A34B37 /* Default Files */,
 			);
 			path = EmojibleIOS;
@@ -745,6 +800,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */,
 				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
 				8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */,
@@ -752,6 +808,7 @@
 				FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
 				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
+				8B02EA592579487400480AFA /* Emojis.json in Resources */,
 				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
 				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
 				8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */,
@@ -889,8 +946,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7FF782255C82CD0043B0DB /* SettingsCoordinator.swift in Sources */,
+				8B02EA462579329F00480AFA /* Token.swift in Sources */,
 				8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */,
 				8B7FF80F255D4A880043B0DB /* ClassesDataSource.swift in Sources */,
+				8BBD5D21257C101C0089F2D9 /* TextFieldExtensions.swift in Sources */,
 				8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */,
 				8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */,
 				FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */,
@@ -898,6 +957,7 @@
 				8BDC9009255ED4FC00A2E229 /* AudioRecorder.swift in Sources */,
 				8BE90D32255049A200A34B37 /* UserModel.swift in Sources */,
 				8BDC8FEF255ECE4B00A2E229 /* AddTextAlert.swift in Sources */,
+				8B02EA5E25795D9500480AFA /* AST.swift in Sources */,
 				8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */,
 				8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */,
 				FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */,
@@ -913,11 +973,14 @@
 				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
 				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
 				FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */,
+				8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */,
 				8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */,
 				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
 				FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */,
+				8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
+				8BEB38D0257A80C400C24085 /* Parser.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
 				FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */,
 				FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */,
@@ -934,11 +997,14 @@
 				FC7D1CFB2571724100DD6B4C /* EditAlert.swift in Sources */,
 				FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */,
 				FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */,
+				8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */,
 				FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */,
 				8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */,
+				8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */,
 				8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */,
 				8B7FF79C255C91740043B0DB /* ClassScreenVC.swift in Sources */,
 				8B7FF7AE255C936D0043B0DB /* ViewControllerExtensions.swift in Sources */,
+				8BBD5D16257BF9B70089F2D9 /* RunCodeCoordinator.swift in Sources */,
 				FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */,
 				FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */,
 				FCCA5C79255469720018FC6D /* AssignmentModels.swift in Sources */,
@@ -949,9 +1015,11 @@
 				8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */,
 				FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */,
 				8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */,
+				8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */,
 				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,
 				8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */,
 				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,
+				8BEB38C6257A4E4B00C24085 /* Interpreter.swift in Sources */,
 				FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */,
 				8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */,
 				FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */,

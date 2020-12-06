@@ -33,7 +33,7 @@ class TutorialViewModel: UICollectionViewCell {
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
-        runDelegate?.runAction()
+        runDelegate?.runAction(code: self.codeModel!.code)
     }
     
     private func removeComments(_ code:String) -> String{

@@ -43,6 +43,7 @@ class SettingsCoordinator: Coordinator {
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "SettingsNavController") as! UINavigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     private static var instance: SettingsCoordinator!
     public static func getInstance() -> SettingsCoordinator{

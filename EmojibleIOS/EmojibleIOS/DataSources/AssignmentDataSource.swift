@@ -17,8 +17,8 @@ class AssignmentDataSource {
     var assignmentDataSourceIndices: [String] = []
     
     func startObservingAssignments(){
-        let currentUser = AuthenticationManager.getInstance().currentUser
-        let userDocRef = database.collection("Users").document(currentUser!.uid)
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
+        let userDocRef = database.collection("Users").document(currentUser.uid)
         let assignmentsCollectionRef = userDocRef.collection("Assignments")
         snapshotListener = assignmentsCollectionRef.addSnapshotListener{ [unowned self] querySnapshot, error in
             guard let documents = querySnapshot?.documents else { return }
@@ -34,6 +34,7 @@ class AssignmentDataSource {
     }
     
     func editAssignment(oldAssignment: AssignmentModel, newValue: Any){
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
         var index: Int?
         for (i, document) in self.assignments.enumerated(){
             if document == oldAssignment{
@@ -41,12 +42,13 @@ class AssignmentDataSource {
                 break
             }
         }
-        let uid = AuthenticationManager.getInstance().currentUser!.uid
+        let uid = currentUser.uid
         database.collection("Users").document(uid).collection("Assignments").document(self.assignmentDataSourceIndices[index!]).setData(AssignmentModel(identifier: oldAssignment.identifier, value: newValue).dictionary)
         
     }
     
     func removeAssignment(assignment: AssignmentModel){
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
         var index: Int?
         for (i, document) in self.assignments.enumerated(){
             if document == assignment{
@@ -54,12 +56,13 @@ class AssignmentDataSource {
                 break
             }
         }
-        let uid = AuthenticationManager.getInstance().currentUser!.uid
+        let uid = currentUser.uid
         database.collection("Users").document(uid).collection("Assignments").document(self.assignmentDataSourceIndices[index!]).delete()
     }
     
     func writeAssignment(assignment: AssignmentModel){
-        let uid = AuthenticationManager.getInstance().currentUser!.uid
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
+        let uid = currentUser.uid
         self.database.collection("Users").document(uid).collection("Assignments").addDocument(data:assignment.dictionary)
     }
     

@@ -44,6 +44,7 @@ class EmojiAssignmentCoordinator: Coordinator {
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "AssignmentsNavController") as! UINavigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     private static var instance: EmojiAssignmentCoordinator!
     public static func getInstance() -> EmojiAssignmentCoordinator{

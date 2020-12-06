@@ -14,10 +14,6 @@ class SettingsScreenVC: UIViewController, Coordinated{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
-        configureNavigationBar()
     }
     
-    func configureNavigationBar(){
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
 }

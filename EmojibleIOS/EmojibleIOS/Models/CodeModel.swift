@@ -26,7 +26,7 @@ class CodeModel:Equatable{
     
     init (dictionary: [String:Any]) {
         name = dictionary["name"] as! String
-        code = dictionary["code"] as! String
+        code = (dictionary["code"] as! String).replacingOccurrences(of: "\\n", with: "\n")
     }
     
     static func == (lhs: CodeModel, rhs: CodeModel) -> Bool {

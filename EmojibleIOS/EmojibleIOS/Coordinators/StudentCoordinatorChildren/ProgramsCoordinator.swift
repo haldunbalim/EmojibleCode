@@ -14,6 +14,7 @@ class ProgramsCoordinator: Coordinator {
     var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
     
     var programModel: CodeModel?
+    var runningCode: String?
 
     enum screenEnum{
         case ProgramScreen
@@ -25,7 +26,11 @@ class ProgramsCoordinator: Coordinator {
 
     
     func start() {
-        openScreen(screenName: currentScreen)
+        if AuthenticationManager.getInstance().currentUser != nil{
+            openScreen(screenName: currentScreen)
+        }else{
+            openScreen(screenName: .CodingScreen)
+        }
     }
     
     func openScreen(screenName: screenEnum, pop: Bool = false){
@@ -54,6 +59,7 @@ class ProgramsCoordinator: Coordinator {
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "ProgramsNavController") as! UINavigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     
     private static var instance: ProgramsCoordinator!
@@ -62,6 +68,11 @@ class ProgramsCoordinator: Coordinator {
             instance = ProgramsCoordinator()
         }
         return .instance
+    }
+    
+    func isRootViewController(screen: UIViewController) -> Bool{
+        return self.navigationController.viewControllers[0] == screen
+        
     }
     
 }

@@ -22,7 +22,7 @@ protocol ProgramRemovalAlert{
 //MARK: - Tutorial Tab
 protocol TutorialTabButtonAction{
     func viewAction(title: String, code: String)
-    func runAction()
+    func runAction(code:String)
 }
 
 //MARK: - Assignment Tab

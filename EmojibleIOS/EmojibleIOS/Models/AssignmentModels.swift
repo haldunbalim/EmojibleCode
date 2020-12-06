@@ -53,7 +53,9 @@ class AssignmentModel: Equatable, Hashable, CustomStringConvertible{
     }
     
     var type: ValueType{
-        return self.value.type
+        get{
+            return self.value.type
+        }
     }
     
     func hash(into hasher: inout Hasher) {

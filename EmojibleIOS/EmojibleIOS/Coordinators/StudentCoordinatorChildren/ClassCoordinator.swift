@@ -60,6 +60,7 @@ class ClassCoordinator: Coordinator {
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "ClassNavController") as! UINavigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     private static var instance: ClassCoordinator!
     public static func getInstance() -> ClassCoordinator{

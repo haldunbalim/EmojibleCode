@@ -16,8 +16,10 @@ class AppCoordinator: Coordinator{
     var teacherCoordinator = TeacherCoordinator.getInstance()
     let notificationCenter = NotificationCenter.default
     
+    
     var window: UIWindow
     var currentCoordinator: Coordinator?
+    
     
     enum coordinatorEnum: Int{
         case Student
@@ -45,23 +47,19 @@ class AppCoordinator: Coordinator{
             UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
                 guard let userModel = userModel else {return}
                 if userModel is StudentModel {
-                    self.window.rootViewController = self.studentCoordinator.tabBarController
-                    self.currentCoordinator = self.studentCoordinator
+                    self.studentCoordinator.start()
                 }else{
                     self.window.rootViewController = self.teacherCoordinator.navigationController
                     self.currentCoordinator = self.teacherCoordinator
+                    self.window.makeKeyAndVisible()
                 }
-                self.currentCoordinator!.start()
                 UserDataSource.getInstance().startObservingUserModel()
-                self.window.makeKeyAndVisible()
             }
         }else{
-            UserDataSource.getInstance().stopObservingUserModel()
-            self.window.rootViewController = self.authenticationCoordinator.navigationController
-            self.currentCoordinator = self.authenticationCoordinator
+            self.window.rootViewController = self.studentCoordinator.tabBarController
+            self.currentCoordinator = self.studentCoordinator
             self.currentCoordinator!.start()
             self.window.makeKeyAndVisible()
         }
     }
-    
 }

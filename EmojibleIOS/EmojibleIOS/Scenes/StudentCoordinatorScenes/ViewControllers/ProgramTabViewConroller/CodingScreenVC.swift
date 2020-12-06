@@ -20,6 +20,9 @@ class CodingScreenVC: UIViewController, Coordinated{
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         configureViews()
+        if AuthenticationManager.getInstance().currentUser == nil{
+            backButton.isHidden = true
+        }
     }
     
     func configureViews(){

@@ -52,6 +52,7 @@ class TutorialsCoordinator: Coordinator {
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "TutorialsNavController") as! UINavigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     
     private static var instance: TutorialsCoordinator!

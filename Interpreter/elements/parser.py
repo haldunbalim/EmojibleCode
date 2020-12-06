@@ -153,6 +153,7 @@ class Parser(object):
         """block : declarations compound_statement"""
         compound_statement_node = self.compound_statement()
         node = Block(compound_statement_node)
+        print(node.compound_statement)
         return node
 
     def compound_statement(self):

@@ -21,9 +21,10 @@ class Lexer(object):
         self.pos = 0
         self.token_type_values = TokenType.get_values()
         self.current_char = self.text[self.pos]
+        self.current_line_number = 1
 
     def error(self):
-        raise Exception('{} is an invalid character'.format(self.current_char))
+        raise Exception('{} is an invalid character at line: {}'.format(self.current_char,self.current_line_number))
 
     def advance(self):
         """Advance the `pos` pointer and set the `current_char` variable."""
@@ -47,7 +48,6 @@ class Lexer(object):
     def skip_comment(self):
         while self.current_char != '\n':
             self.advance()
-        self.advance()  # the closing curly brace
 
     def number(self):
         """Return a (multidigit) integer or float consumed from the input."""
@@ -67,9 +67,9 @@ class Lexer(object):
                 result += self.current_char
                 self.advance()
 
-            token = Token('REAL_CONST', float(result))
+            token = Token('REAL_CONST', float(result), self.current_line_number)
         else:
-            token = Token('INTEGER_CONST', int(result))
+            token = Token('INTEGER_CONST', int(result), self.current_line_number)
 
         return token
 
@@ -79,7 +79,7 @@ class Lexer(object):
         while self.current_char is not None and (self.current_char.isalnum() or self.current_char in UNICODE_EMOJI):
             result += self.current_char
             self.advance()
-        return Token(TokenType.ID, result)
+        return Token("ID", result, self.current_line_number)
 
     def get_next_token(self):
         """Lexical analyzer (also known as scanner or tokenizer)
@@ -96,12 +96,12 @@ class Lexer(object):
                 return self.number()
 
             if self.current_char in color_dict:
-                token = Token("COLOR", color_dict[self.current_char])
+                token = Token("COLOR", color_dict[self.current_char], self.current_line_number)
                 self.advance()
                 return token
 
             if self.current_char in bool_dict:
-                token = Token("BOOL_CONST", bool_dict[self.current_char])
+                token = Token("BOOL_CONST", bool_dict[self.current_char], self.current_line_number)
                 self.advance()
                 return token
 
@@ -121,8 +121,6 @@ class Lexer(object):
 
             self.error()
 
-        return Token("EOF", None)
-
     def _read_double_char_symbol(self):
         next_char = self.peek()
         if next_char is None:
@@ -130,7 +128,7 @@ class Lexer(object):
         symbol = self.current_char+next_char
         token = None
         if symbol in self.token_type_values:
-            token = Token(symbol, symbol)
+            token = Token(symbol, symbol, self.current_line_number)
             self.advance()
             self.advance()
         return token
@@ -138,16 +136,21 @@ class Lexer(object):
     def _read_single_char_symbol(self):
         token = None
         if self.current_char in self.token_type_values:
-            token = Token(self.current_char, self.current_char)
+            token = Token(self.current_char, self.current_char, self.current_line_number)
+            if token.type == TokenType.LINEBREAK:
+                self.current_line_number += 1
             self.advance()
         return token
 
 
     def lex(self):
         self.lexed_text = []
-        self.lexed_text.append(Token('PROGRAM', 'PROGRAM'))
+        self.lexed_text.append(Token('PROGRAM', 'PROGRAM',0))
         while self.current_char is not None:
-            self.lexed_text.append(self.get_next_token())
+            token = self.get_next_token()
+            if token is not None:
+                self.lexed_text.append(token)
+        self.lexed_text.append(Token("EOF", "EOF", self.current_line_number+1))
 
 
     def __repr__(self):

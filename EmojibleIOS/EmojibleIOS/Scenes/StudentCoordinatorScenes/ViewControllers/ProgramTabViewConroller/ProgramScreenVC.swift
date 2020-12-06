@@ -27,7 +27,6 @@ class ProgramScreenVC: UIViewController, Coordinated{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Programs"
-        configureNavigationBar()
         configureCollectionView()
         configureRemoveAlert()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .programsChanged, object: nil)
@@ -38,10 +37,6 @@ class ProgramScreenVC: UIViewController, Coordinated{
         guard let programsFromDB = notification.userInfo?["programsChanged"] else { return }
         self.previousCodes = programsFromDB as! [CodeModel]
         collectionView.reloadData()
-    }
-    
-    func configureNavigationBar(){
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func configureCollectionView(){

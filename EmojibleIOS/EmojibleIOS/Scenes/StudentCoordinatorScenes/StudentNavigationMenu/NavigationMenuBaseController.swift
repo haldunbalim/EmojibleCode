@@ -27,6 +27,14 @@ class NavigationMenuBaseController: UITabBarController, UITabBarControllerDelega
         }
     }
     
+    public func setVisible(){
+        customTabBar.isHidden = false
+    }
+    
+    public func setHidden(){
+        customTabBar.isHidden = true
+    }
+    
     private func setupCustomTabBar(_ items: [UITabBarItem], completion: @escaping ([UIViewController]) -> Void){
         let frame = CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: tabBarWidth, height: self.view.frame.height)
         

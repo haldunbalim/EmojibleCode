@@ -23,7 +23,6 @@ class TutorialScreenVC: UIViewController, Coordinated {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Tutorials"
-        configureNavigationBar()
         configureCollectionView()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .defaultTutorialsChanged, object: nil)
         TutorialDataSource.getInstance().startObservingDefaultTutorials()
@@ -34,10 +33,6 @@ class TutorialScreenVC: UIViewController, Coordinated {
         guard let defaultTutorials = notification.userInfo?["defaultTutorials"] else { return }
         tutorials = defaultTutorials as! [CodeModel]
         collectionView.reloadData()
-    }
-    
-    func configureNavigationBar(){
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func configureCollectionView(){
@@ -116,8 +111,14 @@ extension TutorialScreenVC:TutorialTabButtonAction{
         (self.coordinator as! TutorialsCoordinator).openScreen(screenName: .TutorialCodeScreen)
     }
     
-    func runAction() {
+    func runAction(code:String) {
+        /*
+        guard let coordinator = self.coordinator as? TutorialsCoordinator else { return }
+        coordinator.runningCode = code
+        coordinator.openScreen(screenName: .RunScreen)
+         */
         
+        StudentCoordinator.getInstance().runCode(code: code)
     }
 }
 
