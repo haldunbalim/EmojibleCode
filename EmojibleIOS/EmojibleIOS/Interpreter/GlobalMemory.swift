@@ -7,23 +7,8 @@
 
 import Foundation
 class GlobalMemory: Memory{
-    
     override private init(assignments:[AssignmentModel]? = nil) {
-        let assignments = [AssignmentModel(identifier: "😀",value: "10"),
-                       AssignmentModel(identifier: "🥺",value: "3"),
-                       AssignmentModel(identifier: "🔥",value: "Hot"),
-                       AssignmentModel(identifier: "🙊",value: "10"),
-                       AssignmentModel(identifier: "🍊",value: "Orange"),
-                       AssignmentModel(identifier: "🤮",value: "BOO"),
-                       AssignmentModel(identifier: "🤕",value: "10"),
-                       AssignmentModel(identifier: "🤑",value: "Money"),
-                       AssignmentModel(identifier: "🤠",value: "LOL"),
-                       AssignmentModel(identifier: "🤢",value: "14"),
-                       AssignmentModel(identifier: "🥴",value: "112"),
-                       AssignmentModel(identifier: "🤧",value: "COVID"),
-                       AssignmentModel(identifier: "😷",value: "19"),
-                    ]
-        super.init(assignments: assignments)
+        super.init(assignments: GlobalMemory.readAssignmentsFromJson())
     }
     
     private static var instance: GlobalMemory!
@@ -32,5 +17,65 @@ class GlobalMemory: Memory{
             instance = GlobalMemory()
         }
         return .instance
+    }
+    
+    override func editAssignment(assignment: AssignmentModel, newValue: Any) {
+        super.editAssignment(assignment: assignment, newValue: newValue)
+        GlobalMemory.writeAssignmentsToJson(assignments: self.assignments)
+        NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
+    }
+    
+    override func removeContent(assignment: AssignmentModel) {
+        super.removeContent(assignment: assignment)
+        GlobalMemory.writeAssignmentsToJson(assignments: self.assignments)
+        EmojiChecker.getInstance().updateEmojis(emoji: assignment.identifier, tag: "Remove")
+        NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
+    }
+    
+    override func addAssignment(assignment: AssignmentModel) {
+        super.addAssignment(assignment: assignment)
+        GlobalMemory.writeAssignmentsToJson(assignments: self.assignments)
+        EmojiChecker.getInstance().updateEmojis(emoji: assignment.identifier, tag: "Add")
+        NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
+    }
+    
+    private static func readAssignmentsFromJson() -> [AssignmentModel]{
+        do{
+            let fileManager = FileManager.default
+            let url = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let jsonUrl = url.appendingPathComponent("Assignments.json")
+            
+            let data = try Data(contentsOf: jsonUrl, options: .mappedIfSafe)
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+            
+            if let jsonResult = jsonResult as? Dictionary<String, Any>{
+                var assignmentList: [AssignmentModel] = []
+                for (key, value) in jsonResult{
+                    assignmentList.append(AssignmentModel(identifier: key, value: value))
+                }
+                return assignmentList
+            }
+            
+        }catch let err{
+            print(err.localizedDescription)
+        }
+        return []
+    }
+    
+    private static func writeAssignmentsToJson(assignments: [AssignmentModel]){
+        var dict: [String: Any] = [:]
+        for each in assignments {
+            dict[each.identifier] = each.getValue()
+        }
+        do{
+            let fileManager = FileManager.default
+            let url = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let jsonUrl = url.appendingPathComponent("Assignments.json")
+            try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted).write(to: jsonUrl, options: .atomic)
+        }
+        catch let err{
+            print(err.localizedDescription)
+            
+        }
     }
 }

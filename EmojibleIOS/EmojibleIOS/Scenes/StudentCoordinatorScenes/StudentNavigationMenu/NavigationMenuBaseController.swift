@@ -1,10 +1,10 @@
+
 //
 //  NavigationMenuBaseController.swift
 //  EmojibleIOS
 //
 //  Created by Furkan Yakal on 22.11.2020.
 //
-
 import UIKit
 
 class NavigationMenuBaseController: UITabBarController, UITabBarControllerDelegate {

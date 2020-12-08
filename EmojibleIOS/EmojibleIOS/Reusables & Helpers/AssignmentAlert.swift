@@ -8,8 +8,10 @@
 import UIKit
 
 class AssignmentAlert: CustomAlertViewController{
-    /*
-    var assignmentDelegate: AssignmentAssignAction?
+    
+    var textDelegata: AssignmentPopUpAlert?
+    var voiceDelegate: AssignmentPopUpAlert?
+    var funcDelegate: AssignmentPopUpAlert?
     
     @IBOutlet weak var emojiLabel: UILabel!
     
@@ -22,34 +24,23 @@ class AssignmentAlert: CustomAlertViewController{
     }
 
     @IBAction func textButtonOnPress(_ sender: Any) {
-        if let alert = self.assignmentDelegate?.textAlert {
-            if let vc = self.assignmentDelegate?.presentedOnVC{
-                alert.presentOver(viewController: vc)
-            }
-        }
+        dismiss()
+        textDelegata?.textButtonPressed()
     }
     
     @IBAction func voiceButtonOnPress(_ sender: Any) {
-        if let alert = self.assignmentDelegate?.voiceAlert {
-            if let vc = self.assignmentDelegate?.presentedOnVC{
-                alert.presentOver(viewController: vc)
-            }
-        }
+        dismiss()
+        voiceDelegate?.voiceButtonPressed()
     }
     
     @IBAction func functionButtonOnPress(_ sender: Any) {
-        if let alert = self.assignmentDelegate?.functionAlert {
-            if let vc = self.assignmentDelegate?.presentedOnVC{
-                alert.presentOver(viewController: vc)
-            }
-        }
+        dismiss()
+        funcDelegate?.funcButtonPressed()
     }
 
-    
     private func dismiss(){
         emojiLabel.text = ""
         self.dismiss(animated: true, completion: nil)
     }
- */
 }
 

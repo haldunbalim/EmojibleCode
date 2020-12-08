@@ -9,5 +9,5 @@ import UIKit
 
 public class Constants{
     public static let TAB_BAR_WIDTH = CGFloat(90)
-    
+    public static let reservedEmojis: [String] = ["👉",  "🟦", "📝", "➗", "👎", "🙃", "🔁", "🟩", "🤔", "📱", "💡", "➖", "✖️", "🔢", "🦜", "📣", "➕", "🟥", "👻", "👋", "🔉", "🤚", "💬", "🪐", "👍"]
 }

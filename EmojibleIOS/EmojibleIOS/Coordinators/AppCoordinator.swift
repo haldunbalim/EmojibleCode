@@ -48,6 +48,11 @@ class AppCoordinator: Coordinator{
                 guard let userModel = userModel else {return}
                 if userModel is StudentModel {
                     self.studentCoordinator.start()
+                    if self.window.rootViewController == nil {
+                        self.window.rootViewController = self.studentCoordinator.tabBarController
+                        self.currentCoordinator = self.studentCoordinator
+                        self.window.makeKeyAndVisible()
+                    }
                 }else{
                     self.window.rootViewController = self.teacherCoordinator.navigationController
                     self.currentCoordinator = self.teacherCoordinator

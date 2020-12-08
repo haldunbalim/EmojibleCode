@@ -22,7 +22,8 @@ class RemoveAlert: CustomAlertViewController{
     
     @IBAction func deleteButtonOnPress(_ sender: Any) {
         if let assignment = removeAssignmentDelegate?.assignmentToBeRemoved {
-            AssignmentDataSource.getInstance().removeAssignment(assignment: assignment)
+            GlobalMemory.getInstance().removeContent(assignment: assignment)
+            _ = FileSystemManager.getInstance().deleteFile(filename: "\(assignment.identifier).m4a")
         }
         
         if let program = removeProgramDelegate?.programToBeRemoved{

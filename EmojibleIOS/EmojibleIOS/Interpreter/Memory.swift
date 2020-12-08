@@ -34,19 +34,10 @@ class Memory{
                 break
             }
         }
-        NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
     }
     
     public func addAssignment(assignment:AssignmentModel){
-        for i in 0..<assignments.count{
-            if assignments[i] == assignment{
-                assignments[i] = assignment
-                NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
-                return
-            }
-        }
         assignments.append(assignment)
-        NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
     }
 
     
@@ -57,7 +48,6 @@ class Memory{
                 break
             }
         }
-        NotificationCenter.default.post(name: .assignmentsChanged, object: nil)
     }
     
 }

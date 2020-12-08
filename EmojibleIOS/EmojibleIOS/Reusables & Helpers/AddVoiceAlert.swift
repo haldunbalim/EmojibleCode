@@ -13,6 +13,7 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
     var newVoiceAssignmentDelegate: AssignmentNewAssignmentAlert?
     var editAssignmentDelegate: AssignmentEditAlert?
     
+    @IBOutlet weak var assignButton: UIButton!
     @IBOutlet weak var recordingLabel: UILabel!
     fileprivate let temporaryAudioFilePath = "temp.m4a"
     
@@ -37,6 +38,8 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
                 self.delegate!.showMessagePrompt("To record voice you must give permission", vcToBePresented:self.delegate!)
             }
         }
+        
+        assignButton.isEnabled = true
      }
     
     @IBAction func cancelButtonOnPress(_ sender: Any) {
@@ -50,20 +53,14 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
         }
         
         if let identifier = newVoiceAssignmentDelegate?.newAssignmentIdentifier {
-            if !EmojiChecker.getInstance().isValidIdentifier(identifier){
-                showMessagePrompt("\(identifier) is not a valid identifier. Please use a single emoji", vcToBePresented: self)
-                _ = FileSystemManager.getInstance().deleteFile(filename: temporaryAudioFilePath)
-                return
-            }
             if !FileSystemManager.getInstance().fileExists(filename: temporaryAudioFilePath){
                 showMessagePrompt("Please record your voice using microphone button", vcToBePresented: self)
                 return
             }
-            
             let newFileName = "\(identifier).m4a"
             _ = FileSystemManager.getInstance().renameFile(previousFilename: temporaryAudioFilePath, newFilename: newFileName)
             
-            AssignmentDataSource.getInstance().writeAssignment(assignment: AssignmentModel(identifier: identifier, value: newFileName))
+            GlobalMemory.getInstance().addAssignment(assignment: AssignmentModel(identifier: identifier, value: newFileName))
         }
         
         if let assignment = editAssignmentDelegate?.assignmentToBeEdited {
@@ -71,10 +68,11 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
                 showMessagePrompt("Please record your voice using microphone button", vcToBePresented: self)
                 return
             }
-            
+            let oldFileName = "\(assignment.identifier).m4a"
+            _ = FileSystemManager.getInstance().deleteFile(filename: oldFileName)
+         
             let newFileName = "\(assignment.identifier).m4a"
             _ = FileSystemManager.getInstance().renameFile(previousFilename: temporaryAudioFilePath, newFilename: newFileName)
-            
             GlobalMemory.getInstance().editAssignment(assignment: assignment, newValue: newFileName)
         }
     
@@ -83,6 +81,7 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
      }
     
     private func dismiss(){
+        assignButton.isEnabled = false
         newVoiceAssignmentDelegate?.newAssignmentIdentifier = nil
         editAssignmentDelegate?.assignmentToBeEdited = nil
         self.dismiss(animated: true, completion: nil)

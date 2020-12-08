@@ -9,6 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "ProgramScreenCell"
 private let reuseIdentifier2 = "ProgramAddCell"
+private let reuseIdentifier3 = "EmptyCell"
 
 class ProgramScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
@@ -45,6 +46,7 @@ class ProgramScreenVC: UIViewController, Coordinated{
         
         collectionView.register(UINib(nibName: "ProgramViewModel", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(UINib(nibName: "ProgramNewCodeViewModel", bundle: .main), forCellWithReuseIdentifier: reuseIdentifier2)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier3)
         
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH),
@@ -78,7 +80,7 @@ extension ProgramScreenVC: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return previousCodes.count + 1
+        return previousCodes.count == 0 ? 2: previousCodes.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -107,7 +109,11 @@ extension ProgramScreenVC: UICollectionViewDataSource{
             }
             
         }else {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProgramViewModel {
+            if previousCodes.count == 0{
+                return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier3, for: indexPath)
+            }
+            
+            else if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ProgramViewModel {
                 
                 cell.configureView(codeModel: previousCodes[indexPath.row - 1])
                 NSLayoutConstraint.activate([

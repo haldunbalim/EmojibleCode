@@ -46,8 +46,8 @@
             filePath = "EmojibleIOS/Coordinators/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "EmojibleIOS/Coordinators/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "start()"
-            landmarkType = "7">
+            landmarkName = "AppCoordinator"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -404,8 +404,8 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/ProgramTabViewConroller/ProgramScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -420,8 +420,8 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/ProgramTabViewConroller/ProgramScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -500,10 +500,10 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/AssignmentsTabViewController/AssignmentScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "trashAction(assignment:)"
-            landmarkType = "7">
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "AssignmentScreenVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -566,7 +566,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
             endingLineNumber = "61"
-            landmarkName = "writeAssignment(assignment:)"
+            landmarkName = "removeAssignment(assignment:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -596,8 +596,8 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/AssignmentsTabViewController/AssignmentScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "notify(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -612,8 +612,8 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/AssignmentsTabViewController/AssignmentScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -653,38 +653,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB201F77-E46C-4A95-854A-6937650B37F4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/AssignmentsTabViewController/AssignmentScreenVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "93BD9573-4E81-4A5E-ACD3-3F53C3DAFACF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/AssignmentsTabViewController/AssignmentScreenVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "notify(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "02AB2743-D7F9-45F5-B86C-82BED56F779B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -694,8 +662,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "writeAssignment(assignment:)"
-            landmarkType = "7">
+            landmarkName = "AssignmentDataSource"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -740,8 +708,8 @@
             filePath = "EmojibleIOS/Reusables &amp; Helpers/RemoveAlert.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "deleteButtonOnPress(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -756,8 +724,8 @@
             filePath = "EmojibleIOS/Reusables &amp; Helpers/RemoveAlert.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "deleteButtonOnPress(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -772,10 +740,10 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/ProgramTabViewConroller/ProgramScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "trashButtonPressed(program:)"
-            landmarkType = "7">
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -788,10 +756,10 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/ProgramTabViewConroller/ProgramScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "trashAction(programModel:)"
-            landmarkType = "7">
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -807,6 +775,166 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "trashPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E453F371-6B26-432C-AFEE-B5D276D0E546"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Models/CodeModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "init(dictionary:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "710D3ABF-1CDE-41B5-8866-19F722579047"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Coordinators/StudentCoordinatorChildren/ProgramsCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "openScreen(screenName:pop:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AAEF011-A4F4-44C3-B06A-CD0C5ECD37D1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Coordinators/StudentCoordinatorChildren/ProgramsCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "openScreen(screenName:pop:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31873FFC-197A-4A8B-97AA-684DD75E7F9F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Coordinators/AppCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "start()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5AADFBE-A72F-496B-9B0C-2824030BB3B8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Interpreter/EmojiChecker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A53B612C-2072-4234-986B-63C7C58E760A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Interpreter/EmojiChecker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A53B612C-2072-4234-986B-63C7C58E760A - 675849e5f71e5c08"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EmojibleIOS.EmojiChecker.() -&gt; EmojibleIOS.EmojiChecker(in _E4DD3059D2C0AB1777DF2FA6B0CAE720).init() -&gt; EmojibleIOS.EmojiChecker"
+                  moduleName = "EmojibleIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/furkanyakal/Desktop/491Proje/EmojibleCode/EmojibleIOS/EmojibleIOS/Interpreter/EmojiChecker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "611">
+               </Location>
+               <Location
+                  uuid = "A53B612C-2072-4234-986B-63C7C58E760A - bdc95929fc6e5e89"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.String in EmojibleIOS.EmojiChecker.() -&gt; EmojibleIOS.EmojiChecker(in _E4DD3059D2C0AB1777DF2FA6B0CAE720).init() -&gt; EmojibleIOS.EmojiChecker"
+                  moduleName = "EmojibleIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/furkanyakal/Desktop/491Proje/EmojibleCode/EmojibleIOS/EmojibleIOS/Interpreter/EmojiChecker.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9C9EE4A-1997-412A-9205-36CC0E525D43"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Interpreter/EmojiChecker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "startEmojis()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61F7E8F4-EFFF-42B7-A51D-124E8D6B186B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/AssignmentsTabViewController/AssignmentScreenVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
+            landmarkName = "textButtonPressed()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

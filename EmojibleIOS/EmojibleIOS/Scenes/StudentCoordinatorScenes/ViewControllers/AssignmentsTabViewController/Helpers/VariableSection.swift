@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier2 = "VariablesViewModel"
 
 class VariableSection: UICollectionViewCell{
-    var variables = EmojiChecker.getInstance().getAvailableEmojis()
+    var variables : [String] = []
     
     var variableDelegate: AssignmentTabVariableSectionAction?
     

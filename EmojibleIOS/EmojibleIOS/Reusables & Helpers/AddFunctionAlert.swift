@@ -34,11 +34,11 @@ class AddFunctionAlert: CustomAlertViewController{
         }
         
         if let identifier = newFunctiontAssignmentDelegate?.newAssignmentIdentifier{
-            AssignmentDataSource.getInstance().writeAssignment(assignment: AssignmentModel(identifier: identifier, value: text))
+            GlobalMemory.getInstance().addAssignment(assignment: AssignmentModel(identifier: identifier, value: text))
         }
         
         if let assignment = editAssignmentDelegate?.assignmentToBeEdited {
-            AssignmentDataSource.getInstance().editAssignment(oldAssignment: assignment, newValue: text)
+            GlobalMemory.getInstance().editAssignment(assignment: assignment, newValue: text)
         }
         
         dismiss()

@@ -4,7 +4,6 @@
 //
 //  Created by Furkan Yakal on 22.11.2020.
 //
-
 import UIKit
 
 class TabNavigationMenu: UIView {
@@ -116,4 +115,3 @@ class TabNavigationMenu: UIView {
         inactiveTab.alpha = 1
     }
 }
-

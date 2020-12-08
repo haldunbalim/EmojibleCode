@@ -24,6 +24,7 @@ class AssignmentScreenVC: UIViewController, Coordinated{
     var addTextAlert: AddTextAlert!
     var addFunctionAlert: AddFunctionAlert!
     var removeAlert: RemoveAlert!
+    var popUpAlert: AssignmentAlert!
     
     var assignments: [AssignmentModel] = []
     
@@ -42,13 +43,13 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         configureAddTextAlert()
         configureAddFunctionAlert()
         configureRemoveAlert()
+        configurePopUpAlert()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .assignmentsChanged, object: nil)
-        AssignmentDataSource.getInstance().startObservingAssignments()
+        assignments = GlobalMemory.getInstance().getAssignments()
     }
     
     @objc func notify(_ notification: NSNotification){
-        guard let assignmentsFromDB = notification.userInfo?["assignmentsChanged"] else { return }
-        assignments = assignmentsFromDB as! [AssignmentModel]
+        assignments = GlobalMemory.getInstance().getAssignments()
         collectionView.reloadData()
     }
     
@@ -101,44 +102,24 @@ extension AssignmentScreenVC {
         removeAlert.removeAssignmentDelegate = self
     }
     
+    func configurePopUpAlert(){
+        popUpAlert = AssignmentAlert()
+        popUpAlert.delegate = self
+        popUpAlert.funcDelegate = self
+        popUpAlert.textDelegata = self
+        popUpAlert.voiceDelegate = self
+    }
+    
     func addButtonPressed(variable: String){
         self.newAssignmentIdentifier = variable
-        let alert = UIAlertController(title: nil, message: "Select Type", preferredStyle: .alert)
-        let addTextAction = UIAlertAction(title: "Add Text", style: .default){_ in
-            self.addTextAlert.presentOver(viewController:self)
-        }
-        let addVoiceAction = UIAlertAction(title: "Add Voice", style:.default){_ in
-            self.addVoiceAlert.presentOver(viewController:self)
-        }
-        let addFunctionAction = UIAlertAction(title: "Add Function", style: .default) {_ in
-            self.addFunctionAlert.presentOver(viewController:self)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alert.addAction(addTextAction)
-        alert.addAction(addVoiceAction)
-        alert.addAction(addFunctionAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true)
+        self.popUpAlert.presentOver(viewController: self)
+        self.popUpAlert.emojiLabel.text = variable
     }
     
     func editButtonPressed(assignment: AssignmentModel){
         self.assignmentToBeEdited = assignment
-        let alert = UIAlertController(title: nil, message: "Select Update Type", preferredStyle: .alert)
-        let addTextAction = UIAlertAction(title: "Update with Text", style: .default){_ in
-            self.addTextAlert.presentOver(viewController:self)
-        }
-        let addVoiceAction = UIAlertAction(title: "Update with Voice", style:.default){_ in
-            self.addVoiceAlert.presentOver(viewController:self)
-        }
-        let addFunctionAction = UIAlertAction(title: "Update with Function", style: .default) {_ in
-            self.addFunctionAlert.presentOver(viewController:self)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        alert.addAction(addTextAction)
-        alert.addAction(addVoiceAction)
-        alert.addAction(addFunctionAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true)
+        self.popUpAlert.presentOver(viewController: self)
+        self.popUpAlert.emojiLabel.text = assignment.identifier
     }
     
     func trashButtonPressed(assignment: AssignmentModel){
@@ -250,3 +231,18 @@ extension AssignmentScreenVC: AssignmentTabAssignmentSectionAction{
 extension AssignmentScreenVC: AssignmentRemovalAlert{}
 extension AssignmentScreenVC: AssignmentEditAlert {}
 extension AssignmentScreenVC: AssignmentNewAssignmentAlert{}
+extension AssignmentScreenVC: AssignmentPopUpAlert{
+    func textButtonPressed() {
+        self.addTextAlert.presentOver(viewController:self)
+    }
+    
+    func voiceButtonPressed() {
+        self.addVoiceAlert.presentOver(viewController:self)
+    }
+    
+    func funcButtonPressed() {
+        self.addFunctionAlert.presentOver(viewController:self)
+    }
+    
+    
+}

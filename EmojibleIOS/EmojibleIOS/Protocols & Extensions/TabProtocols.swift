@@ -14,7 +14,7 @@ protocol ProgramTabButtonAction{
     func runAction()
     func trashAction(programModel: CodeModel)
 }
-
+//MARK: - Program Alert
 protocol ProgramRemovalAlert{
     var programToBeRemoved: CodeModel? { get set }
 }
@@ -46,4 +46,11 @@ protocol AssignmentEditAlert{
 
 protocol AssignmentNewAssignmentAlert{
     var newAssignmentIdentifier: String? {get set}
+}
+
+protocol AssignmentPopUpAlert{
+    func textButtonPressed()
+    func voiceButtonPressed()
+    func funcButtonPressed()
+    
 }

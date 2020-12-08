@@ -13,7 +13,6 @@
 		8B02EA462579329F00480AFA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA452579329F00480AFA /* Token.swift */; };
 		8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4A2579331D00480AFA /* Lexer.swift */; };
 		8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4F2579344E00480AFA /* StringExtensions.swift */; };
-		8B02EA592579487400480AFA /* Emojis.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B02EA582579487400480AFA /* Emojis.json */; };
 		8B02EA5E25795D9500480AFA /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA5D25795D9500480AFA /* AST.swift */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
@@ -83,8 +82,6 @@
 		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
 		FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* RemoveAlert.swift */; };
 		FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* RemoveAlert.xib */; };
-		FC7D1CFB2571724100DD6B4C /* EditAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D1CFA2571724100DD6B4C /* EditAlert.swift */; };
-		FC7D1D002571725900DD6B4C /* EditAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7D1CFF2571725900DD6B4C /* EditAlert.xib */; };
 		FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */; };
 		FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */; };
 		FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* StudentApp.storyboard */; };
@@ -97,6 +94,8 @@
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
 		FC9C42BE254AE88D0061E220 /* EmojibleIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */; };
 		FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */; };
+		FCA64FE1257FA02B0010E20D /* Emojis.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA64FE0257FA02B0010E20D /* Emojis.json */; };
+		FCA64FEE257FA04C0010E20D /* EmojisIndexes.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA64FED257FA04C0010E20D /* EmojisIndexes.json */; };
 		FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */; };
 		FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */; };
 		FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */; };
@@ -138,7 +137,6 @@
 		8B02EA452579329F00480AFA /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		8B02EA4A2579331D00480AFA /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 		8B02EA4F2579344E00480AFA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		8B02EA582579487400480AFA /* Emojis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Emojis.json; sourceTree = "<group>"; };
 		8B02EA5D25795D9500480AFA /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
 		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
@@ -212,8 +210,6 @@
 		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
 		FC7384202566A85C00432AC6 /* RemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAlert.swift; sourceTree = "<group>"; };
 		FC7384252566A87500432AC6 /* RemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveAlert.xib; sourceTree = "<group>"; };
-		FC7D1CFA2571724100DD6B4C /* EditAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlert.swift; sourceTree = "<group>"; };
-		FC7D1CFF2571725900DD6B4C /* EditAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAlert.xib; sourceTree = "<group>"; };
 		FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentAlert.xib; sourceTree = "<group>"; };
 		FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAlert.swift; sourceTree = "<group>"; };
 		FC80F06A2553584300B5B86B /* StudentApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentApp.storyboard; sourceTree = "<group>"; };
@@ -232,6 +228,8 @@
 		FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojibleIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibleIOSUITests.swift; sourceTree = "<group>"; };
 		FC9C42CA254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA64FE0257FA02B0010E20D /* Emojis.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Emojis.json; sourceTree = "<group>"; };
+		FCA64FED257FA04C0010E20D /* EmojisIndexes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmojisIndexes.json; sourceTree = "<group>"; };
 		FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentSection.swift; sourceTree = "<group>"; };
 		FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSection.swift; sourceTree = "<group>"; };
@@ -296,14 +294,6 @@
 				D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8B02EA572579485D00480AFA /* StaticData */ = {
-			isa = PBXGroup;
-			children = (
-				8B02EA582579487400480AFA /* Emojis.json */,
-			);
-			path = StaticData;
 			sourceTree = "<group>";
 		};
 		8B1597142550672900E3E10A /* ViewControllers */ = {
@@ -415,8 +405,6 @@
 				8BDC8FD2255EAF0400A2E229 /* IBInspectables.swift */,
 				FC7384202566A85C00432AC6 /* RemoveAlert.swift */,
 				FC7384252566A87500432AC6 /* RemoveAlert.xib */,
-				FC7D1CFA2571724100DD6B4C /* EditAlert.swift */,
-				FC7D1CFF2571725900DD6B4C /* EditAlert.xib */,
 				FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */,
 				FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */,
 				FC16BFFA256C074C00180942 /* Constants.swift */,
@@ -531,8 +519,8 @@
 		8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
-				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
 				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
+				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
 				FC228F66256A567000A1A66F /* StudentNavigationMenu */,
 				8B7FF771255C7CDD0043B0DB /* ViewModels */,
 				8B15971B2550686B00E3E10A /* ViewControllers */,
@@ -648,8 +636,8 @@
 				8BE90CA3255037D100A34B37 /* Services */,
 				8BDC8FC4255EAD2D00A2E229 /* Reusables & Helpers */,
 				8BE90CA2255037CD00A34B37 /* Models */,
+				FCA64FDF257FA00F0010E20D /* StaticData */,
 				8B7FF865255D653F0043B0DB /* Interpreter */,
-				8B02EA572579485D00480AFA /* StaticData */,
 				8BE90CA1255037A000A34B37 /* Default Files */,
 			);
 			path = EmojibleIOS;
@@ -671,6 +659,15 @@
 				FC9C42CA254AE88D0061E220 /* Info.plist */,
 			);
 			path = EmojibleIOSUITests;
+			sourceTree = "<group>";
+		};
+		FCA64FDF257FA00F0010E20D /* StaticData */ = {
+			isa = PBXGroup;
+			children = (
+				FCA64FE0257FA02B0010E20D /* Emojis.json */,
+				FCA64FED257FA04C0010E20D /* EmojisIndexes.json */,
+			);
+			path = StaticData;
 			sourceTree = "<group>";
 		};
 		FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */ = {
@@ -801,21 +798,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */,
+				FCA64FEE257FA04C0010E20D /* EmojisIndexes.json in Resources */,
 				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
 				8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
 				FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */,
+				FCA64FE1257FA02B0010E20D /* Emojis.json in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
 				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
-				8B02EA592579487400480AFA /* Emojis.json in Resources */,
 				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
 				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
 				8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */,
 				FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
 				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,
-				FC7D1D002571725900DD6B4C /* EditAlert.xib in Resources */,
 				FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */,
 				8BDC8FF7255ECE5600A2E229 /* AddTextAlert.xib in Resources */,
 			);
@@ -994,7 +991,6 @@
 				FC16BFFB256C074D00180942 /* Constants.swift in Sources */,
 				FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */,
 				FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */,
-				FC7D1CFB2571724100DD6B4C /* EditAlert.swift in Sources */,
 				FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */,
 				FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */,
 				8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */,

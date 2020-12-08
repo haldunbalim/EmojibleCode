@@ -27,7 +27,7 @@ class ProgramsCoordinator: Coordinator {
     
     func start() {
         if AuthenticationManager.getInstance().currentUser != nil{
-            openScreen(screenName: currentScreen)
+            openScreen(screenName: .ProgramScreen)
         }else{
             openScreen(screenName: .CodingScreen)
         }
@@ -49,7 +49,12 @@ class ProgramsCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.delegate = self as? UINavigationControllerDelegate
         if pop { navigationController.popViewController(animated: true) }
-        navigationController.pushViewController(vc as! UIViewController, animated: true)
+        if navigationController.viewControllers.count > 0 && navigationController.viewControllers[0] is CodingScreenVC {
+            navigationController.viewControllers[0] = vc as! UIViewController
+        }
+        else {
+            navigationController.pushViewController(vc as! UIViewController, animated: true)
+        }
         currentScreen = screenName
     }
     
