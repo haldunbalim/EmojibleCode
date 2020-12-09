@@ -55,6 +55,8 @@
 	<string>For using microphone</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow for access</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>For converting speech to text</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
