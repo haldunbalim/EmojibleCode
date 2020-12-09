@@ -2,6 +2,7 @@ from elements import TokenType
 from elements import NodeVisitor
 import random
 
+
 class Interpreter(NodeVisitor):
     def __init__(self, tree):
         self.tree = tree
@@ -39,15 +40,17 @@ class Interpreter(NodeVisitor):
     def visit_GetRandomNumber(self, node):
         lower_bound = self.visit(node.lower_bound)
         upper_bound = self.visit(node.upper_bound)
-        if not isinstance(lower_bound,int) and not((isinstance(lower_bound,float) and int(lower_bound) == lower_bound)):
-          raise Exception("Random number cannot be called with non integer lower bound")
-        if not isinstance(upper_bound,int) and not((isinstance(upper_bound,float) and int(upper_bound) == upper_bound)):
-          raise Exception("Random number cannot be called with non integer upper bound")
-        return random.randint(lower_bound,upper_bound)
+        if not isinstance(lower_bound, int) and not (
+        (isinstance(lower_bound, float) and int(lower_bound) == lower_bound)):
+            raise Exception("Random number cannot be called with non integer lower bound")
+        if not isinstance(upper_bound, int) and not (
+        (isinstance(upper_bound, float) and int(upper_bound) == upper_bound)):
+            raise Exception("Random number cannot be called with non integer upper bound")
+        return random.randint(lower_bound, upper_bound)
 
     def visit_GetNumericUserInput(self, node):
-      inp = input()
-      return int(inp)
+        inp = input()
+        return int(inp)
 
     def visit_Color(self, node):
         return node.value
@@ -72,29 +75,27 @@ class Interpreter(NodeVisitor):
         self.GLOBAL_MEMORY[var_name] = var_value
 
     def visit_If(self, node):
-      if self.visit(node.bool_statement):
-        self.visit(node.true_statement)
-      else:
-        self.visit(node.false_statement)
+        if self.visit(node.bool_statement):
+            self.visit(node.true_statement)
+        else:
+            self.visit(node.false_statement)
 
     def visit_For(self, node):
-      times = self.visit(node.times)
-      if not isinstance(times, int) or (isinstance(times,float) and times == int(times)):
-        raise Exception("{} is not an integer".format(times))
-      for i in range(times):
-        self.visit(node.body)
-      
+        times = self.visit(node.times)
+        if not isinstance(times, int) or (isinstance(times, float) and times == int(times)):
+            raise Exception("{} is not an integer".format(times))
+        for i in range(times):
+            self.visit(node.body)
 
     def visit_While(self, node):
-      while True:
-        bool_cond = self.visit(node.bool_statement)
-        if not isinstance(bool_cond, bool):
-          raise Exception("{} is not a boolean".format(bool_cond))
-        if bool_cond == True:
-          break
-        self.visit(node.body)
+        while True:
+            bool_cond = self.visit(node.bool_statement)
+            if not isinstance(bool_cond, bool):
+                raise Exception("{} is not a boolean".format(bool_cond))
+            if bool_cond == True:
+                break
+            self.visit(node.body)
 
-      
     def visit_Var(self, node):
         var_name = node.value
         if var_name not in self.GLOBAL_MEMORY:

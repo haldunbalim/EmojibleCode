@@ -4,7 +4,6 @@ from elements import Interpreter
 
 
 def main():
-
     text = """
         🐤 👉 [👻 1, 100] 📝  assign a random number between 1 and 100 to baby chick emoji
 
@@ -21,7 +20,7 @@ def main():
         [ 📱  🟩 ] 📝  display green to indicate the correct answer is given
 
     """
-    
+
     lexer = Lexer(text)
     lexer.lex()
     parser = Parser(lexer.lexed_text)
@@ -34,5 +33,6 @@ def main():
     print('Run-time GLOBAL_MEMORY contents:')
     for k, v in sorted(interpreter.GLOBAL_MEMORY.items()):
         print('{} = {}'.format(k, v))
+
 
 main()

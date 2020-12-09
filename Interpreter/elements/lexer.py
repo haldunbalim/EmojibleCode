@@ -13,6 +13,7 @@ bool_dict = {
     "👎": False,
 }
 
+
 class Lexer(object):
     def __init__(self, text):
         # client string input, e.g. "4 + 2 * 3 - 6 / 2"
@@ -127,7 +128,7 @@ class Lexer(object):
         next_char = self.peek()
         if next_char is None:
             return None
-        symbol = self.current_char+next_char
+        symbol = self.current_char + next_char
         token = None
         if symbol in self.token_type_values:
             token = Token(symbol, symbol)
@@ -142,14 +143,11 @@ class Lexer(object):
             self.advance()
         return token
 
-
     def lex(self):
         self.lexed_text = []
         self.lexed_text.append(Token('PROGRAM', 'PROGRAM'))
         while self.current_char is not None:
             self.lexed_text.append(self.get_next_token())
 
-
     def __repr__(self):
         return self.lexed_text.__repr__()
-
