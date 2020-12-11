@@ -23,11 +23,10 @@ class TextToSpeech{
         let utterance = AVSpeechUtterance(string: text)
         if language == "Turkish" {
             utterance.voice = AVSpeechSynthesisVoice(language: "tr-TR")
-            utterance.rate = 0.5
         }else{
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-            utterance.rate = 0.5
         }
+        utterance.rate = 0.5
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
     }

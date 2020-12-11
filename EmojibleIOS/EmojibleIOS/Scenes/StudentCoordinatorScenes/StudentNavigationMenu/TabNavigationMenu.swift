@@ -83,7 +83,7 @@ class TabNavigationMenu: UIView {
             itemIconView.heightAnchor.constraint(equalToConstant: 20),
             itemIconView.widthAnchor.constraint(equalToConstant: 20),
             itemIconView.centerXAnchor.constraint(equalTo: tabBarItem.centerXAnchor),
-            itemIconView.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: 8),
+            itemIconView.centerYAnchor.constraint(equalTo: tabBarItem.centerYAnchor, constant: -5),
             
             itemTitleLabel.topAnchor.constraint(equalTo:itemIconView.bottomAnchor,constant: 5),
             itemTitleLabel.centerXAnchor.constraint(equalTo: itemIconView.centerXAnchor),

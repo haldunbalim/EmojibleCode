@@ -36,6 +36,9 @@ class AssignmentViewModel: UICollectionViewCell{
     
     @IBAction func editButtonOnPress(_ sender: UIButton) {
         editDelegate?.editAction(assignment: self.model)
+        let url = FileSystemManager.getInstance().getPath(filename: model!.getValue() as! String)
+        let s = SpeechToText.getInstance().convertSpeechToText(url: url)
+        let x = 1
     }
     
     @IBAction func trashButtonOnPress(_ sender: UIButton) {

@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 
 class RunScreenVC:UIViewController, Coordinated{
-    var shaked = false
-    var activate = false
-    
     var coordinator: Coordinator?
     var notificationCenter = NotificationCenter.default
     
