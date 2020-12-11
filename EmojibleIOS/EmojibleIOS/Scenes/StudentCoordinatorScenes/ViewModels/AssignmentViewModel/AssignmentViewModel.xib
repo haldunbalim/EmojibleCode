@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,6 +31,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Vmo-4A-JUE"/>
                         </constraints>
+                        <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal">
                             <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="large"/>
                         </state>
@@ -38,7 +40,11 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvS-EG-3ib">
-                        <rect key="frame" x="190" y="14.5" width="43" height="36"/>
+                        <rect key="frame" x="196.5" y="17.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="2Dr-fQ-gEi"/>
+                            <constraint firstAttribute="width" constant="30" id="jbl-i5-GbS"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <state key="normal" image="headphones">
                             <color key="titleColor" name="AccentColor"/>
@@ -52,6 +58,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="Omm-Oc-pcb"/>
                         </constraints>
+                        <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal">
                             <imageReference key="image" image="trash" catalog="system" symbolScale="large"/>
                         </state>
@@ -60,7 +67,7 @@
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" red="0.76470588240000004" green="0.81568627449999997" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
                     <constraint firstItem="4c1-zq-Z3L" firstAttribute="top" secondItem="e7Y-4p-thL" secondAttribute="top" id="46H-2T-nKc"/>
                     <constraint firstItem="ZKS-gP-X4g" firstAttribute="centerY" secondItem="e7Y-4p-thL" secondAttribute="centerY" id="4XA-5U-XON"/>
@@ -76,6 +83,17 @@
                     <constraint firstItem="ZKS-gP-X4g" firstAttribute="leading" secondItem="e7Y-4p-thL" secondAttribute="leading" constant="10" id="wjX-lR-bkD"/>
                     <constraint firstItem="g6M-VN-Oex" firstAttribute="top" secondItem="e7Y-4p-thL" secondAttribute="top" id="zQV-3n-MBw"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                        <real key="value" value="1"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                        <real key="value" value="1"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                        <color key="value" systemColor="systemGray4Color"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </collectionViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="423" height="65"/>
@@ -99,5 +117,11 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

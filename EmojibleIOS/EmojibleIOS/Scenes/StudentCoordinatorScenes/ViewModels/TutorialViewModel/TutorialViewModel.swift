@@ -17,12 +17,15 @@ class TutorialViewModel: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = #colorLiteral(red: 0.7525274158, green: 0.8178007007, blue: 0.9784051776, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1)
     }
     
     func configureView (codeModel: CodeModel) {
         self.codeModel = codeModel
         nameLabel.text = codeModel.name
+        nameLabel.minimumScaleFactor = 0.5
+        nameLabel.adjustsFontSizeToFitWidth = true
+        
         codeLabel.text = removeComments(codeModel.code)
     }
     

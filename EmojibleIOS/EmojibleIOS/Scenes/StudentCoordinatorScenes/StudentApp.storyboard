@@ -3,7 +3,7 @@
     <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -51,7 +51,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="10v-Tn-Dyc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="10v-Tn-Dyc" firstAttribute="trailing" secondItem="mWu-eD-Hzg" secondAttribute="trailing" id="4iB-xI-RzL"/>
                             <constraint firstItem="mWu-eD-Hzg" firstAttribute="leading" secondItem="10v-Tn-Dyc" secondAttribute="leading" id="VOF-by-ZgE"/>
@@ -93,7 +93,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yKg-R2-3VG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yKg-R2-3VG" firstAttribute="trailing" secondItem="1x6-n1-QQW" secondAttribute="trailing" id="52g-zp-3Z8"/>
                             <constraint firstItem="1x6-n1-QQW" firstAttribute="top" secondItem="yKg-R2-3VG" secondAttribute="top" id="KGA-zW-v7S"/>
@@ -293,11 +293,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elv-8g-YId">
                                 <rect key="frame" x="44" y="309" width="714" height="40"/>
-                                <color key="backgroundColor" red="0.76470588240000004" green="0.81568627449999997" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7Li-2P-ScE"/>
                                 </constraints>
-                                <state key="normal" title="RUN"/>
+                                <state key="normal" title="RUN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="runPressed:" destination="1sQ-OE-vKz" eventType="touchUpInside" id="dAm-TT-mmn"/>
                                 </connections>
@@ -308,8 +310,9 @@
                                     <constraint firstAttribute="width" constant="120" id="I5T-7O-AgJ"/>
                                     <constraint firstAttribute="height" constant="40" id="VVu-xh-qZo"/>
                                 </constraints>
+                                <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="PROGRAMS" image="chevron.backward" catalog="system">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                    <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="backPressed:" destination="1sQ-OE-vKz" eventType="touchUpInside" id="yP7-d9-bi2"/>
@@ -321,6 +324,7 @@
                                     <constraint firstAttribute="width" constant="40" id="dDE-d8-wgu"/>
                                     <constraint firstAttribute="height" constant="40" id="rnA-NB-9Ws"/>
                                 </constraints>
+                                <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal">
                                     <imageReference key="image" image="photo" catalog="system" symbolScale="large"/>
                                 </state>
@@ -334,6 +338,7 @@
                                     <constraint firstAttribute="height" constant="40" id="gbg-eo-vlW"/>
                                     <constraint firstAttribute="width" constant="40" id="tAo-kR-GLY"/>
                                 </constraints>
+                                <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal">
                                     <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
                                 </state>
@@ -343,7 +348,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write your code..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j6z-dt-W5h">
                                 <rect key="frame" x="44" y="55" width="714" height="249"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -358,6 +363,7 @@
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNJ-EN-J7M">
                                 <rect key="frame" x="224" y="5" width="389" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PY3-nu-gtL"/>
                                 </constraints>
@@ -366,7 +372,7 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FEv-0O-LOT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UNJ-EN-J7M" firstAttribute="leading" secondItem="lKD-jY-rEb" secondAttribute="trailing" constant="60" id="2c1-Lg-zrT"/>
                             <constraint firstItem="UNJ-EN-J7M" firstAttribute="top" secondItem="FEv-0O-LOT" secondAttribute="top" constant="5" id="4bK-vf-Szy"/>
@@ -407,11 +413,14 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nle-qF-TC7">
                                 <rect key="frame" x="44" y="309" width="714" height="40"/>
-                                <color key="backgroundColor" red="0.76470588240000004" green="0.81568627449999997" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JjH-kd-AkV"/>
                                 </constraints>
-                                <state key="normal" title="RUN"/>
+                                <color key="tintColor" red="0.44101712110000002" green="0.69985747340000004" blue="0.83139246700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="RUN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="runPressed:" destination="bZl-fl-1eL" eventType="touchUpInside" id="oEA-Yd-0HA"/>
                                 </connections>
@@ -422,8 +431,9 @@
                                     <constraint firstAttribute="width" constant="120" id="3K1-c3-fxt"/>
                                     <constraint firstAttribute="height" constant="40" id="nWL-TQ-qao"/>
                                 </constraints>
+                                <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="TUTORIALS" image="chevron.backward" catalog="system">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                    <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="backPressed:" destination="bZl-fl-1eL" eventType="touchUpInside" id="67M-KB-Q00"/>
@@ -431,7 +441,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-Cf-9qf">
                                 <rect key="frame" x="44" y="55" width="714" height="249"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -456,7 +466,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PJw-F5-YfY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oBP-Ri-QNz" firstAttribute="leading" secondItem="PJw-F5-YfY" secondAttribute="leading" id="3PB-4r-Fg6"/>
                             <constraint firstItem="Nle-qF-TC7" firstAttribute="top" secondItem="W7Y-Cf-9qf" secondAttribute="bottom" constant="5" id="3Xo-Wc-LQ2"/>
@@ -492,11 +502,13 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-pC-fGh">
                                 <rect key="frame" x="44" y="309" width="714" height="40"/>
-                                <color key="backgroundColor" red="0.76470588240000004" green="0.81568627449999997" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QMr-hU-Bog"/>
                                 </constraints>
-                                <state key="normal" title="RUN"/>
+                                <state key="normal" title="RUN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="runPressed:" destination="OEm-nK-vEB" eventType="touchUpInside" id="1dY-fx-9bN"/>
                                 </connections>
@@ -507,8 +519,9 @@
                                     <constraint firstAttribute="height" constant="40" id="d1a-AK-sgH"/>
                                     <constraint firstAttribute="width" constant="120" id="wf3-X6-IXD"/>
                                 </constraints>
+                                <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="PROGRAMS" image="chevron.backward" catalog="system">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                    <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="backPressed:" destination="OEm-nK-vEB" eventType="touchUpInside" id="WG3-WY-yDZ"/>
@@ -516,7 +529,7 @@
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8C8-KM-EgY">
                                 <rect key="frame" x="44" y="55" width="714" height="249"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -532,6 +545,7 @@
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TITLE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-DH-iKR">
                                 <rect key="frame" x="224" y="5" width="364" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xdx-Fi-DeL"/>
                                 </constraints>
@@ -608,7 +622,7 @@
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="axf-yf-t56"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="axf-yf-t56" firstAttribute="bottom" secondItem="hSj-hj-nyW" secondAttribute="bottom" id="B5f-xI-mtf"/>
                             <constraint firstItem="axf-yf-t56" firstAttribute="trailing" secondItem="hSj-hj-nyW" secondAttribute="trailing" id="DBF-yA-XaS"/>
@@ -636,11 +650,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

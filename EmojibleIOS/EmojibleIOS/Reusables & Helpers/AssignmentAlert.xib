@@ -27,21 +27,22 @@
                     <rect key="frame" x="248" y="65.5" width="400" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMOJI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7H-10-sga">
-                            <rect key="frame" x="5" y="5" width="30" height="30"/>
+                            <rect key="frame" x="5" y="5" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="4Ab-Ub-FCu"/>
-                                <constraint firstAttribute="height" constant="30" id="iSk-pc-rYP"/>
+                                <constraint firstAttribute="width" constant="40" id="4Ab-Ub-FCu"/>
+                                <constraint firstAttribute="height" constant="40" id="iSk-pc-rYP"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cU-xn-RYl">
-                            <rect key="frame" x="365" y="5" width="30" height="30"/>
+                            <rect key="frame" x="355" y="5" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="3Vw-Cz-886"/>
-                                <constraint firstAttribute="height" constant="30" id="sti-yj-AnZ"/>
+                                <constraint firstAttribute="width" constant="40" id="3Vw-Cz-886"/>
+                                <constraint firstAttribute="height" constant="40" id="sti-yj-AnZ"/>
                             </constraints>
+                            <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal">
                                 <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
                             </state>
@@ -50,13 +51,14 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gAa-t9-TeC">
-                            <rect key="frame" x="10" y="45" width="380" height="150"/>
+                            <rect key="frame" x="10" y="55" width="380" height="140"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnB-rX-X7S">
-                                    <rect key="frame" x="0.0" y="0.0" width="126" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="126" height="140"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="Text">
-                                        <color key="titleColor" name="AccentColor"/>
+                                        <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <imageReference key="image" image="doc.text" catalog="system" symbolScale="large"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -75,10 +77,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2H-bc-agQ">
-                                    <rect key="frame" x="127" y="0.0" width="126" height="150"/>
+                                    <rect key="frame" x="127" y="0.0" width="126" height="140"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="Voice">
-                                        <color key="titleColor" name="AccentColor"/>
+                                        <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <imageReference key="image" image="mic" catalog="system" symbolScale="large"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -97,10 +100,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJN-2z-rDW">
-                                    <rect key="frame" x="254" y="0.0" width="126" height="150"/>
+                                    <rect key="frame" x="254" y="0.0" width="126" height="140"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="Function">
-                                        <color key="titleColor" name="AccentColor"/>
+                                        <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <imageReference key="image" image="apps.iphone.badge.plus" catalog="system" symbolScale="large"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -132,7 +136,7 @@
                             </userDefinedRuntimeAttributes>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="gAa-t9-TeC" secondAttribute="trailing" constant="10" id="4nr-D8-HL1"/>
                         <constraint firstAttribute="height" constant="200" id="Bub-rW-gNE"/>
@@ -175,8 +179,8 @@
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

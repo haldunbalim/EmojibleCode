@@ -35,14 +35,18 @@
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7a-sO-3Tl">
                                     <rect key="frame" x="57" y="58" width="46" height="51"/>
-                                    <state key="normal" title="Assign"/>
+                                    <state key="normal" title="Assign">
+                                        <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </state>
                                     <connections>
                                         <action selector="assignButtonOnPress:" destination="-1" eventType="touchUpInside" id="Yi4-21-yJ1"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjU-fq-TTS">
                                     <rect key="frame" x="56" y="109" width="48" height="51"/>
-                                    <state key="normal" title="Cancel"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </state>
                                     <connections>
                                         <action selector="cancelButtonOnPress:" destination="-1" eventType="touchUpInside" id="N90-wY-D3d"/>
                                     </connections>
@@ -54,7 +58,7 @@
                             </constraints>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="1zB-q5-Yvy"/>
                         <constraint firstItem="QQ1-c8-AdD" firstAttribute="top" secondItem="kMY-F1-IIV" secondAttribute="top" constant="20" id="8Co-Vr-tyn"/>
@@ -83,8 +87,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

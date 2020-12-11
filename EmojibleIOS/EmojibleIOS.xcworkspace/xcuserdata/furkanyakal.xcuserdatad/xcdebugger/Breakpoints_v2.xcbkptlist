@@ -220,8 +220,8 @@
             filePath = "EmojibleIOS/Coordinators/StudentCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "startChildren()"
             landmarkType = "7">
          </BreakpointContent>
@@ -252,8 +252,8 @@
             filePath = "EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewModels/ProgramViewModel/ProgramNewCodeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "newCodePressed(_:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -20,8 +20,8 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waF-jZ-9IG">
                         <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.91764705879999997" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.7725490196" green="0.3803921569" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.44101712110000002" green="0.69985747340000004" blue="0.83139246700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal">
                             <imageReference key="image" image="plus.square.fill" catalog="system" symbolScale="large"/>
                         </state>

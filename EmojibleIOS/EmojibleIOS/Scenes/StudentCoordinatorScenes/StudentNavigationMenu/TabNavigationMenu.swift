@@ -22,7 +22,7 @@ class TabNavigationMenu: UIView {
     convenience init(menuItems: [UITabBarItem], frame: CGRect) {
         self.init(frame: frame)
         
-        self.backgroundColor = #colorLiteral(red: 0.7525274158, green: 0.8178007007, blue: 0.9784051776, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1)
         self.isUserInteractionEnabled = true
         self.clipsToBounds = true
         
@@ -64,17 +64,18 @@ class TabNavigationMenu: UIView {
         
         itemTitleLabel.text = item.title
         itemTitleLabel.font = UIFont.systemFont(ofSize: 12)
-        itemTitleLabel.textColor = .white // changing color to white
+        itemTitleLabel.textColor = .white
         itemTitleLabel.textAlignment = .left
         itemTitleLabel.textAlignment = .center
         itemTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         itemTitleLabel.clipsToBounds = true
         
         itemIconView.image = item.image!.withRenderingMode(.automatic)
-        itemIconView.contentMode = .scaleAspectFit // added to stop stretching
+        itemIconView.contentMode = .scaleAspectFit
         itemIconView.translatesAutoresizingMaskIntoConstraints = false
         itemIconView.clipsToBounds = true
         tabBarItem.layer.backgroundColor = UIColor.clear.cgColor
+        tabBarItem.tintColor = UIColor.white
         tabBarItem.addSubview(itemIconView)
         tabBarItem.addSubview(itemTitleLabel)
         tabBarItem.translatesAutoresizingMaskIntoConstraints = false

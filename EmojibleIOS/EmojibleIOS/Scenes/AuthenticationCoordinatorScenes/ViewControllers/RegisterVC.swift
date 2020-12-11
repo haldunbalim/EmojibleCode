@@ -14,6 +14,8 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     var coordinator: Coordinator?
     let userTypeOptions = ["Student","Teacher"]
     
+    @IBOutlet weak var backButton: UIButton!
+    
     @IBOutlet weak var birthDatePicker: UIDatePicker!
     @IBOutlet weak var birthDatePickerToolbar: UIToolbar!
     
@@ -28,11 +30,25 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
+        configureViews()
         configureBirthDatePicker()
         guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
         teacherCodeTextField.isHidden = coordinator.registeringUserType! == "Student"
+    }
+    
+    func configureViews(){
+        NSLayoutConstraint.activate([emailTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([passwordTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([nameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([surnameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([birthDateTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([teacherCodeTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
 
+        NSLayoutConstraint.activate([birthDatePicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
+        NSLayoutConstraint.activate([birthDatePickerToolbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
         
+        
+        NSLayoutConstraint.activate([backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
     }
     
     
@@ -61,6 +77,17 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         birthDatePicker.isHidden = true
         birthDateTextField.text = CustomDateFormatter.getInstance().getStringFromDate(from:birthDatePicker.date)
         
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        nameTextField.text = ""
+        surnameTextField.text = ""
+        birthDateTextField.text = ""
+        teacherCodeTextField.text = ""
+        birthDatePicker.calendar = .current
+        (self.coordinator as! AuthenticationCoordinator).pop()
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {

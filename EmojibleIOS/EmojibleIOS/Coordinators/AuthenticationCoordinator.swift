@@ -44,8 +44,13 @@ class AuthenticationCoordinator: Coordinator {
         currentScreen = screenName
     }
     
+    func pop(){
+        navigationController.popViewController(animated: true)
+    }
+    
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        self.navigationController.navigationBar.isHidden = true
     }
     
     private static var instance: AuthenticationCoordinator!

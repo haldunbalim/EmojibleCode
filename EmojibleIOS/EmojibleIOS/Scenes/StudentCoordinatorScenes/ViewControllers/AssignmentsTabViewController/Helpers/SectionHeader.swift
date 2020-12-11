@@ -22,7 +22,8 @@ class SectionHeader: UICollectionReusableView {
     }
     
     func configureLabel(){
-        label.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        label.textColor = #colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1)
+        label.font = .systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         self.addSubview(label)

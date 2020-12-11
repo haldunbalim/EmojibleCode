@@ -14,13 +14,27 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var forgetYourPasswordButton: UIButton!
+    @IBOutlet weak var createStudentAccountButton: UIButton!
+    @IBOutlet weak var createTeacherAccountButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        configureViews()
     }
-
+    
+    func configureViews(){
+        NSLayoutConstraint.activate([emailTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([passwordTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([forgetYourPasswordButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([createStudentAccountButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([createTeacherAccountButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+    }
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, email != "" else {
             showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)

@@ -26,13 +26,16 @@ class StudentCoordinator: Coordinator {
     
     
     func start() {
-        let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(named: "terminal"), tag: 0)
         
-        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(named: "book"), tag: 1)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 1, weight: .semibold, scale: .large)
         
-        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(named: "face.smiling"), tag: 2)
+        let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(named: "terminal", in: .none, with: configuration), tag: 0)
+        
+        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(named: "book", in: .none, with: configuration), tag: 1)
+        
+        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 2)
 
-        let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "person"), tag: 3)
+        let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "person", in: .none, with: configuration), tag: 3)
         
         let fourthTab = AuthenticationManager.getInstance().currentUser == nil ? authNC:settingsNC
         

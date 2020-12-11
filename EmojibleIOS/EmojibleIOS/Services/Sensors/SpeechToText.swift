@@ -9,10 +9,6 @@ import Foundation
 import Speech
 
 class SpeechToText{
-    
-    var timer: Timer?
-    var recognitionTask: SFSpeechRecognitionTask?
-    
     private init(){}
     private static var instance: SpeechToText!
     public static func getInstance() -> SpeechToText{
@@ -43,12 +39,11 @@ class SpeechToText{
                  print("There was an error: \(error!)")
                  return
              }
-            
+    
              if result.isFinal {
                 print(result.bestTranscription.formattedString)
                 s = result.bestTranscription.formattedString
              }
-            
         }
         return s
     }

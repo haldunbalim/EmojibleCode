@@ -9,7 +9,6 @@ import Foundation
 import AVFoundation
 
 class TextToSpeech{
-    
     private init(){}
     private static var instance: TextToSpeech!
     public static func getInstance() -> TextToSpeech{
