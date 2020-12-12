@@ -11,6 +11,7 @@ class RemoveAlert: CustomAlertViewController{
     
     var removeAssignmentDelegate: AssignmentRemovalAlert?
     var removeProgramDelegate: ProgramRemovalAlert?
+    var removeTeacherTutorialDelegate: TeacherTutorialRemovalAlert?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,12 +31,17 @@ class RemoveAlert: CustomAlertViewController{
             ProgramDataSource.getInstance().removeProgram(program: program)
         }
         
+        if let teacherTutorial = removeTeacherTutorialDelegate?.tutorialToBeRemoved{
+            TeacherTutorialDataSource.getInstance().removeTutorial(tutorial: teacherTutorial)
+        }
+        
         dismiss()
      }
     
     private func dismiss(){
         removeAssignmentDelegate?.assignmentToBeRemoved = nil
         removeProgramDelegate?.programToBeRemoved = nil
+        removeTeacherTutorialDelegate?.tutorialToBeRemoved = nil
         self.dismiss(animated: true, completion: nil)
     }
 }

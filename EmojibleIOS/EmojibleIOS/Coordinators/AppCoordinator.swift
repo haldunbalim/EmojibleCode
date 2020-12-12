@@ -14,6 +14,7 @@ class AppCoordinator: Coordinator{
     var authenticationCoordinator = AuthenticationCoordinator.getInstance()
     var studentCoordinator = StudentCoordinator.getInstance()
     var teacherCoordinator = TeacherCoordinator.getInstance()
+    var commonCoordinator = CommonCoordinator.getInstance()
     let notificationCenter = NotificationCenter.default
     
     
@@ -22,16 +23,16 @@ class AppCoordinator: Coordinator{
     
     
     enum coordinatorEnum: Int{
+        case Common
         case Student
         case Teacher
         case Authentication
     }
     
     init(window: UIWindow){
-        
         self.window = window
-        
         authenticationCoordinator.parentCoordinator = self
+        commonCoordinator.parentCoordinator = self
         studentCoordinator.parentCoordinator = self
         teacherCoordinator.parentCoordinator = self
         notificationCenter.addObserver(self, selector: #selector(notify), name: .authStateChanged, object: nil)
@@ -48,22 +49,22 @@ class AppCoordinator: Coordinator{
                 guard let userModel = userModel else {return}
                 if userModel is StudentModel {
                     self.studentCoordinator.start()
-                    if self.window.rootViewController == nil {
-                        self.window.rootViewController = self.studentCoordinator.tabBarController
-                        self.currentCoordinator = self.studentCoordinator
-                        self.window.makeKeyAndVisible()
-                    }
+                    self.window.rootViewController = self.studentCoordinator.tabBarController
+                    self.currentCoordinator = self.studentCoordinator
+                    self.window.makeKeyAndVisible()
+                    
                 }else{
-                    self.window.rootViewController = self.teacherCoordinator.navigationController
+                    self.teacherCoordinator.start()
+                    self.window.rootViewController = self.teacherCoordinator.tabBarController
                     self.currentCoordinator = self.teacherCoordinator
                     self.window.makeKeyAndVisible()
                 }
                 UserDataSource.getInstance().startObservingUserModel()
             }
         }else{
-            self.window.rootViewController = self.studentCoordinator.tabBarController
-            self.currentCoordinator = self.studentCoordinator
-            self.currentCoordinator!.start()
+            self.commonCoordinator.start()
+            self.window.rootViewController = self.commonCoordinator.tabBarController
+            self.currentCoordinator = self.commonCoordinator
             self.window.makeKeyAndVisible()
         }
     }

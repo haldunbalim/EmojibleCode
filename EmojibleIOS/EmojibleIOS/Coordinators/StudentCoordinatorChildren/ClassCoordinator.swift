@@ -11,7 +11,7 @@ import UIKit
 class ClassCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController:UINavigationController
-    var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
+    var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     let notificationCenter = NotificationCenter.default
     
 
@@ -21,7 +21,6 @@ class ClassCoordinator: Coordinator {
     }
     
     var currentScreen: screenEnum = .ClassScreen
-
     
     func start() {
         notificationCenter.addObserver(self, selector: #selector(notify(_:)), name: .userModelChanged, object: nil)
@@ -62,6 +61,7 @@ class ClassCoordinator: Coordinator {
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "ClassNavController") as! UINavigationController
         self.navigationController.navigationBar.isHidden = true
     }
+    
     private static var instance: ClassCoordinator!
     public static func getInstance() -> ClassCoordinator{
         if(instance == nil){
@@ -69,6 +69,5 @@ class ClassCoordinator: Coordinator {
         }
         return .instance
     }
-    
 }
 

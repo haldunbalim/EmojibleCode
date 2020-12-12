@@ -48,7 +48,7 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         NSLayoutConstraint.activate([birthDatePickerToolbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
         
         
-        NSLayoutConstraint.activate([backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
+        NSLayoutConstraint.activate([backButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH)])
     }
     
     

@@ -54,3 +54,15 @@ protocol AssignmentPopUpAlert{
     func funcButtonPressed()
     
 }
+
+//MARK: - Teacher Tutorial Tab
+protocol TeacherTutorialTabButtonAction{
+    func newTutorialAction()
+    func editAction(tutorialModel: CodeModel)
+    func runAction()
+    func trashAction(tutorialModel: CodeModel)
+}
+//MARK: - Teacher Tutorial Alert
+protocol TeacherTutorialRemovalAlert{
+    var tutorialToBeRemoved: CodeModel? { get set }
+}

@@ -59,7 +59,7 @@
 		8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */; };
 		8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */; };
 		8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */; };
-		8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */; };
+		8BE90CEF2550410E00A34B37 /* TeacherScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherScreenVC.swift */; };
 		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
 		8BE90D32255049A200A34B37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* UserModel.swift */; };
 		8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38C0257A400400C24085 /* ColorModel.swift */; };
@@ -67,12 +67,21 @@
 		8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CA257A4ECD00C24085 /* Memory.swift */; };
 		8BEB38D0257A80C400C24085 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CF257A80C400C24085 /* Parser.swift */; };
 		8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */; };
+		FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */; };
+		FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */; };
+		FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */; };
+		FC000B742585394C003D4C1A /* TeacherCodingScreenViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B732585394C003D4C1A /* TeacherCodingScreenViewModel.xib */; };
+		FC000B7C25853B9A003D4C1A /* TeacherTutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B7B25853B9A003D4C1A /* TeacherTutorialCoordinator.swift */; };
+		FC000B8425854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B8325854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift */; };
+		FC000B8925854B97003D4C1A /* TeacherCodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B8825854B97003D4C1A /* TeacherCodingScreenVC.swift */; };
+		FC000B9425855CB0003D4C1A /* TeacherTutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B9325855CB0003D4C1A /* TeacherTutorialDataSource.swift */; };
 		FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */; };
 		FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */; };
 		FC16BFFB256C074D00180942 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFFA256C074C00180942 /* Constants.swift */; };
 		FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */; };
 		FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16C017256C2E9E00180942 /* VariablesViewModel.xib */; };
 		FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */; };
+		FC1F46322584BFA7000CA30E /* CommonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F46312584BFA7000CA30E /* CommonCoordinator.swift */; };
 		FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */; };
 		FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */; };
 		FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */; };
@@ -89,7 +98,7 @@
 		FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* RemoveAlert.xib */; };
 		FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */; };
 		FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */; };
-		FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* StudentApp.storyboard */; };
+		FC80F06B2553584300B5B86B /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* MainApp.storyboard */; };
 		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
 		FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */; };
@@ -188,7 +197,7 @@
 		8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoordinator.swift; sourceTree = "<group>"; };
-		8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainScreenVC.swift; sourceTree = "<group>"; };
+		8BE90CEE2550410E00A34B37 /* TeacherScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherScreenVC.swift; sourceTree = "<group>"; };
 		8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		8BE90D31255049A200A34B37 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8BEB38C0257A400400C24085 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
@@ -200,12 +209,21 @@
 		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialViewModel.swift; sourceTree = "<group>"; };
+		FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCodingScreenViewModel.swift; sourceTree = "<group>"; };
+		FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherTutorialViewModel.xib; sourceTree = "<group>"; };
+		FC000B732585394C003D4C1A /* TeacherCodingScreenViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherCodingScreenViewModel.xib; sourceTree = "<group>"; };
+		FC000B7B25853B9A003D4C1A /* TeacherTutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialCoordinator.swift; sourceTree = "<group>"; };
+		FC000B8325854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSavedTutorialScreenVC.swift; sourceTree = "<group>"; };
+		FC000B8825854B97003D4C1A /* TeacherCodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCodingScreenVC.swift; sourceTree = "<group>"; };
+		FC000B9325855CB0003D4C1A /* TeacherTutorialDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialDataSource.swift; sourceTree = "<group>"; };
 		FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramNewCodeViewModel.xib; sourceTree = "<group>"; };
 		FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramNewCodeViewModel.swift; sourceTree = "<group>"; };
 		FC16BFFA256C074C00180942 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentViewModel.xib; sourceTree = "<group>"; };
 		FC16C017256C2E9E00180942 /* VariablesViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariablesViewModel.xib; sourceTree = "<group>"; };
 		FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesViewModel.swift; sourceTree = "<group>"; };
+		FC1F46312584BFA7000CA30E /* CommonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCoordinator.swift; sourceTree = "<group>"; };
 		FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDataSource.swift; sourceTree = "<group>"; };
 		FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuBaseController.swift; sourceTree = "<group>"; };
 		FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
@@ -222,7 +240,7 @@
 		FC7384252566A87500432AC6 /* RemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveAlert.xib; sourceTree = "<group>"; };
 		FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentAlert.xib; sourceTree = "<group>"; };
 		FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAlert.swift; sourceTree = "<group>"; };
-		FC80F06A2553584300B5B86B /* StudentApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentApp.storyboard; sourceTree = "<group>"; };
+		FC80F06A2553584300B5B86B /* MainApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainApp.storyboard; sourceTree = "<group>"; };
 		FC80F0742553DCDA00B5B86B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramScreenVC.swift; sourceTree = "<group>"; };
@@ -321,9 +339,7 @@
 			children = (
 				FC73841C25669D3400432AC6 /* ProgramTabViewConroller */,
 				FC259E1B256FE1A50066E02A /* TutorialTabViewController */,
-				FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */,
 				8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */,
-				8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */,
 				8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */,
 			);
 			path = ViewControllers;
@@ -332,7 +348,7 @@
 		8B15971C2550687400E3E10A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */,
+				FC000B9925856010003D4C1A /* TeacherTutorialTabViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,7 +372,6 @@
 			children = (
 				FC16C015256C2E4800180942 /* ProgramViewModel */,
 				FC16C00D256C2DDF00180942 /* TutorialViewModel */,
-				FC16C00E256C2DF100180942 /* AssignmentViewModel */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,11 +380,8 @@
 			isa = PBXGroup;
 			children = (
 				8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */,
-				8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */,
 				8B7FF790255C830A0043B0DB /* ProgramsCoordinator.swift */,
 				8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */,
-				8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */,
-				8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */,
 			);
 			path = StudentCoordinatorChildren;
 			sourceTree = "<group>";
@@ -485,8 +497,9 @@
 			isa = PBXGroup;
 			children = (
 				8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */,
-				8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */,
-				8BE90CDB25503F8E00A34B37 /* TeacherCoordinatorScenes */,
+				FC1F462A2584BF30000CA30E /* CoordinatorScenes */,
+				FC228F66256A567000A1A66F /* NavigationMenu */,
+				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -500,6 +513,7 @@
 				8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */,
 				FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */,
 				FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */,
+				FC000B9325855CB0003D4C1A /* TeacherTutorialDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -522,33 +536,34 @@
 		8BE90CA82550380C00A34B37 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				FC1F46262584BDC7000CA30E /* CommonChildren */,
+				FC1F46252584BDB7000CA30E /* TeacherCoordinatorChildren */,
 				8B7FF778255C82A90043B0DB /* StudentCoordinatorChildren */,
 				8BE90CB32550387300A34B37 /* AppCoordinator.swift */,
 				8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */,
+				FC1F46312584BFA7000CA30E /* CommonCoordinator.swift */,
 				8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */,
 				8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */ = {
+		8BE90CDA25503F7E00A34B37 /* StudentUniqueCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
-				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
-				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
-				FC228F66256A567000A1A66F /* StudentNavigationMenu */,
 				8B7FF771255C7CDD0043B0DB /* ViewModels */,
 				8B15971B2550686B00E3E10A /* ViewControllers */,
 			);
-			path = StudentCoordinatorScenes;
+			path = StudentUniqueCoordinatorScenes;
 			sourceTree = "<group>";
 		};
-		8BE90CDB25503F8E00A34B37 /* TeacherCoordinatorScenes */ = {
+		8BE90CDB25503F8E00A34B37 /* TeacherUniqueCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
+				FC000B6025853886003D4C1A /* ViewModel */,
 				8B15971C2550687400E3E10A /* ViewControllers */,
 			);
-			path = TeacherCoordinatorScenes;
+			path = TeacherUniqueCoordinatorScenes;
 			sourceTree = "<group>";
 		};
 		8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */ = {
@@ -558,6 +573,35 @@
 				8B1597142550672900E3E10A /* ViewControllers */,
 			);
 			path = AuthenticationCoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		FC000B6025853886003D4C1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC000B9825855FF8003D4C1A /* TeacherTutorialViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FC000B9825855FF8003D4C1A /* TeacherTutorialViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */,
+				FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */,
+				FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */,
+				FC000B732585394C003D4C1A /* TeacherCodingScreenViewModel.xib */,
+			);
+			path = TeacherTutorialViewModel;
+			sourceTree = "<group>";
+		};
+		FC000B9925856010003D4C1A /* TeacherTutorialTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CEE2550410E00A34B37 /* TeacherScreenVC.swift */,
+				FC000B8325854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift */,
+				FC000B8825854B97003D4C1A /* TeacherCodingScreenVC.swift */,
+			);
+			path = TeacherTutorialTabViewController;
 			sourceTree = "<group>";
 		};
 		FC16C00D256C2DDF00180942 /* TutorialViewModel */ = {
@@ -591,13 +635,68 @@
 			path = ProgramViewModel;
 			sourceTree = "<group>";
 		};
-		FC228F66256A567000A1A66F /* StudentNavigationMenu */ = {
+		FC1F46252584BDB7000CA30E /* TeacherCoordinatorChildren */ = {
+			isa = PBXGroup;
+			children = (
+				FC000B7B25853B9A003D4C1A /* TeacherTutorialCoordinator.swift */,
+			);
+			path = TeacherCoordinatorChildren;
+			sourceTree = "<group>";
+		};
+		FC1F46262584BDC7000CA30E /* CommonChildren */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */,
+				8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */,
+				8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */,
+			);
+			path = CommonChildren;
+			sourceTree = "<group>";
+		};
+		FC1F462A2584BF30000CA30E /* CoordinatorScenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC80F06A2553584300B5B86B /* MainApp.storyboard */,
+				FC1F465025851398000CA30E /* CommonScenes */,
+				8BE90CDA25503F7E00A34B37 /* StudentUniqueCoordinatorScenes */,
+				8BE90CDB25503F8E00A34B37 /* TeacherUniqueCoordinatorScenes */,
+			);
+			path = CoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		FC1F465025851398000CA30E /* CommonScenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC1F4652258513C0000CA30E /* ViewModels */,
+				FC1F4651258513B6000CA30E /* ViewControllers */,
+			);
+			path = CommonScenes;
+			sourceTree = "<group>";
+		};
+		FC1F4651258513B6000CA30E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */,
+				8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FC1F4652258513C0000CA30E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC16C00E256C2DF100180942 /* AssignmentViewModel */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FC228F66256A567000A1A66F /* NavigationMenu */ = {
 			isa = PBXGroup;
 			children = (
 				FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */,
 				FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */,
 			);
-			path = StudentNavigationMenu;
+			path = NavigationMenu;
 			sourceTree = "<group>";
 		};
 		FC259E1B256FE1A50066E02A /* TutorialTabViewController */ = {
@@ -613,8 +712,8 @@
 			isa = PBXGroup;
 			children = (
 				FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */,
-				FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */,
 				FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */,
+				FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */,
 			);
 			path = ProgramTabViewConroller;
 			sourceTree = "<group>";
@@ -821,12 +920,14 @@
 				FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */,
 				FCA64FE1257FA02B0010E20D /* Emojis.json in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
-				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
+				FC80F06B2553584300B5B86B /* MainApp.storyboard in Resources */,
 				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
 				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
+				FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */,
 				8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */,
 				FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
+				FC000B742585394C003D4C1A /* TeacherCodingScreenViewModel.xib in Resources */,
 				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,
 				FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */,
 				8BDC8FF7255ECE5600A2E229 /* AddTextAlert.xib in Resources */,
@@ -957,6 +1058,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */,
 				8B7FF782255C82CD0043B0DB /* SettingsCoordinator.swift in Sources */,
 				8B02EA462579329F00480AFA /* Token.swift in Sources */,
 				8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */,
@@ -986,7 +1088,7 @@
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
 				FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */,
 				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
-				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
+				8BE90CEF2550410E00A34B37 /* TeacherScreenVC.swift in Sources */,
 				FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */,
 				8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */,
 				8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */,
@@ -996,10 +1098,14 @@
 				8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
 				8BEB38D0257A80C400C24085 /* Parser.swift in Sources */,
+				FC000B8425854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
+				FC000B8925854B97003D4C1A /* TeacherCodingScreenVC.swift in Sources */,
 				FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */,
+				FC1F46322584BFA7000CA30E /* CommonCoordinator.swift in Sources */,
 				FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */,
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
+				FC000B9425855CB0003D4C1A /* TeacherTutorialDataSource.swift in Sources */,
 				8B7FF791255C830A0043B0DB /* ProgramsCoordinator.swift in Sources */,
 				FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */,
 				FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */,
@@ -1031,7 +1137,9 @@
 				8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */,
 				FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */,
 				8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */,
+				FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */,
 				8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */,
+				FC000B7C25853B9A003D4C1A /* TeacherTutorialCoordinator.swift in Sources */,
 				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,
 				8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */,
 				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,

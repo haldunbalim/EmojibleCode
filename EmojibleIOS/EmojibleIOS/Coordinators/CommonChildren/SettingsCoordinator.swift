@@ -1,5 +1,5 @@
 //
-//  TutorialsCoordinator.swift
+//  SettingsCoordinator.swift
 //  EmojibleIOS
 //
 //  Created by Haldun Balim on 11.11.2020.
@@ -8,22 +8,17 @@
 import Foundation
 import UIKit
 
-class TutorialsCoordinator: Coordinator {
+class SettingsCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
-    var tutorialTitle: String?
-    var tutorialCode: String?
-    
     enum screenEnum{
-        case TutorialScreen
-        case TutorialCodeScreen
+       case SettingsScreen
     }
     
-    var currentScreen: screenEnum = .TutorialScreen
+    var currentScreen: screenEnum = .SettingsScreen
 
-    
     func start() {
         openScreen(screenName: currentScreen)
     }
@@ -32,11 +27,10 @@ class TutorialsCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
-        case .TutorialScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialScreenVC") as? TutorialScreenVC
-        case .TutorialCodeScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialCodeScreenVC") as? TutorialCodeScreenVC
+        case .SettingsScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "SettingsScreenVC") as? SettingsScreenVC
         }
+        
         vc.coordinator = self
         navigationController.delegate = self as? UINavigationControllerDelegate
         if pop { navigationController.popViewController(animated: true) }
@@ -44,19 +38,15 @@ class TutorialsCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
-    }
-    
     private init(){
-        navigationController = self.storyboard.instantiateViewController(withIdentifier: "TutorialsNavController") as! UINavigationController
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "SettingsNavController") as! UINavigationController
         self.navigationController.navigationBar.isHidden = true
     }
     
-    private static var instance: TutorialsCoordinator!
-    public static func getInstance() -> TutorialsCoordinator{
+    private static var instance: SettingsCoordinator!
+    public static func getInstance() -> SettingsCoordinator{
         if(instance == nil){
-            instance = TutorialsCoordinator()
+            instance = SettingsCoordinator()
         }
         return .instance
     }

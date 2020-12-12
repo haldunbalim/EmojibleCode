@@ -136,7 +136,7 @@
                             </userDefinedRuntimeAttributes>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="gAa-t9-TeC" secondAttribute="trailing" constant="10" id="4nr-D8-HL1"/>
                         <constraint firstAttribute="height" constant="200" id="Bub-rW-gNE"/>
@@ -157,7 +157,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="PPD-3z-f7h"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Law-rX-aYz" firstAttribute="centerX" secondItem="SPb-N5-dO3" secondAttribute="centerX" id="myI-rj-n9x"/>
                 <constraint firstItem="Law-rX-aYz" firstAttribute="centerY" secondItem="SPb-N5-dO3" secondAttribute="centerY" multiplier="0.8" id="rRI-Iy-H7m"/>
@@ -173,14 +173,8 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

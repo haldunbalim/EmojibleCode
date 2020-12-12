@@ -11,7 +11,7 @@ import UIKit
 class ProgramsCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
-    var storyboard = UIStoryboard.init(name: "StudentApp", bundle: Bundle.main)
+    var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
     var programModel: CodeModel?
     var runningCode: String?
@@ -24,7 +24,6 @@ class ProgramsCoordinator: Coordinator {
     
     var currentScreen: screenEnum = .ProgramScreen
 
-    
     func start() {
         if AuthenticationManager.getInstance().currentUser != nil{
             openScreen(screenName: .ProgramScreen)
@@ -77,7 +76,6 @@ class ProgramsCoordinator: Coordinator {
     
     func isRootViewController(screen: UIViewController) -> Bool{
         return self.navigationController.viewControllers[0] == screen
-        
     }
     
 }

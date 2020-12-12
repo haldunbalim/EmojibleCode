@@ -1,5 +1,5 @@
 //
-//  TutorialsCoordinator.swift
+//  EmojiAssignmentCoordinator.swift
 //  EmojibleIOS
 //
 //  Created by Haldun Balim on 11.11.2020.
@@ -8,20 +8,17 @@
 import Foundation
 import UIKit
 
-class TutorialsCoordinator: Coordinator {
+class EmojiAssignmentCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
-    var tutorialTitle: String?
-    var tutorialCode: String?
-    
+
     enum screenEnum{
-        case TutorialScreen
-        case TutorialCodeScreen
+        case AssignmentScreen
     }
     
-    var currentScreen: screenEnum = .TutorialScreen
+    var currentScreen: screenEnum = .AssignmentScreen
 
     
     func start() {
@@ -32,11 +29,10 @@ class TutorialsCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
-        case .TutorialScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialScreenVC") as? TutorialScreenVC
-        case .TutorialCodeScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TutorialCodeScreenVC") as? TutorialCodeScreenVC
+        case .AssignmentScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "AssignmentScreenVC") as? AssignmentScreenVC
         }
+        
         vc.coordinator = self
         navigationController.delegate = self as? UINavigationControllerDelegate
         if pop { navigationController.popViewController(animated: true) }
@@ -44,21 +40,19 @@ class TutorialsCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
-    }
     
     private init(){
-        navigationController = self.storyboard.instantiateViewController(withIdentifier: "TutorialsNavController") as! UINavigationController
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "AssignmentsNavController") as! UINavigationController
         self.navigationController.navigationBar.isHidden = true
     }
     
-    private static var instance: TutorialsCoordinator!
-    public static func getInstance() -> TutorialsCoordinator{
+    private static var instance: EmojiAssignmentCoordinator!
+    public static func getInstance() -> EmojiAssignmentCoordinator{
         if(instance == nil){
-            instance = TutorialsCoordinator()
+            instance = EmojiAssignmentCoordinator()
         }
         return .instance
     }
     
 }
+
