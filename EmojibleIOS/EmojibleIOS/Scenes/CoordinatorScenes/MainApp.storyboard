@@ -151,10 +151,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jVX-7P-xKQ">
-                                <rect key="frame" x="44" y="0.0" width="724" height="354"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jVX-7P-xKQ">
+                                <rect key="frame" x="44" y="0.0" width="704" height="354"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vk5-6s-DHw"/>
@@ -162,10 +163,13 @@
                         <constraints>
                             <constraint firstItem="jVX-7P-xKQ" firstAttribute="top" secondItem="vk5-6s-DHw" secondAttribute="top" id="4O5-u1-Ts0"/>
                             <constraint firstItem="jVX-7P-xKQ" firstAttribute="leading" secondItem="vk5-6s-DHw" secondAttribute="leading" id="hA3-kQ-0LA"/>
-                            <constraint firstItem="vk5-6s-DHw" firstAttribute="trailing" secondItem="jVX-7P-xKQ" secondAttribute="trailing" id="mQQ-Ws-TQU"/>
+                            <constraint firstItem="vk5-6s-DHw" firstAttribute="trailing" secondItem="jVX-7P-xKQ" secondAttribute="trailing" constant="20" id="mQQ-Ws-TQU"/>
                             <constraint firstItem="vk5-6s-DHw" firstAttribute="bottom" secondItem="jVX-7P-xKQ" secondAttribute="bottom" id="x4L-yK-vfB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="jVX-7P-xKQ" id="uBD-aW-MHA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ed5-C0-nKi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,48 +226,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not in a class yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGn-K2-bWd">
-                                <rect key="frame" x="312" y="-94.333333333333329" width="188" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T8C-Am-qg4">
-                                <rect key="frame" x="114" y="-44" width="584" height="98"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="T8C-Am-qg4">
+                                <rect key="frame" x="206" y="117.66666666666669" width="400" height="140"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enroll in a class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGn-K2-bWd">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="30.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-Dw-FcA">
-                                        <rect key="frame" x="0.0" y="0.0" width="584" height="34"/>
+                                        <rect key="frame" x="0.0" y="36.333333333333329" width="400" height="30.666666666666671"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taO-ri-gGF">
-                                        <rect key="frame" x="0.0" y="34" width="584" height="34"/>
+                                        <rect key="frame" x="0.0" y="72.999999999999986" width="400" height="30.333333333333329"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCk-dg-0ks">
-                                        <rect key="frame" x="0.0" y="68" width="584" height="30"/>
-                                        <state key="normal" title="Sign Up"/>
+                                        <rect key="frame" x="0.0" y="109.33333333333333" width="400" height="30.666666666666671"/>
+                                        <color key="backgroundColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="signUpButtonPressed:" destination="KVy-gn-UFQ" eventType="touchUpInside" id="zGo-4v-U3G"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="k1F-pw-BRH"/>
+                                    <constraint firstAttribute="width" constant="400" id="n3U-5b-xdN"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kzj-TR-OIG"/>
-                        <color key="backgroundColor" red="0.99193829298019409" green="0.79218743146064596" blue="0.57918936316590319" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="T8C-Am-qg4" firstAttribute="leading" secondItem="Kzj-TR-OIG" secondAttribute="leading" constant="70" id="1ny-Br-mCI"/>
-                            <constraint firstItem="Kzj-TR-OIG" firstAttribute="trailing" secondItem="T8C-Am-qg4" secondAttribute="trailing" constant="70" id="7Tu-R7-nUK"/>
-                            <constraint firstItem="T8C-Am-qg4" firstAttribute="top" secondItem="cGn-K2-bWd" secondAttribute="bottom" constant="30" id="Tvu-Gs-fFV"/>
-                            <constraint firstItem="cGn-K2-bWd" firstAttribute="centerX" secondItem="4An-6V-dGC" secondAttribute="centerX" id="ehd-Bg-iLY"/>
-                            <constraint firstItem="Kzj-TR-OIG" firstAttribute="bottom" secondItem="T8C-Am-qg4" secondAttribute="bottom" constant="300" id="nGq-Ky-l1t"/>
+                            <constraint firstItem="T8C-Am-qg4" firstAttribute="centerY" secondItem="4An-6V-dGC" secondAttribute="centerY" id="2i3-Ap-mQe"/>
+                            <constraint firstItem="T8C-Am-qg4" firstAttribute="centerX" secondItem="4An-6V-dGC" secondAttribute="centerX" id="Rlw-GR-IKj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="classCodeTextField" destination="fgg-Dw-FcA" id="jAO-x7-jCj"/>
                         <outlet property="classPasswordTextField" destination="taO-ri-gGF" id="hLh-cG-8qE"/>
+                        <outlet property="enrollLabel" destination="cGn-K2-bWd" id="UYh-SC-GQb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gv1-r6-QIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

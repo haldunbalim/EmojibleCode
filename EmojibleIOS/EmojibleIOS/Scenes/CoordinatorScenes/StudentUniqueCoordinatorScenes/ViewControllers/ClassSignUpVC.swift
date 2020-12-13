@@ -11,10 +11,21 @@ import UIKit
 class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
     var pleaseWaitAlert: UIAlertController?
     var coordinator: Coordinator?
-    
+
+    @IBOutlet weak var enrollLabel: UILabel!
     @IBOutlet weak var classCodeTextField: UITextField!
     @IBOutlet weak var classPasswordTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureViews()
+    }
+    
+    func configureViews(){
+        NSLayoutConstraint.activate([classPasswordTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([classCodeTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+        NSLayoutConstraint.activate([enrollLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
+    }
     
     @IBAction func signUpButtonPressed(_ sender: Any) {
         guard let classCode = classCodeTextField.text, classCode != "" else {

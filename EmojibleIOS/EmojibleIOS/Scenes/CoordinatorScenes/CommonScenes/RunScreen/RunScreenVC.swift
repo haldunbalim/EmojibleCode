@@ -20,9 +20,9 @@ class RunScreenVC:UIViewController, Coordinated{
     @IBOutlet weak var enterButton: UIButton!
     
     override func viewDidLoad(){
+        self.navigationController?.navigationBar.isHidden = true
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

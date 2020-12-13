@@ -17,6 +17,7 @@ class StudentCoordinator: Coordinator {
     var programsNC = ProgramsCoordinator.getInstance().navigationController
     var tutorialsNC = TutorialsCoordinator.getInstance().navigationController
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
+    var classroomNC = ClassCoordinator.getInstance().navigationController
     var settingsNC = SettingsCoordinator.getInstance().navigationController
     var runCodeNC = RunCodeCoordinator.getInstance().navigationController
     
@@ -31,16 +32,20 @@ class StudentCoordinator: Coordinator {
         let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(named: "book", in: .none, with: configuration), tag: 1)
         
         let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 2)
+        
+        let classroomTabBarItem = UITabBarItem(title: "Class", image:UIImage(named: "studentdesk", in: .none, with: configuration), tag: 3)
 
-        let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "gear", in: .none, with: configuration), tag: 3)
+        let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "gear", in: .none, with: configuration), tag: 4)
         
         
         programsNC.tabBarItem = programTabBarItem
         tutorialsNC.tabBarItem = tutorialsTabBarItem
         emojiAssignmentNC.tabBarItem = assignmentTabBarItem
+        classroomNC.tabBarItem = classroomTabBarItem
         settingsNC.tabBarItem = settingsTabBarItem
         
-        tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, settingsNC, runCodeNC]
+        tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, classroomNC, settingsNC, runCodeNC]
+        
         tabBarController.selectedIndex = 0
         
         tabBarController.loadTabBar()
@@ -56,6 +61,9 @@ class StudentCoordinator: Coordinator {
 
         EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         EmojiAssignmentCoordinator.getInstance().start()
+        
+        ClassCoordinator.getInstance().parentCoordinator = self
+        ClassCoordinator.getInstance().start()
         
         SettingsCoordinator.getInstance().parentCoordinator = self
         SettingsCoordinator.getInstance().start()
@@ -81,7 +89,7 @@ class StudentCoordinator: Coordinator {
     public func runCode(code:String){
         RunCodeCoordinator.getInstance().runningCode = code
         lastIdx = tabBarController.selectedIndex
-        tabBarController.selectedIndex = 4
+        tabBarController.selectedIndex = 5
         tabBarController.setHidden()
     }
     

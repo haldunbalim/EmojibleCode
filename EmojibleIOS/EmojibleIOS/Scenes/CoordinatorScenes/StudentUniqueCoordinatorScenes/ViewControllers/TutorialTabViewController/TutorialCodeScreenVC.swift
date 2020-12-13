@@ -46,7 +46,6 @@ class TutorialCodeScreenVC: UIViewController, Coordinated {
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
-    
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

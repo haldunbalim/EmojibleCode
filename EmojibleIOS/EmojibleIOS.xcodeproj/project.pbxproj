@@ -113,6 +113,8 @@
 		FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */; };
 		FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */; };
 		FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */; };
+		FCB2FBFC2586838600EB2229 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2FBFB2586838600EB2229 /* SettingsViewModel.swift */; };
+		FCB2FC04258683AF00EB2229 /* SettingsViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB2FC03258683AF00EB2229 /* SettingsViewModel.xib */; };
 		FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */; };
 		FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */; };
 		FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC737C25665C11006361F8 /* ProgramViewModel.swift */; };
@@ -261,6 +263,8 @@
 		FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentSection.swift; sourceTree = "<group>"; };
 		FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSection.swift; sourceTree = "<group>"; };
+		FCB2FBFB2586838600EB2229 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		FCB2FC03258683AF00EB2229 /* SettingsViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewModel.xib; sourceTree = "<group>"; };
 		FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFunctionAlert.swift; sourceTree = "<group>"; };
 		FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFunctionAlert.xib; sourceTree = "<group>"; };
 		FCBC737C25665C11006361F8 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
@@ -498,8 +502,6 @@
 			children = (
 				8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */,
 				FC1F462A2584BF30000CA30E /* CoordinatorScenes */,
-				FC228F66256A567000A1A66F /* NavigationMenu */,
-				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -667,6 +669,8 @@
 		FC1F465025851398000CA30E /* CommonScenes */ = {
 			isa = PBXGroup;
 			children = (
+				FC228F66256A567000A1A66F /* NavigationMenu */,
+				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
 				FC1F4652258513C0000CA30E /* ViewModels */,
 				FC1F4651258513B6000CA30E /* ViewControllers */,
 			);
@@ -686,6 +690,8 @@
 			isa = PBXGroup;
 			children = (
 				FC16C00E256C2DF100180942 /* AssignmentViewModel */,
+				FCB2FBFB2586838600EB2229 /* SettingsViewModel.swift */,
+				FCB2FC03258683AF00EB2229 /* SettingsViewModel.xib */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -914,6 +920,7 @@
 				8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */,
 				FCA64FEE257FA04C0010E20D /* EmojisIndexes.json in Resources */,
 				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
+				FCB2FC04258683AF00EB2229 /* SettingsViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
 				8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
@@ -1101,6 +1108,7 @@
 				FC000B8425854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
 				FC000B8925854B97003D4C1A /* TeacherCodingScreenVC.swift in Sources */,
+				FCB2FBFC2586838600EB2229 /* SettingsViewModel.swift in Sources */,
 				FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */,
 				FC1F46322584BFA7000CA30E /* CommonCoordinator.swift in Sources */,
 				FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */,
