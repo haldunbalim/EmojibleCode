@@ -60,14 +60,15 @@ class EmojiActivity : AppCompatActivity(){
         }
 
         setupRecyclerView()
-        updateRecyclerView()
+        //updateRecyclerView()
 
     }
-
+/*
     private fun updateRecyclerView() {
         TODO("Not yet implemented")
-    }
 
+    }
+*/
     private fun setupRecyclerView() {
 
 
