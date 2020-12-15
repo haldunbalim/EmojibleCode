@@ -5,14 +5,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.view.View
+import android.view.WindowManager
 import android.widget.EditText
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.Constants
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.showToast
+import com.dji.emojibleandroid.utils.ProgressBarUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.mikhaellopez.circularprogressbar.CircularProgressBar
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.loginButton
@@ -21,9 +26,9 @@ import kotlinx.android.synthetic.main.activity_login.tutorialLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.userLayoutToolbar
 import kotlinx.android.synthetic.main.activity_no_user.*
 
-class LoginActivity : AppCompatActivity(){
+class LoginActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         val TAG: String = LoginActivity::class.java.simpleName
     }
 
@@ -34,7 +39,7 @@ class LoginActivity : AppCompatActivity(){
         setContentView(R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
 
-        loginButton.setOnClickListener(){
+        loginButton.setOnClickListener() {
 
             doLogin()
 
@@ -76,28 +81,28 @@ class LoginActivity : AppCompatActivity(){
 
         }
 
-        registerButton.setOnClickListener(){
+        registerButton.setOnClickListener() {
 
             showToast("Sign Up")
-            Log.i(TAG,"Button was clicked")
+            Log.i(TAG, "Button was clicked")
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
 
         }
 
-        resetButton.setOnClickListener{
+        resetButton.setOnClickListener {
 
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Forgot Password")
-            val view = layoutInflater.inflate(R.layout.dialog_reset,null)
+            val view = layoutInflater.inflate(R.layout.dialog_reset, null)
             val username = view.findViewById<EditText>(R.id.editTextReset)
             builder.setView(view)
-            builder.setPositiveButton("Reset",DialogInterface.OnClickListener{_, _ ->
+            builder.setPositiveButton("Reset", DialogInterface.OnClickListener { _, _ ->
                 forgotPassword(username)
             })
-            builder.setNegativeButton("Close",DialogInterface.OnClickListener { _, _ ->  })
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
             builder.show()
-            
+
 
         }
 
@@ -105,29 +110,31 @@ class LoginActivity : AppCompatActivity(){
 
     private fun forgotPassword(username: EditText) {
 
-        if(username.text.toString().isEmpty()){
+        if (username.text.toString().isEmpty()) {
             return
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
             return
         }
 
         auth.sendPasswordResetEmail(username.text.toString()).addOnCompleteListener {
-            if(it.isSuccessful){
+            if (it.isSuccessful) {
 
                 showToast("Email Send")
 
-            }else{
+            } else {
 
                 showToast(it.exception!!.message.toString())
 
             }
         }
 
+
     }
 
     private fun doLogin() {
-        if(emailTextView2.text.toString().isEmpty()){
+
+        if (emailTextView2.text.toString().isEmpty()) {
 
             emailTextView2.error = "Please enter an email"
             emailTextView2.requestFocus()
@@ -135,7 +142,7 @@ class LoginActivity : AppCompatActivity(){
 
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(emailTextView2.text.toString()).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailTextView2.text.toString()).matches()) {
 
             emailTextView2.error = "Please enter a valid email"
             emailTextView2.requestFocus()
@@ -143,7 +150,7 @@ class LoginActivity : AppCompatActivity(){
 
         }
 
-        if(passwordTextView2.text.toString().isEmpty()){
+        if (passwordTextView2.text.toString().isEmpty()) {
 
             passwordTextView2.error = "Please enter a password"
             passwordTextView2.requestFocus()
@@ -151,13 +158,19 @@ class LoginActivity : AppCompatActivity(){
 
         }
 
-        auth.signInWithEmailAndPassword(emailTextView2.text.toString(), passwordTextView2.text.toString())
+        val progressBarView = ProgressBarUtils.showProgressBar(this , window)
+
+        auth.signInWithEmailAndPassword(
+            emailTextView2.text.toString(),
+            passwordTextView2.text.toString()
+        )
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
+                    ProgressBarUtils.hideProgressBar(progressBarView, window)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
@@ -185,19 +198,19 @@ class LoginActivity : AppCompatActivity(){
 
     private fun updateUI(currentUser: FirebaseUser?) {
 
-        if(currentUser != null){
-            if(currentUser.isEmailVerified){
+        if (currentUser != null) {
+            if (currentUser.isEmailVerified) {
 
                 val intent = Intent(this, UserActivity::class.java)
                 startActivity(intent)
                 finish()
 
-            }else{
+            } else {
 
                 showToast("Please verify your email address")
 
             }
-        }else{
+        } else {
 
             showToast("Login Failed")
 
