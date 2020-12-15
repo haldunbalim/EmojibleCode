@@ -59,9 +59,9 @@ class SavedEmojiesAdapter(val context: Context, private val savedEmojies: List<S
         fun setData(savedEmoji: SavedEmojies?, pos: Int) {
             savedEmoji?.let {
 
-                itemView.emojiEditTextView.text = savedEmoji.emoji as Editable?
-                itemView.signEditTextView.text =  "\uD83D\uDC49" as Editable?
-                itemView.textVoiceEditTextView.text = savedEmoji.value as Editable?
+                itemView.emojiEditTextView.text = savedEmoji.emoji
+                itemView.signEditTextView.text =  "\uD83D\uDC49"
+                itemView.textVoiceEditTextView.text = savedEmoji.value.toString()
 
             }
             this.currentSavedEmoji = savedEmoji

@@ -71,6 +71,8 @@ class EmojiesAdapter(val context: Context, private val emojies: List<String>) : 
                         val result = SavedEmojies(currentEmoji!!.toString(),text.toString())
                         savedEmojies.add(savedEmojies.size,result)
                         customDialog.dismiss()
+                        context.showToast(currentEmoji!!.toString())
+
                     }
 
 
