@@ -112,6 +112,10 @@ class UserActivity : AppCompatActivity() {
             ?.addOnFailureListener { exception ->
                 Log.d(TAG, "get failed with ", exception)
             }
+
+        if(auth.currentUser == null){
+            signOutUser()
+        }
     }
 
     private fun changePassword(){
