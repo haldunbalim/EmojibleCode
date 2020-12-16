@@ -50,7 +50,9 @@ class EmojiesAdapter(val context: Context, private val emojies: List<String>) : 
                 val view = LayoutInflater.from(context).inflate(R.layout.dialog_emojies,null)
                 builder.setView(view)
                 builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ ->  })
-                builder.show()
+                val alertDialog : AlertDialog = builder.create()
+                alertDialog.show()
+
                 context.showToast(currentEmoji!!.toString() + "Clicked !")
                 view.textTextView.setOnClickListener {
 
@@ -61,17 +63,18 @@ class EmojiesAdapter(val context: Context, private val emojies: List<String>) : 
                         .show()
 
                     val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
+                    val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
 
                     cancelButton?.setOnClickListener { customDialog.dismiss() }
 
-                    val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
-                    val text = customDialog.findViewById<EditText>(R.id.textEditTV)
+
                     assignButton?.setOnClickListener {
 
-                        val result = SavedEmojies(currentEmoji!!.toString(),text.toString())
+                        val text = customDialog.findViewById<EditText>(R.id.textEditTV)?.text.toString()
+                        val result = SavedEmojies(currentEmoji!!.toString(), text)
                         savedEmojies.add(savedEmojies.size,result)
                         customDialog.dismiss()
-                        context.showToast(currentEmoji!!.toString())
+                        alertDialog.dismiss()
 
                     }
 

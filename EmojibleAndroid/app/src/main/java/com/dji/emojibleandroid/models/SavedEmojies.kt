@@ -5,7 +5,6 @@ class SavedEmojies {
     var emoji: String? = "S"
     var value: String? = "S"
 
-    // var image:String ? = "S"
 
     constructor(emoji: String?, value: String?) {
         this.emoji = emoji

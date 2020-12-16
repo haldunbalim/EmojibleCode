@@ -10,6 +10,7 @@ import com.dji.emojibleandroid.R
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
 object ProgressBarUtils {
+    lateinit var dialog: AlertDialog
     fun showProgressBar(context: Context, window: Window): View? {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Please Wait")
@@ -25,7 +26,8 @@ object ProgressBarUtils {
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
         )
-        builder.show()
+        dialog = builder.create()
+        dialog.show()
         return view
     }
 
