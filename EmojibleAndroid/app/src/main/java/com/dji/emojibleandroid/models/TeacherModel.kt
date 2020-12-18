@@ -8,15 +8,14 @@ class TeacherModel(
     email: String,
     name: String,
     surname: String,
-    birthDate: LocalDate,
+    birthDate: String,
     var classIds: MutableList<String> = mutableListOf()
 ) : UserModel(email, name, surname, birthDate) {
-    @RequiresApi(Build.VERSION_CODES.O)
     constructor(dictionary: HashMap<String, Any>) : this(
         dictionary["email"] as String,
         dictionary["name"] as String,
         dictionary["surname"] as String,
-        LocalDate.parse(dictionary["birthDate"] as String)
+        dictionary["birthDate"] as String
     ) {
         classIds = dictionary["classIds"] as MutableList<String>
     }

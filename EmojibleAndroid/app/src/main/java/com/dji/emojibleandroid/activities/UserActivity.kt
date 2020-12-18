@@ -182,15 +182,13 @@ class UserActivity : AppCompatActivity(), Observer {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun update(o: Observable?, arg: Any?) {
-        val dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
-        val userModelDict = (arg as UserModel).dictionary
-        nameEditText.text = userModelDict["name"].toString()
-        surnameEditText.text = userModelDict["surname"].toString()
-        userTypeEditText.text = userModelDict["userType"].toString()
-        emailEditText.text = userModelDict["email"].toString()
-        birthEditText.text = (userModelDict["birthDate"] as LocalDate).format(dateTimeFormatter)
-        classIdEditText.text = userModelDict["classId"].toString()
+        val userModelDict = (arg as Pair<String, UserModel>).second.dictionary
+        nameEditText.text = userModelDict["name"] as String
+        surnameEditText.text = userModelDict["surname"] as String
+        userTypeEditText.text = userModelDict["userType"] as String
+        emailEditText.text = userModelDict["email"] as String
+        birthEditText.text = userModelDict["birthDate"] as String
+        classIdEditText.text = userModelDict["classId"] as String
     }
 }

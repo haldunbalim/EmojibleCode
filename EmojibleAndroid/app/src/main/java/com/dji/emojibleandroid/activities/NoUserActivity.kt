@@ -22,6 +22,7 @@ import com.dji.emojibleandroid.extensions.showProgressBar
 import com.dji.emojibleandroid.models.modelFactories.UserFactory
 import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.showToast
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_no_user.*
@@ -36,7 +37,7 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
 
     private lateinit var popupLayout: ViewGroup
     private lateinit var toggle: Switch
-    private var birthDate: LocalDate? = null
+    private var birthDate: String? = null
     private var userType: String = "Student"
 
     companion object {
@@ -148,8 +149,8 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
 
             ) { view, year, month, day ->
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
-                    birthDate = LocalDate.of(year, month + 1, day)
+                    val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
+                    birthDate = LocalDate.of(year, month + 1, day).format(formatter)
                     birthTextView.text = LocalDate.of(year, month + 1, day).format(formatter)
                 }
             }
@@ -227,23 +228,26 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
                 hideProgressBar()
                 showToast(error)
             } else {
-                UserDataSource.instance.writeData(
-                    UserFactory.instance.create(
-                        userType,
-                        email,
-                        name,
-                        surname,
-                        birthDate!!,
-                        classId = classId
-                    )
-                )
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
                 AuthenticationManager.instance.signInWithEmailAndPassword(email, password) { error ->
                     hideProgressBar()
-                    showToast("Authentication failed")
-                    error?.let { this.showToast(it) }
+                    if (error != null) {
+                        showToast("Authentication failed")
+                        showToast(error)
+                    } else {
+                        UserDataSource.instance.writeData(
+                            UserFactory.instance.create(
+                                userType,
+                                email,
+                                name,
+                                surname,
+                                birthDate!!,
+                                classId = classId
+                            )
+                        )
+                    }
                 }
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         }

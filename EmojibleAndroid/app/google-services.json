@@ -1,101 +1,42 @@
 {
   "project_info": {
-    "project_number": "1005449120438",
-    "firebase_url": "https://fir-authentication-7f9c4.firebaseio.com",
-    "project_id": "fir-authentication-7f9c4",
-    "storage_bucket": "fir-authentication-7f9c4.appspot.com"
+    "project_number": "293053743528",
+    "firebase_url": "https://emojible-be1c2.firebaseio.com",
+    "project_id": "emojible-be1c2",
+    "storage_bucket": "emojible-be1c2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1005449120438:android:47349ba4930cf49dd93417",
+        "mobilesdk_app_id": "1:293053743528:android:14fb097650443923addd9d",
         "android_client_info": {
           "package_name": "com.dji.emojibleandroid"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1005449120438-lmlvdntf2esqqam9210pvh83k53gcapr.apps.googleusercontent.com",
+          "client_id": "293053743528-5v98errt2b9c6engk1pg0s0mfsmlb973.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAIvdSXWwh5quV_OH5w30PaDR2gCF0Z3W8"
+          "current_key": "AIzaSyB3_Otu12Wwz-t3HkfBaCaizhh9_IKy-lA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1005449120438-lmlvdntf2esqqam9210pvh83k53gcapr.apps.googleusercontent.com",
+              "client_id": "293053743528-5v98errt2b9c6engk1pg0s0mfsmlb973.apps.googleusercontent.com",
               "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1005449120438:android:e068f685668e448a",
-        "android_client_info": {
-          "package_name": "com.example.firebaseauthentication"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1005449120438-iup0864qtvn4jqaub3nh4eeuq4l3o8it.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.firebaseauthentication",
-            "certificate_hash": "2cb43d3587132f3f6bf519d9a479bac4572714da"
-          }
-        },
-        {
-          "client_id": "1005449120438-lmlvdntf2esqqam9210pvh83k53gcapr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAIvdSXWwh5quV_OH5w30PaDR2gCF0Z3W8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
+            },
             {
-              "client_id": "1005449120438-lmlvdntf2esqqam9210pvh83k53gcapr.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1005449120438:android:9abab6f81979198fd93417",
-        "android_client_info": {
-          "package_name": "com.example.myapplication"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1005449120438-lmlvdntf2esqqam9210pvh83k53gcapr.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAIvdSXWwh5quV_OH5w30PaDR2gCF0Z3W8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1005449120438-lmlvdntf2esqqam9210pvh83k53gcapr.apps.googleusercontent.com",
-              "client_type": 3
+              "client_id": "293053743528-ukac83e09vrtpl75sfkl7r9alrie88ut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.EmojibleIOS.EmojibleIOS.COMP491"
+              }
             }
           ]
         }

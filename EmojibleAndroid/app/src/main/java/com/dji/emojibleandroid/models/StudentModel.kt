@@ -8,17 +8,16 @@ class StudentModel(
     email: String,
     name: String,
     surname: String,
-    birthDate: LocalDate,
-    var classId: String? = null
+    birthDate: String,
+    var classId: String?
 ) : UserModel(email, name, surname, birthDate) {
-    @RequiresApi(Build.VERSION_CODES.O)
     constructor(dictionary: HashMap<String, Any>) : this(
         dictionary["email"] as String,
         dictionary["name"] as String,
         dictionary["surname"] as String,
-        LocalDate.parse(dictionary["birthDate"] as String)
+        dictionary["birthDate"] as String,
+        dictionary["classId"] as String
     ) {
-        classId = dictionary["classId"] as String?
         if (classId == "") {
             classId = null
         }

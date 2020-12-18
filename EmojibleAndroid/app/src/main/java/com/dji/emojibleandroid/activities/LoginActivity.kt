@@ -164,17 +164,16 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
             passwordTextView2.text.toString()
         ) { error ->
             hideProgressBar()
-            showToast("Authentication failed")
-            error?.let { this.showToast(it) }
+            if (error != null) {
+                showToast("Authentication failed")
+                showToast(error)
+            }
         }
     }
 
     public override fun onStart() {
 
         super.onStart()
-        val currentUser = AuthenticationManager.instance.currentUser
-        updateUI(currentUser)
-
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {

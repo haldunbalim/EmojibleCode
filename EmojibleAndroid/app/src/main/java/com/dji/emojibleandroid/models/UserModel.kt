@@ -9,14 +9,13 @@ open class UserModel constructor(
     var email: String,
     var name: String,
     var surname: String,
-    var birthDate: LocalDate
+    var birthDate: String
 ) {
-    @RequiresApi(Build.VERSION_CODES.O)
     constructor(dictionary: HashMap<String, Any>) : this(
         dictionary["email"] as String,
         dictionary["name"] as String,
         dictionary["surname"] as String,
-        LocalDate.parse(dictionary["birthDate"] as String)
+        dictionary["birthDate"] as String
     )
 
     open var dictionary: HashMap<String, Any> =
