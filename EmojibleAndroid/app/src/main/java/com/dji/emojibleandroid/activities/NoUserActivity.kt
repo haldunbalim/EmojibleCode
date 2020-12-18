@@ -2,6 +2,7 @@ package com.dji.emojibleandroid.activities
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -10,9 +11,16 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.Switch
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.dataSources.UserDataSource
+import com.dji.emojibleandroid.extensions.AppCompatActivityWithAlerts
+import com.dji.emojibleandroid.extensions.hideProgressBar
+import com.dji.emojibleandroid.extensions.showProgressBar
+import com.dji.emojibleandroid.models.modelFactories.UserFactory
+import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,12 +32,11 @@ import kotlin.collections.HashMap
 import kotlin.collections.MutableMap
 import kotlin.collections.set
 
-class NoUserActivity : AppCompatActivity() {
+class NoUserActivity : AppCompatActivityWithAlerts() {
 
     private lateinit var popupLayout: ViewGroup
-    private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseFirestore
     private lateinit var toggle: Switch
+    private var birthDate: LocalDate? = null
     private var userType: String = "Student"
 
     companion object {
@@ -38,6 +45,7 @@ class NoUserActivity : AppCompatActivity() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_no_user)
@@ -80,97 +88,74 @@ class NoUserActivity : AppCompatActivity() {
                 finish()
 
             }
-        }else{
+        } else {
             popupLayout.visibility = View.GONE
             popupLayout.removeAllViewsInLayout()
             popupLayout.removeAllViews()
         }
 
-        auth = FirebaseAuth.getInstance()
-        db = FirebaseFirestore.getInstance()
-
         loginButton.setOnClickListener {
-
             showToast("Login")
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-
         }
 
         signupButton.setOnClickListener {
-
             signupUser(toggle)
-
         }
 
 
 
         programLayoutToolbar.setOnClickListener {
-
             showToast("Program")
             val intent = Intent(this, ProgramActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         tutorialLayoutToolbar.setOnClickListener {
-
             showToast("Tutorial")
             val intent = Intent(this, TutorialActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         emojiLayoutToolbar.setOnClickListener {
-
             showToast("Emoji")
             val intent = Intent(this, EmojiActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         userLayoutToolbar.setOnClickListener {
-
             showToast("User")
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         birthTextView.setOnClickListener {
-
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Date of Birth")
-            val view = layoutInflater.inflate(R.layout.dialog_datepicker,null)
+            val view = layoutInflater.inflate(R.layout.dialog_datepicker, null)
             builder.setView(view)
-
 
             val datePicker = view.findViewById<DatePicker>(R.id.datePicker)
             val today = Calendar.getInstance()
-            datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+            datePicker.init(
+                today.get(Calendar.YEAR), today.get(Calendar.MONTH),
                 today.get(Calendar.DAY_OF_MONTH)
 
             ) { view, year, month, day ->
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     val formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
-                    birthTextView.text = LocalDate.of(year, month, day).format(formatter)
-
+                    birthDate = LocalDate.of(year, month + 1, day)
+                    birthTextView.text = LocalDate.of(year, month + 1, day).format(formatter)
                 }
-
             }
-
-            builder.setNegativeButton("Close",DialogInterface.OnClickListener { _, _ ->  })
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
             builder.show()
-
-
-
         }
-
-
     }
 
     override fun onBackPressed() {
@@ -181,6 +166,7 @@ class NoUserActivity : AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun signupUser(toggle: Switch) {
 
         if (emailTextView.text.toString().isEmpty()) {
@@ -216,84 +202,112 @@ class NoUserActivity : AppCompatActivity() {
 
         }
 
-        toggle.setOnCheckedChangeListener { _, isChecked ->
-
-            if (!isChecked) {
-
-                userType = "Student"
-
-            } else {
-
-                userType = "Teacher"
-
-            }
-
+        if (birthDate == null) {
+            birthTextView.error = "Please enter a birth date"
+            birthTextView.requestFocus()
+            return
         }
 
-        val dateOfBirth: String = birthTextView.text.toString()
+        toggle.setOnCheckedChangeListener { _, isChecked ->
+            userType = if (!isChecked) {
+                "Student"
+            } else {
+                "Teacher"
+            }
+        }
+
         val name: String = nameTextView.text.toString()
         val surname: String = surnameTextView.text.toString()
-        val user: MutableMap<String, Any> = HashMap()
-
-        user["birthDate"] = dateOfBirth
-        user["classId"] = "0"
-        user["name"] = name
-        user["surname"] = surname
-        user["userType"] = userType
-        user["email"] = emailTextView.text.toString()
-
-        db.collection("Users").document(emailTextView.text.toString())
-            .set(user)
-            .addOnSuccessListener {
-                Log.d(
-                    TAG,
-                    "DocumentSnapshot added with ID: "
+        val password: String = passwordTextView.text.toString()
+        val email = emailTextView.text.toString()
+        val classId = "123123"
+        showProgressBar()
+        AuthenticationManager.instance.createUserWithEmailAndPassword(email, password) { error ->
+            if (error != null) {
+                hideProgressBar()
+                showToast(error)
+            } else {
+                UserDataSource.instance.writeData(
+                    UserFactory.instance.create(
+                        userType,
+                        email,
+                        name,
+                        surname,
+                        birthDate!!,
+                        classId = classId
+                    )
                 )
-                showToast("Success Firestore")
-            }
-            .addOnFailureListener { e ->
-                Log.w(
-                    TAG,
-                    "Error adding document",
-                    e
-                )
-                showToast("Failed Firestore")
-            }
-
-        auth.createUserWithEmailAndPassword(
-            emailTextView.text.toString(),
-            passwordTextView.text.toString()
-        )
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val user = auth.currentUser
-                    user?.sendEmailVerification()?.addOnCompleteListener(this) {
-                        if (task.isSuccessful) {
-
-                            Log.d(TAG, "createUserWithEmail:success")
-                            val intent = Intent(this, LoginActivity::class.java)
-                            startActivity(intent)
-                            finish()
-
-                        } else {
-
-                            showToast(task.exception!!.message.toString())
-
-                        }
-                    }
-
-                } else {
-                    // If sign in fails, display a message to the user.
-                    showToast(task.exception!!.message.toString())
-                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    //updateUI(null)
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                AuthenticationManager.instance.signInWithEmailAndPassword(email, password) { error ->
+                    hideProgressBar()
+                    showToast("Authentication failed")
+                    error?.let { this.showToast(it) }
                 }
+                finish()
             }
+        }
+
+//
+//        user["birthDate"] = birthDate!!
+//        user["classId"] = "0"
+//        user["name"] = name
+//        user["surname"] = surname
+//        user["userType"] = userType
+//        user["email"] = emailTextView.text.toString()
+//
+//        db.collection("Users").document(emailTextView.text.toString())
+//            .set(user)
+//            .addOnSuccessListener {
+//                Log.d(
+//                    TAG,
+//                    "DocumentSnapshot added with ID: "
+//                )
+//                showToast("Success Firestore")
+//            }
+//            .addOnFailureListener { e ->
+//                Log.w(
+//                    TAG,
+//                    "Error adding document",
+//                    e
+//                )
+//                showToast("Failed Firestore")
+//            }
+//
+//        auth.createUserWithEmailAndPassword(
+//            emailTextView.text.toString(),
+//            passwordTextView.text.toString()
+//        )
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    // Sign in success, update UI with the signed-in user's information
+//                    val user = auth.currentUser
+//                    user?.sendEmailVerification()?.addOnCompleteListener(this) {
+//                        if (task.isSuccessful) {
+//
+//                            Log.d(TAG, "createUserWithEmail:success")
+//                            val intent = Intent(this, LoginActivity::class.java)
+//                            startActivity(intent)
+//                            finish()
+//
+//                        } else {
+//
+//                            showToast(task.exception!!.message.toString())
+//
+//                        }
+//                    }
+//
+//                } else {
+//                    // If sign in fails, display a message to the user.
+//                    showToast(task.exception!!.message.toString())
+//                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
+//                    Toast.makeText(
+//                        baseContext, "Authentication failed.",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    //updateUI(null)
+//                }
+//            }
 
 
     }

@@ -12,9 +12,9 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class UserDataSource {
-    val database = Firebase.firestore
+    private val database = Firebase.firestore
     var snapShotListener: ListenerRegistration? = null
-    val notificationCenter = NotificationCenter.instance
+    private val notificationCenter = NotificationCenter.instance
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getCurrentUserInfo(completion: (UserModel?) -> Unit) {
@@ -41,7 +41,11 @@ class UserDataSource {
         val currentUser = AuthenticationManager.instance.currentUser
         val userDocRef = currentUser?.let { database.collection("Users").document(it.uid) }
         snapShotListener = userDocRef?.addSnapshotListener { documentSnapshot, error ->
-            val dict = documentSnapshot?.data
+            if (documentSnapshot == null) {
+                return@addSnapshotListener
+            }
+            val dict = documentSnapshot.data ?: return@addSnapshotListener
+
             notificationCenter.post(
                 Changes.userModelChagend,
                 null,

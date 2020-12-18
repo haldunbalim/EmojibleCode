@@ -1,12 +1,19 @@
 package com.dji.emojibleandroid.activities
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.dataSources.UserDataSource
+import com.dji.emojibleandroid.models.UserModel
+import com.dji.emojibleandroid.services.AuthenticationManager
+import com.dji.emojibleandroid.services.Changes
+import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -18,9 +25,13 @@ import kotlinx.android.synthetic.main.activity_no_user.tutorialLayoutToolbar
 import kotlinx.android.synthetic.main.activity_no_user.userLayoutToolbar
 import kotlinx.android.synthetic.main.activity_user.*
 import kotlinx.android.synthetic.main.activity_user.signoutButton
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.HashMap
 
 
-class UserActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity(), Observer {
 
 
     private lateinit var auth: FirebaseAuth
@@ -31,12 +42,12 @@ class UserActivity : AppCompatActivity() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
-
-        db = FirebaseFirestore.getInstance()
-        auth = FirebaseAuth.getInstance()
+        NotificationCenter.instance.addObserver(Changes.userModelChagend, this)
+        UserDataSource.instance.startObservingUserModel()
 
         programLayoutToolbar.setOnClickListener {
 
@@ -89,7 +100,7 @@ class UserActivity : AppCompatActivity() {
 
         }
 
-        showFeatures()
+        //showFeatures()
     }
 
     private fun showFeatures() {
@@ -119,77 +130,67 @@ class UserActivity : AppCompatActivity() {
     }
 
     private fun changePassword(){
-
         if (currentPasswordET.text
                 .isNotEmpty() && newPasswordET.text
                 .isNotEmpty() && repeatPasswordET.text.isNotEmpty()){
-
             if (newPasswordET.text.toString().equals(repeatPasswordET.text.toString())) {
-
                 val user = auth.currentUser
-
                 if (user != null && user.email != null) {
-
                     val credential = EmailAuthProvider.getCredential(
                         user.email!!.toString(),
                         currentPasswordET.text.toString()
                     )
-
                     user?.reauthenticate(credential)?.addOnCompleteListener {
-
                         if (it.isSuccessful) {
-
                             showToast("Re-Authentication success")
                             user!!.updatePassword(newPasswordET.text.toString())
                                 .addOnCompleteListener{ task ->
-
                                     if (task.isSuccessful) {
-
                                         showToast("Password changed successfully")
                                         auth.signOut()
                                         val intent = Intent(this, LoginActivity::class.java)
                                         startActivity(intent)
                                         finish()
-
                                     }else{
-
                                         showToast("Password wasn't changed")
                                         showToast(task.exception!!.message.toString())
-
                                     }
                                 }
                         } else {
-
                             showToast("Re-Authentication failed")
                             showToast(it.exception!!.message.toString())
-
                         }
                     }
                 } else {
-
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
-
                 }
             } else {
-
                 showToast("Passwords are mismatching")
             }
-
         } else {
-
             showToast("Please enter all the fields")
-
         }
     }
 
     private fun signOutUser() {
-
-        auth.signOut()
+        AuthenticationManager.instance.signOut()
         val intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
         finish()
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun update(o: Observable?, arg: Any?) {
+        val dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy")
+        val userModelDict = (arg as UserModel).dictionary
+        nameEditText.text = userModelDict["name"].toString()
+        surnameEditText.text = userModelDict["surname"].toString()
+        userTypeEditText.text = userModelDict["userType"].toString()
+        emailEditText.text = userModelDict["email"].toString()
+        birthEditText.text = (userModelDict["birthDate"] as LocalDate).format(dateTimeFormatter)
+        classIdEditText.text = userModelDict["classId"].toString()
     }
 }

@@ -5,28 +5,28 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
-import android.view.View
-import android.view.WindowManager
 import android.widget.EditText
-import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import com.dji.emojibleandroid.Constants
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.extensions.AppCompatActivityWithAlerts
+import com.dji.emojibleandroid.extensions.hideProgressBar
+import com.dji.emojibleandroid.extensions.showProgressBar
+import com.dji.emojibleandroid.services.AuthenticationManager
+import com.dji.emojibleandroid.services.Changes
+import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
 import com.dji.emojibleandroid.utils.ProgressBarUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.mikhaellopez.circularprogressbar.CircularProgressBar
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.loginButton
 import kotlinx.android.synthetic.main.activity_login.programLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.tutorialLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.userLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.*
+import java.util.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivityWithAlerts(), Observer {
 
     companion object {
         val TAG: String = LoginActivity::class.java.simpleName
@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        auth = FirebaseAuth.getInstance()
-
+        NotificationCenter.instance.addObserver(Changes.authStateChanged, this)
+        AuthenticationManager.instance.startListeningForAuthChanges()
         loginButton.setOnClickListener() {
 
             doLogin()
@@ -133,7 +133,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun doLogin() {
-
         if (emailTextView2.text.toString().isEmpty()) {
 
             emailTextView2.error = "Please enter an email"
@@ -158,40 +157,22 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
-        val progressBarView = ProgressBarUtils.showProgressBar(this , window)
 
-        auth.signInWithEmailAndPassword(
+        showProgressBar()
+        AuthenticationManager.instance.signInWithEmailAndPassword(
             emailTextView2.text.toString(),
             passwordTextView2.text.toString()
-        )
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                    ProgressBarUtils.hideProgressBar(progressBarView, window)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    showToast("Authentication failed")
-                    showToast(task.exception!!.message.toString())
-                    val user =
-                        updateUI(null)
-                    // [START_EXCLUDE]
-                    //checkForMultiFactorFailure(task.exception!!)
-
-                    // [END_EXCLUDE]
-                }
-
-
-            }
+        ) { error ->
+            hideProgressBar()
+            showToast("Authentication failed")
+            error?.let { this.showToast(it) }
+        }
     }
 
     public override fun onStart() {
 
         super.onStart()
-        val currentUser = auth.currentUser
+        val currentUser = AuthenticationManager.instance.currentUser
         updateUI(currentUser)
 
     }
@@ -199,22 +180,18 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
 
         if (currentUser != null) {
-            if (currentUser.isEmailVerified) {
-
-                val intent = Intent(this, UserActivity::class.java)
-                startActivity(intent)
-                finish()
-
-            } else {
-
-                showToast("Please verify your email address")
-
-            }
+            val intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
+            finish()
         } else {
 
             showToast("Login Failed")
 
         }
+    }
+
+    override fun update(o: Observable?, arg: Any?) {
+        updateUI(AuthenticationManager.instance.currentUser)
     }
 
 

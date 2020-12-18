@@ -4,25 +4,25 @@ import com.dji.emojibleandroid.models.CodeModel
 import java.util.*
 
 class NotificationCenter private constructor() {
-    var observables: EnumMap<Changes, Observable?> = EnumMap(Changes::class.java)
+    var observables: EnumMap<Changes, MutableList<Observer?>> = EnumMap(Changes::class.java)
     fun addObserver(notification: Changes, observer: Observer?) {
-        var observable: Observable? = observables[notification]
+        var observable = observables[notification]
         if (observable == null) {
-            observable = Observable()
+            observable = mutableListOf()
             observables[notification] = observable
         }
-        observable.addObserver(observer)
+        observable.add(observer)
     }
 
     fun removeObserver(notification: Changes?, observer: Observer?) {
-        observables[notification]?.deleteObserver(observer)
+        observables[notification]?.remove(observer)
     }
 
     fun post(notification: Changes?, `object`: Any?, userInfo: Any? = null) {
-        val observable: Observable? = observables[notification]
-        observable.let {
-            it?.hasChanged()
-            it?.notifyObservers(`object`)
+        val observable = observables[notification]
+
+        for (o in observable!!) {
+            o!!.update(Observable(), userInfo)
         }
 
     }

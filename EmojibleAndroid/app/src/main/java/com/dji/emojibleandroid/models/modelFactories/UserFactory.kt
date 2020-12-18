@@ -11,7 +11,7 @@ import java.time.LocalDate
 
 class UserFactory private constructor(){
 
-    fun create(userType: String, email: String, name: String, surname: String, birthDate: LocalDate, classIds: MutableList<String> = mutableListOf(), classId: String): UserModel{
+    fun create(userType: String, email: String, name: String, surname: String, birthDate: LocalDate, classIds: MutableList<String> = mutableListOf(), classId: String? = null): UserModel{
         return when(userType) {
             "Teacher" -> TeacherModel(email, name, surname, birthDate, classIds)
             "Student" -> StudentModel(email, name, surname, birthDate, classId)

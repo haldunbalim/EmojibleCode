@@ -1,6 +1,8 @@
 package com.dji.emojibleandroid.services
 
 import com.google.firebase.auth.*
+import com.google.firebase.ktx.Firebase
+import java.lang.Exception
 
 // import com.facebook.AccessToken
 
@@ -34,7 +36,7 @@ class AuthenticationManager private constructor() {
     fun createUserWithEmailAndPassword(
         email: String,
         password: String,
-        completion: ((String?) -> Void)
+        completion: ((String?) -> Unit)
     ) {
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
@@ -48,13 +50,32 @@ class AuthenticationManager private constructor() {
     fun signInWithEmailAndPassword(
         email: String,
         password: String,
-        completion: ((String?) -> Void)
+        completion: (String?) -> Unit
     ) {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
                 completion(null)
             } else {
                 completion(it.exception?.message)
+            }
+        }
+    }
+
+    fun signOut(): String? {
+        return try {
+            firebaseAuth.signOut()
+            null
+        } catch (e: Exception) {
+            "Error signing out ${e.message}"
+        }
+    }
+
+    fun resetPassword(email: String, completion: (String?) -> Unit) {
+        firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
+            if (it.isSuccessful) {
+                completion(null)
+            } else {
+                completion(it.exception?.localizedMessage)
             }
         }
     }
