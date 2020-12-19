@@ -40,54 +40,37 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
         NotificationCenter.instance.addObserver(Changes.authStateChanged, this)
         AuthenticationManager.instance.startListeningForAuthChanges()
         loginButton.setOnClickListener() {
-
             doLogin()
-
         }
 
         programLayoutToolbar.setOnClickListener {
-
-            showToast("Program")
             val intent = Intent(this, ProgramActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
             val intent = Intent(this, TutorialActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
             val intent = Intent(this, EmojiActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         registerButton.setOnClickListener() {
-
-            showToast("Sign Up")
             Log.i(TAG, "Button was clicked")
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
-
         }
 
         resetButton.setOnClickListener {
@@ -98,7 +81,7 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
             val username = view.findViewById<EditText>(R.id.editTextReset)
             builder.setView(view)
             builder.setPositiveButton("Reset", DialogInterface.OnClickListener { _, _ ->
-                forgotPassword(username)
+                forgotPassword(username.text.toString())
             })
             builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
             builder.show()
@@ -108,24 +91,21 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
 
     }
 
-    private fun forgotPassword(username: EditText) {
+    private fun forgotPassword(email: String) {
 
-        if (username.text.toString().isEmpty()) {
+        if (email.isEmpty()) {
             return
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return
         }
 
-        auth.sendPasswordResetEmail(username.text.toString()).addOnCompleteListener {
-            if (it.isSuccessful) {
-
-                showToast("Email Send")
-
-            } else {
-
-                showToast(it.exception!!.message.toString())
-
+        showProgressBar()
+        AuthenticationManager.instance.resetPassword(email = email) { error ->
+            hideProgressBar()
+            if (error != null) {
+                showToast("Password reset denied.")
+                showToast(error)
             }
         }
 

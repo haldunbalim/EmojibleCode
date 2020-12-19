@@ -50,26 +50,18 @@ class UserActivity : AppCompatActivity(), Observer {
         UserDataSource.instance.startObservingUserModel()
 
         programLayoutToolbar.setOnClickListener {
-
-            showToast("Program")
             val intent = Intent(this, ProgramActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
             val intent = Intent(this, TutorialActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
         emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
             val intent = Intent(this, EmojiActivity::class.java)
             startActivity(intent)
             finish()
@@ -77,27 +69,18 @@ class UserActivity : AppCompatActivity(), Observer {
         }
 
         userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
             val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
             finish()
-
         }
 
 
         signoutButton.setOnClickListener {
-
-            showToast("Sign Out")
             signOutUser()
-
         }
 
         passwordButton.setOnClickListener {
-
-            showToast("Change Password")
             changePassword()
-
         }
 
         //showFeatures()
@@ -176,6 +159,7 @@ class UserActivity : AppCompatActivity(), Observer {
 
     private fun signOutUser() {
         AuthenticationManager.instance.signOut()
+        UserDataSource.instance.stopObservingUserModel()
         val intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
         finish()
