@@ -15,7 +15,6 @@ import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
-import com.dji.emojibleandroid.utils.ProgressBarUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
@@ -44,6 +43,36 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
             doLogin()
 
         }
+
+        registerButton.setOnClickListener() {
+
+            showToast("Sign Up")
+            Log.i(TAG, "Button was clicked")
+            val intent = Intent(this, NoUserActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        resetButton.setOnClickListener {
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Forgot Password")
+            val view = layoutInflater.inflate(R.layout.dialog_reset, null)
+            val username = view.findViewById<EditText>(R.id.editTextReset)
+            builder.setView(view)
+            builder.setPositiveButton("Reset", DialogInterface.OnClickListener { _, _ ->
+                forgotPassword(username)
+            })
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
+            builder.show()
+
+        }
+
+        setupToolbar()
+
+    }
+
+    private fun setupToolbar() {
 
         programLayoutToolbar.setOnClickListener {
 
@@ -78,31 +107,6 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
             finish()
-
-        }
-
-        registerButton.setOnClickListener() {
-
-            showToast("Sign Up")
-            Log.i(TAG, "Button was clicked")
-            val intent = Intent(this, NoUserActivity::class.java)
-            startActivity(intent)
-
-        }
-
-        resetButton.setOnClickListener {
-
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Forgot Password")
-            val view = layoutInflater.inflate(R.layout.dialog_reset, null)
-            val username = view.findViewById<EditText>(R.id.editTextReset)
-            builder.setView(view)
-            builder.setPositiveButton("Reset", DialogInterface.OnClickListener { _, _ ->
-                forgotPassword(username)
-            })
-            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
-            builder.show()
-
 
         }
 

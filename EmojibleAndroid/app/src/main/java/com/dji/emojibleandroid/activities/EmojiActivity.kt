@@ -38,6 +38,13 @@ class EmojiActivity : AppCompatActivity(){
 
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION)
 
+        setupRecyclerView()
+        setupToolbar()
+        //updateRecyclerView()
+
+    }
+
+    private fun setupToolbar() {
         programLayoutToolbar.setOnClickListener {
 
             showToast("Program")
@@ -56,15 +63,6 @@ class EmojiActivity : AppCompatActivity(){
 
         }
 
-        emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
-            val intent = Intent(this,EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
         userLayoutToolbar.setOnClickListener {
 
             showToast("User")
@@ -74,16 +72,14 @@ class EmojiActivity : AppCompatActivity(){
 
         }
 
-        setupRecyclerView()
-        //updateRecyclerView()
-
     }
-/*
-    private fun updateRecyclerView() {
-        TODO("Not yet implemented")
 
-    }
-*/
+    /*
+        private fun updateRecyclerView() {
+            TODO("Not yet implemented")
+
+        }
+    */
     private fun setupRecyclerView() {
 
 

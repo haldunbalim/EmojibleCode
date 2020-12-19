@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.showToast
-import kotlinx.android.synthetic.main.activity_code.cameraImageView
 import kotlinx.android.synthetic.main.activity_program.*
 import java.io.File
 
@@ -23,8 +22,7 @@ private const val FILE_NAME = "photo.jpg"
 private const val REQUEST_CODE = 42
 private lateinit var photoFile: File
 
-class ProgramActivity : AppCompatActivity(){
-
+class ProgramActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,55 +30,20 @@ class ProgramActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program)
 
-        programLayoutToolbar.setOnClickListener {
-
-            showToast("Program")
-            val intent = Intent(this,ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this,TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
-            val intent = Intent(this,EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
-            val intent = Intent(this,UserActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
         cameraImageView.setOnClickListener {
 
             showToast("Camera!")
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             photoFile = getPhotoFile(FILE_NAME)
 
-            val fileProvider = FileProvider.getUriForFile(this,"com.dji.emojibleandroid.fileprovider", photoFile)
+            val fileProvider =
+                FileProvider.getUriForFile(this, "com.dji.emojibleandroid.fileprovider", photoFile)
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider)
-            if(takePictureIntent.resolveActivity(this.packageManager) != null){
+            if (takePictureIntent.resolveActivity(this.packageManager) != null) {
 
                 startActivityForResult(takePictureIntent, REQUEST_CODE)
 
-            }else{
+            } else {
 
                 showToast("Unable to open camera")
 
@@ -90,20 +53,19 @@ class ProgramActivity : AppCompatActivity(){
 
         galleryImageView.setOnClickListener {
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
-                    PackageManager.PERMISSION_DENIED){
+                    PackageManager.PERMISSION_DENIED
+                ) {
                     //permission denied
                     val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
                     //show popup to request runtime permission
                     requestPermissions(permissions, PERMISSION_CODE);
-                }
-                else{
+                } else {
                     //permission already granted
                     pickImageFromGallery();
                 }
-            }
-            else{
+            } else {
                 //system OS is < Marshmallow
                 pickImageFromGallery();
             }
@@ -113,14 +75,46 @@ class ProgramActivity : AppCompatActivity(){
         processButton.setOnClickListener {
 
 
+        }
+
+        setupToolbar()
+
+    }
+
+    private fun setupToolbar() {
+
+        tutorialLayoutToolbar.setOnClickListener {
+
+            showToast("Tutorial")
+            val intent = Intent(this, TutorialActivity::class.java)
+            startActivity(intent)
+            finish()
 
         }
 
+        emojiLayoutToolbar.setOnClickListener {
+
+            showToast("Emoji")
+            val intent = Intent(this, EmojiActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
+
+        userLayoutToolbar.setOnClickListener {
+
+            showToast("User")
+            val intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
     }
 
     companion object {
         //image pick code
         private val IMAGE_PICK_CODE = 1000;
+
         //Permission code
         private val PERMISSION_CODE = 1001;
     }
@@ -128,7 +122,7 @@ class ProgramActivity : AppCompatActivity(){
 
     private fun getPhotoFile(fileName: String): File {
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(fileName,".jpg",storageDir)
+        return File.createTempFile(fileName, ".jpg", storageDir)
     }
 
     private fun pickImageFromGallery() {
@@ -140,15 +134,19 @@ class ProgramActivity : AppCompatActivity(){
     }
 
     //handle requested permission result
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        when(requestCode){
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
             PERMISSION_CODE -> {
-                if (grantResults.size >0 && grantResults[0] ==
-                    PackageManager.PERMISSION_GRANTED){
+                if (grantResults.size > 0 && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED
+                ) {
                     //permission from popup granted
                     pickImageFromGallery()
-                }
-                else{
+                } else {
                     //permission from popup denied
                     showToast("Permission denied")
                 }
@@ -159,16 +157,16 @@ class ProgramActivity : AppCompatActivity(){
     //handle result of picked image
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
 
             TODO("Galeriden foto alınıyor burda işle")
 
-        }else if(requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK){
+        } else if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
 
             val takenImage = BitmapFactory.decodeFile(photoFile.absolutePath)
             TODO("Çektiğin fotoyu aldın")
 
-        }else{
+        } else {
 
             super.onActivityResult(requestCode, resultCode, data)
 

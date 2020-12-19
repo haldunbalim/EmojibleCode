@@ -18,11 +18,9 @@ import com.dji.emojibleandroid.showToast
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_no_user.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_no_user.programLayoutToolbar
 import kotlinx.android.synthetic.main.activity_no_user.tutorialLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.userLayoutToolbar
 import kotlinx.android.synthetic.main.activity_user.*
 import kotlinx.android.synthetic.main.activity_user.signoutButton
 import java.time.LocalDate
@@ -49,6 +47,25 @@ class UserActivity : AppCompatActivity(), Observer {
         NotificationCenter.instance.addObserver(Changes.userModelChagend, this)
         UserDataSource.instance.startObservingUserModel()
 
+        signoutButton.setOnClickListener {
+
+            showToast("Sign Out")
+            signOutUser()
+
+        }
+
+        passwordButton.setOnClickListener {
+
+            showToast("Change Password")
+            changePassword()
+
+        }
+
+        setupToolbar()
+        //showFeatures()
+    }
+
+    private fun setupToolbar() {
         programLayoutToolbar.setOnClickListener {
 
             showToast("Program")
@@ -75,32 +92,6 @@ class UserActivity : AppCompatActivity(), Observer {
             finish()
 
         }
-
-        userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
-            val intent = Intent(this, UserActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-
-        signoutButton.setOnClickListener {
-
-            showToast("Sign Out")
-            signOutUser()
-
-        }
-
-        passwordButton.setOnClickListener {
-
-            showToast("Change Password")
-            changePassword()
-
-        }
-
-        //showFeatures()
     }
 
     private fun showFeatures() {
@@ -124,15 +115,16 @@ class UserActivity : AppCompatActivity(), Observer {
                 Log.d(TAG, "get failed with ", exception)
             }
 
-        if(auth.currentUser == null){
+        if (auth.currentUser == null) {
             signOutUser()
         }
     }
 
-    private fun changePassword(){
+    private fun changePassword() {
         if (currentPasswordET.text
                 .isNotEmpty() && newPasswordET.text
-                .isNotEmpty() && repeatPasswordET.text.isNotEmpty()){
+                .isNotEmpty() && repeatPasswordET.text.isNotEmpty()
+        ) {
             if (newPasswordET.text.toString().equals(repeatPasswordET.text.toString())) {
                 val user = auth.currentUser
                 if (user != null && user.email != null) {
@@ -144,14 +136,14 @@ class UserActivity : AppCompatActivity(), Observer {
                         if (it.isSuccessful) {
                             showToast("Re-Authentication success")
                             user!!.updatePassword(newPasswordET.text.toString())
-                                .addOnCompleteListener{ task ->
+                                .addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
                                         showToast("Password changed successfully")
                                         auth.signOut()
                                         val intent = Intent(this, LoginActivity::class.java)
                                         startActivity(intent)
                                         finish()
-                                    }else{
+                                    } else {
                                         showToast("Password wasn't changed")
                                         showToast(task.exception!!.message.toString())
                                     }
@@ -176,7 +168,7 @@ class UserActivity : AppCompatActivity(), Observer {
 
     private fun signOutUser() {
         AuthenticationManager.instance.signOut()
-        val intent = Intent(this,LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
 

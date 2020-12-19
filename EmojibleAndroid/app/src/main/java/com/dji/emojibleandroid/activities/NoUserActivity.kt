@@ -124,7 +124,33 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             signupUser()
         }
 
+        birthTextView.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Date of Birth")
+            val view = layoutInflater.inflate(R.layout.dialog_datepicker, null)
+            builder.setView(view)
 
+            val datePicker = view.findViewById<DatePicker>(R.id.datePicker)
+            val today = Calendar.getInstance()
+            datePicker.init(
+                today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+                today.get(Calendar.DAY_OF_MONTH)
+
+            ) { view, year, month, day ->
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
+                    birthDate = LocalDate.of(year, month + 1, day).format(formatter)
+                    birthTextView.text = LocalDate.of(year, month + 1, day).format(formatter)
+                }
+            }
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
+            builder.show()
+        }
+
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
 
         programLayoutToolbar.setOnClickListener {
             showToast("Program")
@@ -153,29 +179,7 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             startActivity(intent)
             finish()
         }
-
-        birthTextView.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("Date of Birth")
-            val view = layoutInflater.inflate(R.layout.dialog_datepicker, null)
-            builder.setView(view)
-
-            val datePicker = view.findViewById<DatePicker>(R.id.datePicker)
-            val today = Calendar.getInstance()
-            datePicker.init(
-                today.get(Calendar.YEAR), today.get(Calendar.MONTH),
-                today.get(Calendar.DAY_OF_MONTH)
-
-            ) { view, year, month, day ->
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
-                    birthDate = LocalDate.of(year, month + 1, day).format(formatter)
-                    birthTextView.text = LocalDate.of(year, month + 1, day).format(formatter)
-                }
-            }
-            builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
-            builder.show()
-        }
+        
     }
 
     override fun onBackPressed() {

@@ -18,19 +18,17 @@ class TutorialActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutorial)
 
+        setupToolbar()
+        setupRecyclerView()
+
+    }
+
+    private fun setupToolbar() {
+
         programLayoutToolbar.setOnClickListener {
 
             showToast("Program")
             val intent = Intent(this,ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this,TutorialActivity::class.java)
             startActivity(intent)
             finish()
 
@@ -53,10 +51,6 @@ class TutorialActivity : AppCompatActivity(){
             finish()
 
         }
-
-        setupRecyclerView()
-
-
     }
 
     private fun setupRecyclerView() {

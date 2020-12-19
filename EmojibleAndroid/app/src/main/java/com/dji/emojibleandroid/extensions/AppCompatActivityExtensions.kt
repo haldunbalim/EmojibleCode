@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.R
-import com.dji.emojibleandroid.utils.ProgressBarUtils
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
 open class AppCompatActivityWithAlerts: AppCompatActivity() {
