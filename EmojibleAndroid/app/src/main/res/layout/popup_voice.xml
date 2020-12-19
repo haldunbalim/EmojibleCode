@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/recordButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/cardview_light_background"
+        android:ems="10"
+        android:text="Record"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/assignButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@color/cardview_light_background"
+        android:text="Assign"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@color/cardview_light_background"
+        android:text="Cancel"
+        android:textColor="@color/colorPrimaryDark" />
+</LinearLayout>

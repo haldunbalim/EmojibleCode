@@ -16,38 +16,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"
+            android:background="@color/cardview_light_background"
             android:orientation="horizontal">
 
-            <TextView
+            <Button
                 android:id="@+id/emojiEditTextView"
-                android:layout_width="25dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/cardview_light_background"
                 android:ems="10"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/signEditTextView"
-                android:layout_width="25dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/cardview_light_background"
                 android:ems="10"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/textVoiceEditTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="@color/cardview_light_background"
                 android:ems="10"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"></LinearLayout>
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp" />
 
             <ImageView
                 android:id="@+id/editImageView"

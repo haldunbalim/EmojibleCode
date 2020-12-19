@@ -8,11 +8,12 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/toolbarLayout"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/assignmentTextView"

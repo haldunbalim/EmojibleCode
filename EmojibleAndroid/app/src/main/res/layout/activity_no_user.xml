@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/userTypeInputEditText"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -53,14 +53,30 @@
             android:layout_weight="1"
             android:hint="Enter your surname" />
 
-        <Switch
-            android:id="@+id/teacherSwitch"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
             android:layout_weight="1"
-            android:text="Teacher?" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/classIDEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Enter your class ID"
+                android:inputType="text" />
+
+            <Switch
+                android:id="@+id/teacherSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:text="Teacher?" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/passwordTextView"

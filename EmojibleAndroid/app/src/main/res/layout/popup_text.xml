@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,9 +8,18 @@
         android:id="@+id/textEditTV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="15"
+        android:layout_above="@+id/assignButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-112dp"
+        android:background="@color/cardview_light_background"
         android:ems="10"
-        android:gravity="top"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center|center_horizontal"
         android:hint="Enter your text"
         android:inputType="text" />
 
@@ -18,19 +27,23 @@
         android:id="@+id/assignButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/cancelButton"
         android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="6dp"
+        android:background="@color/cardview_light_background"
         android:text="Assign"
-        android:textColor="@color/common_google_signin_btn_text_dark_default" />
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:id="@+id/cancelButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/cardview_light_background"
         android:text="Cancel"
-        android:textColor="@color/common_google_signin_btn_text_dark_default" />
-</LinearLayout>
+        android:textColor="@color/colorPrimaryDark" />
+</RelativeLayout>

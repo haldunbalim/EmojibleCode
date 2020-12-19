@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/textImageView"
                 android:layout_width="29dp"
                 android:layout_height="77dp"
                 android:layout_gravity="center_vertical"
@@ -48,7 +48,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/voiceImageView"
                 android:layout_width="9dp"
                 android:layout_height="81dp"
                 android:layout_gravity="center_vertical"
@@ -78,7 +78,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/functionImageView"
                 android:layout_width="49dp"
                 android:layout_height="103dp"
                 android:layout_gravity="center_vertical"
