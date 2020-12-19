@@ -14,7 +14,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.showToast
+import kotlinx.android.synthetic.main.activity_no_user.*
 import kotlinx.android.synthetic.main.activity_program.*
+import kotlinx.android.synthetic.main.activity_program.emojiLayoutToolbar
+import kotlinx.android.synthetic.main.activity_program.programLayoutToolbar
+import kotlinx.android.synthetic.main.activity_program.tutorialLayoutToolbar
+import kotlinx.android.synthetic.main.activity_program.userLayoutToolbar
+import kotlinx.android.synthetic.main.activity_user.*
 import java.io.File
 
 
@@ -77,38 +83,13 @@ class ProgramActivity : AppCompatActivity() {
 
         }
 
-        setupToolbar()
-
-    }
-
-    private fun setupToolbar() {
-
-        tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this, TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
-            val intent = Intent(this, EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
-            val intent = Intent(this, UserActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
+        com.dji.emojibleandroid.utils.setupToolbar(
+            this,
+            programLayoutToolbar,
+            tutorialLayoutToolbar,
+            emojiLayoutToolbar,
+            userLayoutToolbar
+        )
     }
 
     companion object {

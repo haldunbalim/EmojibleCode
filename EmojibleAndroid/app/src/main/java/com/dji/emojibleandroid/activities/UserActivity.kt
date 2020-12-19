@@ -15,6 +15,7 @@ import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
+import com.dji.emojibleandroid.utils.setupToolbar
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -47,6 +48,8 @@ class UserActivity : AppCompatActivity(), Observer {
         NotificationCenter.instance.addObserver(Changes.userModelChagend, this)
         UserDataSource.instance.startObservingUserModel()
 
+        setupToolbar(this, programLayoutToolbar, tutorialLayoutToolbar, emojiLayoutToolbar, userLayoutToolbar)
+
         signoutButton.setOnClickListener {
 
             showToast("Sign Out")
@@ -61,37 +64,14 @@ class UserActivity : AppCompatActivity(), Observer {
 
         }
 
-        setupToolbar()
+        signoutButton.setOnClickListener {
+            signOutUser()
+        }
+
+        passwordButton.setOnClickListener {
+            changePassword()
+        }
         //showFeatures()
-    }
-
-    private fun setupToolbar() {
-        programLayoutToolbar.setOnClickListener {
-
-            showToast("Program")
-            val intent = Intent(this, ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this, TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
-            val intent = Intent(this, EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
     }
 
     private fun showFeatures() {
@@ -168,7 +148,8 @@ class UserActivity : AppCompatActivity(), Observer {
 
     private fun signOutUser() {
         AuthenticationManager.instance.signOut()
-        val intent = Intent(this, LoginActivity::class.java)
+        UserDataSource.instance.stopObservingUserModel()
+        val intent = Intent(this,LoginActivity::class.java)
         startActivity(intent)
         finish()
 

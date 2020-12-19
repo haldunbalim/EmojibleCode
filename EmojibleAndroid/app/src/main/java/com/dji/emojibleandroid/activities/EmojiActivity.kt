@@ -21,6 +21,8 @@ import kotlinx.android.synthetic.main.activity_emoji.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_emoji.programLayoutToolbar
 import kotlinx.android.synthetic.main.activity_emoji.tutorialLayoutToolbar
 import kotlinx.android.synthetic.main.activity_emoji.userLayoutToolbar
+import kotlinx.android.synthetic.main.activity_no_user.*
+import kotlinx.android.synthetic.main.activity_user.*
 
 class EmojiActivity : AppCompatActivity(){
 
@@ -39,47 +41,17 @@ class EmojiActivity : AppCompatActivity(){
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION)
 
         setupRecyclerView()
-        setupToolbar()
+        com.dji.emojibleandroid.utils.setupToolbar(
+            this,
+            programLayoutToolbar,
+            tutorialLayoutToolbar,
+            emojiLayoutToolbar,
+            userLayoutToolbar
+        )
         //updateRecyclerView()
 
     }
 
-    private fun setupToolbar() {
-        programLayoutToolbar.setOnClickListener {
-
-            showToast("Program")
-            val intent = Intent(this,ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this,TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
-            val intent = Intent(this, UserActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-    }
-
-    /*
-        private fun updateRecyclerView() {
-            TODO("Not yet implemented")
-
-        }
-    */
     private fun setupRecyclerView() {
 
 

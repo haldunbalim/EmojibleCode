@@ -147,39 +147,13 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             builder.show()
         }
 
-        setupToolbar()
-    }
-
-    private fun setupToolbar() {
-
-        programLayoutToolbar.setOnClickListener {
-            showToast("Program")
-            val intent = Intent(this, ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        tutorialLayoutToolbar.setOnClickListener {
-            showToast("Tutorial")
-            val intent = Intent(this, TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        emojiLayoutToolbar.setOnClickListener {
-            showToast("Emoji")
-            val intent = Intent(this, EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        userLayoutToolbar.setOnClickListener {
-            showToast("User")
-            val intent = Intent(this, NoUserActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        
+        com.dji.emojibleandroid.utils.setupToolbar(
+            this,
+            programLayoutToolbar,
+            tutorialLayoutToolbar,
+            emojiLayoutToolbar,
+            userLayoutToolbar
+        )
     }
 
     override fun onBackPressed() {

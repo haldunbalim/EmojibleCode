@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.activity_login.loginButton
 import kotlinx.android.synthetic.main.activity_login.programLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.tutorialLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.userLayoutToolbar
+import kotlinx.android.synthetic.main.activity_no_user.*
+import kotlinx.android.synthetic.main.activity_user.*
 import java.util.*
 
 class LoginActivity : AppCompatActivityWithAlerts(), Observer {
@@ -39,9 +41,7 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
         NotificationCenter.instance.addObserver(Changes.authStateChanged, this)
         AuthenticationManager.instance.startListeningForAuthChanges()
         loginButton.setOnClickListener() {
-
             doLogin()
-
         }
 
         registerButton.setOnClickListener() {
@@ -61,75 +61,38 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
             val username = view.findViewById<EditText>(R.id.editTextReset)
             builder.setView(view)
             builder.setPositiveButton("Reset", DialogInterface.OnClickListener { _, _ ->
-                forgotPassword(username)
+                forgotPassword(username.text.toString())
             })
             builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
             builder.show()
 
         }
 
-        setupToolbar()
+        com.dji.emojibleandroid.utils.setupToolbar(
+            this,
+            programLayoutToolbar,
+            tutorialLayoutToolbar,
+            emojiLayoutToolbar,
+            userLayoutToolbar
+        )
 
     }
 
-    private fun setupToolbar() {
+    private fun forgotPassword(email: String) {
 
-        programLayoutToolbar.setOnClickListener {
-
-            showToast("Program")
-            val intent = Intent(this, ProgramActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        tutorialLayoutToolbar.setOnClickListener {
-
-            showToast("Tutorial")
-            val intent = Intent(this, TutorialActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        emojiLayoutToolbar.setOnClickListener {
-
-            showToast("Emoji")
-            val intent = Intent(this, EmojiActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-        userLayoutToolbar.setOnClickListener {
-
-            showToast("User")
-            val intent = Intent(this, NoUserActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }
-
-    }
-
-    private fun forgotPassword(username: EditText) {
-
-        if (username.text.toString().isEmpty()) {
+        if (email.isEmpty()) {
             return
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return
         }
 
-        auth.sendPasswordResetEmail(username.text.toString()).addOnCompleteListener {
-            if (it.isSuccessful) {
-
-                showToast("Email Send")
-
-            } else {
-
-                showToast(it.exception!!.message.toString())
-
+        showProgressBar()
+        AuthenticationManager.instance.resetPassword(email = email) { error ->
+            hideProgressBar()
+            if (error != null) {
+                showToast("Password reset denied.")
+                showToast(error)
             }
         }
 
