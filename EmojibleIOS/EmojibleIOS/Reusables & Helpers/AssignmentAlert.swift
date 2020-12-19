@@ -9,7 +9,7 @@ import UIKit
 
 class AssignmentAlert: CustomAlertViewController{
     
-    var textDelegata: AssignmentPopUpAlert?
+    var textDelegate: AssignmentPopUpAlert?
     var voiceDelegate: AssignmentPopUpAlert?
     var funcDelegate: AssignmentPopUpAlert?
     
@@ -25,7 +25,7 @@ class AssignmentAlert: CustomAlertViewController{
 
     @IBAction func textButtonOnPress(_ sender: Any) {
         dismiss()
-        textDelegata?.textButtonPressed()
+        textDelegate?.textButtonPressed()
     }
     
     @IBAction func voiceButtonOnPress(_ sender: Any) {

@@ -1,23 +1,26 @@
 //
-//  SettingsCoordinator.swift
+//  TeacherClassCoordinator.swift
 //  EmojibleIOS
 //
-//  Created by Haldun Balim on 11.11.2020.
+//  Created by Furkan Yakal on 15.12.2020.
 //
 
 import Foundation
 import UIKit
 
-class SettingsCoordinator: Coordinator {
+class TeacherClassCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
+    var classroom: ClassModel?
+    
     enum screenEnum{
-       case SettingsScreen
+       case ClassScreen
+       case StudentInfo
     }
     
-    var currentScreen: screenEnum = .SettingsScreen
+    var currentScreen: screenEnum = .ClassScreen
 
     func start() {
         openScreen(screenName: currentScreen)
@@ -27,8 +30,10 @@ class SettingsCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
-        case .SettingsScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "SettingsScreenVC") as? SettingsScreenVC
+        case .ClassScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherClassVC") as? TeacherClassVC
+        case .StudentInfo:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherStudentEnrollmentVC") as? TeacherStudentEnrollmentVC
         }
         
         vc.coordinator = self
@@ -37,21 +42,21 @@ class SettingsCoordinator: Coordinator {
         navigationController.pushViewController(vc as! UIViewController, animated: true)
         currentScreen = screenName
     }
+    
     func pop(){
         navigationController.popViewController(animated: true)
     }
     
     private init(){
-        navigationController = self.storyboard.instantiateViewController(withIdentifier: "SettingsNavController") as! UINavigationController
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "TeacherClassNavController") as! UINavigationController
         self.navigationController.navigationBar.isHidden = true
     }
     
-    private static var instance: SettingsCoordinator!
-    public static func getInstance() -> SettingsCoordinator{
+    private static var instance: TeacherClassCoordinator!
+    public static func getInstance() -> TeacherClassCoordinator{
         if(instance == nil){
-            instance = SettingsCoordinator()
+            instance = TeacherClassCoordinator()
         }
         return .instance
     }
-    
 }

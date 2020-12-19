@@ -58,4 +58,22 @@ class UserDataSource{
         self.database.collection("Users").document(uid).setData(user.dictionary)
     }
     
+    public func editUserData(newData: [String:Any]){
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
+        let uid = currentUser.uid
+        self.database.collection("Users").document(uid).updateData(newData)
+    }
+    
+    public func resetUserClassId(classId: String){
+        database.collection("Users").whereField("classId", isEqualTo: classId).getDocuments(){ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
+            else{
+                for document in querySnapshot!.documents{
+                    self.database.collection("Users").document(document.documentID).updateData(["classId" : ""])
+                }
+            }
+        }
+    }
 }

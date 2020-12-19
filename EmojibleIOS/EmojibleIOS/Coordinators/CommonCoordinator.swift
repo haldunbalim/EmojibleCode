@@ -23,7 +23,7 @@ class CommonCoordinator: Coordinator {
     var lastIdx = -1
     
     func start() {
-        let configuration = UIImage.SymbolConfiguration(pointSize: 1, weight: .semibold, scale: .large)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 0, weight: .semibold, scale: .large)
         
         let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(named: "terminal", in: .none, with: configuration), tag: 0)
         
@@ -33,17 +33,12 @@ class CommonCoordinator: Coordinator {
 
         let loginTabBarItem =  UITabBarItem(title: "Login", image: UIImage(named: "person", in: .none, with: configuration), tag: 3)
         
-        let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "gear", in: .none, with: configuration), tag: 4)
-        
-        
-        
         programsNC.tabBarItem = programTabBarItem
         tutorialsNC.tabBarItem = tutorialsTabBarItem
         emojiAssignmentNC.tabBarItem = assignmentTabBarItem
         authNC.tabBarItem = loginTabBarItem
-        settingsNC.tabBarItem = settingsTabBarItem
         
-        tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, authNC, settingsNC, runCodeNC]
+        tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, authNC, runCodeNC]
         
         tabBarController.selectedIndex = 0
         
@@ -63,9 +58,6 @@ class CommonCoordinator: Coordinator {
         
         AuthenticationCoordinator.getInstance().parentCoordinator = self
         AuthenticationCoordinator.getInstance().start()
-        
-        SettingsCoordinator.getInstance().parentCoordinator = self
-        SettingsCoordinator.getInstance().start()
  
         RunCodeCoordinator.getInstance().parentCoordinator = self
         RunCodeCoordinator.getInstance().start()
@@ -88,7 +80,7 @@ class CommonCoordinator: Coordinator {
     public func runCode(code:String){
         RunCodeCoordinator.getInstance().runningCode = code
         lastIdx = tabBarController.selectedIndex
-        tabBarController.selectedIndex = 5
+        tabBarController.selectedIndex = 4
         tabBarController.setHidden()
     }
     

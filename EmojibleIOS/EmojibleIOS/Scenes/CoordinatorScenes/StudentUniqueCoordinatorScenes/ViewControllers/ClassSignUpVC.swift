@@ -13,6 +13,7 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
     var coordinator: Coordinator?
 
     @IBOutlet weak var enrollLabel: UILabel!
+    
     @IBOutlet weak var classCodeTextField: UITextField!
     @IBOutlet weak var classPasswordTextField: UITextField!
     
@@ -27,7 +28,9 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
         NSLayoutConstraint.activate([enrollLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
     }
     
+    
     @IBAction func signUpButtonPressed(_ sender: Any) {
+        
         guard let classCode = classCodeTextField.text, classCode != "" else {
             showMessagePrompt("Class Code cannot be empty", vcToBePresented: self)
             return
@@ -36,6 +39,16 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
         guard let classPassword = classPasswordTextField.text, classPassword != "" else {
             showMessagePrompt("Class Password cannot be empty", vcToBePresented: self)
             return
+        }
+        self.showSpinner(){
+            TeacherClassDataSource.getInstance().addStudent(classId: classCode, classPassword: classPassword){[unowned self] error in
+                if let error = error {
+                    self.hideSpinner()
+                    showMessagePrompt(error, vcToBePresented: self)
+                }else{
+                    self.hideSpinner()
+                }
+            }
         }
     }
 }

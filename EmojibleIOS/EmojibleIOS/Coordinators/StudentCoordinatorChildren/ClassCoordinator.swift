@@ -29,7 +29,7 @@ class ClassCoordinator: Coordinator {
     @objc func notify(_ notification: NSNotification) {
         guard let notificationArgs = notification.userInfo else { return }
         guard let userModel = notificationArgs["userModel"] as? StudentModel else { return }
-        if userModel.classId == nil{
+        if userModel.classId == ""{
             openScreen(screenName: .SignUp,pop: false)
         }else{
             openScreen(screenName: .ClassScreen,pop: false)

@@ -12,7 +12,7 @@ private let reuseIdentifier = "TeacherTutorialScreenCell"
 private let reuseIdentifier2 = "TeacherTutorialAddCell"
 private let reuseIdentifier3 = "EmptyCell"
 
-class TeacherScreenVC: UIViewController, Coordinated{
+class TeacherTutorialScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
     var previousTutorials: [CodeModel] = []
     
@@ -71,11 +71,11 @@ class TeacherScreenVC: UIViewController, Coordinated{
 
 //MARK: - CollectionView methods
 
-extension TeacherScreenVC: UICollectionViewDelegate{}
+extension TeacherTutorialScreenVC: UICollectionViewDelegate{}
 
-extension TeacherScreenVC: UICollectionViewDelegateFlowLayout{}
+extension TeacherTutorialScreenVC: UICollectionViewDelegateFlowLayout{}
 
-extension TeacherScreenVC: UICollectionViewDataSource{
+extension TeacherTutorialScreenVC: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -134,7 +134,7 @@ extension TeacherScreenVC: UICollectionViewDataSource{
 }
 
 //MARK: - Button action protocols
-extension TeacherScreenVC: TeacherTutorialTabButtonAction{
+extension TeacherTutorialScreenVC: TeacherTutorialTabButtonAction{
     func newTutorialAction() {
         (self.coordinator as! TeacherTutorialCoordinator).openScreen(screenName: .CodingScreen)
     }
@@ -154,4 +154,4 @@ extension TeacherScreenVC: TeacherTutorialTabButtonAction{
 }
 
 
-extension TeacherScreenVC: TeacherTutorialRemovalAlert {}
+extension TeacherTutorialScreenVC: TeacherTutorialRemovalAlert {}

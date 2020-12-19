@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-gP-X4g">
-                        <rect key="frame" x="10" y="0.0" width="42" height="65"/>
+                        <rect key="frame" x="10" y="0.0" width="318" height="65"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -72,6 +72,7 @@
                     <constraint firstItem="ZKS-gP-X4g" firstAttribute="centerY" secondItem="e7Y-4p-thL" secondAttribute="centerY" id="4XA-5U-XON"/>
                     <constraint firstItem="g6M-VN-Oex" firstAttribute="leading" secondItem="4c1-zq-Z3L" secondAttribute="trailing" constant="10" id="EIg-I5-G39"/>
                     <constraint firstAttribute="bottom" secondItem="ZKS-gP-X4g" secondAttribute="bottom" id="Fl9-Ew-odl"/>
+                    <constraint firstItem="4c1-zq-Z3L" firstAttribute="leading" secondItem="ZKS-gP-X4g" secondAttribute="trailing" constant="20" id="OD6-Av-ZLc"/>
                     <constraint firstItem="ZKS-gP-X4g" firstAttribute="top" secondItem="e7Y-4p-thL" secondAttribute="top" id="Rti-ZI-4Nq"/>
                     <constraint firstItem="ZKS-gP-X4g" firstAttribute="centerY" secondItem="e7Y-4p-thL" secondAttribute="centerY" id="WXM-pv-dch"/>
                     <constraint firstItem="CvS-EG-3ib" firstAttribute="centerY" secondItem="e7Y-4p-thL" secondAttribute="centerY" id="Y6g-q9-ack"/>

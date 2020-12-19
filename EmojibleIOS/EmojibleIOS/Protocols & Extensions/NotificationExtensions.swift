@@ -16,7 +16,8 @@ extension Notification.Name{
     static let programsChanged = Notification.Name(rawValue: "programsChanged")
     
     static let teacherTutorialsChanged = Notification.Name(rawValue: "teacherTutorialsChanged")
+    static let teacherClassChanged = Notification.Name(rawValue: "teacherClassChanged")
     
-   
+    static let studentsInClassChanged = Notification.Name(rawValue: "studentsInClassChanged")
 
 }

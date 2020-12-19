@@ -44,7 +44,7 @@ class TeacherTutorialDataSource {
             }
         }
         let uid = currentUser.uid
-        database.collection("Users").document(uid).collection("Programs").document(self.tutorialsDataSourceIndices[index!]).setData(newTutorial.dictionary)
+        database.collection("Users").document(uid).collection("Tutorials").document(self.tutorialsDataSourceIndices[index!]).setData(newTutorial.dictionary)
     }
     
     func removeTutorial(tutorial: CodeModel){

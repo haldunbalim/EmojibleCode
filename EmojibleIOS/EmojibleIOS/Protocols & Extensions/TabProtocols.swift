@@ -66,3 +66,22 @@ protocol TeacherTutorialTabButtonAction{
 protocol TeacherTutorialRemovalAlert{
     var tutorialToBeRemoved: CodeModel? { get set }
 }
+//MARK: - Teacher Class Alert
+protocol TeacherClassTabButtonAction{
+    func trashAction(classroom: ClassModel)
+    func newClassAction()
+    func openClassAction(classroom:ClassModel)
+}
+protocol TeacherClassRemovalAlert{
+    var classToBeRemoved: ClassModel? { get set }
+}
+
+protocol WarningAlert{
+    func warningAction(warning: String)
+}
+
+//MARK: - Settings
+
+protocol SettingsTabButtonActions{
+    func logoutAction()
+}

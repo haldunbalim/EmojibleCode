@@ -10,5 +10,7 @@ import UIKit
 
 class ClassScreenVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
-    
+    override func viewDidLoad() {
+        
+    }
 }

@@ -12,6 +12,9 @@ class RemoveAlert: CustomAlertViewController{
     var removeAssignmentDelegate: AssignmentRemovalAlert?
     var removeProgramDelegate: ProgramRemovalAlert?
     var removeTeacherTutorialDelegate: TeacherTutorialRemovalAlert?
+    var removeTeacherClassDelegate: TeacherClassRemovalAlert?
+    
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +38,24 @@ class RemoveAlert: CustomAlertViewController{
             TeacherTutorialDataSource.getInstance().removeTutorial(tutorial: teacherTutorial)
         }
         
+        if let teacherClass = removeTeacherClassDelegate?.classToBeRemoved{
+            TeacherClassDataSource.getInstance().removeClass(classroom: teacherClass)
+        }
+        
+        if deleteButton.currentTitle == "LogOut"{
+            _ = AuthenticationManager.getInstance().signOut()
+        }
+        
         dismiss()
      }
     
     private func dismiss(){
+        deleteButton.setTitle("Delete", for: .normal)
+        deleteButton.setTitleColor(#colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1), for: .normal)
         removeAssignmentDelegate?.assignmentToBeRemoved = nil
         removeProgramDelegate?.programToBeRemoved = nil
         removeTeacherTutorialDelegate?.tutorialToBeRemoved = nil
+        removeTeacherClassDelegate?.classToBeRemoved = nil
         self.dismiss(animated: true, completion: nil)
     }
 }

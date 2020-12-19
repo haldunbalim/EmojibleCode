@@ -34,7 +34,6 @@ class UserModel{
         name = dictionary["name"] as! String
         surname = dictionary["surname"] as! String
         birthDate = CustomDateFormatter.getInstance().getDateFromString(from:  dictionary["birthDate"] as! String)
-        surname = dictionary["birthDate"] as! String
     }
     
     

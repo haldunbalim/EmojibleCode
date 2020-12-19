@@ -9,9 +9,9 @@ import Foundation
 
 class UserFactory{
     
-    func create(userType:String, email:String, name:String, surname:String, birthDate:Date, classIds:[String]=[], classId:String?=nil)->UserModel{
+    func create(userType:String, email:String, name:String, surname:String, birthDate:Date, classId:String?=nil)->UserModel{
         if userType == "Teacher"{
-            return TeacherModel(email: email, name: name, surname: surname, birthDate: birthDate,classIds: classIds)
+            return TeacherModel(email: email, name: name, surname: surname, birthDate: birthDate)
         }else{
             return StudentModel(email:email, name:name, surname:surname, birthDate:birthDate, classId: classId)
         }

@@ -34,7 +34,7 @@ class TeacherTutorialCoordinator: Coordinator {
         switch screenName{
         
         case .TutorialScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherScreenVC") as? TeacherScreenVC
+            vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherScreenVC") as? TeacherTutorialScreenVC
         case .CodingScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherCodingScreenVC") as? TeacherCodingScreenVC
         case .SavedTutorialScreen:

@@ -25,7 +25,7 @@ class StudentCoordinator: Coordinator {
     
     
     func start() {
-        let configuration = UIImage.SymbolConfiguration(pointSize: 1, weight: .semibold, scale: .large)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 0, weight: .semibold, scale: .large)
         
         let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(named: "terminal", in: .none, with: configuration), tag: 0)
         
@@ -62,15 +62,14 @@ class StudentCoordinator: Coordinator {
         EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         EmojiAssignmentCoordinator.getInstance().start()
         
-        ClassCoordinator.getInstance().parentCoordinator = self
-        ClassCoordinator.getInstance().start()
-        
         SettingsCoordinator.getInstance().parentCoordinator = self
         SettingsCoordinator.getInstance().start()
+        
+        ClassCoordinator.getInstance().parentCoordinator = self
+        ClassCoordinator.getInstance().start()
  
         RunCodeCoordinator.getInstance().parentCoordinator = self
         RunCodeCoordinator.getInstance().start()
-        
     }
     
     private init(){

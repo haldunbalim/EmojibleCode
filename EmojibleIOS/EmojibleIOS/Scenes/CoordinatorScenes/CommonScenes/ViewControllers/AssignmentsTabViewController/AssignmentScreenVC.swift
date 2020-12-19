@@ -106,7 +106,7 @@ extension AssignmentScreenVC {
         popUpAlert = AssignmentAlert()
         popUpAlert.delegate = self
         popUpAlert.funcDelegate = self
-        popUpAlert.textDelegata = self
+        popUpAlert.textDelegate = self
         popUpAlert.voiceDelegate = self
     }
     
@@ -231,6 +231,7 @@ extension AssignmentScreenVC: AssignmentTabAssignmentSectionAction{
 extension AssignmentScreenVC: AssignmentRemovalAlert{}
 extension AssignmentScreenVC: AssignmentEditAlert {}
 extension AssignmentScreenVC: AssignmentNewAssignmentAlert{}
+
 extension AssignmentScreenVC: AssignmentPopUpAlert{
     func textButtonPressed() {
         self.addTextAlert.presentOver(viewController:self)
