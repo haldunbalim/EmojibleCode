@@ -9,6 +9,7 @@ import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -26,6 +27,11 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_no_user.*
+import kotlinx.android.synthetic.main.activity_no_user.emojiLayoutToolbar
+import kotlinx.android.synthetic.main.activity_no_user.programLayoutToolbar
+import kotlinx.android.synthetic.main.activity_no_user.tutorialLayoutToolbar
+import kotlinx.android.synthetic.main.activity_no_user.userLayoutToolbar
+import kotlinx.android.synthetic.main.activity_user.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -39,6 +45,7 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
     private lateinit var toggle: Switch
     private var birthDate: String? = null
     private var userType: String = "Student"
+    private lateinit var classID : EditText
 
     companion object {
         val TAG: String = NoUserActivity::class.java.simpleName
@@ -52,7 +59,7 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
         setContentView(R.layout.activity_no_user)
         popupLayout = findViewById(R.id.popUpLayout)
         toggle = findViewById(R.id.teacherSwitch)
-
+        classID = findViewById(R.id.classIDEditText)
         if (firstTime == 0) {
             popupLayout.bringToFront()
             firstTime++
@@ -101,8 +108,20 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             startActivity(intent)
         }
 
+
+        toggle.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked) {
+                classID.hint = "Enter your Class ID"
+                userType = "Student"
+
+            } else {
+                classID.hint = "Enter your Teacher Code"
+                userType = "Teacher"
+            }
+        }
+
         signupButton.setOnClickListener {
-            signupUser(toggle)
+            signupUser()
         }
 
 
@@ -168,7 +187,8 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun signupUser(toggle: Switch) {
+    private fun signupUser() {
+
 
         if (emailTextView.text.toString().isEmpty()) {
 
@@ -209,13 +229,7 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             return
         }
 
-        toggle.setOnCheckedChangeListener { _, isChecked ->
-            userType = if (!isChecked) {
-                "Student"
-            } else {
-                "Teacher"
-            }
-        }
+
 
         val name: String = nameTextView.text.toString()
         val surname: String = surnameTextView.text.toString()
