@@ -13,8 +13,7 @@ class UserDataSource{
     var snapshotListener:ListenerRegistration?
     let notificationCenter = NotificationCenter.default
     
-    private init(){
-    }
+    private init(){}
     private static let instance = UserDataSource()
     public static func getInstance() -> UserDataSource{
         return .instance

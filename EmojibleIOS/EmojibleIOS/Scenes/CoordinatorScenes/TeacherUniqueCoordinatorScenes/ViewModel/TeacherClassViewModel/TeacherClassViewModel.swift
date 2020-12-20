@@ -44,7 +44,7 @@ class TeacherClassViewModel: UITableViewCell{
         let clasTitle = "Class name: " + classroom.className + "               Class id: " + classroom.id
         classButton.setTitle(clasTitle, for: .normal)
         classButton.titleLabel?.font = .systemFont(ofSize: 17)
-        classButton.setTitleColor(.black, for: .normal)
+        classButton.setTitleColor(#colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1), for: .normal)
         classButton.titleLabel?.textAlignment = .center
         classButton.contentHorizontalAlignment = .center
         classButton.translatesAutoresizingMaskIntoConstraints = false

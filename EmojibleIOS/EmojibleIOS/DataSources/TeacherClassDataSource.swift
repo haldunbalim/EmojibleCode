@@ -14,11 +14,10 @@ class TeacherClassDataSource{
     let notificationCenter = NotificationCenter.default
     var classroom: [ClassModel] = []
     var classroomDataSourceIndices: [String] = []
-    let uid = AuthenticationManager.getInstance().currentUser?.uid
     
     func startObservingClass(){
-        let uid = AuthenticationManager.getInstance().currentUser?.uid
-        let classesCollectionRef = database.collection("Classes").whereField("teacherId", isEqualTo: uid)
+        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
+        let classesCollectionRef = database.collection("Classes").whereField("teacherId", isEqualTo: currentUser.uid)
         snapshotListener = classesCollectionRef.addSnapshotListener{ [unowned self] querySnapshot, error in
             guard let documents = querySnapshot?.documents else { return }
             classroom = documents.map{ClassModel(dictionary: $0.data())}
@@ -34,7 +33,6 @@ class TeacherClassDataSource{
     
     
     func removeClass(classroom: ClassModel){
-        guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
         var index: Int?
         for (i, document) in self.classroom.enumerated(){
             if document == classroom{

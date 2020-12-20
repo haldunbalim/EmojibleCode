@@ -25,6 +25,7 @@ class SettingsScreenVC: UIViewController, Coordinated{
         configureRemoveAlert()
     }
     
+    
     func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -54,12 +55,28 @@ extension SettingsScreenVC:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? SettingsViewModel{
+       
             if indexPath.row == 0{
-                cell.configureUserNameCell(name: "Furkan", surname: "Yakal")
+                UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
+                    guard let userModel = userModel else {return}
+                    cell.configureUserNameCell(name: userModel.name, surname: userModel.surname)
+                }
             }else if indexPath.row == 1{
-                cell.configureAgeCell(age: "23")
+                UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
+                    guard let userModel = userModel else {return}
+                    let calendar = Calendar.current
+                    let ageComponents = calendar.dateComponents([.year], from: userModel.birthDate, to: Date())
+                    cell.configureAgeCell(age: String(ageComponents.year!))
+                }
             }else if indexPath.row == 2{
-                cell.configureAccountCell(accountType: "Student")
+                UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
+                    guard let userModel = userModel else {return}
+                    if userModel is StudentModel {
+                        cell.configureAccountCell(accountType:"Student")
+                    }else {
+                        cell.configureAccountCell(accountType:"Teacher")
+                    }
+                }
             }else if indexPath.row == 3{
                 cell.configureLanguageButton()
             }else if indexPath.row == 4{

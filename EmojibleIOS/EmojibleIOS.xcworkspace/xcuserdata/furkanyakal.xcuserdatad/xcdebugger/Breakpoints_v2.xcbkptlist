@@ -1012,8 +1012,8 @@
             filePath = "EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/SettingsScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1028,8 +1028,8 @@
             filePath = "EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/SettingsScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1044,8 +1044,8 @@
             filePath = "EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/SettingsScreenVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1284,8 +1284,8 @@
             filePath = "EmojibleIOS/DataSources/TeacherClassDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "addStudent(classId:classPassword:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1300,8 +1300,8 @@
             filePath = "EmojibleIOS/DataSources/TeacherClassDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "addStudent(classId:classPassword:completion:)"
             landmarkType = "7">
             <Locations>
@@ -1348,8 +1348,8 @@
             filePath = "EmojibleIOS/DataSources/TeacherClassDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "addStudent(classId:classPassword:completion:)"
             landmarkType = "7">
          </BreakpointContent>

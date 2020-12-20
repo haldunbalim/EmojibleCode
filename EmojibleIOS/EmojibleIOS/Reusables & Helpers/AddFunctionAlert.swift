@@ -12,7 +12,7 @@ class AddFunctionAlert: CustomAlertViewController{
     var newFunctiontAssignmentDelegate: AssignmentNewAssignmentAlert?
     var editAssignmentDelegate: AssignmentEditAlert?
     
-    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var valueTextField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class AddFunctionAlert: CustomAlertViewController{
      }
     
     private func dismiss(){
-        valueTextField.text = ""
+        valueTextField.text = "Program.."
         valueTextField.resignFirstResponder()
         newFunctiontAssignmentDelegate?.newAssignmentIdentifier = nil
         editAssignmentDelegate?.assignmentToBeEdited = nil
