@@ -4,10 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.models.AssignmentModel
 import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.ModelTutorials
+import com.dji.emojibleandroid.services.Changes
+import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
 import kotlinx.android.synthetic.main.list_grid_tutorial.view.*
 import java.lang.IndexOutOfBoundsException
@@ -68,19 +75,33 @@ class TutorialsAdapter(val context: Context, var tutorials: MutableList<CodeMode
             }
             itemView.showButton.setOnClickListener {
 
+                val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_tutorial, null)
+                val customDialog = AlertDialog.Builder(context)
+                    .setView(dialogView)
+                    .show()
 
+                customDialog.findViewById<TextView>(R.id.titleTextView)?.text =
+                    currentTutorial?.name
+                customDialog.findViewById<TextView>(R.id.tutorialCode)?.text = currentTutorial?.code
+                customDialog.findViewById<Button>(R.id.closeButton)?.setOnClickListener {
+
+                    customDialog.dismiss()
+
+                }
             }
+
         }
 
-        fun setData(tutorial: CodeModel?, pos: Int) {
-            tutorial?.let {
 
-                itemView.titleTextView.text = tutorial.name
-                itemView.tutorialCode.text = tutorial.code
-            }
-            this.currentTutorial = tutorial
-            this.currentPosition = pos
+    fun setData(tutorial: CodeModel?, pos: Int) {
+        tutorial?.let {
+
+            itemView.titleTextView.text = tutorial.name
+            itemView.tutorialCode.text = tutorial.code
         }
+        this.currentTutorial = tutorial
+        this.currentPosition = pos
     }
+}
 }
 
