@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.models.AssignmentModel
+import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.SavedEmojies
 import com.dji.emojibleandroid.models.ValueType
 import com.dji.emojibleandroid.services.Changes
@@ -106,6 +107,13 @@ class SavedEmojiesAdapter(
                     voiceAssignmentOnClickAction(alertDialog)
                 }
 
+                view.functionTextView.setOnClickListener {
+                    programAssignmentOnClickAction(alertDialog)
+                }
+
+                view.functionImageView.setOnClickListener {
+                    programAssignmentOnClickAction(alertDialog)
+                }
 
             }
             itemView.deleteImageView.setOnClickListener {
@@ -189,16 +197,52 @@ class SavedEmojiesAdapter(
             }
         }
 
+        private fun programAssignmentOnClickAction(alertDialog: AlertDialog) {
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_text, null)
+            val customDialog = AlertDialog.Builder(context)
+                .setView(dialogView)
+                .show()
+
+            val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
+            val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
+
+            cancelButton?.setOnClickListener { customDialog.dismiss() }
+
+
+            assignButton?.setOnClickListener {
+
+                val text = customDialog.findViewById<EditText>(R.id.textEditTV)?.text.toString()
+                val result = AssignmentModel(
+                    currentAssignment!!.identifier,
+                    CodeModel(currentAssignment!!.identifier.toString(), text)
+                )
+                NotificationCenter.instance.post(
+                    Changes.assignmentsChanged,
+                    null,
+                    result
+                )
+                customDialog.dismiss()
+                alertDialog.dismiss()
+
+            }
+        }
+
         fun setData(savedEmoji: AssignmentModel?, pos: Int) {
             savedEmoji?.let {
 
                 itemView.emojiEditTextView.text = savedEmoji.identifier
                 itemView.signEditTextView.text = "\uD83D\uDC49"
                 itemView.textVoiceEditTextView.text =
-                    if (savedEmoji.value.type == ValueType.Voice) {
-                        "\uD83C\uDFA7"
-                    } else {
-                        savedEmoji.value.value.toString()
+                    when (savedEmoji.value.type) {
+                        ValueType.Voice -> {
+                            "\uD83C\uDFA7"
+                        }
+                        ValueType.Code -> {
+                            (savedEmoji.value.value as CodeModel).code
+                        }
+                        else -> {
+                            savedEmoji.value.value.toString()
+                        }
                     }
 
             }

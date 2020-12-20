@@ -11,4 +11,14 @@ data class CodeModel constructor(var name: String, var code: String) {
     override operator fun equals(other: Any?): Boolean {
         return this.name == (other as CodeModel).name
     }
+
+    override fun toString(): String {
+        return "$name Code"
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + code.hashCode()
+        return result
+    }
 }

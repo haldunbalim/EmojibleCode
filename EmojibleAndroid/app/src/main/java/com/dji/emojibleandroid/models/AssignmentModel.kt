@@ -5,7 +5,8 @@ enum class ValueType {
     Float,
     Boolean,
     String,
-    Voice;
+    Voice,
+    Code;
 }
 
 data class AssignmentModel(var identifier: CharSequence, val v: Any) {
@@ -55,6 +56,7 @@ class Value(var value: Any) {
                 is Boolean -> {
                     ValueType.Boolean
                 }
+                is CodeModel -> ValueType.Code
                 else -> {
                     println(value.javaClass.name)
                     if ((value as String).contains(".3gp")) {
@@ -74,5 +76,6 @@ class Value(var value: Any) {
             ValueType.Boolean -> (value as Boolean).toString()
             ValueType.String -> (value as String)
             ValueType.Voice -> ""
+            ValueType.Code -> (value as CodeModel).toString()
         }
 }

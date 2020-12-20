@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.models.AssignmentModel
+import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.SavedEmojies
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
@@ -84,13 +85,11 @@ class EmojiesAdapter(
                 }
 
                 view.functionTextView.setOnClickListener {
-
-
+                    programAssignmentOnClickAction(alertDialog)
                 }
 
                 view.functionImageView.setOnClickListener {
-
-
+                    programAssignmentOnClickAction(alertDialog)
                 }
 
             }
@@ -161,6 +160,33 @@ class EmojiesAdapter(
                 stopPlaying()
                 val result =
                     AssignmentModel(currentEmoji!!, tempFileName)
+                NotificationCenter.instance.post(
+                    Changes.assignmentsChanged,
+                    null,
+                    result
+                )
+                customDialog.dismiss()
+                alertDialog.dismiss()
+
+            }
+        }
+
+        private fun programAssignmentOnClickAction(alertDialog: AlertDialog) {
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_text, null)
+            val customDialog = AlertDialog.Builder(context)
+                .setView(dialogView)
+                .show()
+
+            val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
+            val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
+
+            cancelButton?.setOnClickListener { customDialog.dismiss() }
+
+
+            assignButton?.setOnClickListener {
+
+                val text = customDialog.findViewById<EditText>(R.id.textEditTV)?.text.toString()
+                val result = AssignmentModel(currentEmoji!!, CodeModel(currentEmoji!!.toString(), text))
                 NotificationCenter.instance.post(
                     Changes.assignmentsChanged,
                     null,
