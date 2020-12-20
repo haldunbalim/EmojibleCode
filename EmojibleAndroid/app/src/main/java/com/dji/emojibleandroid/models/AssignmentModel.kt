@@ -8,16 +8,13 @@ enum class ValueType {
     Voice;
 }
 
-data class AssignmentModel constructor(var identifier: String) {
-    private lateinit var value: Value
+data class AssignmentModel(var identifier: CharSequence, val v: Any) {
+    var value: Value = Value(v)
 
-    constructor(identifier: String, value: Any) : this(identifier) {
-        this.value = Value(value)
-    }
-
-    constructor(dictionary: HashMap<String, Any>) : this(dictionary["identifier"] as String) {
-        this.value = Value(dictionary["value"] as Any)
-    }
+    constructor(dictionary: HashMap<String, Any>) : this(
+        dictionary["identifier"] as CharSequence,
+        Value(dictionary["value"] as Any)
+    )
 
     var dictionary: HashMap<String, Any> =
         hashMapOf("identifier" to identifier, "value" to value.value)
@@ -35,7 +32,6 @@ data class AssignmentModel constructor(var identifier: String) {
     }
 
     var description: String = "$identifier 👉 ${value.description}"
-
 
 
 }
@@ -60,12 +56,12 @@ class Value(var value: Any) {
                     ValueType.Boolean
                 }
                 else -> {
-                    TODO("Add FileSystemManager Part")
-                    //                if ((value as String).contains(".m4a")) {
-                    //                    ValueType.Voice
-                    //                } else {
-                    //                    ValueType.String
-                    //                }
+                    println(value.javaClass.name)
+                    if ((value as String).contains(".3gp")) {
+                        ValueType.Voice
+                    } else {
+                        ValueType.String
+                    }
                 }
             }
         }

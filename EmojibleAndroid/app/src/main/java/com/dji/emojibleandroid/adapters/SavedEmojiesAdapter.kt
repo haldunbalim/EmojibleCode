@@ -5,7 +5,6 @@ import android.content.DialogInterface
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.media.MediaRecorder
-import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,21 +12,21 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.dji.emojibleandroid.R
-import com.dji.emojibleandroid.models.ModelTutorials
+import com.dji.emojibleandroid.models.AssignmentModel
 import com.dji.emojibleandroid.models.SavedEmojies
+import com.dji.emojibleandroid.models.ValueType
+import com.dji.emojibleandroid.services.Changes
+import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.utils.EmojiUtils
 import kotlinx.android.synthetic.main.dialog_emojies.view.*
 import kotlinx.android.synthetic.main.list_grid_savedemojies.view.*
-import kotlinx.android.synthetic.main.list_grid_tutorial.view.*
 import java.io.IOException
-import javax.microedition.khronos.egl.EGLDisplay
 
 class SavedEmojiesAdapter(
     val context: Context,
-    private var savedEmojies: MutableList<SavedEmojies>,
+    var assignments: MutableList<AssignmentModel>,
     var fileName: String
 ) : RecyclerView.Adapter<SavedEmojiesAdapter.MyViewHolder>() {
 
@@ -48,17 +47,17 @@ class SavedEmojiesAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val savedEmoji = savedEmojies[position]
+        val savedEmoji = assignments[position]
         holder.setData(savedEmoji, position)
     }
 
     override fun getItemCount(): Int {
-        return savedEmojies.size
+        return assignments.size
     }
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var currentSavedEmoji: SavedEmojies? = null
+        var currentAssignment: AssignmentModel? = null
         var currentPosition: Int = 0
 
         init {
@@ -69,9 +68,12 @@ class SavedEmojiesAdapter(
 
             itemView.textVoiceEditTextView.setOnClickListener {
 
-                if (itemView.textVoiceEditTextView.text.toString() == "\uD83C\uDFA7" ){
+                if (itemView.textVoiceEditTextView.text.toString() == "\uD83C\uDFA7") {
 
-                    var tempFileName = fileName.substring(0,fileName.length-4) + currentSavedEmoji?.emoji.toString() + ".3gp"
+                    val tempFileName = fileName.substring(
+                        0,
+                        fileName.length - 4
+                    ) + currentAssignment?.identifier.toString() + ".3gp"
                     startPlaying(tempFileName)
 
                 }
@@ -82,7 +84,7 @@ class SavedEmojiesAdapter(
 
 
                 val builder = AlertDialog.Builder(context)
-                builder.setTitle(currentSavedEmoji?.emoji.toString())
+                builder.setTitle(currentAssignment?.identifier.toString())
                 val view = LayoutInflater.from(context).inflate(R.layout.dialog_emojies, null)
                 builder.setView(view)
                 builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
@@ -90,166 +92,117 @@ class SavedEmojiesAdapter(
                 alertDialog.show()
 
                 view.textTextView.setOnClickListener {
-
-                    val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_text, null)
-                    val customDialog = AlertDialog.Builder(context)
-                        .setView(dialogView)
-                        .show()
-
-                    val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
-                    val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
-
-                    cancelButton?.setOnClickListener { customDialog.dismiss() }
-
-
-                    assignButton?.setOnClickListener {
-
-                        val text =
-                            customDialog.findViewById<EditText>(R.id.textEditTV)?.text.toString()
-                        val result = SavedEmojies(currentSavedEmoji?.emoji.toString(), text)
-                        EmojiUtils.savedEmojies.add(EmojiUtils.savedEmojies.size, result)
-                        customDialog.dismiss()
-                        alertDialog.dismiss()
-
-                    }
+                    stringAssignmentOnClickAction(alertDialog)
                 }
                 view.textImageView.setOnClickListener {
-
-                    val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_text, null)
-                    val customDialog = AlertDialog.Builder(context)
-                        .setView(dialogView)
-                        .show()
-
-                    val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
-                    val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
-
-                    cancelButton?.setOnClickListener { customDialog.dismiss() }
-
-
-                    assignButton?.setOnClickListener {
-
-                        val text =
-                            customDialog.findViewById<EditText>(R.id.textEditTV)?.text.toString()
-                        val result = SavedEmojies(currentSavedEmoji?.emoji.toString(), text)
-                        EmojiUtils.savedEmojies.add(EmojiUtils.savedEmojies.size, result)
-                        customDialog.dismiss()
-                        alertDialog.dismiss()
-
-                    }
+                    stringAssignmentOnClickAction(alertDialog)
                 }
 
                 view.voiceTextView.setOnClickListener {
-
-                    var count = 0
-                    val dialogView =
-                        LayoutInflater.from(context).inflate(R.layout.popup_voice, null)
-                    val customDialog = AlertDialog.Builder(context)
-                        .setView(dialogView)
-                        .show()
-
-                    var recordButton = customDialog.findViewById<Button>(R.id.recordButton)
-                    val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
-                    val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
-
-
-
-                    cancelButton?.setOnClickListener { customDialog.dismiss() }
-                    recordButton?.setOnClickListener {
-
-                        count++
-                        if (count != 1) {
-
-                            recordButton?.setTextColor(Color.BLACK)
-                            count = 0
-                            stopRecording()
-                            var tempFileName  = fileName.substring(0,fileName.length-4) + currentSavedEmoji?.emoji.toString() + ".3gp"
-                            startPlaying(tempFileName)
-
-                        } else {
-
-                            recordButton?.setTextColor(Color.RED)
-                            var tempFileName  = fileName.substring(0,fileName.length-4) + currentSavedEmoji?.emoji.toString() + ".3gp"
-                            startRecording(tempFileName)
-
-                        }
-                    }
-                    assignButton?.setOnClickListener {
-
-                        stopPlaying()
-                        val result = SavedEmojies(currentSavedEmoji?.emoji.toString(), "\uD83C\uDFA7")
-                        EmojiUtils.savedEmojies.add(EmojiUtils.savedEmojies.size, result)
-                        customDialog.dismiss()
-                        alertDialog.dismiss()
-
-                    }
-
+                    voiceAssignmentOnClickAction(alertDialog)
                 }
 
                 view.voiceImageView.setOnClickListener {
-
-
-                    var count = 0
-                    val dialogView =
-                        LayoutInflater.from(context).inflate(R.layout.popup_voice, null)
-                    val customDialog = AlertDialog.Builder(context)
-                        .setView(dialogView)
-                        .show()
-
-                    var recordButton = customDialog.findViewById<Button>(R.id.recordButton)
-                    val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
-                    val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
-
-                    cancelButton?.setOnClickListener { customDialog.dismiss() }
-
-                    recordButton?.setOnClickListener {
-
-                        count++
-                        if (count != 1) {
-
-                            recordButton?.setTextColor(Color.BLACK)
-                            count = 0
-                            stopRecording()
-                            var tempFileName  = fileName.substring(0,fileName.length-4) + currentSavedEmoji?.emoji.toString() + ".3gp"
-                            startPlaying(tempFileName)
-
-                        } else {
-
-                            recordButton?.setTextColor(Color.RED)
-                            var tempFileName = fileName.substring(0,fileName.length-4) + currentSavedEmoji?.emoji.toString() + ".3gp"
-                            startRecording(tempFileName)
-
-                        }
-                    }
-
-                    assignButton?.setOnClickListener {
-
-                        stopPlaying()
-
-                        val result = SavedEmojies(currentSavedEmoji?.emoji.toString(), "\uD83C\uDFA7")
-                        EmojiUtils.savedEmojies.add(EmojiUtils.savedEmojies.size, result)
-                        customDialog.dismiss()
-                        alertDialog.dismiss()
-                    }
+                    voiceAssignmentOnClickAction(alertDialog)
                 }
 
 
             }
             itemView.deleteImageView.setOnClickListener {
+                assignments.removeAt(currentPosition)
+                NotificationCenter.instance.post(Changes.assignmentsChanged, currentAssignment)
+                notifyDataSetChanged()
+            }
+        }
 
-                savedEmojies.removeAt(currentPosition)
+        private fun stringAssignmentOnClickAction(alertDialog: AlertDialog) {
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.popup_text, null)
+            val customDialog = AlertDialog.Builder(context)
+                .setView(dialogView)
+                .show()
+
+            val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
+            val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
+
+            cancelButton?.setOnClickListener { customDialog.dismiss() }
+
+
+            assignButton?.setOnClickListener {
+
+                val text = customDialog.findViewById<EditText>(R.id.textEditTV)?.text.toString()
+                val result = AssignmentModel(currentAssignment!!.identifier, text)
+                NotificationCenter.instance.post(
+                    Changes.assignmentsChanged,
+                    null,
+                    result
+                )
+                customDialog.dismiss()
+                alertDialog.dismiss()
 
             }
         }
 
-        fun setData(savedEmoji: SavedEmojies?, pos: Int) {
-            savedEmoji?.let {
+        private fun voiceAssignmentOnClickAction(alertDialog: AlertDialog) {
 
-                itemView.emojiEditTextView.text = savedEmoji.emoji
-                itemView.signEditTextView.text = "\uD83D\uDC49"
-                itemView.textVoiceEditTextView.text = savedEmoji.value
+            var count = 0
+            val dialogView =
+                LayoutInflater.from(context).inflate(R.layout.popup_voice, null)
+            val customDialog = AlertDialog.Builder(context)
+                .setView(dialogView)
+                .show()
+
+            val recordButton = customDialog.findViewById<Button>(R.id.recordButton)
+            val assignButton = customDialog.findViewById<Button>(R.id.assignButton)
+            val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
+
+
+            val tempFileName = fileName.substring(
+                0,
+                fileName.length - 4
+            ) + currentAssignment!!.identifier.toString() + ".3gp"
+            cancelButton?.setOnClickListener { customDialog.dismiss() }
+            recordButton?.setOnClickListener {
+
+                count++
+                if (count != 1) {
+                    recordButton.setTextColor(Color.BLACK)
+                    count = 0
+                    stopRecording()
+                    startPlaying(tempFileName)
+                } else {
+                    recordButton.setTextColor(Color.RED)
+                    startRecording(tempFileName)
+                }
+            }
+            assignButton?.setOnClickListener {
+                stopPlaying()
+                val result =
+                    AssignmentModel(currentAssignment!!.identifier, tempFileName)
+                NotificationCenter.instance.post(
+                    Changes.assignmentsChanged,
+                    null,
+                    result
+                )
+                customDialog.dismiss()
+                alertDialog.dismiss()
 
             }
-            this.currentSavedEmoji = savedEmoji
+        }
+
+        fun setData(savedEmoji: AssignmentModel?, pos: Int) {
+            savedEmoji?.let {
+
+                itemView.emojiEditTextView.text = savedEmoji.identifier
+                itemView.signEditTextView.text = "\uD83D\uDC49"
+                itemView.textVoiceEditTextView.text =
+                    if (savedEmoji.value.type == ValueType.Voice) {
+                        "\uD83C\uDFA7"
+                    } else {
+                        savedEmoji.value.value.toString()
+                    }
+
+            }
+            this.currentAssignment = savedEmoji
             this.currentPosition = pos
         }
     }
@@ -295,6 +248,20 @@ class SavedEmojiesAdapter(
             release()
         }
         recorder = null
+    }
+
+    fun update(assignments: MutableList<AssignmentModel>) {
+        this.assignments = assignments
+        notifyDataSetChanged()
+    }
+
+    fun updateSingle(assignmentModel: AssignmentModel) {
+        if (assignmentModel in assignments) {
+            assignments[assignments.indexOf(assignmentModel)] = assignmentModel
+        } else {
+            assignments.add(assignmentModel)
+        }
+        notifyDataSetChanged()
     }
 }
 

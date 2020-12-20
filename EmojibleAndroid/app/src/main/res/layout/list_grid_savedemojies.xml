@@ -35,7 +35,9 @@
                 android:layout_weight="1"
                 android:background="@color/cardview_light_background"
                 android:ems="10"
-                android:textSize="24sp" />
+                android:text="\uD83D\uDC49"
+                android:textSize="24sp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/textVoiceEditTextView"

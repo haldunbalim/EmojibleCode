@@ -52,7 +52,7 @@ class AssignmentDataSource private constructor() {
                 .document(assignmentDataSourceIndices[index!!]).set(
                     AssignmentModel(
                         identifier = oldAssignment.identifier,
-                        value = newValue
+                        v = newValue
                     ).dictionary
                 )
         }
