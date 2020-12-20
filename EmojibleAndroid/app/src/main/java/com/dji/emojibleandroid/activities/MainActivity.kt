@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.preference.PreferenceManager
 import com.dji.emojibleandroid.Constants
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.interpreter.GlobalMemory
