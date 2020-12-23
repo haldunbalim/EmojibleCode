@@ -2,17 +2,12 @@ package com.dji.emojibleandroid.interpreter
 
 import android.content.SharedPreferences
 import android.os.Build
-import android.os.Environment
 import androidx.annotation.RequiresApi
 import com.dji.emojibleandroid.models.AssignmentModel
-import com.dji.emojibleandroid.models.AssignmentModelDeserializer
-import com.dji.emojibleandroid.models.AssignmentModelSerializer
-import com.dji.emojibleandroid.services.Changes
-import com.dji.emojibleandroid.services.NotificationCenter
-import com.google.gson.Gson
+import com.dji.emojibleandroid.models.serializers.AssignmentModelDeserializer
+import com.dji.emojibleandroid.models.serializers.AssignmentModelSerializer
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import java.io.File
 
 class GlobalMemory private constructor(assignments: List<AssignmentModel>? = null) :
     Memory(readAssignmentsFromJson()) {

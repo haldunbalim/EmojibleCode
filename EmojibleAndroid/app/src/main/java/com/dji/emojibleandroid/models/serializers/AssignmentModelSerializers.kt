@@ -1,6 +1,7 @@
-package com.dji.emojibleandroid.models
+package com.dji.emojibleandroid.models.serializers
 
-import com.dji.emojibleandroid.models.serializers.CodeModelDeserializer
+import com.dji.emojibleandroid.models.AssignmentModel
+import com.dji.emojibleandroid.models.CodeModel
 import com.google.gson.*
 import java.lang.Exception
 import java.lang.reflect.Type
