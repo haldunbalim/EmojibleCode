@@ -51,17 +51,25 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
                     self.hideSpinner()
                     showMessagePrompt(error, vcToBePresented: self)
                 }else{
+                    resetFields()
                     self.hideSpinner()
                 }
             }
         }
     }
     
+    func resetFields(){
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     @IBAction func forgetYourPasswordButtonPressed(_ sender: UIButton) {
+        resetFields()
         (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .ForgetPassword)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+        resetFields()
         guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
         coordinator.registeringUserType = sender.tag == 0 ? "Student":"Teacher"
         coordinator.openScreen(screenName: .Register)

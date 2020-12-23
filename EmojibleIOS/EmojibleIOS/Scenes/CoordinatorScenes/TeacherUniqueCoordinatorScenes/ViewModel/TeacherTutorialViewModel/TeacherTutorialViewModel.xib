@@ -118,7 +118,7 @@
                 <outlet property="codeLabel" destination="B6B-NG-o3V" id="Sj1-Wt-dkM"/>
                 <outlet property="nameLabel" destination="Tmj-Bh-s80" id="CZb-Mm-Cgn"/>
             </connections>
-            <point key="canvasLocation" x="-217" y="272"/>
+            <point key="canvasLocation" x="-218.11594202898553" y="271.54017857142856"/>
         </collectionViewCell>
     </objects>
     <resources>

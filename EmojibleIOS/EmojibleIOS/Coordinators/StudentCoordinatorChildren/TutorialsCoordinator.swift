@@ -22,7 +22,6 @@ class TutorialsCoordinator: Coordinator {
     }
     
     var currentScreen: screenEnum = .TutorialScreen
-
     
     func start() {
         openScreen(screenName: currentScreen)

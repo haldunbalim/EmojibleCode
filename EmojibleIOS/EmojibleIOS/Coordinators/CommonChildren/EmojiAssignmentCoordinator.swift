@@ -19,7 +19,6 @@ class EmojiAssignmentCoordinator: Coordinator {
     }
     
     var currentScreen: screenEnum = .AssignmentScreen
-
     
     func start() {
         openScreen(screenName: currentScreen)

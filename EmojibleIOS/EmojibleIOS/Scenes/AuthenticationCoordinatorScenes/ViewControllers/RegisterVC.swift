@@ -24,7 +24,6 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
     @IBOutlet weak var birthDateTextField: UITextField!
-    @IBOutlet weak var teacherCodeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,6 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         configureViews()
         configureBirthDatePicker()
         guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
-        teacherCodeTextField.isHidden = coordinator.registeringUserType! == "Student"
     }
     
     func configureViews(){
@@ -42,7 +40,6 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         NSLayoutConstraint.activate([nameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
         NSLayoutConstraint.activate([surnameTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
         NSLayoutConstraint.activate([birthDateTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
-        NSLayoutConstraint.activate([teacherCodeTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: Constants.TAB_BAR_WIDTH/2)])
 
         NSLayoutConstraint.activate([birthDatePicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
         NSLayoutConstraint.activate([birthDatePickerToolbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
@@ -80,14 +77,16 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        resetFields()
+        (self.coordinator as! AuthenticationCoordinator).pop()
+    }
+    func resetFields(){
         emailTextField.text = ""
         passwordTextField.text = ""
         nameTextField.text = ""
         surnameTextField.text = ""
         birthDateTextField.text = ""
-        teacherCodeTextField.text = ""
         birthDatePicker.calendar = .current
-        (self.coordinator as! AuthenticationCoordinator).pop()
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
@@ -130,7 +129,10 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
                             self.hideSpinner()
                             showMessagePrompt(error, vcToBePresented: self)
                         }else{
+                            resetFields()
+                            AuthenticationCoordinator.getInstance().reset()
                             self.hideSpinner()
+                            
                         }
                     }
                 }

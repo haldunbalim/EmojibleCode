@@ -1,15 +1,15 @@
 //
-//  TutorialCellVC.swift
+//  ClassCodeScreenVC.swift
 //  EmojibleIOS
 //
-//  Created by Furkan Yakal on 26.11.2020.
+//  Created by Furkan Yakal on 21.12.2020.
 //
 
+import Foundation
 import UIKit
 
-
-class TutorialCodeScreenVC: UIViewController, Coordinated {
-    var coordinator: Coordinator? 
+class ClassCodeScreenVC: UIViewController, Coordinated{
+    var coordinator: Coordinator?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tutorialTextView: UITextView!
@@ -18,10 +18,10 @@ class TutorialCodeScreenVC: UIViewController, Coordinated {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
         configureViews()
         configureTextView()
         configureTitleLabel()
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func configureViews(){
@@ -38,19 +38,15 @@ class TutorialCodeScreenVC: UIViewController, Coordinated {
     }
     
     func configureTextView(){
-        tutorialTextView.isEditable = false
-        tutorialTextView.isSelectable = false
-        tutorialTextView.text = (self.coordinator as! TutorialsCoordinator).tutorialCode
+        tutorialTextView.text = (self.coordinator as! ClassCoordinator).tutorialCode
     }
     func configureTitleLabel(){
-        titleLabel.text = (self.coordinator as! TutorialsCoordinator).tutorialTitle
+        titleLabel.text = (self.coordinator as! ClassCoordinator).tutorialTitle
     }
     
-    @IBAction func runPressed(_ sender: UIButton) {
-    }
+    @IBAction func runPressed(_ sender: UIButton) {}
     
     @IBAction func backPressed(_ sender: UIButton) {
-        (self.coordinator as! TutorialsCoordinator).pop()
+        (self.coordinator as! ClassCoordinator).pop()
     }
-    
 }

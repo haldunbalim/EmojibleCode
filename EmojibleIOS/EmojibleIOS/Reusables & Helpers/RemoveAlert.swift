@@ -43,7 +43,14 @@ class RemoveAlert: CustomAlertViewController{
         }
         
         if deleteButton.currentTitle == "LogOut"{
-            _ = AuthenticationManager.getInstance().signOut()
+            UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
+                guard let userModel = userModel else {return}
+                _ = AuthenticationManager.getInstance().signOut()
+            }
+        }
+        
+        if deleteButton.currentTitle == "Leave" {
+            UserDataSource.getInstance().resetUserClassId()
         }
         
         dismiss()

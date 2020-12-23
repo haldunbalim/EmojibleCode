@@ -1,26 +1,24 @@
 //
-//  TeacherClassCoordinator.swift
+//  OpeningCodingScreen.swift
 //  EmojibleIOS
 //
-//  Created by Furkan Yakal on 15.12.2020.
+//  Created by Furkan Yakal on 22.12.2020.
 //
 
 import Foundation
 import UIKit
 
-class TeacherClassCoordinator: Coordinator {
+class OpeningCodingScreenCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
-    var classroom: ClassModel?
-    
+
     enum screenEnum{
-       case ClassScreen
-       case StudentInfo
+        case CodingScreen
     }
     
-    var currentScreen: screenEnum = .ClassScreen
+    var currentScreen: screenEnum = .CodingScreen
     
     func start() {
         openScreen(screenName: currentScreen)
@@ -30,10 +28,8 @@ class TeacherClassCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
-        case .ClassScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherClassVC") as? TeacherClassVC
-        case .StudentInfo:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherStudentEnrollmentVC") as? TeacherStudentEnrollmentVC
+        case .CodingScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "OpeningCodingScreen") as? OpeningCodingScreen
         }
         
         vc.coordinator = self
@@ -43,20 +39,18 @@ class TeacherClassCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
-    }
     
     private init(){
-        navigationController = self.storyboard.instantiateViewController(withIdentifier: "TeacherClassNavController") as! UINavigationController
+        navigationController = self.storyboard.instantiateViewController(withIdentifier: "OpeningCodeScreenNavController") as! UINavigationController
         self.navigationController.navigationBar.isHidden = true
     }
     
-    private static var instance: TeacherClassCoordinator!
-    public static func getInstance() -> TeacherClassCoordinator{
+    private static var instance: OpeningCodingScreenCoordinator!
+    public static func getInstance() -> OpeningCodingScreenCoordinator{
         if(instance == nil){
-            instance = TeacherClassCoordinator()
+            instance = OpeningCodingScreenCoordinator()
         }
         return .instance
     }
+    
 }

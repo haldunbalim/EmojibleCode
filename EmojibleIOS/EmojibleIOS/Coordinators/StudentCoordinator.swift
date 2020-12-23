@@ -14,6 +14,8 @@ class StudentCoordinator: Coordinator {
     var tabBarController: NavigationMenuBaseController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
+    var pr: UINavigationController!
+    
     var programsNC = ProgramsCoordinator.getInstance().navigationController
     var tutorialsNC = TutorialsCoordinator.getInstance().navigationController
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
@@ -23,20 +25,14 @@ class StudentCoordinator: Coordinator {
     
     var lastIdx = -1
     
-    
     func start() {
         let configuration = UIImage.SymbolConfiguration(pointSize: 0, weight: .semibold, scale: .large)
         
         let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(named: "terminal", in: .none, with: configuration), tag: 0)
-        
         let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(named: "book", in: .none, with: configuration), tag: 1)
-        
         let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 2)
-        
         let classroomTabBarItem = UITabBarItem(title: "Class", image:UIImage(named: "studentdesk", in: .none, with: configuration), tag: 3)
-
         let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "gear", in: .none, with: configuration), tag: 4)
-        
         
         programsNC.tabBarItem = programTabBarItem
         tutorialsNC.tabBarItem = tutorialsTabBarItem
@@ -45,7 +41,6 @@ class StudentCoordinator: Coordinator {
         settingsNC.tabBarItem = settingsTabBarItem
         
         tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, classroomNC, settingsNC, runCodeNC]
-        
         tabBarController.selectedIndex = 0
         
         tabBarController.loadTabBar()

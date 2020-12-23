@@ -10,6 +10,10 @@ import UIKit
 
 class ClassCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
+    
+    var tutorialTitle: String?
+    var tutorialCode: String?
+    
     var navigationController:UINavigationController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     let notificationCenter = NotificationCenter.default
@@ -18,6 +22,7 @@ class ClassCoordinator: Coordinator {
     enum screenEnum{
         case ClassScreen
         case SignUp
+        case TutorialCodeScreen
     }
     
     var currentScreen: screenEnum = .ClassScreen
@@ -44,18 +49,20 @@ class ClassCoordinator: Coordinator {
             vc = self.storyboard.instantiateViewController(withIdentifier: "ClassScreenVC") as? ClassScreenVC
         case .SignUp:
             vc = self.storyboard.instantiateViewController(withIdentifier: "ClassSignUpVC") as? ClassSignUpVC
+        case .TutorialCodeScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "ClassCodeScreenVC") as? ClassCodeScreenVC
         }
         
         vc.coordinator = self
         navigationController.delegate = self as? UINavigationControllerDelegate
         if pop { navigationController.popViewController(animated: true) }
-        if self.navigationController.viewControllers.count > 0{
-            self.navigationController.viewControllers.remove(at: 0)
-        }
         navigationController.pushViewController(vc as! UIViewController, animated: true)
         currentScreen = screenName
     }
     
+    func pop(){
+        navigationController.popViewController(animated: true)
+    }
     
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "ClassNavController") as! UINavigationController

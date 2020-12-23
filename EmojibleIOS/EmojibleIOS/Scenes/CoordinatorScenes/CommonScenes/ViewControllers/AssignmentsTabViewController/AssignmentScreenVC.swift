@@ -44,6 +44,7 @@ class AssignmentScreenVC: UIViewController, Coordinated{
         configureAddFunctionAlert()
         configureRemoveAlert()
         configurePopUpAlert()
+        self.navigationController?.navigationBar.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .assignmentsChanged, object: nil)
         assignments = GlobalMemory.getInstance().getAssignments()
     }

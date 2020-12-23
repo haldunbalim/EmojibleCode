@@ -28,6 +28,7 @@ class TeacherTutorialScreenVC: UIViewController, Coordinated{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         self.title = "Programs"
         configureCollectionView()
         configureRemoveAlert()

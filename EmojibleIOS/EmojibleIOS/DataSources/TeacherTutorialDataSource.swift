@@ -60,7 +60,7 @@ class TeacherTutorialDataSource {
         database.collection("Users").document(uid).collection("Tutorials").document(self.tutorialsDataSourceIndices[index!]).delete()
     }
     
-    func writeTutorial(tutorial: CodeModel){
+    func writeTutorial(tutorial: CodeModel) {
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
         let uid = currentUser.uid
         self.database.collection("Users").document(uid).collection("Tutorials").addDocument(data:tutorial.dictionary)

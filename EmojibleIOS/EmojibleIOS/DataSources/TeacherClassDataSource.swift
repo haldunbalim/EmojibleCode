@@ -15,6 +15,9 @@ class TeacherClassDataSource{
     var classroom: [ClassModel] = []
     var classroomDataSourceIndices: [String] = []
     
+    var snapshotListenerForClassTutorials:ListenerRegistration?
+    var classTutorials:[CodeModel] = []
+    
     func startObservingClass(){
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
         let classesCollectionRef = database.collection("Classes").whereField("teacherId", isEqualTo: currentUser.uid)
@@ -31,7 +34,6 @@ class TeacherClassDataSource{
         snapshotListener.remove()
     }
     
-    
     func removeClass(classroom: ClassModel){
         var index: Int?
         for (i, document) in self.classroom.enumerated(){
@@ -40,7 +42,7 @@ class TeacherClassDataSource{
                 break
             }
         }
-        UserDataSource.getInstance().resetUserClassId(classId: classroom.id)
+        UserDataSource.getInstance().resetUserClassIdForAllUsers(classId: classroom.id)
         database.collection("Classes").document(self.classroomDataSourceIndices[index!]).delete()
     }
     
@@ -78,6 +80,59 @@ class TeacherClassDataSource{
                     completion(nil)
                 }
                 
+            }
+        }
+    }
+    
+    func shareTutorial(classroom:ClassModel, code: CodeModel){
+        var index: Int?
+        for (i, document) in self.classroom.enumerated(){
+            if document == classroom{
+                index = i
+                break
+            }
+        }
+        self.database.collection("Classes").document(self.classroomDataSourceIndices[index!]).collection("ClassTutorials").addDocument(data:code.dictionary)
+    }
+    
+    func startObservingClassTutorials(){
+        UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
+            guard let userModel = userModel as? StudentModel else {return}
+            guard let classId = userModel.classId else {return}
+            self.database.collection("Classes").whereField("id", isEqualTo: classId).getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                }
+                else{
+                    guard let dict = querySnapshot?.documents[0].data() else {return}
+                    let teacherId = dict["teacherId"] as! String
+                    let classTutorialRef = self.database.collection("Users").document(teacherId).collection("Tutorials")
+                    self.snapshotListenerForClassTutorials = classTutorialRef.addSnapshotListener{ [unowned self] docSnapshot, error in
+                        guard let documents = docSnapshot?.documents else { return }
+                        self.classTutorials = documents.map{CodeModel(dictionary: $0.data())}
+                        notificationCenter.post(name: .classTutorialChanged, object: nil, userInfo:["classTutorialChanged":self.classTutorials])
+                    }
+                }
+            }
+        }
+    }
+    
+    func stopObservingClassTutorials(){
+        guard let snapshotListenerForClassTutorials = snapshotListener else { return }
+        snapshotListenerForClassTutorials.remove()
+    }
+    
+    func getClassName(completion: @escaping (String?) -> Void) {
+        UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
+            guard let userModel = userModel as? StudentModel else {return}
+            guard let classId = userModel.classId else {return}
+            self.database.collection("Classes").whereField("id", isEqualTo: classId).getDocuments() {(querySnapshot, err) in
+                if let dict = querySnapshot?.documents[0].data(){
+                    let className = dict["className"] as? String
+                    completion(className)
+                }else {
+                    completion(nil)
+                }
             }
         }
     }

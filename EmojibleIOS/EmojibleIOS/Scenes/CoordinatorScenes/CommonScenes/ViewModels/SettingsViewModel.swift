@@ -16,6 +16,7 @@ class SettingsViewModel: UITableViewCell{
     let enrollClassButton = UIButton()
     
     var logoutDelegate: SettingsTabButtonActions?
+    var changePasswordDelegate: SettingsTabButtonActions?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -78,7 +79,7 @@ class SettingsViewModel: UITableViewCell{
     }
      
     @objc func changePasswordButtonAction(){
-        //TO DO
+        self.changePasswordDelegate?.changePasswordAction()
     }
     
     func configureLanguageButton(){

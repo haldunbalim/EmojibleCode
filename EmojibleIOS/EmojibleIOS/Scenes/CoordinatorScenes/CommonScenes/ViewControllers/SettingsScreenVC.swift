@@ -18,13 +18,17 @@ class SettingsScreenVC: UIViewController, Coordinated{
     var removeAlert: RemoveAlert!
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
         self.title = "Settings"
-        self.navigationController?.navigationBar.isHidden = true
         configureTableView()
         configureRemoveAlert()
+        NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .userModelChanged, object: nil)
     }
     
+    @objc func notify(_ notification: NSNotification){
+        tableView.reloadData()
+    }
     
     func configureTableView(){
         tableView.delegate = self
@@ -80,6 +84,7 @@ extension SettingsScreenVC:UITableViewDataSource{
             }else if indexPath.row == 3{
                 cell.configureLanguageButton()
             }else if indexPath.row == 4{
+                cell.changePasswordDelegate = self
                 cell.configureChangePasswordButton()
             }
             else if indexPath.row == 5{
@@ -103,6 +108,10 @@ extension SettingsScreenVC:UITableViewDataSource{
  
 
 extension SettingsScreenVC:SettingsTabButtonActions{
+    func changePasswordAction() {
+        (self.coordinator as! SettingsCoordinator).openScreen(screenName: .ResetPasswordScreen)
+    }
+    
     func logoutAction() {
         self.removeAlert.presentOver(viewController: self)
         self.removeAlert.deleteButton.setTitleColor(.red, for: .normal)

@@ -20,6 +20,7 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func configureViews(){

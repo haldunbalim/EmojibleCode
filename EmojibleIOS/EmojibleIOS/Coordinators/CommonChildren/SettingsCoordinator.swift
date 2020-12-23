@@ -15,6 +15,7 @@ class SettingsCoordinator: Coordinator {
     
     enum screenEnum{
        case SettingsScreen
+       case ResetPasswordScreen
     }
     
     var currentScreen: screenEnum = .SettingsScreen
@@ -29,6 +30,8 @@ class SettingsCoordinator: Coordinator {
         switch screenName{
         case .SettingsScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "SettingsScreenVC") as? SettingsScreenVC
+        case .ResetPasswordScreen:
+            vc = self.storyboard.instantiateViewController(withIdentifier: "ForgetYourPasswordVC") as? ForgetYourPasswordVC
         }
         
         vc.coordinator = self

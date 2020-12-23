@@ -28,6 +28,7 @@ class ProgramScreenVC: UIViewController, Coordinated{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Programs"
+        self.navigationController?.navigationBar.isHidden = true
         configureCollectionView()
         configureRemoveAlert()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .programsChanged, object: nil)

@@ -84,4 +84,5 @@ protocol WarningAlert{
 
 protocol SettingsTabButtonActions{
     func logoutAction()
+    func changePasswordAction()
 }

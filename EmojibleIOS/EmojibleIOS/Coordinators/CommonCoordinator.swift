@@ -13,11 +13,10 @@ class CommonCoordinator: Coordinator {
     var tabBarController: NavigationMenuBaseController
     var storyboard = UIStoryboard.init(name: "MainApp", bundle: Bundle.main)
     
-    var programsNC = ProgramsCoordinator.getInstance().navigationController
+    var programsNC = OpeningCodingScreenCoordinator.getInstance().navigationController
     var tutorialsNC = TutorialsCoordinator.getInstance().navigationController
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
     var authNC = AuthenticationCoordinator.getInstance().navigationController
-    var settingsNC = SettingsCoordinator.getInstance().navigationController
     var runCodeNC = RunCodeCoordinator.getInstance().navigationController
     
     var lastIdx = -1
@@ -47,8 +46,8 @@ class CommonCoordinator: Coordinator {
     }
     
     func startChildren(){
-        ProgramsCoordinator.getInstance().parentCoordinator = self
-        ProgramsCoordinator.getInstance().start()
+        OpeningCodingScreenCoordinator.getInstance().parentCoordinator = self
+        OpeningCodingScreenCoordinator.getInstance().start()
     
         TutorialsCoordinator.getInstance().parentCoordinator = self
         TutorialsCoordinator.getInstance().start()
@@ -61,7 +60,6 @@ class CommonCoordinator: Coordinator {
  
         RunCodeCoordinator.getInstance().parentCoordinator = self
         RunCodeCoordinator.getInstance().start()
-        
     }
     
     private init(){

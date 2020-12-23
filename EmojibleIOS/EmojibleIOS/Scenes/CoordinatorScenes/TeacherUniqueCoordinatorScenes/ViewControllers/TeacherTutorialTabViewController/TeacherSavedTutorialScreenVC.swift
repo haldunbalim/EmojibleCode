@@ -19,6 +19,7 @@ class TeacherSavedTutorialScreenVC: UIViewController, Coordinated {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         tutorialModel = (self.coordinator as! TeacherTutorialCoordinator).tutorialModel

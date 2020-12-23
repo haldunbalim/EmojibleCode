@@ -19,11 +19,8 @@ class CodingScreenVC: UIViewController, Coordinated{
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        self.navigationController?.navigationBar.isHidden = true
         configureViews()
-        if AuthenticationManager.getInstance().currentUser == nil{
-            backButton.isHidden = true
-            titleField.isHidden = true
-        }
     }
     
     func configureViews(){
