@@ -6,12 +6,9 @@
 //
 
 import Foundation
-import Firebase
 
 class UserDataSource{
-    let database = Firestore.firestore()
-    var snapshotListener:ListenerRegistration?
-    let notificationCenter = NotificationCenter.default
+    var currentUser: User?
     
     private init(){}
     private static let instance = UserDataSource()
@@ -19,6 +16,7 @@ class UserDataSource{
         return .instance
     }
     
+<<<<<<< HEAD
     func getCurrentUserInfo(completion: @escaping (UserModel?) -> Void){
         if let currentUser = AuthenticationManager.getInstance().currentUser{
             let userDocRef = database.collection("Users").document(currentUser.uid)
@@ -55,6 +53,11 @@ class UserDataSource{
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
         let uid = currentUser.uid
         self.database.collection("Users").document(uid).setData(user.dictionary)
+=======
+    // TODO: Not Implemented Yet
+    public func getCurrentUserInfo(){
+        currentUser = User(userType: .Student)
+>>>>>>> main
     }
     
     public func editUserData(newData: [String:Any]){

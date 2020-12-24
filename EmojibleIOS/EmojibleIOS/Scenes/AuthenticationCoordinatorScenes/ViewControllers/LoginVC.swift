@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
+class LoginVC: UIViewController, Coordinated{
     var coordinator: Coordinator?
-    var pleaseWaitAlert: UIAlertController?
 
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgetYourPasswordButton: UIButton!
@@ -36,10 +35,10 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        guard let email = emailTextField.text, email != "" else {
-            showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)
+        guard let coordinator = coordinator else{
             return
         }
+<<<<<<< HEAD
         
         guard let password = passwordTextField.text, password != "" else {
             showMessagePrompt("Password cannot be empty", vcToBePresented: self)
@@ -63,16 +62,25 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         passwordTextField.text = ""
     }
     
+=======
+        AuthenticationManager.getInstance().isLoggedIn = true
+        (coordinator.parentCoordinator as! AppCoordinator).start()
+    }
+>>>>>>> main
     @IBAction func forgetYourPasswordButtonPressed(_ sender: UIButton) {
         resetFields()
         (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .ForgetPassword)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+<<<<<<< HEAD
         resetFields()
         guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
         coordinator.registeringUserType = sender.tag == 0 ? "Student":"Teacher"
         coordinator.openScreen(screenName: .Register)
+=======
+        (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .Register)
+>>>>>>> main
     }
     
 }

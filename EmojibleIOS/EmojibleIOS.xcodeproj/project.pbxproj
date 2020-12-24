@@ -8,19 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */; };
-		32FD13A34D6ED132E86CEE3C /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */; };
-		65062E14112456082CCF35FB /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */; };
 		8B02EA462579329F00480AFA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA452579329F00480AFA /* Token.swift */; };
 		8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4A2579331D00480AFA /* Lexer.swift */; };
 		8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4F2579344E00480AFA /* StringExtensions.swift */; };
 		8B02EA5E25795D9500480AFA /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA5D25795D9500480AFA /* AST.swift */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
-		8B20D3B92594255700AE985F /* emoji_resnet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */; };
-		8B20D3C22594256700AE985F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3C12594256600AE985F /* OpenCVWrapper.mm */; };
-		8B20D3D12594258900AE985F /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D02594258900AE985F /* VisionModel.swift */; };
-		8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */; };
-		8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B20D3E62594272D00AE985F /* opencv2.framework */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
+		8B68E2EC2593D48600F2EA0B /* emoji_resnet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B68E2EB2593D48600F2EA0B /* emoji_resnet.mlmodel */; };
+		8B68E2F12593FF4300F2EA0B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B68E2F02593FF4300F2EA0B /* UIImageExtensions.swift */; };
 		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
 		8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */; };
 		8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */; };
@@ -72,6 +67,9 @@
 		8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CA257A4ECD00C24085 /* Memory.swift */; };
 		8BEB38D0257A80C400C24085 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CF257A80C400C24085 /* Parser.swift */; };
 		8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */; };
+		8BFA46F12592C7E4005FA058 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA46F02592C7E4005FA058 /* OpenCVWrapper.mm */; };
+		8BFA47282592D030005FA058 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFA47272592D030005FA058 /* opencv2.framework */; };
+		8BFA47302592E97B005FA058 /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA472F2592E97B005FA058 /* VisionModel.swift */; };
 		FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */; };
 		FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */; };
 		FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */; };
@@ -107,7 +105,6 @@
 		FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F122580BA0A000596D4 /* SpeechToText.swift */; };
 		FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F172580BA16000596D4 /* TextToSpeech.swift */; };
 		FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F1C2580BA3F000596D4 /* Shake.swift */; };
-		FC6C0F222580BA4D000596D4 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F212580BA4D000596D4 /* Light.swift */; };
 		FC6C0F272580BA57000596D4 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F262580BA57000596D4 /* Flip.swift */; };
 		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
 		FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* RemoveAlert.swift */; };
@@ -119,9 +116,6 @@
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
 		FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */; };
 		FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */; };
-		FC970B6725912B770010933E /* ClassCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970B6625912B770010933E /* ClassCodeScreenVC.swift */; };
-		FC970B6F259267540010933E /* OpeningCodingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970B6E259267540010933E /* OpeningCodingScreen.swift */; };
-		FC970B74259268710010933E /* OpeningCodingScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC970B73259268710010933E /* OpeningCodingScreenCoordinator.swift */; };
 		FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42A6254AE8890061E220 /* AppDelegate.swift */; };
 		FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42AF254AE88D0061E220 /* Assets.xcassets */; };
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
@@ -139,7 +133,6 @@
 		FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC737C25665C11006361F8 /* ProgramViewModel.swift */; };
 		FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBC738125665C1F006361F8 /* ProgramViewModel.xib */; };
 		FCC087C4258E5DB0003E6CE1 /* StudentsInClassDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC087C3258E5DAF003E6CE1 /* StudentsInClassDataSource.swift */; };
-		FCC1DA582593C5E100CEA94A /* ForgetYourPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC1DA572593C5E100CEA94A /* ForgetYourPasswordVC.swift */; };
 		FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */; };
 		FCCA5C54255448180018FC6D /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C53255448180018FC6D /* TutorialViewModel.swift */; };
 		FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C64255453B00018FC6D /* CodeModel.swift */; };
@@ -177,15 +170,9 @@
 		8B02EA4F2579344E00480AFA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8B02EA5D25795D9500480AFA /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
-		8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = emoji_resnet.mlmodel; sourceTree = "<group>"; };
-		8B20D3BE2594256600AE985F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		8B20D3BF2594256600AE985F /* OpenCVWrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = OpenCVWrapper.h; sourceTree = "<group>"; };
-		8B20D3C02594256600AE985F /* EmojibleIOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmojibleIOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		8B20D3C12594256600AE985F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
-		8B20D3D02594258900AE985F /* VisionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
-		8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
-		8B20D3E62594272D00AE985F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		8B68E2EB2593D48600F2EA0B /* emoji_resnet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = emoji_resnet.mlmodel; sourceTree = "<group>"; };
+		8B68E2F02593FF4300F2EA0B /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		8B69332B255FE9FB00CE97CB /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiAssignmentCoordinator.swift; sourceTree = "<group>"; };
@@ -237,10 +224,16 @@
 		8BEB38CA257A4ECD00C24085 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		8BEB38CF257A80C400C24085 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunScreenVC.swift; sourceTree = "<group>"; };
+		8BFA46C22592ADE2005FA058 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8BFA46C42592ADEC005FA058 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8BFA46EE2592C7E4005FA058 /* EmojibleIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmojibleIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		8BFA46EF2592C7E4005FA058 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		8BFA46F02592C7E4005FA058 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		8BFA46FF2592C98E005FA058 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8BFA47272592D030005FA058 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		8BFA472F2592E97B005FA058 /* VisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
 		ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialViewModel.swift; sourceTree = "<group>"; };
 		FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCodingScreenViewModel.swift; sourceTree = "<group>"; };
 		FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherTutorialViewModel.xib; sourceTree = "<group>"; };
@@ -276,7 +269,6 @@
 		FC6C0F122580BA0A000596D4 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 		FC6C0F172580BA16000596D4 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		FC6C0F1C2580BA3F000596D4 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
-		FC6C0F212580BA4D000596D4 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
 		FC6C0F262580BA57000596D4 /* Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
 		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
 		FC7384202566A85C00432AC6 /* RemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAlert.swift; sourceTree = "<group>"; };
@@ -288,9 +280,6 @@
 		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramScreenVC.swift; sourceTree = "<group>"; };
 		FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataSource.swift; sourceTree = "<group>"; };
-		FC970B6625912B770010933E /* ClassCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassCodeScreenVC.swift; sourceTree = "<group>"; };
-		FC970B6E259267540010933E /* OpeningCodingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCodingScreen.swift; sourceTree = "<group>"; };
-		FC970B73259268710010933E /* OpeningCodingScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningCodingScreenCoordinator.swift; sourceTree = "<group>"; };
 		FC9C42A3254AE8890061E220 /* EmojibleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojibleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42A6254AE8890061E220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9C42AF254AE88D0061E220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -314,7 +303,6 @@
 		FCBC737C25665C11006361F8 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
 		FCBC738125665C1F006361F8 /* ProgramViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramViewModel.xib; sourceTree = "<group>"; };
 		FCC087C3258E5DAF003E6CE1 /* StudentsInClassDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsInClassDataSource.swift; sourceTree = "<group>"; };
-		FCC1DA572593C5E100CEA94A /* ForgetYourPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetYourPasswordVC.swift; sourceTree = "<group>"; };
 		FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenVC.swift; sourceTree = "<group>"; };
 		FCCA5C53255448180018FC6D /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		FCCA5C64255453B00018FC6D /* CodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
@@ -329,7 +317,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */,
+				8BFA47282592D030005FA058 /* opencv2.framework in Frameworks */,
 				2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +326,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32FD13A34D6ED132E86CEE3C /* Pods_EmojibleIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +333,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65062E14112456082CCF35FB /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,10 +355,10 @@
 		737725952EE88BE151742748 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B20D3E62594272D00AE985F /* opencv2.framework */,
+				8BFA47272592D030005FA058 /* opencv2.framework */,
+				8BFA46C42592ADEC005FA058 /* CoreMedia.framework */,
+				8BFA46C22592ADE2005FA058 /* CoreGraphics.framework */,
 				ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */,
-				EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */,
-				D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -390,9 +376,10 @@
 		8B15971B2550686B00E3E10A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FC970B6525912B520010933E /* ClassTabViewController */,
 				FC73841C25669D3400432AC6 /* ProgramTabViewConroller */,
 				FC259E1B256FE1A50066E02A /* TutorialTabViewController */,
+				8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */,
+				8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -406,17 +393,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		8B20D3C62594256D00AE985F /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				8B20D3C02594256600AE985F /* EmojibleIOS-Bridging-Header.h */,
-				8B20D3BF2594256600AE985F /* OpenCVWrapper.h */,
-				8B20D3C12594256600AE985F /* OpenCVWrapper.mm */,
-				8B20D3BE2594256600AE985F /* PrefixHeader.pch */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
 		8B3E751B255D952D00AAA915 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,7 +401,6 @@
 				FC6C0F122580BA0A000596D4 /* SpeechToText.swift */,
 				FC6C0F172580BA16000596D4 /* TextToSpeech.swift */,
 				FC6C0F1C2580BA3F000596D4 /* Shake.swift */,
-				FC6C0F212580BA4D000596D4 /* Light.swift */,
 				FC6C0F262580BA57000596D4 /* Flip.swift */,
 			);
 			path = Sensors;
@@ -557,7 +532,7 @@
 				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
 				8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */,
 				8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */,
-				8B20D3D02594258900AE985F /* VisionModel.swift */,
+				8BFA472F2592E97B005FA058 /* VisionModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -598,7 +573,7 @@
 				FC57E7DF256FA65100584686 /* TabProtocols.swift */,
 				8B02EA4F2579344E00480AFA /* StringExtensions.swift */,
 				8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */,
-				8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */,
+				8B68E2F02593FF4300F2EA0B /* UIImageExtensions.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -643,6 +618,17 @@
 				8B1597142550672900E3E10A /* ViewControllers */,
 			);
 			path = AuthenticationCoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		8BFA46ED2592B1BF005FA058 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA46EF2592C7E4005FA058 /* OpenCVWrapper.h */,
+				8BFA46F02592C7E4005FA058 /* OpenCVWrapper.mm */,
+				8BFA46EE2592C7E4005FA058 /* EmojibleIOS-Bridging-Header.h */,
+				8BFA46FF2592C98E005FA058 /* PrefixHeader.pch */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		FC000B6025853886003D4C1A /* ViewModel */ = {
@@ -721,7 +707,6 @@
 				8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */,
 				8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */,
 				8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */,
-				FC970B73259268710010933E /* OpeningCodingScreenCoordinator.swift */,
 			);
 			path = CommonChildren;
 			sourceTree = "<group>";
@@ -753,8 +738,6 @@
 			children = (
 				FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */,
 				8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */,
-				FC970B6E259267540010933E /* OpeningCodingScreen.swift */,
-				FCC1DA572593C5E100CEA94A /* ForgetYourPasswordVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -817,16 +800,6 @@
 			path = ProgramTabViewConroller;
 			sourceTree = "<group>";
 		};
-		FC970B6525912B520010933E /* ClassTabViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */,
-				8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */,
-				FC970B6625912B770010933E /* ClassCodeScreenVC.swift */,
-			);
-			path = ClassTabViewController;
-			sourceTree = "<group>";
-		};
 		FC9C429A254AE8890061E220 = {
 			isa = PBXGroup;
 			children = (
@@ -861,7 +834,7 @@
 				8BE90CA2255037CD00A34B37 /* Models */,
 				FCA64FDF257FA00F0010E20D /* StaticData */,
 				8B7FF865255D653F0043B0DB /* Interpreter */,
-				8B20D3C62594256D00AE985F /* Headers */,
+				8BFA46ED2592B1BF005FA058 /* Headers */,
 				8BE90CA1255037A000A34B37 /* Default Files */,
 			);
 			path = EmojibleIOS;
@@ -888,7 +861,7 @@
 		FCA64FDF257FA00F0010E20D /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
-				8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */,
+				8B68E2EB2593D48600F2EA0B /* emoji_resnet.mlmodel */,
 				FCA64FE0257FA02B0010E20D /* Emojis.json */,
 				FCA64FED257FA04C0010E20D /* EmojisIndexes.json */,
 			);
@@ -1181,7 +1154,6 @@
 				8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */,
 				8B7FF80F255D4A880043B0DB /* ClassesDataSource.swift in Sources */,
 				8BBD5D21257C101C0089F2D9 /* TextFieldExtensions.swift in Sources */,
-				FC970B6725912B770010933E /* ClassCodeScreenVC.swift in Sources */,
 				8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */,
 				8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */,
 				FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */,
@@ -1191,8 +1163,6 @@
 				FC6BEDA22588A932004E8724 /* TeacherClassViewModel.swift in Sources */,
 				8BDC8FEF255ECE4B00A2E229 /* AddTextAlert.swift in Sources */,
 				8B02EA5E25795D9500480AFA /* AST.swift in Sources */,
-				FC970B74259268710010933E /* OpeningCodingScreenCoordinator.swift in Sources */,
-				FC6C0F222580BA4D000596D4 /* Light.swift in Sources */,
 				FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */,
 				8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */,
 				8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */,
@@ -1202,7 +1172,7 @@
 				8BDC8FE7255ECB4F00A2E229 /* CustomAlertViewController.swift in Sources */,
 				8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */,
 				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
-				8B20D3C22594256700AE985F /* OpenCVWrapper.mm in Sources */,
+				8B68E2EC2593D48600F2EA0B /* emoji_resnet.mlmodel in Sources */,
 				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */,
@@ -1218,7 +1188,6 @@
 				FC6BEDAC2588B72C004E8724 /* TeacherClassCoordinator.swift in Sources */,
 				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
-				8B20D3B92594255700AE985F /* emoji_resnet.mlmodel in Sources */,
 				FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */,
 				8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
@@ -1241,15 +1210,14 @@
 				FC16BFFB256C074D00180942 /* Constants.swift in Sources */,
 				FC06B9EF2589691800CEC137 /* ClassStudentInfoViewModel.swift in Sources */,
 				FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */,
+				8BFA46F12592C7E4005FA058 /* OpenCVWrapper.mm in Sources */,
 				FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */,
 				FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */,
-				8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */,
 				FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */,
 				FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */,
 				8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */,
 				FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */,
 				FC6BED9925889223004E8724 /* TeacherClassVC.swift in Sources */,
-				FCC1DA582593C5E100CEA94A /* ForgetYourPasswordVC.swift in Sources */,
 				8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */,
 				8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */,
 				8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */,
@@ -1263,16 +1231,17 @@
 				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
 				8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */,
 				FCC087C4258E5DB0003E6CE1 /* StudentsInClassDataSource.swift in Sources */,
+				8B68E2F12593FF4300F2EA0B /* UIImageExtensions.swift in Sources */,
 				FC06B9D425893BC700CEC137 /* DisplayWarningAlert.swift in Sources */,
 				FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */,
 				8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */,
 				8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */,
-				FC970B6F259267540010933E /* OpeningCodingScreen.swift in Sources */,
 				FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */,
 				8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */,
 				FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */,
 				8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */,
 				FC000B7C25853B9A003D4C1A /* TeacherTutorialCoordinator.swift in Sources */,
+				8BFA47302592E97B005FA058 /* VisionModel.swift in Sources */,
 				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,
 				8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */,
 				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,
@@ -1281,7 +1250,6 @@
 				8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */,
 				FCCECC2D2589DDCF004BA56A /* TeacherClassDataSource.swift in Sources */,
 				FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */,
-				8B20D3D12594258900AE985F /* VisionModel.swift in Sources */,
 				FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */,
 				8B7FF787255C82DA0043B0DB /* ClassCoordinator.swift in Sources */,
 			);
@@ -1371,7 +1339,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREFIX_HEADER = "${PROJECT_DIR}/EmojibleIOS/Headers/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1431,7 +1398,6 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "${PROJECT_DIR}/EmojibleIOS/Headers/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1460,8 +1426,10 @@
 				DEVELOPMENT_TEAM = 8JBPMURZH5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/EmojibleIOS/StaticData",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EmojibleIOS/Headers/PrefixHeader.pch";
 				INFOPLIST_FILE = EmojibleIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1489,8 +1457,10 @@
 				DEVELOPMENT_TEAM = 8JBPMURZH5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/EmojibleIOS/StaticData",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EmojibleIOS/Headers/PrefixHeader.pch";
 				INFOPLIST_FILE = EmojibleIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
