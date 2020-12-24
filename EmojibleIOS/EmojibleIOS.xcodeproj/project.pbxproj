@@ -15,6 +15,11 @@
 		8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4F2579344E00480AFA /* StringExtensions.swift */; };
 		8B02EA5E25795D9500480AFA /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA5D25795D9500480AFA /* AST.swift */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
+		8B20D3B92594255700AE985F /* emoji_resnet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */; };
+		8B20D3C22594256700AE985F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3C12594256600AE985F /* OpenCVWrapper.mm */; };
+		8B20D3D12594258900AE985F /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D02594258900AE985F /* VisionModel.swift */; };
+		8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */; };
+		8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B20D3E62594272D00AE985F /* opencv2.framework */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
 		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
 		8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */; };
@@ -172,6 +177,14 @@
 		8B02EA4F2579344E00480AFA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8B02EA5D25795D9500480AFA /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = emoji_resnet.mlmodel; sourceTree = "<group>"; };
+		8B20D3BE2594256600AE985F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8B20D3BF2594256600AE985F /* OpenCVWrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		8B20D3C02594256600AE985F /* EmojibleIOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmojibleIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B20D3C12594256600AE985F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		8B20D3D02594258900AE985F /* VisionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
+		8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		8B20D3E62594272D00AE985F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		8B69332B255FE9FB00CE97CB /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -316,6 +329,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */,
 				2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +369,7 @@
 		737725952EE88BE151742748 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B20D3E62594272D00AE985F /* opencv2.framework */,
 				ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */,
 				EC757BA39FFEA67639A14484 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */,
 				D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */,
@@ -389,6 +404,17 @@
 				FC000B9925856010003D4C1A /* TeacherTutorialTabViewController */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B20D3C62594256D00AE985F /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8B20D3C02594256600AE985F /* EmojibleIOS-Bridging-Header.h */,
+				8B20D3BF2594256600AE985F /* OpenCVWrapper.h */,
+				8B20D3C12594256600AE985F /* OpenCVWrapper.mm */,
+				8B20D3BE2594256600AE985F /* PrefixHeader.pch */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		8B3E751B255D952D00AAA915 /* Sensors */ = {
@@ -531,6 +557,7 @@
 				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
 				8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */,
 				8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */,
+				8B20D3D02594258900AE985F /* VisionModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -571,6 +598,7 @@
 				FC57E7DF256FA65100584686 /* TabProtocols.swift */,
 				8B02EA4F2579344E00480AFA /* StringExtensions.swift */,
 				8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */,
+				8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -833,6 +861,7 @@
 				8BE90CA2255037CD00A34B37 /* Models */,
 				FCA64FDF257FA00F0010E20D /* StaticData */,
 				8B7FF865255D653F0043B0DB /* Interpreter */,
+				8B20D3C62594256D00AE985F /* Headers */,
 				8BE90CA1255037A000A34B37 /* Default Files */,
 			);
 			path = EmojibleIOS;
@@ -859,6 +888,7 @@
 		FCA64FDF257FA00F0010E20D /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
+				8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */,
 				FCA64FE0257FA02B0010E20D /* Emojis.json */,
 				FCA64FED257FA04C0010E20D /* EmojisIndexes.json */,
 			);
@@ -956,6 +986,7 @@
 				TargetAttributes = {
 					FC9C42A2254AE8890061E220 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1210;
 					};
 					FC9C42B8254AE88D0061E220 = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -1171,6 +1202,7 @@
 				8BDC8FE7255ECB4F00A2E229 /* CustomAlertViewController.swift in Sources */,
 				8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */,
 				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
+				8B20D3C22594256700AE985F /* OpenCVWrapper.mm in Sources */,
 				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */,
@@ -1186,6 +1218,7 @@
 				FC6BEDAC2588B72C004E8724 /* TeacherClassCoordinator.swift in Sources */,
 				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
+				8B20D3B92594255700AE985F /* emoji_resnet.mlmodel in Sources */,
 				FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */,
 				8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
@@ -1210,6 +1243,7 @@
 				FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */,
 				FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */,
 				FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */,
+				8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */,
 				FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */,
 				FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */,
 				8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */,
@@ -1247,6 +1281,7 @@
 				8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */,
 				FCCECC2D2589DDCF004BA56A /* TeacherClassDataSource.swift in Sources */,
 				FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */,
+				8B20D3D12594258900AE985F /* VisionModel.swift in Sources */,
 				FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */,
 				8B7FF787255C82DA0043B0DB /* ClassCoordinator.swift in Sources */,
 			);
@@ -1336,6 +1371,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "${PROJECT_DIR}/EmojibleIOS/Headers/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1395,6 +1431,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "${PROJECT_DIR}/EmojibleIOS/Headers/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1417,17 +1454,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EmojibleIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP491;
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP4912;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1439,17 +1483,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EmojibleIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP491;
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP4912;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
