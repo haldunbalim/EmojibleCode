@@ -9,8 +9,6 @@ import UIKit
 
 class OpeningCodingScreen: UIViewController, Coordinated{
     var coordinator: Coordinator?
-
-    @IBOutlet weak var codingTextBox: UITextView!
     
     @IBOutlet weak var codingScreen: UITextView!
     @IBOutlet weak var runButton: UIButton!
@@ -19,7 +17,6 @@ class OpeningCodingScreen: UIViewController, Coordinated{
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-<<<<<<< HEAD:EmojibleIOS/EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/OpeningCodingScreen.swift
         self.navigationController?.navigationBar.isHidden = true
         configureViews()
     }
@@ -33,11 +30,6 @@ class OpeningCodingScreen: UIViewController, Coordinated{
     
     
     @IBAction func cameraPressed(_ sender: UIButton) {
-=======
-    }
-    
-    @IBAction func cameraButtonPressed(_ sender: UIButton) {
->>>>>>> main:EmojibleIOS/EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/CodingScreenVC.swift
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraView = UIImagePickerController()
             cameraView.delegate = self as?
@@ -47,25 +39,16 @@ class OpeningCodingScreen: UIViewController, Coordinated{
         }
     }
     
-<<<<<<< HEAD:EmojibleIOS/EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/OpeningCodingScreen.swift
     @IBAction func photoLibraryPressed(_ sender: UIButton) {
-=======
-    @IBAction func photosButtonPressed(_ sender: UIButton) {
->>>>>>> main:EmojibleIOS/EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/CodingScreenVC.swift
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
         imagePicker.sourceType = .photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-<<<<<<< HEAD:EmojibleIOS/EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/OpeningCodingScreen.swift
     @IBAction func runPressed(_ sender: UIButton) {
         if codingScreen.text != "" {
             //run
         }
-=======
-    @IBAction func runButtonPressed(_ sender: UIButton) {
-    
->>>>>>> main:EmojibleIOS/EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/CodingScreenVC.swift
     }
 }

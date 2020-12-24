@@ -68,13 +68,11 @@ class TeacherCoordinator: Coordinator {
         self.tabBarController.navigationController?.navigationBar.isHidden = true
     }
     
-<<<<<<< HEAD
     private static var instance:TeacherCoordinator!
-=======
-    private init(){}
-    private static let instance = TeacherCoordinator()
->>>>>>> main
     public static func getInstance() -> TeacherCoordinator{
+        if instance == nil{
+            instance = TeacherCoordinator()
+        }
         return .instance
     }
     
