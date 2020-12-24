@@ -69,3 +69,4 @@ functions
 Pods
 firebase.json
 .firebase.rc
+opencv2.framework/**

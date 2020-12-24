@@ -7,39 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12E81FE095B3E0690D40FEA3 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */; };
-		414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */; };
-		6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */; };
+		2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */; };
+		8B02EA462579329F00480AFA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA452579329F00480AFA /* Token.swift */; };
+		8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4A2579331D00480AFA /* Lexer.swift */; };
+		8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4F2579344E00480AFA /* StringExtensions.swift */; };
+		8B02EA5E25795D9500480AFA /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA5D25795D9500480AFA /* AST.swift */; };
 		8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */; };
+		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
+		8B68E2EC2593D48600F2EA0B /* emoji_resnet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B68E2EB2593D48600F2EA0B /* emoji_resnet.mlmodel */; };
+		8B68E2F12593FF4300F2EA0B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B68E2F02593FF4300F2EA0B /* UIImageExtensions.swift */; };
+		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
+		8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */; };
+		8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */; };
+		8B7FF782255C82CD0043B0DB /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */; };
+		8B7FF787255C82DA0043B0DB /* ClassCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */; };
+		8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */; };
+		8B7FF791255C830A0043B0DB /* ProgramsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF790255C830A0043B0DB /* ProgramsCoordinator.swift */; };
+		8B7FF79C255C91740043B0DB /* ClassScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */; };
+		8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */; };
+		8B7FF7A6255C93500043B0DB /* UIViewControllerWithAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */; };
+		8B7FF7AE255C936D0043B0DB /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */; };
+		8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */; };
+		8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7E0255CD4CC0043B0DB /* TeacherModel.swift */; };
+		8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */; };
+		8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7ED255CD6620043B0DB /* ClassModel.swift */; };
+		8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */; };
+		8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF7F8255CE44E0043B0DB /* UserFactory.swift */; };
+		8B7FF80F255D4A880043B0DB /* ClassesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF80E255D4A880043B0DB /* ClassesDataSource.swift */; };
+		8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */; };
+		8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF866255D65580043B0DB /* GlobalMemory.swift */; };
+		8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */; };
 		8B8323002550571A009C1526 /* UserDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8322FF2550571A009C1526 /* UserDataSource.swift */; };
 		8B8323082550583F009C1526 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8323072550583F009C1526 /* LoginVC.swift */; };
+		8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CF22225753B7000743E8E /* GoogleService-Info.plist */; };
+		8BBD5D16257BF9B70089F2D9 /* RunCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */; };
+		8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBD5D1B257C05100089F2D9 /* RunScreenVC.xib */; };
+		8BBD5D21257C101C0089F2D9 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */; };
+		8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */; };
+		8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */; };
+		8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */; };
+		8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BDC8FCD255EAD4B00A2E229 /* AddVoiceAlert.xib */; };
+		8BDC8FD3255EAF0400A2E229 /* IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FD2255EAF0400A2E229 /* IBInspectables.swift */; };
+		8BDC8FE7255ECB4F00A2E229 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FE6255ECB4F00A2E229 /* CustomAlertViewController.swift */; };
+		8BDC8FEF255ECE4B00A2E229 /* AddTextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FEE255ECE4B00A2E229 /* AddTextAlert.swift */; };
+		8BDC8FF7255ECE5600A2E229 /* AddTextAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BDC8FF6255ECE5600A2E229 /* AddTextAlert.xib */; };
+		8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC8FFE255ED05900A2E229 /* EmojiChecker.swift */; };
+		8BDC9009255ED4FC00A2E229 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC9008255ED4FC00A2E229 /* AudioRecorder.swift */; };
 		8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CA92550383800A34B37 /* Coordinated.swift */; };
 		8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CAE2550384500A34B37 /* Coordinator.swift */; };
 		8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CB32550387300A34B37 /* AppCoordinator.swift */; };
 		8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */; };
 		8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */; };
 		8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */; };
-		8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */; };
-		8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */; };
+		8BE90CEF2550410E00A34B37 /* TeacherTutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90CEE2550410E00A34B37 /* TeacherTutorialScreenVC.swift */; };
 		8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */; };
-		8BE90D32255049A200A34B37 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* User.swift */; };
-		FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* StudentApp.storyboard */; };
+		8BE90D32255049A200A34B37 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE90D31255049A200A34B37 /* UserModel.swift */; };
+		8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38C0257A400400C24085 /* ColorModel.swift */; };
+		8BEB38C6257A4E4B00C24085 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38C5257A4E4B00C24085 /* Interpreter.swift */; };
+		8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CA257A4ECD00C24085 /* Memory.swift */; };
+		8BEB38D0257A80C400C24085 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CF257A80C400C24085 /* Parser.swift */; };
+		8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */; };
+		8BFA46F12592C7E4005FA058 /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA46F02592C7E4005FA058 /* OpenCVWrapper.mm */; };
+		8BFA47282592D030005FA058 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BFA47272592D030005FA058 /* opencv2.framework */; };
+		8BFA47302592E97B005FA058 /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFA472F2592E97B005FA058 /* VisionModel.swift */; };
+		FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */; };
+		FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */; };
+		FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */; };
+		FC000B742585394C003D4C1A /* TeacherCodingScreenViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B732585394C003D4C1A /* TeacherCodingScreenViewModel.xib */; };
+		FC000B7C25853B9A003D4C1A /* TeacherTutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B7B25853B9A003D4C1A /* TeacherTutorialCoordinator.swift */; };
+		FC000B8425854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B8325854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift */; };
+		FC000B8925854B97003D4C1A /* TeacherCodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B8825854B97003D4C1A /* TeacherCodingScreenVC.swift */; };
+		FC000B9425855CB0003D4C1A /* TeacherTutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B9325855CB0003D4C1A /* TeacherTutorialDataSource.swift */; };
+		FC06B9C42589349B00CEC137 /* CreateNewClassAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B9C32589349B00CEC137 /* CreateNewClassAlert.swift */; };
+		FC06B9C92589354A00CEC137 /* CreateNewClassAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06B9C82589354A00CEC137 /* CreateNewClassAlert.xib */; };
+		FC06B9D425893BC700CEC137 /* DisplayWarningAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B9D325893BC700CEC137 /* DisplayWarningAlert.swift */; };
+		FC06B9DC25893C6200CEC137 /* DisplayWarningAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC06B9DB25893C6200CEC137 /* DisplayWarningAlert.xib */; };
+		FC06B9EA2589655100CEC137 /* TeacherStudentEnrollmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B9E92589655100CEC137 /* TeacherStudentEnrollmentVC.swift */; };
+		FC06B9EF2589691800CEC137 /* ClassStudentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B9EE2589691800CEC137 /* ClassStudentInfoViewModel.swift */; };
+		FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */; };
+		FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */; };
+		FC16BFFB256C074D00180942 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16BFFA256C074C00180942 /* Constants.swift */; };
+		FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */; };
+		FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC16C017256C2E9E00180942 /* VariablesViewModel.xib */; };
+		FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */; };
+		FC1F46322584BFA7000CA30E /* CommonCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F46312584BFA7000CA30E /* CommonCoordinator.swift */; };
+		FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */; };
+		FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */; };
+		FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */; };
+		FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */; };
+		FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */; };
+		FC45C5E725896B0300E355C6 /* ClassStudentInfoViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC45C5E625896B0300E355C6 /* ClassStudentInfoViewModel.xib */; };
+		FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57E7DF256FA65100584686 /* TabProtocols.swift */; };
+		FC6BED9925889223004E8724 /* TeacherClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BED9825889223004E8724 /* TeacherClassVC.swift */; };
+		FC6BEDA22588A932004E8724 /* TeacherClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BEDA12588A932004E8724 /* TeacherClassViewModel.swift */; };
+		FC6BEDA72588A943004E8724 /* TeacherClassViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6BEDA62588A943004E8724 /* TeacherClassViewModel.xib */; };
+		FC6BEDAC2588B72C004E8724 /* TeacherClassCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BEDAB2588B72C004E8724 /* TeacherClassCoordinator.swift */; };
+		FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F122580BA0A000596D4 /* SpeechToText.swift */; };
+		FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F172580BA16000596D4 /* TextToSpeech.swift */; };
+		FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F1C2580BA3F000596D4 /* Shake.swift */; };
+		FC6C0F272580BA57000596D4 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F262580BA57000596D4 /* Flip.swift */; };
+		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
+		FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* RemoveAlert.swift */; };
+		FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* RemoveAlert.xib */; };
+		FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */; };
+		FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */; };
+		FC80F06B2553584300B5B86B /* MainApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC80F06A2553584300B5B86B /* MainApp.storyboard */; };
 		FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0742553DCDA00B5B86B /* RegisterVC.swift */; };
 		FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */; };
-		FC80F0852553FC5100B5B86B /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */; };
-		FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */; };
+		FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */; };
+		FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */; };
 		FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42A6254AE8890061E220 /* AppDelegate.swift */; };
 		FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42AF254AE88D0061E220 /* Assets.xcassets */; };
 		FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */; };
 		FC9C42BE254AE88D0061E220 /* EmojibleIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42BD254AE88D0061E220 /* EmojibleIOSTests.swift */; };
 		FC9C42C9254AE88D0061E220 /* EmojibleIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */; };
+		FCA64FE1257FA02B0010E20D /* Emojis.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA64FE0257FA02B0010E20D /* Emojis.json */; };
+		FCA64FEE257FA04C0010E20D /* EmojisIndexes.json in Resources */ = {isa = PBXBuildFile; fileRef = FCA64FED257FA04C0010E20D /* EmojisIndexes.json */; };
+		FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */; };
+		FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */; };
+		FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */; };
+		FCB2FBFC2586838600EB2229 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2FBFB2586838600EB2229 /* SettingsViewModel.swift */; };
+		FCB2FC04258683AF00EB2229 /* SettingsViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB2FC03258683AF00EB2229 /* SettingsViewModel.xib */; };
+		FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */; };
+		FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */; };
+		FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBC737C25665C11006361F8 /* ProgramViewModel.swift */; };
+		FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCBC738125665C1F006361F8 /* ProgramViewModel.xib */; };
+		FCC087C4258E5DB0003E6CE1 /* StudentsInClassDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC087C3258E5DAF003E6CE1 /* StudentsInClassDataSource.swift */; };
 		FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */; };
-		FCCA5C54255448180018FC6D /* TutorialScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */; };
-		FCCA5C65255453B10018FC6D /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C64255453B00018FC6D /* Tutorial.swift */; };
+		FCCA5C54255448180018FC6D /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C53255448180018FC6D /* TutorialViewModel.swift */; };
+		FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C64255453B00018FC6D /* CodeModel.swift */; };
 		FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */; };
 		FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */; };
-		FCCA5C79255469720018FC6D /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C78255469720018FC6D /* Assignment.swift */; };
-		FCCA5C7E25546A180018FC6D /* AssignmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */; };
+		FCCA5C79255469720018FC6D /* AssignmentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCA5C78255469720018FC6D /* AssignmentModels.swift */; };
+		FCCECC2D2589DDCF004BA56A /* TeacherClassDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCECC2C2589DDCF004BA56A /* TeacherClassDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,32 +160,126 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
-		5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1D955B18504508E5632E8301 /* Pods-EmojibleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.release.xcconfig"; sourceTree = "<group>"; };
+		23FF6DED84E5A8C004E99986 /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		41C27A151447E96F1214CC51 /* Pods-EmojibleIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		47122601B612E98EFD6B6D39 /* Pods-EmojibleIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5B503A8BCFA0896294935F97 /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8B02EA452579329F00480AFA /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		8B02EA4A2579331D00480AFA /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		8B02EA4F2579344E00480AFA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		8B02EA5D25795D9500480AFA /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
 		8B1597032550658200E3E10A /* AuthenticationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationStoryboard.storyboard; sourceTree = "<group>"; };
+		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		8B68E2EB2593D48600F2EA0B /* emoji_resnet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = emoji_resnet.mlmodel; sourceTree = "<group>"; };
+		8B68E2F02593FF4300F2EA0B /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		8B69332B255FE9FB00CE97CB /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
+		8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiAssignmentCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF790255C830A0043B0DB /* ProgramsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsCoordinator.swift; sourceTree = "<group>"; };
+		8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassScreenVC.swift; sourceTree = "<group>"; };
+		8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenVC.swift; sourceTree = "<group>"; };
+		8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerWithAlerts.swift; sourceTree = "<group>"; };
+		8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
+		8B7FF7E0255CD4CC0043B0DB /* TeacherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherModel.swift; sourceTree = "<group>"; };
+		8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		8B7FF7ED255CD6620043B0DB /* ClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassModel.swift; sourceTree = "<group>"; };
+		8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSignUpVC.swift; sourceTree = "<group>"; };
+		8B7FF7F8255CE44E0043B0DB /* UserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		8B7FF80E255D4A880043B0DB /* ClassesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesDataSource.swift; sourceTree = "<group>"; };
+		8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		8B7FF866255D65580043B0DB /* GlobalMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalMemory.swift; sourceTree = "<group>"; };
+		8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewModel.swift; sourceTree = "<group>"; };
 		8B8322FF2550571A009C1526 /* UserDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSource.swift; sourceTree = "<group>"; };
 		8B8323072550583F009C1526 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8B9CF22225753B7000743E8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCodeCoordinator.swift; sourceTree = "<group>"; };
+		8BBD5D1B257C05100089F2D9 /* RunScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RunScreenVC.xib; sourceTree = "<group>"; };
+		8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewModel.xib; sourceTree = "<group>"; };
+		8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousCodeDataSource.swift; sourceTree = "<group>"; };
+		8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoiceAlert.swift; sourceTree = "<group>"; };
+		8BDC8FCD255EAD4B00A2E229 /* AddVoiceAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddVoiceAlert.xib; sourceTree = "<group>"; };
+		8BDC8FD2255EAF0400A2E229 /* IBInspectables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBInspectables.swift; sourceTree = "<group>"; };
+		8BDC8FE6255ECB4F00A2E229 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		8BDC8FEE255ECE4B00A2E229 /* AddTextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTextAlert.swift; sourceTree = "<group>"; };
+		8BDC8FF6255ECE5600A2E229 /* AddTextAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTextAlert.xib; sourceTree = "<group>"; };
+		8BDC8FFE255ED05900A2E229 /* EmojiChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiChecker.swift; sourceTree = "<group>"; };
+		8BDC9008255ED4FC00A2E229 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		8BE90CA92550383800A34B37 /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
 		8BE90CAE2550384500A34B37 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8BE90CB32550387300A34B37 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoordinator.swift; sourceTree = "<group>"; };
 		8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoordinator.swift; sourceTree = "<group>"; };
-		8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainScreenVC.swift; sourceTree = "<group>"; };
-		8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMainScreenVC.swift; sourceTree = "<group>"; };
+		8BE90CEE2550410E00A34B37 /* TeacherTutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialScreenVC.swift; sourceTree = "<group>"; };
 		8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
-		8BE90D31255049A200A34B37 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS.release.xcconfig"; sourceTree = "<group>"; };
-		CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS_EmojibleIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC80F06A2553584300B5B86B /* StudentApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StudentApp.storyboard; sourceTree = "<group>"; };
+		8BE90D31255049A200A34B37 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8BEB38C0257A400400C24085 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		8BEB38C5257A4E4B00C24085 /* Interpreter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
+		8BEB38CA257A4ECD00C24085 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
+		8BEB38CF257A80C400C24085 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunScreenVC.swift; sourceTree = "<group>"; };
+		8BFA46C22592ADE2005FA058 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8BFA46C42592ADEC005FA058 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8BFA46EE2592C7E4005FA058 /* EmojibleIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmojibleIOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		8BFA46EF2592C7E4005FA058 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
+		8BFA46F02592C7E4005FA058 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
+		8BFA46FF2592C98E005FA058 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8BFA47272592D030005FA058 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		8BFA472F2592E97B005FA058 /* VisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
+		ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialViewModel.swift; sourceTree = "<group>"; };
+		FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCodingScreenViewModel.swift; sourceTree = "<group>"; };
+		FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherTutorialViewModel.xib; sourceTree = "<group>"; };
+		FC000B732585394C003D4C1A /* TeacherCodingScreenViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherCodingScreenViewModel.xib; sourceTree = "<group>"; };
+		FC000B7B25853B9A003D4C1A /* TeacherTutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialCoordinator.swift; sourceTree = "<group>"; };
+		FC000B8325854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSavedTutorialScreenVC.swift; sourceTree = "<group>"; };
+		FC000B8825854B97003D4C1A /* TeacherCodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCodingScreenVC.swift; sourceTree = "<group>"; };
+		FC000B9325855CB0003D4C1A /* TeacherTutorialDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTutorialDataSource.swift; sourceTree = "<group>"; };
+		FC06B9C32589349B00CEC137 /* CreateNewClassAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewClassAlert.swift; sourceTree = "<group>"; };
+		FC06B9C82589354A00CEC137 /* CreateNewClassAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewClassAlert.xib; sourceTree = "<group>"; };
+		FC06B9D325893BC700CEC137 /* DisplayWarningAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayWarningAlert.swift; sourceTree = "<group>"; };
+		FC06B9DB25893C6200CEC137 /* DisplayWarningAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayWarningAlert.xib; sourceTree = "<group>"; };
+		FC06B9E92589655100CEC137 /* TeacherStudentEnrollmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherStudentEnrollmentVC.swift; sourceTree = "<group>"; };
+		FC06B9EE2589691800CEC137 /* ClassStudentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassStudentInfoViewModel.swift; sourceTree = "<group>"; };
+		FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramNewCodeViewModel.xib; sourceTree = "<group>"; };
+		FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramNewCodeViewModel.swift; sourceTree = "<group>"; };
+		FC16BFFA256C074C00180942 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentViewModel.xib; sourceTree = "<group>"; };
+		FC16C017256C2E9E00180942 /* VariablesViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VariablesViewModel.xib; sourceTree = "<group>"; };
+		FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablesViewModel.swift; sourceTree = "<group>"; };
+		FC1F46312584BFA7000CA30E /* CommonCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCoordinator.swift; sourceTree = "<group>"; };
+		FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDataSource.swift; sourceTree = "<group>"; };
+		FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuBaseController.swift; sourceTree = "<group>"; };
+		FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
+		FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCodeScreenVC.swift; sourceTree = "<group>"; };
+		FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProgramCodeScreenVC.swift; sourceTree = "<group>"; };
+		FC45C5E625896B0300E355C6 /* ClassStudentInfoViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassStudentInfoViewModel.xib; sourceTree = "<group>"; };
+		FC57E7DF256FA65100584686 /* TabProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProtocols.swift; sourceTree = "<group>"; };
+		FC6BED9825889223004E8724 /* TeacherClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassVC.swift; sourceTree = "<group>"; };
+		FC6BEDA12588A932004E8724 /* TeacherClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassViewModel.swift; sourceTree = "<group>"; };
+		FC6BEDA62588A943004E8724 /* TeacherClassViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherClassViewModel.xib; sourceTree = "<group>"; };
+		FC6BEDAB2588B72C004E8724 /* TeacherClassCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassCoordinator.swift; sourceTree = "<group>"; };
+		FC6C0F122580BA0A000596D4 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
+		FC6C0F172580BA16000596D4 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
+		FC6C0F1C2580BA3F000596D4 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
+		FC6C0F262580BA57000596D4 /* Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
+		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
+		FC7384202566A85C00432AC6 /* RemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAlert.swift; sourceTree = "<group>"; };
+		FC7384252566A87500432AC6 /* RemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveAlert.xib; sourceTree = "<group>"; };
+		FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentAlert.xib; sourceTree = "<group>"; };
+		FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAlert.swift; sourceTree = "<group>"; };
+		FC80F06A2553584300B5B86B /* MainApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainApp.storyboard; sourceTree = "<group>"; };
 		FC80F0742553DCDA00B5B86B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FC80F07F2553E50800B5B86B /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
-		FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
-		FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramScreenVC.swift; sourceTree = "<group>"; };
+		FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataSource.swift; sourceTree = "<group>"; };
 		FC9C42A3254AE8890061E220 /* EmojibleIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojibleIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42A6254AE8890061E220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9C42AF254AE88D0061E220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,14 +291,25 @@
 		FC9C42C4254AE88D0061E220 /* EmojibleIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmojibleIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9C42C8254AE88D0061E220 /* EmojibleIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibleIOSUITests.swift; sourceTree = "<group>"; };
 		FC9C42CA254AE88D0061E220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA64FE0257FA02B0010E20D /* Emojis.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Emojis.json; sourceTree = "<group>"; };
+		FCA64FED257FA04C0010E20D /* EmojisIndexes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmojisIndexes.json; sourceTree = "<group>"; };
+		FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentSection.swift; sourceTree = "<group>"; };
+		FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSection.swift; sourceTree = "<group>"; };
+		FCB2FBFB2586838600EB2229 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		FCB2FC03258683AF00EB2229 /* SettingsViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewModel.xib; sourceTree = "<group>"; };
+		FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFunctionAlert.swift; sourceTree = "<group>"; };
+		FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFunctionAlert.xib; sourceTree = "<group>"; };
+		FCBC737C25665C11006361F8 /* ProgramViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewModel.swift; sourceTree = "<group>"; };
+		FCBC738125665C1F006361F8 /* ProgramViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgramViewModel.xib; sourceTree = "<group>"; };
+		FCC087C3258E5DAF003E6CE1 /* StudentsInClassDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsInClassDataSource.swift; sourceTree = "<group>"; };
 		FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenVC.swift; sourceTree = "<group>"; };
-		FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreenCell.swift; sourceTree = "<group>"; };
-		FCCA5C64255453B00018FC6D /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		FCCA5C53255448180018FC6D /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
+		FCCA5C64255453B00018FC6D /* CodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeModel.swift; sourceTree = "<group>"; };
 		FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialDataSource.swift; sourceTree = "<group>"; };
 		FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentScreenVC.swift; sourceTree = "<group>"; };
-		FCCA5C78255469720018FC6D /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
-		FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDataSource.swift; sourceTree = "<group>"; };
-		FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FCCA5C78255469720018FC6D /* AssignmentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentModels.swift; sourceTree = "<group>"; };
+		FCCECC2C2589DDCF004BA56A /* TeacherClassDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +317,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				414F23D134BDD679BBCE56DC /* Pods_EmojibleIOS.framework in Frameworks */,
+				8BFA47282592D030005FA058 /* opencv2.framework in Frameworks */,
+				2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +326,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6569782B1F28CB7C2B30099E /* Pods_EmojibleIOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,34 +333,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12E81FE095B3E0690D40FEA3 /* Pods_EmojibleIOS_EmojibleIOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C450B4A847A3AA6CFADEBB3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CE2B675E63AA0A97ADB36A39 /* Pods_EmojibleIOS.framework */,
-				D80A1F104FF44384B202BDCA /* Pods_EmojibleIOS_EmojibleIOSUITests.framework */,
-				1E9ED910D0B23FF29D8DA8B1 /* Pods_EmojibleIOSTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		62F6CD4B6EF7C633DBE19BED /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */,
-				C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */,
-				8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */,
-				FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */,
-				5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */,
-				20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */,
+				41C27A151447E96F1214CC51 /* Pods-EmojibleIOS.debug.xcconfig */,
+				1D955B18504508E5632E8301 /* Pods-EmojibleIOS.release.xcconfig */,
+				23FF6DED84E5A8C004E99986 /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */,
+				5B503A8BCFA0896294935F97 /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */,
+				47122601B612E98EFD6B6D39 /* Pods-EmojibleIOSTests.debug.xcconfig */,
+				CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		737725952EE88BE151742748 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA47272592D030005FA058 /* opencv2.framework */,
+				8BFA46C42592ADEC005FA058 /* CoreMedia.framework */,
+				8BFA46C22592ADE2005FA058 /* CoreGraphics.framework */,
+				ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8B1597142550672900E3E10A /* ViewControllers */ = {
@@ -171,10 +376,10 @@
 		8B15971B2550686B00E3E10A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BE90CF32550411C00A34B37 /* StudentMainScreenVC.swift */,
-				FC80F0842553FC5100B5B86B /* CodingScreenVC.swift */,
-				FCCA5C3C255420D70018FC6D /* TutorialViewController */,
-				FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */,
+				FC73841C25669D3400432AC6 /* ProgramTabViewConroller */,
+				FC259E1B256FE1A50066E02A /* TutorialTabViewController */,
+				8B7FF79B255C91740043B0DB /* ClassScreenVC.swift */,
+				8B7FF7F2255CE00E0043B0DB /* ClassSignUpVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,15 +387,121 @@
 		8B15971C2550687400E3E10A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8BE90CEE2550410E00A34B37 /* TeacherMainScreenVC.swift */,
+				FC6BED97258891F1004E8724 /* TeacherClassTabViewController */,
+				FC000B9925856010003D4C1A /* TeacherTutorialTabViewController */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8B3E751B255D952D00AAA915 /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				8BDC9004255ED42800A2E229 /* OutputSensors */,
+				8BDC9003255ED41B00A2E229 /* InputSensors */,
+				FC6C0F122580BA0A000596D4 /* SpeechToText.swift */,
+				FC6C0F172580BA16000596D4 /* TextToSpeech.swift */,
+				FC6C0F1C2580BA3F000596D4 /* Shake.swift */,
+				FC6C0F262580BA57000596D4 /* Flip.swift */,
+			);
+			path = Sensors;
+			sourceTree = "<group>";
+		};
+		8B7FF771255C7CDD0043B0DB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC16C015256C2E4800180942 /* ProgramViewModel */,
+				FC16C00D256C2DDF00180942 /* TutorialViewModel */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8B7FF778255C82A90043B0DB /* StudentCoordinatorChildren */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF78B255C82F40043B0DB /* TutorialsCoordinator.swift */,
+				8B7FF790255C830A0043B0DB /* ProgramsCoordinator.swift */,
+				8B7FF786255C82DA0043B0DB /* ClassCoordinator.swift */,
+			);
+			path = StudentCoordinatorChildren;
+			sourceTree = "<group>";
+		};
+		8B7FF7F7255CE43C0043B0DB /* ModelFactories */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF7F8255CE44E0043B0DB /* UserFactory.swift */,
+			);
+			path = ModelFactories;
+			sourceTree = "<group>";
+		};
+		8B7FF865255D653F0043B0DB /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				8BDC8FFE255ED05900A2E229 /* EmojiChecker.swift */,
+				8B7FF866255D65580043B0DB /* GlobalMemory.swift */,
+				8B69332B255FE9FB00CE97CB /* TokenType.swift */,
+				8B02EA452579329F00480AFA /* Token.swift */,
+				8B02EA4A2579331D00480AFA /* Lexer.swift */,
+				8B02EA5D25795D9500480AFA /* AST.swift */,
+				8BEB38C5257A4E4B00C24085 /* Interpreter.swift */,
+				8BEB38CA257A4ECD00C24085 /* Memory.swift */,
+				8BEB38CF257A80C400C24085 /* Parser.swift */,
+			);
+			path = Interpreter;
+			sourceTree = "<group>";
+		};
+		8BBD5D1A257C04FA0089F2D9 /* RunScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */,
+				8BBD5D1B257C05100089F2D9 /* RunScreenVC.xib */,
+			);
+			path = RunScreen;
+			sourceTree = "<group>";
+		};
+		8BDC8FC4255EAD2D00A2E229 /* Reusables & Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8BDC8FE6255ECB4F00A2E229 /* CustomAlertViewController.swift */,
+				8BDC8FC5255EAD4000A2E229 /* AddVoiceAlert.swift */,
+				8BDC8FCD255EAD4B00A2E229 /* AddVoiceAlert.xib */,
+				8BDC8FEE255ECE4B00A2E229 /* AddTextAlert.swift */,
+				8BDC8FF6255ECE5600A2E229 /* AddTextAlert.xib */,
+				FCBC736C2565C2A4006361F8 /* AddFunctionAlert.swift */,
+				FCBC7374256643F1006361F8 /* AddFunctionAlert.xib */,
+				8BDC8FD2255EAF0400A2E229 /* IBInspectables.swift */,
+				FC7384202566A85C00432AC6 /* RemoveAlert.swift */,
+				FC7384252566A87500432AC6 /* RemoveAlert.xib */,
+				FC7D1D0C257184C300DD6B4C /* AssignmentAlert.swift */,
+				FC7D1D072571817900DD6B4C /* AssignmentAlert.xib */,
+				FC06B9C32589349B00CEC137 /* CreateNewClassAlert.swift */,
+				FC06B9C82589354A00CEC137 /* CreateNewClassAlert.xib */,
+				FC06B9D325893BC700CEC137 /* DisplayWarningAlert.swift */,
+				FC06B9DB25893C6200CEC137 /* DisplayWarningAlert.xib */,
+				FC16BFFA256C074C00180942 /* Constants.swift */,
+			);
+			path = "Reusables & Helpers";
+			sourceTree = "<group>";
+		};
+		8BDC9003255ED41B00A2E229 /* InputSensors */ = {
+			isa = PBXGroup;
+			children = (
+				8BDC9008255ED4FC00A2E229 /* AudioRecorder.swift */,
+			);
+			path = InputSensors;
+			sourceTree = "<group>";
+		};
+		8BDC9004255ED42800A2E229 /* OutputSensors */ = {
+			isa = PBXGroup;
+			children = (
+				8B3E751C255D954F00AAA915 /* AudioPlayer.swift */,
+			);
+			path = OutputSensors;
 			sourceTree = "<group>";
 		};
 		8BE90CA1255037A000A34B37 /* Default Files */ = {
 			isa = PBXGroup;
 			children = (
-				FC8F33D02551C37D003BB3E5 /* GoogleService-Info.plist */,
+				8B9CF22225753B7000743E8E /* GoogleService-Info.plist */,
 				FC9C42A6254AE8890061E220 /* AppDelegate.swift */,
 				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
 				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
@@ -202,9 +513,14 @@
 		8BE90CA2255037CD00A34B37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8BE90D31255049A200A34B37 /* User.swift */,
-				FCCA5C64255453B00018FC6D /* Tutorial.swift */,
-				FCCA5C78255469720018FC6D /* Assignment.swift */,
+				8B7FF7F7255CE43C0043B0DB /* ModelFactories */,
+				FCCA5C78255469720018FC6D /* AssignmentModels.swift */,
+				8BE90D31255049A200A34B37 /* UserModel.swift */,
+				8B7FF7E0255CD4CC0043B0DB /* TeacherModel.swift */,
+				8B7FF7E5255CD4D60043B0DB /* StudentModel.swift */,
+				FCCA5C64255453B00018FC6D /* CodeModel.swift */,
+				8B7FF7ED255CD6620043B0DB /* ClassModel.swift */,
+				8BEB38C0257A400400C24085 /* ColorModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,7 +528,11 @@
 		8BE90CA3255037D100A34B37 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8B3E751B255D952D00AAA915 /* Sensors */,
 				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
+				8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */,
+				8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */,
+				8BFA472F2592E97B005FA058 /* VisionModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -221,8 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */,
-				8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */,
-				8BE90CDB25503F8E00A34B37 /* TeacherCoordinatorScenes */,
+				FC1F462A2584BF30000CA30E /* CoordinatorScenes */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -232,7 +551,13 @@
 			children = (
 				8B8322FF2550571A009C1526 /* UserDataSource.swift */,
 				FCCA5C692554542A0018FC6D /* TutorialDataSource.swift */,
-				FCCA5C7D25546A180018FC6D /* AssignmentDataSource.swift */,
+				8B7FF80E255D4A880043B0DB /* ClassesDataSource.swift */,
+				8BBF79C9255F7A6C000657E6 /* PreviousCodeDataSource.swift */,
+				FC96BF6E2576D08B00EA5044 /* AssignmentDataSource.swift */,
+				FC1FA83A25780CA8008E4B29 /* ProgramDataSource.swift */,
+				FC000B9325855CB0003D4C1A /* TeacherTutorialDataSource.swift */,
+				FCCECC2C2589DDCF004BA56A /* TeacherClassDataSource.swift */,
+				FCC087C3258E5DAF003E6CE1 /* StudentsInClassDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -242,6 +567,13 @@
 			children = (
 				8BE90CA92550383800A34B37 /* Coordinated.swift */,
 				8BE90CAE2550384500A34B37 /* Coordinator.swift */,
+				8B7FF7A5255C93500043B0DB /* UIViewControllerWithAlerts.swift */,
+				8B7FF7AD255C936D0043B0DB /* ViewControllerExtensions.swift */,
+				8B7FF844255D5C220043B0DB /* NotificationExtensions.swift */,
+				FC57E7DF256FA65100584686 /* TabProtocols.swift */,
+				8B02EA4F2579344E00480AFA /* StringExtensions.swift */,
+				8BBD5D20257C101C0089F2D9 /* TextFieldExtensions.swift */,
+				8B68E2F02593FF4300F2EA0B /* UIImageExtensions.swift */,
 			);
 			path = "Protocols & Extensions";
 			sourceTree = "<group>";
@@ -249,29 +581,34 @@
 		8BE90CA82550380C00A34B37 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				FC1F46262584BDC7000CA30E /* CommonChildren */,
+				FC1F46252584BDB7000CA30E /* TeacherCoordinatorChildren */,
+				8B7FF778255C82A90043B0DB /* StudentCoordinatorChildren */,
 				8BE90CB32550387300A34B37 /* AppCoordinator.swift */,
 				8BE90CB82550397600A34B37 /* AuthenticationCoordinator.swift */,
+				FC1F46312584BFA7000CA30E /* CommonCoordinator.swift */,
 				8BE90CBD2550397E00A34B37 /* StudentCoordinator.swift */,
 				8BE90CC22550398600A34B37 /* TeacherCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		8BE90CDA25503F7E00A34B37 /* StudentCoordinatorScenes */ = {
+		8BE90CDA25503F7E00A34B37 /* StudentUniqueCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
-				FC80F06A2553584300B5B86B /* StudentApp.storyboard */,
+				8B7FF771255C7CDD0043B0DB /* ViewModels */,
 				8B15971B2550686B00E3E10A /* ViewControllers */,
 			);
-			path = StudentCoordinatorScenes;
+			path = StudentUniqueCoordinatorScenes;
 			sourceTree = "<group>";
 		};
-		8BE90CDB25503F8E00A34B37 /* TeacherCoordinatorScenes */ = {
+		8BE90CDB25503F8E00A34B37 /* TeacherUniqueCoordinatorScenes */ = {
 			isa = PBXGroup;
 			children = (
+				FC000B6025853886003D4C1A /* ViewModel */,
 				8B15971C2550687400E3E10A /* ViewControllers */,
 			);
-			path = TeacherCoordinatorScenes;
+			path = TeacherUniqueCoordinatorScenes;
 			sourceTree = "<group>";
 		};
 		8BE90CDC25503F9B00A34B37 /* AuthenticationCoordinatorScenes */ = {
@@ -283,6 +620,186 @@
 			path = AuthenticationCoordinatorScenes;
 			sourceTree = "<group>";
 		};
+		8BFA46ED2592B1BF005FA058 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA46EF2592C7E4005FA058 /* OpenCVWrapper.h */,
+				8BFA46F02592C7E4005FA058 /* OpenCVWrapper.mm */,
+				8BFA46EE2592C7E4005FA058 /* EmojibleIOS-Bridging-Header.h */,
+				8BFA46FF2592C98E005FA058 /* PrefixHeader.pch */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		FC000B6025853886003D4C1A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC6BEDA0258892D7004E8724 /* TeacherClassViewModel */,
+				FC000B9825855FF8003D4C1A /* TeacherTutorialViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FC000B9825855FF8003D4C1A /* TeacherTutorialViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */,
+				FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */,
+				FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */,
+				FC000B732585394C003D4C1A /* TeacherCodingScreenViewModel.xib */,
+			);
+			path = TeacherTutorialViewModel;
+			sourceTree = "<group>";
+		};
+		FC000B9925856010003D4C1A /* TeacherTutorialTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8BE90CEE2550410E00A34B37 /* TeacherTutorialScreenVC.swift */,
+				FC000B8325854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift */,
+				FC000B8825854B97003D4C1A /* TeacherCodingScreenVC.swift */,
+			);
+			path = TeacherTutorialTabViewController;
+			sourceTree = "<group>";
+		};
+		FC16C00D256C2DDF00180942 /* TutorialViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C53255448180018FC6D /* TutorialViewModel.swift */,
+				8BBF79BE255F79B2000657E6 /* TutorialViewModel.xib */,
+			);
+			path = TutorialViewModel;
+			sourceTree = "<group>";
+		};
+		FC16C00E256C2DF100180942 /* AssignmentViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF871255D68B20043B0DB /* AssignmentViewModel.swift */,
+				FC16BFFF256C2C1C00180942 /* AssignmentViewModel.xib */,
+				FC16C01C256C2EBA00180942 /* VariablesViewModel.swift */,
+				FC16C017256C2E9E00180942 /* VariablesViewModel.xib */,
+			);
+			path = AssignmentViewModel;
+			sourceTree = "<group>";
+		};
+		FC16C015256C2E4800180942 /* ProgramViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCBC737C25665C11006361F8 /* ProgramViewModel.swift */,
+				FCBC738125665C1F006361F8 /* ProgramViewModel.xib */,
+				FC16BFE7256B103C00180942 /* ProgramNewCodeViewModel.swift */,
+				FC16BFD6256B023E00180942 /* ProgramNewCodeViewModel.xib */,
+			);
+			path = ProgramViewModel;
+			sourceTree = "<group>";
+		};
+		FC1F46252584BDB7000CA30E /* TeacherCoordinatorChildren */ = {
+			isa = PBXGroup;
+			children = (
+				FC000B7B25853B9A003D4C1A /* TeacherTutorialCoordinator.swift */,
+				FC6BEDAB2588B72C004E8724 /* TeacherClassCoordinator.swift */,
+			);
+			path = TeacherCoordinatorChildren;
+			sourceTree = "<group>";
+		};
+		FC1F46262584BDC7000CA30E /* CommonChildren */ = {
+			isa = PBXGroup;
+			children = (
+				8B7FF779255C82C30043B0DB /* EmojiAssignmentCoordinator.swift */,
+				8B7FF781255C82CD0043B0DB /* SettingsCoordinator.swift */,
+				8BBD5D15257BF9B70089F2D9 /* RunCodeCoordinator.swift */,
+			);
+			path = CommonChildren;
+			sourceTree = "<group>";
+		};
+		FC1F462A2584BF30000CA30E /* CoordinatorScenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC80F06A2553584300B5B86B /* MainApp.storyboard */,
+				FC1F465025851398000CA30E /* CommonScenes */,
+				8BE90CDA25503F7E00A34B37 /* StudentUniqueCoordinatorScenes */,
+				8BE90CDB25503F8E00A34B37 /* TeacherUniqueCoordinatorScenes */,
+			);
+			path = CoordinatorScenes;
+			sourceTree = "<group>";
+		};
+		FC1F465025851398000CA30E /* CommonScenes */ = {
+			isa = PBXGroup;
+			children = (
+				FC228F66256A567000A1A66F /* NavigationMenu */,
+				8BBD5D1A257C04FA0089F2D9 /* RunScreen */,
+				FC1F4652258513C0000CA30E /* ViewModels */,
+				FC1F4651258513B6000CA30E /* ViewControllers */,
+			);
+			path = CommonScenes;
+			sourceTree = "<group>";
+		};
+		FC1F4651258513B6000CA30E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */,
+				8B7FF7A0255C918A0043B0DB /* SettingsScreenVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FC1F4652258513C0000CA30E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FC16C00E256C2DF100180942 /* AssignmentViewModel */,
+				FCB2FBFB2586838600EB2229 /* SettingsViewModel.swift */,
+				FCB2FC03258683AF00EB2229 /* SettingsViewModel.xib */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FC228F66256A567000A1A66F /* NavigationMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FC228F67256A56AB00A1A66F /* NavigationMenuBaseController.swift */,
+				FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */,
+			);
+			path = NavigationMenu;
+			sourceTree = "<group>";
+		};
+		FC259E1B256FE1A50066E02A /* TutorialTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
+				FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */,
+			);
+			path = TutorialTabViewController;
+			sourceTree = "<group>";
+		};
+		FC6BED97258891F1004E8724 /* TeacherClassTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FC6BED9825889223004E8724 /* TeacherClassVC.swift */,
+				FC06B9E92589655100CEC137 /* TeacherStudentEnrollmentVC.swift */,
+			);
+			path = TeacherClassTabViewController;
+			sourceTree = "<group>";
+		};
+		FC6BEDA0258892D7004E8724 /* TeacherClassViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC6BEDA12588A932004E8724 /* TeacherClassViewModel.swift */,
+				FC6BEDA62588A943004E8724 /* TeacherClassViewModel.xib */,
+				FC06B9EE2589691800CEC137 /* ClassStudentInfoViewModel.swift */,
+				FC45C5E625896B0300E355C6 /* ClassStudentInfoViewModel.xib */,
+			);
+			path = TeacherClassViewModel;
+			sourceTree = "<group>";
+		};
+		FC73841C25669D3400432AC6 /* ProgramTabViewConroller */ = {
+			isa = PBXGroup;
+			children = (
+				FC80F0842553FC5100B5B86B /* ProgramScreenVC.swift */,
+				FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */,
+				FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */,
+			);
+			path = ProgramTabViewConroller;
+			sourceTree = "<group>";
+		};
 		FC9C429A254AE8890061E220 = {
 			isa = PBXGroup;
 			children = (
@@ -291,7 +808,7 @@
 				FC9C42C7254AE88D0061E220 /* EmojibleIOSUITests */,
 				FC9C42A4254AE8890061E220 /* Products */,
 				62F6CD4B6EF7C633DBE19BED /* Pods */,
-				1C450B4A847A3AA6CFADEBB3 /* Frameworks */,
+				737725952EE88BE151742748 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,7 +830,11 @@
 				8BE90CA6255037FA00A34B37 /* DataSources */,
 				8BE90CA4255037D800A34B37 /* Scenes */,
 				8BE90CA3255037D100A34B37 /* Services */,
+				8BDC8FC4255EAD2D00A2E229 /* Reusables & Helpers */,
 				8BE90CA2255037CD00A34B37 /* Models */,
+				FCA64FDF257FA00F0010E20D /* StaticData */,
+				8B7FF865255D653F0043B0DB /* Interpreter */,
+				8BFA46ED2592B1BF005FA058 /* Headers */,
 				8BE90CA1255037A000A34B37 /* Default Files */,
 			);
 			path = EmojibleIOS;
@@ -337,13 +858,33 @@
 			path = EmojibleIOSUITests;
 			sourceTree = "<group>";
 		};
-		FCCA5C3C255420D70018FC6D /* TutorialViewController */ = {
+		FCA64FDF257FA00F0010E20D /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
-				FCCA5C4B255447CD0018FC6D /* TutorialScreenVC.swift */,
-				FCCA5C53255448180018FC6D /* TutorialScreenCell.swift */,
+				8B68E2EB2593D48600F2EA0B /* emoji_resnet.mlmodel */,
+				FCA64FE0257FA02B0010E20D /* Emojis.json */,
+				FCA64FED257FA04C0010E20D /* EmojisIndexes.json */,
 			);
-			path = TutorialViewController;
+			path = StaticData;
+			sourceTree = "<group>";
+		};
+		FCA9A4A5256EEE5C009F81B5 /* AssignmentsTabViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FCCA5C73255464AD0018FC6D /* AssignmentScreenVC.swift */,
+				FCA9A4A6256EEE75009F81B5 /* Helpers */,
+			);
+			path = AssignmentsTabViewController;
+			sourceTree = "<group>";
+		};
+		FCA9A4A6256EEE75009F81B5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FCA9A48F256ECDCE009F81B5 /* SectionHeader.swift */,
+				FCA9A495256EEBA3009F81B5 /* AssignmentSection.swift */,
+				FCA9A49A256EEBB3009F81B5 /* VariableSection.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,11 +894,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC9C42CD254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOS" */;
 			buildPhases = (
-				EC8547DB042278627E5C7894 /* [CP] Check Pods Manifest.lock */,
+				7DD897A91B9557EFB285F30D /* [CP] Check Pods Manifest.lock */,
 				FC9C429F254AE8890061E220 /* Sources */,
 				FC9C42A0254AE8890061E220 /* Frameworks */,
 				FC9C42A1254AE8890061E220 /* Resources */,
-				6E0B3ECA93E2D7D62F1DDACC /* [CP] Embed Pods Frameworks */,
+				4EB24B4100DEAB725437AE59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,7 +913,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC9C42D0254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOSTests" */;
 			buildPhases = (
-				BE24252FE72FE13CD2F00A46 /* [CP] Check Pods Manifest.lock */,
+				93875A9D80746FBF6621A5DE /* [CP] Check Pods Manifest.lock */,
 				FC9C42B5254AE88D0061E220 /* Sources */,
 				FC9C42B6254AE88D0061E220 /* Frameworks */,
 				FC9C42B7254AE88D0061E220 /* Resources */,
@@ -391,11 +932,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC9C42D3254AE88D0061E220 /* Build configuration list for PBXNativeTarget "EmojibleIOSUITests" */;
 			buildPhases = (
-				8514D1199A9FB66085EF7292 /* [CP] Check Pods Manifest.lock */,
+				CCD6C56FC077B0A615D81162 /* [CP] Check Pods Manifest.lock */,
 				FC9C42C0254AE88D0061E220 /* Sources */,
 				FC9C42C1254AE88D0061E220 /* Frameworks */,
 				FC9C42C2254AE88D0061E220 /* Resources */,
-				C8A808A9C36A28CAC1CDD066 /* [CP] Embed Pods Frameworks */,
+				D0018C8C93B39B09057D20D1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -418,6 +959,7 @@
 				TargetAttributes = {
 					FC9C42A2254AE8890061E220 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1210;
 					};
 					FC9C42B8254AE88D0061E220 = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -454,11 +996,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */,
+				FCA64FEE257FA04C0010E20D /* EmojisIndexes.json in Resources */,
+				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
+				FCB2FC04258683AF00EB2229 /* SettingsViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
-				FC8F33D12551C37D003BB3E5 /* GoogleService-Info.plist in Resources */,
+				FC45C5E725896B0300E355C6 /* ClassStudentInfoViewModel.xib in Resources */,
+				8BBF79BF255F79B2000657E6 /* TutorialViewModel.xib in Resources */,
 				FC9C42B0254AE88D0061E220 /* Assets.xcassets in Resources */,
+				FC7D1D082571817900DD6B4C /* AssignmentAlert.xib in Resources */,
+				FC06B9DC25893C6200CEC137 /* DisplayWarningAlert.xib in Resources */,
+				FCA64FE1257FA02B0010E20D /* Emojis.json in Resources */,
 				8B1597042550658200E3E10A /* AuthenticationStoryboard.storyboard in Resources */,
-				FC80F06B2553584300B5B86B /* StudentApp.storyboard in Resources */,
+				FC80F06B2553584300B5B86B /* MainApp.storyboard in Resources */,
+				8BDC8FCE255EAD4B00A2E229 /* AddVoiceAlert.xib in Resources */,
+				FC16BFD7256B023E00180942 /* ProgramNewCodeViewModel.xib in Resources */,
+				FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */,
+				8B9CF22325753B7000743E8E /* GoogleService-Info.plist in Resources */,
+				FCBC738225665C1F006361F8 /* ProgramViewModel.xib in Resources */,
+				FC6BEDA72588A943004E8724 /* TeacherClassViewModel.xib in Resources */,
+				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
+				FC000B742585394C003D4C1A /* TeacherCodingScreenViewModel.xib in Resources */,
+				FC06B9C92589354A00CEC137 /* CreateNewClassAlert.xib in Resources */,
+				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,
+				FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */,
+				8BDC8FF7255ECE5600A2E229 /* AddTextAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +1041,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6E0B3ECA93E2D7D62F1DDACC /* [CP] Embed Pods Frameworks */ = {
+		4EB24B4100DEAB725437AE59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -496,68 +1058,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS/Pods-EmojibleIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8514D1199A9FB66085EF7292 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOS-EmojibleIOSUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BE24252FE72FE13CD2F00A46 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C8A808A9C36A28CAC1CDD066 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC8547DB042278627E5C7894 /* [CP] Check Pods Manifest.lock */ = {
+		7DD897A91B9557EFB285F30D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -579,6 +1080,67 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		93875A9D80746FBF6621A5DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCD6C56FC077B0A615D81162 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EmojibleIOS-EmojibleIOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0018C8C93B39B09057D20D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EmojibleIOS-EmojibleIOSUITests/Pods-EmojibleIOS-EmojibleIOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -586,29 +1148,110 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCCA5C7E25546A180018FC6D /* AssignmentDataSource.swift in Sources */,
+				FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */,
+				8B7FF782255C82CD0043B0DB /* SettingsCoordinator.swift in Sources */,
+				8B02EA462579329F00480AFA /* Token.swift in Sources */,
+				8B7FF7D1255CB34F0043B0DB /* CustomDateFormatter.swift in Sources */,
+				8B7FF80F255D4A880043B0DB /* ClassesDataSource.swift in Sources */,
+				8BBD5D21257C101C0089F2D9 /* TextFieldExtensions.swift in Sources */,
+				8B7FF7A1255C918A0043B0DB /* SettingsScreenVC.swift in Sources */,
+				8BBF79CA255F7A6C000657E6 /* PreviousCodeDataSource.swift in Sources */,
+				FC7D1D0D257184C300DD6B4C /* AssignmentAlert.swift in Sources */,
 				FCCA5C4C255447CD0018FC6D /* TutorialScreenVC.swift in Sources */,
-				8BE90D32255049A200A34B37 /* User.swift in Sources */,
+				8BDC9009255ED4FC00A2E229 /* AudioRecorder.swift in Sources */,
+				8BE90D32255049A200A34B37 /* UserModel.swift in Sources */,
+				FC6BEDA22588A932004E8724 /* TeacherClassViewModel.swift in Sources */,
+				8BDC8FEF255ECE4B00A2E229 /* AddTextAlert.swift in Sources */,
+				8B02EA5E25795D9500480AFA /* AST.swift in Sources */,
+				FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */,
+				8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */,
+				8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */,
 				FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */,
+				8BDC8FD3255EAF0400A2E229 /* IBInspectables.swift in Sources */,
+				8B7FF7A6255C93500043B0DB /* UIViewControllerWithAlerts.swift in Sources */,
+				8BDC8FE7255ECB4F00A2E229 /* CustomAlertViewController.swift in Sources */,
+				8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */,
+				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
+				8B68E2EC2593D48600F2EA0B /* emoji_resnet.mlmodel in Sources */,
+				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
+				FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */,
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
-				8BE90CEF2550410E00A34B37 /* TeacherMainScreenVC.swift in Sources */,
-				8BE90CF42550411C00A34B37 /* StudentMainScreenVC.swift in Sources */,
+				FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */,
+				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
+				8BE90CEF2550410E00A34B37 /* TeacherTutorialScreenVC.swift in Sources */,
+				FC228F68256A56AB00A1A66F /* NavigationMenuBaseController.swift in Sources */,
+				8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */,
+				8B7FF867255D65580043B0DB /* GlobalMemory.swift in Sources */,
+				FC06B9C42589349B00CEC137 /* CreateNewClassAlert.swift in Sources */,
+				FC06B9EA2589655100CEC137 /* TeacherStudentEnrollmentVC.swift in Sources */,
+				FC6BEDAC2588B72C004E8724 /* TeacherClassCoordinator.swift in Sources */,
+				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
+				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
+				FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */,
+				8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
+				8BEB38D0257A80C400C24085 /* Parser.swift in Sources */,
+				FC000B8425854B84003D4C1A /* TeacherSavedTutorialScreenVC.swift in Sources */,
 				8B8323082550583F009C1526 /* LoginVC.swift in Sources */,
-				FCCA5C65255453B10018FC6D /* Tutorial.swift in Sources */,
+				FC000B8925854B97003D4C1A /* TeacherCodingScreenVC.swift in Sources */,
+				FCB2FBFC2586838600EB2229 /* SettingsViewModel.swift in Sources */,
+				FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */,
+				FC1F46322584BFA7000CA30E /* CommonCoordinator.swift in Sources */,
+				FCCA5C65255453B10018FC6D /* CodeModel.swift in Sources */,
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
+				FC000B9425855CB0003D4C1A /* TeacherTutorialDataSource.swift in Sources */,
+				8B7FF791255C830A0043B0DB /* ProgramsCoordinator.swift in Sources */,
+				FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */,
 				FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */,
-				FCCA5C54255448180018FC6D /* TutorialScreenCell.swift in Sources */,
+				FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */,
+				FCCA5C54255448180018FC6D /* TutorialViewModel.swift in Sources */,
 				8BE90CAA2550383800A34B37 /* Coordinated.swift in Sources */,
-				FCCA5C79255469720018FC6D /* Assignment.swift in Sources */,
+				FC16BFFB256C074D00180942 /* Constants.swift in Sources */,
+				FC06B9EF2589691800CEC137 /* ClassStudentInfoViewModel.swift in Sources */,
+				FCA9A496256EEBA3009F81B5 /* AssignmentSection.swift in Sources */,
+				8BFA46F12592C7E4005FA058 /* OpenCVWrapper.mm in Sources */,
+				FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */,
+				FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */,
+				FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */,
+				FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */,
+				8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */,
+				FCA9A49B256EEBB3009F81B5 /* VariableSection.swift in Sources */,
+				FC6BED9925889223004E8724 /* TeacherClassVC.swift in Sources */,
+				8B7FF7F9255CE44E0043B0DB /* UserFactory.swift in Sources */,
+				8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */,
+				8B7FF872255D68B20043B0DB /* AssignmentViewModel.swift in Sources */,
+				8B7FF79C255C91740043B0DB /* ClassScreenVC.swift in Sources */,
+				8B7FF7AE255C936D0043B0DB /* ViewControllerExtensions.swift in Sources */,
+				8BBD5D16257BF9B70089F2D9 /* RunCodeCoordinator.swift in Sources */,
+				FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */,
+				FC6C0F272580BA57000596D4 /* Flip.swift in Sources */,
+				FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */,
+				FCCA5C79255469720018FC6D /* AssignmentModels.swift in Sources */,
 				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
 				8BE90D2D2550497700A34B37 /* AuthenticationManager.swift in Sources */,
-				FC80F0852553FC5100B5B86B /* CodingScreenVC.swift in Sources */,
+				FCC087C4258E5DB0003E6CE1 /* StudentsInClassDataSource.swift in Sources */,
+				8B68E2F12593FF4300F2EA0B /* UIImageExtensions.swift in Sources */,
+				FC06B9D425893BC700CEC137 /* DisplayWarningAlert.swift in Sources */,
+				FC16BFE8256B103C00180942 /* ProgramNewCodeViewModel.swift in Sources */,
+				8B7FF7F3255CE00E0043B0DB /* ClassSignUpVC.swift in Sources */,
+				8BDC8FFF255ED05900A2E229 /* EmojiChecker.swift in Sources */,
+				FC80F0852553FC5100B5B86B /* ProgramScreenVC.swift in Sources */,
+				8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */,
+				FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */,
+				8BEB38C1257A400400C24085 /* ColorModel.swift in Sources */,
+				FC000B7C25853B9A003D4C1A /* TeacherTutorialCoordinator.swift in Sources */,
+				8BFA47302592E97B005FA058 /* VisionModel.swift in Sources */,
+				8B7FF7E6255CD4D60043B0DB /* StudentModel.swift in Sources */,
+				8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */,
 				8B8323002550571A009C1526 /* UserDataSource.swift in Sources */,
+				8BEB38C6257A4E4B00C24085 /* Interpreter.swift in Sources */,
 				FC80F0802553E50800B5B86B /* ForgetPasswordVC.swift in Sources */,
+				8B7FF78C255C82F40043B0DB /* TutorialsCoordinator.swift in Sources */,
+				FCCECC2D2589DDCF004BA56A /* TeacherClassDataSource.swift in Sources */,
 				FCCA5C6A2554542A0018FC6D /* TutorialDataSource.swift in Sources */,
 				FC9C42A7254AE8890061E220 /* AppDelegate.swift in Sources */,
+				8B7FF787255C82DA0043B0DB /* ClassCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,7 +1349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -761,7 +1404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -773,19 +1416,30 @@
 		};
 		FC9C42CE254AE88D0061E220 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4864B9DE1E6860EC3E224A86 /* Pods-EmojibleIOS.debug.xcconfig */;
+			baseConfigurationReference = 41C27A151447E96F1214CC51 /* Pods-EmojibleIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmojibleIOS/StaticData",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EmojibleIOS/Headers/PrefixHeader.pch";
 				INFOPLIST_FILE = EmojibleIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP4912;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -793,19 +1447,29 @@
 		};
 		FC9C42CF254AE88D0061E220 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C21560AF9BF5E37F7C2E6A35 /* Pods-EmojibleIOS.release.xcconfig */;
+			baseConfigurationReference = 1D955B18504508E5632E8301 /* Pods-EmojibleIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EmojibleIOS/StaticData",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EmojibleIOS/Headers/PrefixHeader.pch";
 				INFOPLIST_FILE = EmojibleIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.EmojibleIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP4912;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -813,12 +1477,12 @@
 		};
 		FC9C42D1254AE88D0061E220 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5378200591ED846B77868B90 /* Pods-EmojibleIOSTests.debug.xcconfig */;
+			baseConfigurationReference = 47122601B612E98EFD6B6D39 /* Pods-EmojibleIOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EmojibleIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -836,12 +1500,12 @@
 		};
 		FC9C42D2254AE88D0061E220 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20006C15575DCE06FEF48E56 /* Pods-EmojibleIOSTests.release.xcconfig */;
+			baseConfigurationReference = CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EmojibleIOSTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -859,11 +1523,11 @@
 		};
 		FC9C42D4254AE88D0061E220 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F85782275A03A22FE885BAC /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */;
+			baseConfigurationReference = 23FF6DED84E5A8C004E99986 /* Pods-EmojibleIOS-EmojibleIOSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EmojibleIOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -880,11 +1544,11 @@
 		};
 		FC9C42D5254AE88D0061E220 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD8DD4D7952EA67AEEF0831C /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */;
+			baseConfigurationReference = 5B503A8BCFA0896294935F97 /* Pods-EmojibleIOS-EmojibleIOSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
 				INFOPLIST_FILE = EmojibleIOSUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

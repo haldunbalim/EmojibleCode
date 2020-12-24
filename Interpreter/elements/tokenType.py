@@ -41,3 +41,6 @@ class TokenType(Enum):
     @staticmethod
     def get_values():
         return [tokenType.value for tokenType in TokenType]
+
+    def __repr__(self):
+        return self.value

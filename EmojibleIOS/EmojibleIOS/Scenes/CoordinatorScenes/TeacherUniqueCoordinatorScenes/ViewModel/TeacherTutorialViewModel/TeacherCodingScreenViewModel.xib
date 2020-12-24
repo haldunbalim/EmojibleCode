@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rG5-2S-bL0" customClass="TeacherCodingScreenViewModel" customModule="EmojibleIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NMK-h1-aTb">
+                <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSr-in-NB0">
+                        <rect key="frame" x="0.0" y="0.0" width="171" height="166"/>
+                        <color key="backgroundColor" red="0.44101712110000002" green="0.69985747340000004" blue="0.83139246700000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal">
+                            <imageReference key="image" image="plus.square.fill" catalog="system" symbolScale="large"/>
+                        </state>
+                        <connections>
+                            <action selector="newCodePressed:" destination="rG5-2S-bL0" eventType="touchUpInside" id="FSj-zp-YlD"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oSr-in-NB0" firstAttribute="top" secondItem="NMK-h1-aTb" secondAttribute="top" id="1Ay-De-8Pn"/>
+                    <constraint firstItem="oSr-in-NB0" firstAttribute="leading" secondItem="NMK-h1-aTb" secondAttribute="leading" id="B9y-3P-Rwa"/>
+                    <constraint firstAttribute="trailing" secondItem="oSr-in-NB0" secondAttribute="trailing" id="LXA-qR-yeO"/>
+                    <constraint firstAttribute="bottom" secondItem="oSr-in-NB0" secondAttribute="bottom" id="VlT-f0-Vee"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <size key="customSize" width="171" height="166"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="backgroundView" destination="NMK-h1-aTb" id="YCt-jp-4Hv"/>
+                <outlet property="newCodeButton" destination="oSr-in-NB0" id="tJp-ct-7he"/>
+            </connections>
+            <point key="canvasLocation" x="108" y="159"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plus.square.fill" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

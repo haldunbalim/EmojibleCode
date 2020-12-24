@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFunctionAlert" customModule="EmojibleIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="alertView" destination="BAn-kj-x1A" id="KSx-br-3hO"/>
+                <outlet property="valueTextField" destination="Vmd-eh-ETX" id="lMW-8v-qGd"/>
+                <outlet property="view" destination="hTg-JQ-snH" id="FVN-Bl-Gah"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hTg-JQ-snH">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BAn-kj-x1A">
+                    <rect key="frame" x="248" y="25.5" width="400" height="280"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vxn-1S-NAo">
+                            <rect key="frame" x="20" y="20" width="360" height="240"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dgp-9b-CGz">
+                                    <rect key="frame" x="5" y="0.0" width="350" height="120"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Program.." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmd-eh-ETX">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                                    <color key="value" red="0.73333333329999995" green="0.74901960779999999" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                    <color key="value" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textView>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wtI-Zx-nsm">
+                                    <rect key="frame" x="156" y="120" width="48" height="120"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfu-TS-zQ0">
+                                            <rect key="frame" x="0.0" y="0.0" width="48" height="60"/>
+                                            <state key="normal" title="Assign">
+                                                <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="assignButtonOnPress:" destination="-1" eventType="touchUpInside" id="2BD-7J-P1w"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-B1-2f1">
+                                            <rect key="frame" x="0.0" y="60" width="48" height="60"/>
+                                            <state key="normal" title="Cancel">
+                                                <color key="titleColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="cancelButtonOnPress:" destination="-1" eventType="touchUpInside" id="7Z0-fO-WKG"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Dgp-9b-CGz" secondAttribute="trailing" constant="5" id="kIm-jb-d5A"/>
+                                <constraint firstItem="Dgp-9b-CGz" firstAttribute="leading" secondItem="Vxn-1S-NAo" secondAttribute="leading" constant="5" id="nSF-zl-zB2"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Vxn-1S-NAo" firstAttribute="leading" secondItem="BAn-kj-x1A" secondAttribute="leading" constant="20" id="3Us-2O-BMr"/>
+                        <constraint firstAttribute="height" constant="280" id="5Rq-pL-uSv"/>
+                        <constraint firstAttribute="trailing" secondItem="Vxn-1S-NAo" secondAttribute="trailing" constant="20" id="9FZ-1k-jsU"/>
+                        <constraint firstItem="Vxn-1S-NAo" firstAttribute="top" secondItem="BAn-kj-x1A" secondAttribute="top" constant="20" id="GpF-22-AJh"/>
+                        <constraint firstAttribute="width" constant="400" id="kuj-gf-JlK"/>
+                        <constraint firstAttribute="bottom" secondItem="Vxn-1S-NAo" secondAttribute="bottom" constant="20" id="ueg-Zy-agQ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="qkP-xu-nHY"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="BAn-kj-x1A" firstAttribute="centerY" secondItem="hTg-JQ-snH" secondAttribute="centerY" multiplier="0.8" id="E1D-dF-yyf"/>
+                <constraint firstItem="BAn-kj-x1A" firstAttribute="centerX" secondItem="hTg-JQ-snH" secondAttribute="centerX" id="qMb-4Y-k3O"/>
+            </constraints>
+            <point key="canvasLocation" x="-1918.5267857142856" y="-86.956521739130437"/>
+        </view>
+    </objects>
+</document>
