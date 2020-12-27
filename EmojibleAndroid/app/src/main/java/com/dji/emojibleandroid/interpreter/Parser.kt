@@ -21,7 +21,7 @@ class Parser(val lexerOut: List<Token>, val memory: Memory) {
 
     private fun peek(): Token? {
         val peekPos: Int = currIdx + 1
-        return if (peekPos > lexerOut.size) {
+        return if (peekPos > lexerOut.size - 1) {
             null
         } else {
             lexerOut[peekPos]
@@ -47,18 +47,18 @@ class Parser(val lexerOut: List<Token>, val memory: Memory) {
 
     fun program(): ProgramNode {
         eat(TokenType.PROGRAM)
-        val blockNodeNode: BlockNode = block()
-        return ProgramNode(blockNodeNode)
+        val blockNode = block()
+        return ProgramNode(blockNode)
     }
 
     private fun block(): BlockNode {
-        val compoundNodeStatementNode: CompoundNode = compoundStatement()
-        return BlockNode(compoundNodeStatementNode)
+        val compoundStatementNode = compoundStatement()
+        return BlockNode(compoundStatementNode)
     }
 
     private fun compoundStatement(): CompoundNode {
         val nodes: MutableList<AST> = statementList()
-        val root: CompoundNode = CompoundNode()
+        val root = CompoundNode()
         for (node in nodes) {
             root.children.add(node)
         }
@@ -173,7 +173,7 @@ class Parser(val lexerOut: List<Token>, val memory: Memory) {
     }
 
     private fun variable(): VarNode {
-        val node = VarNode(currentToken)
+        val node = VarNode(currentToken, memory)
         eat(TokenType.ID)
         return node
     }

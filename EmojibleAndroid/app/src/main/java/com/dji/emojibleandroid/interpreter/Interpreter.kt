@@ -1,6 +1,5 @@
 package com.dji.emojibleandroid.interpreter
 
-import com.dji.emojibleandroid.activities.CodeRunActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
