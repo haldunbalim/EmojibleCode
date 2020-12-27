@@ -65,7 +65,7 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             programLayoutPopup.setOnClickListener {
 
                 showToast("Program")
-                val intent = Intent(this, ProgramActivity::class.java)
+                val intent = Intent(this, GridProgramActivity::class.java)
                 startActivity(intent)
                 finish()
             }

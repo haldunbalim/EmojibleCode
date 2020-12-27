@@ -10,10 +10,14 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.adapters.ProgramsAdapter
+import com.dji.emojibleandroid.models.serializers.ProgramModel
 import com.dji.emojibleandroid.showToast
+import com.dji.emojibleandroid.utils.EmojiUtils
 import kotlinx.android.synthetic.main.activity_no_user.*
 import kotlinx.android.synthetic.main.activity_program.*
 import kotlinx.android.synthetic.main.activity_program.emojiLayoutToolbar
@@ -80,7 +84,11 @@ class ProgramActivity : AppCompatActivity() {
 
         processButton.setOnClickListener {
 
-
+            val title : EditText = findViewById(R.id.titleEditText)
+            val code : EditText = findViewById(R.id.codeTextView)
+            EmojiUtils.programs.add( ProgramModel(ProgramsAdapter.VIEW_TYPE_TWO,title.text.toString(),code.text.toString()))
+            val intent = Intent(this, GridProgramActivity::class.java)
+            startActivity(intent)
         }
 
         com.dji.emojibleandroid.utils.setupToolbar(

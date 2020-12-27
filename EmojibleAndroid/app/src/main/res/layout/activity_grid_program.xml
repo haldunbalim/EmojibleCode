@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,74 +11,27 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/toolbarLayout">
+        app:layout_constraintStart_toEndOf="@+id/toolbarLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/programTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="5dp"
+            android:text="Programs"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/backTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Programs"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/titleEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="10"
-                android:ems="10"
-                android:hint="Title..."
-                android:inputType="textPersonName" />
-
-            <ImageView
-                android:id="@+id/cameraImageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_camera" />
-
-            <ImageView
-                android:id="@+id/galleryImageView"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_burst" />
-        </LinearLayout>
-
-        <LinearLayout
+        <androidx.gridlayout.widget.GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/common_google_signin_btn_text_dark_default"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/codeTextView"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:background="@color/common_google_signin_btn_text_dark_default"
-                android:gravity="center"
-                android:hint="Text your program here..." />
-
-            <Button
-                android:id="@+id/processButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="Process" />
-        </LinearLayout>
-
+                android:layout_height="match_parent" />
+        </androidx.gridlayout.widget.GridLayout>
     </LinearLayout>
 
     <LinearLayout

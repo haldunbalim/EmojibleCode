@@ -3,10 +3,7 @@ package com.dji.emojibleandroid.utils
 import android.content.Intent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.dji.emojibleandroid.activities.EmojiActivity
-import com.dji.emojibleandroid.activities.ProgramActivity
-import com.dji.emojibleandroid.activities.TutorialActivity
-import com.dji.emojibleandroid.activities.UserActivity
+import com.dji.emojibleandroid.activities.*
 
 
 fun setupToolbar(
@@ -19,7 +16,7 @@ fun setupToolbar(
 
     if (context !is ProgramActivity) {
         programLayoutToolbar.setOnClickListener {
-            val intent = Intent(context, ProgramActivity::class.java)
+            val intent = Intent(context, GridProgramActivity::class.java)
             context.startActivity(intent)
             context.finish()
         }
