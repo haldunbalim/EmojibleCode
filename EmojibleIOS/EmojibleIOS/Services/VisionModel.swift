@@ -130,10 +130,9 @@ class VisionModel{
     
     public func imageToEmojiString(img: UIImage) -> String{
         let resizedImg = resize(img: img)
-        
         let coords = extractRois(img: resizedImg)
         let lines = extractStringPos(coords: coords)
-        return predictEmojis(lines:lines, image: img)
+        return predictEmojis(lines:lines, image: resizedImg)
     }
     
     

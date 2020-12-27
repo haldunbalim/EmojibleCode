@@ -20,8 +20,12 @@ using namespace std;
     UIImageToMat(inputImage, mat);
     
     
+    Mat resized;
+    cv:: resize(mat, resized, cv::Size(inputImage.size.width,inputImage.size.height));
+    
+    
     Mat grayImg;
-    cv:: cvtColor(mat, grayImg, cv::COLOR_RGBA2GRAY);
+    cv:: cvtColor(resized, grayImg, cv::COLOR_RGBA2GRAY);
     
     Mat blur;
     cv:: medianBlur(grayImg, blur, 5);
@@ -56,7 +60,7 @@ using namespace std;
         }
     }
     double medianArea = contourAreas[lessThenTen + (contours.size() - lessThenTen) /2];
-    
+    int avgVertexLen = std::ceil(std::sqrt(medianArea));
     
     double threshold_const = 0.5;
     NSMutableArray *rects = [[NSMutableArray alloc] init];
@@ -69,13 +73,13 @@ using namespace std;
             
             approxPolyDP( contours[i], contoursPoly[i], 3, true );
 
-            cv::Rect rect = cv::boundingRect(contoursPoly[i]);
+            cv::Rect rect = cv::boundingRect(contours[i]);
             
             NSArray *rectCoords = [NSArray arrayWithObjects:
                                    [NSNumber numberWithInt:rect.x],
                                    [NSNumber numberWithInt:rect.y],
-                                   [NSNumber numberWithInt:rect.height],
-                                   [NSNumber numberWithInt:rect.width], nil];
+                                   [NSNumber numberWithInt:avgVertexLen],
+                                   [NSNumber numberWithInt:avgVertexLen], nil];
             [rects addObject:rectCoords];
         }
     }
