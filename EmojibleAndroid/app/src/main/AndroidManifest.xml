@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dji.emojibleandroid">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_emojible"
@@ -12,29 +13,51 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
         <provider
-            android:authorities="com.dji.emojibleandroid.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.dji.emojibleandroid.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider"/>
+                android:resource="@xml/fileprovider" />
         </provider>
-        <activity android:name=".activities.MainActivity" android:screenOrientation="portrait">
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity" android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".activities.GridProgramActivity" android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".activities.NoUserActivity" android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".activities.ProgramActivity" android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".activities.EmojiActivity" android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".activities.TutorialActivity" android:screenOrientation="sensorLandscape"/>
-        <activity android:name=".activities.UserActivity" android:screenOrientation="sensorLandscape"/>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.GridProgramActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.NoUserActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.ProgramActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.EmojiActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.TutorialActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.UserActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.CodeRunActivity"
+            android:screenOrientation="sensorLandscape" />
     </application>
 
 </manifest>

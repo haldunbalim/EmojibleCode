@@ -1,21 +1,17 @@
 package com.dji.emojibleandroid.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.dji.emojibleandroid.R
-import com.dji.emojibleandroid.models.AssignmentModel
+import com.dji.emojibleandroid.activities.CodeRunActivity
 import com.dji.emojibleandroid.models.CodeModel
-import com.dji.emojibleandroid.models.ModelTutorials
-import com.dji.emojibleandroid.services.Changes
-import com.dji.emojibleandroid.services.NotificationCenter
-import com.dji.emojibleandroid.showToast
 import kotlinx.android.synthetic.main.list_grid_tutorial.view.*
 import java.lang.IndexOutOfBoundsException
 
@@ -70,8 +66,9 @@ class TutorialsAdapter(val context: Context, var tutorials: MutableList<CodeMode
             }
 
             itemView.runButton.setOnClickListener {
-
-
+                val intent = Intent(context, CodeRunActivity::class.java)
+                intent.putExtra("CODE", currentTutorial?.code)
+                context.startActivity(intent)
             }
             itemView.showButton.setOnClickListener {
 
