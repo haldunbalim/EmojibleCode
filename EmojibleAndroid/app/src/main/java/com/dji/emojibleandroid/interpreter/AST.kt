@@ -4,7 +4,7 @@ import com.dji.emojibleandroid.activities.CodeRunActivity
 import com.dji.emojibleandroid.models.AssignmentModel
 import java.lang.Exception
 
-val runScreen = CodeRunActivity.instance
+val runScreen = CodeRunActivity()
 val cancelled = Interpreter.instance.cancelled
 
 abstract class AST {
