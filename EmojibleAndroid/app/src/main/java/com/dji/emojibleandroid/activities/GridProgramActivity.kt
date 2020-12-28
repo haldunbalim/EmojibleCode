@@ -6,12 +6,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.ProgramsAdapter
-import com.dji.emojibleandroid.adapters.SavedEmojiesAdapter
-import com.dji.emojibleandroid.models.CodeModel
-import com.dji.emojibleandroid.models.SupplierTutorial.tutorials
-import com.dji.emojibleandroid.models.serializers.ProgramModel
+import com.dji.emojibleandroid.models.ProgramModel
 import com.dji.emojibleandroid.utils.EmojiUtils.programs
-import kotlinx.android.synthetic.main.activity_emoji.*
 import kotlinx.android.synthetic.main.activity_emoji.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_emoji.programLayoutToolbar
 import kotlinx.android.synthetic.main.activity_emoji.tutorialLayoutToolbar
@@ -29,7 +25,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     setContentView(R.layout.activity_grid_program)
 
     if (firstTimeProgram == 0){
-        programs.add(0, ProgramModel(ProgramsAdapter.VIEW_TYPE_ONE,"lol","lol"))
+        programs.add(0, ProgramModel(ProgramsAdapter.VIEW_TYPE_ONE,"",""))
         firstTimeProgram++
     }
     setupRecyclerView()

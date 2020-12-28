@@ -12,7 +12,7 @@ limitations under the License.
 */
 package com.dji.emojibleandroid.utils
 import com.dji.emojibleandroid.models.SavedEmojies
-import com.dji.emojibleandroid.models.serializers.ProgramModel
+import com.dji.emojibleandroid.models.ProgramModel
 import java.util.Arrays
 import java.util.HashSet
 /**
@@ -423,7 +423,7 @@ object EmojiUtils {
 
     var savedEmojies: MutableList<SavedEmojies> = mutableListOf<SavedEmojies>()
 
-    var programs: MutableList<ProgramModel> = mutableListOf()
+    var programs: MutableList<ProgramModel> = mutableListOf<ProgramModel>()
 
     private fun toHexStr(c:Char):String {
         return Integer.toHexString(c.toInt())

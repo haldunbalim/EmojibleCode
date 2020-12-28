@@ -1,4 +1,4 @@
-package com.dji.emojibleandroid.models.serializers
+package com.dji.emojibleandroid.models
 
 data class ProgramModel constructor(val viewType: Int, var name: String, var code: String) {
     var dictionary: HashMap<String, Any> = hashMapOf("name" to name, "code" to code)
