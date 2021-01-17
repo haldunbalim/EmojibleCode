@@ -1,7 +1,7 @@
 package com.dji.emojibleandroid.models
 
-data class CodeModel constructor(var name: String, var code: String) {
-    var dictionary: HashMap<String, Any> = hashMapOf("name" to name, "code" to code)
+open class CodeModel constructor(var name: String, var code: String) {
+    open var dictionary: HashMap<String, Any> = hashMapOf("name" to name, "code" to code)
 
     constructor(dictionary: HashMap<String, Any>) : this(
         dictionary["name"] as String,

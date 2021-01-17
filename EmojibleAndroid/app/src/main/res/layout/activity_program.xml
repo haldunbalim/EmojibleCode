@@ -62,7 +62,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/codeTextView"
+                android:id="@+id/codeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"

@@ -11,6 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 package com.dji.emojibleandroid.utils
+import com.dji.emojibleandroid.adapters.ProgramsAdapter
 import com.dji.emojibleandroid.models.SavedEmojies
 import com.dji.emojibleandroid.models.ProgramModel
 import java.util.Arrays
@@ -423,7 +424,7 @@ object EmojiUtils {
 
     var savedEmojies: MutableList<SavedEmojies> = mutableListOf<SavedEmojies>()
 
-    var programs: MutableList<ProgramModel> = mutableListOf<ProgramModel>()
+    var programs: MutableList<ProgramModel> = mutableListOf<ProgramModel>(ProgramModel(ProgramsAdapter.VIEW_TYPE_ONE, "", ""))
 
     private fun toHexStr(c:Char):String {
         return Integer.toHexString(c.toInt())

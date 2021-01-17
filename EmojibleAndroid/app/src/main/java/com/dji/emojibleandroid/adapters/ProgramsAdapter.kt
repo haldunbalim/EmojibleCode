@@ -10,12 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.activities.CodeRunActivity
 import com.dji.emojibleandroid.activities.ProgramActivity
 import com.dji.emojibleandroid.models.ProgramModel
 import com.dji.emojibleandroid.showToast
-import kotlinx.android.synthetic.main.list_grid_program.view.*
-import kotlinx.android.synthetic.main.list_grid_tutorial.view.titleTextView
-import java.lang.IndexOutOfBoundsException
 
 class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramModel>) :
     RecyclerView.Adapter<ProgramsAdapter.MyViewHolder>() {
@@ -51,21 +49,21 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
         fun bind(position: Int) {
             val recyclerViewModel = programs[position]
 
-            title.text = programs[position].name
-            code.text = programs[position].code
+            title.text = recyclerViewModel.name
+            code.text = recyclerViewModel.code
             edit.setOnClickListener {
 
                 val intent = Intent(context, ProgramActivity::class.java)
                 intent.putExtra("type", "editProgram")
-                intent.putExtra("title",title.text.toString())
+                intent.putExtra("title", title.text.toString())
                 context.startActivity(intent)
 
             }
 
             run.setOnClickListener {
-
-
-
+                val intent = Intent(context, CodeRunActivity::class.java)
+                intent.putExtra("CODE", recyclerViewModel.code)
+                context.startActivity(intent)
             }
         }
     }
@@ -87,7 +85,8 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         if (viewType == VIEW_TYPE_ONE) {
             return View1ViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.list_grid_initial_program, parent, false)
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.list_grid_initial_program, parent, false)
             )
         }
         return View2ViewHolder(
@@ -98,15 +97,15 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-       if(programs[position].viewType == VIEW_TYPE_ONE){
+        if (programs[position].viewType == VIEW_TYPE_ONE) {
 
-           (holder as View1ViewHolder).bind(position)
+            (holder as View1ViewHolder).bind(position)
 
-       }else {
+        } else {
 
-           (holder as View2ViewHolder).bind(position)
+            (holder as View2ViewHolder).bind(position)
 
-       }
+        }
     }
 
     override fun getItemViewType(position: Int): Int {

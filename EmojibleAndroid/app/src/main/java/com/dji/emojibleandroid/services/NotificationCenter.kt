@@ -1,6 +1,5 @@
 package com.dji.emojibleandroid.services
 
-import com.dji.emojibleandroid.models.CodeModel
 import java.util.*
 
 class NotificationCenter private constructor() {

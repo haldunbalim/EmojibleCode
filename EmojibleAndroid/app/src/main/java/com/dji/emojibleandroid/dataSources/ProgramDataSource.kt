@@ -2,6 +2,7 @@ package com.dji.emojibleandroid.dataSources
 
 import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.services.AuthenticationManager
+import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
@@ -22,6 +23,7 @@ class ProgramDataSource {
             val documents = querySnapshot?.documents
             programs = documents?.map { CodeModel(it.data as HashMap<String, Any>) }!!
             programDataSourceIndices = documents.map { it.id }
+            notificationCenter.post(Changes.programsChanged, null, "programs" to programs)
         }
     }
 

@@ -1,7 +1,6 @@
 package com.dji.emojibleandroid.activities
 
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,20 +9,12 @@ import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.TutorialsAdapter
 import com.dji.emojibleandroid.dataSources.TutorialDataSource
 import com.dji.emojibleandroid.models.CodeModel
-import com.dji.emojibleandroid.models.SupplierTutorial
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
-import com.dji.emojibleandroid.showToast
-import kotlinx.android.synthetic.main.activity_no_user.*
 import kotlinx.android.synthetic.main.activity_tutorial.*
-import kotlinx.android.synthetic.main.activity_tutorial.emojiLayoutToolbar
-import kotlinx.android.synthetic.main.activity_tutorial.programLayoutToolbar
-import kotlinx.android.synthetic.main.activity_tutorial.tutorialLayoutToolbar
-import kotlinx.android.synthetic.main.activity_tutorial.userLayoutToolbar
-import kotlinx.android.synthetic.main.activity_user.*
 import java.util.*
 
-class TutorialActivity : AppCompatActivity(), Observer{
+class TutorialActivity : AppCompatActivity(), Observer {
 
     var tutorials: MutableList<CodeModel> = mutableListOf()
 
@@ -45,7 +36,7 @@ class TutorialActivity : AppCompatActivity(), Observer{
     }
 
     private fun setupRecyclerView() {
-        val layoutManager = GridLayoutManager(this, 2,LinearLayoutManager.VERTICAL,  false)
+        val layoutManager = GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
         val adapter = TutorialsAdapter(this, tutorials)
         recyclerView.adapter = adapter

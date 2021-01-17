@@ -1,7 +1,6 @@
 package com.dji.emojibleandroid.models
 
-data class ProgramModel constructor(val viewType: Int, var name: String, var code: String) {
-    var dictionary: HashMap<String, Any> = hashMapOf("name" to name, "code" to code)
+class ProgramModel constructor(val viewType: Int, name: String, code: String): CodeModel(name, code) {
 
     constructor(dictionary: HashMap<String, Any>) : this(
         dictionary["viewType"] as Int,
@@ -9,17 +8,18 @@ data class ProgramModel constructor(val viewType: Int, var name: String, var cod
         (dictionary["code"] as String).replace("\\n", "\n")
     )
 
-    override operator fun equals(other: Any?): Boolean {
-        return this.name == (other as ProgramModel).name
-    }
+    constructor(viewType: Int, codeModel: CodeModel) : this(viewType, codeModel.name, codeModel.code)
 
-    override fun toString(): String {
-        return "$name Code"
-    }
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        if (!super.equals(other)) return false
 
-    override fun hashCode(): Int {
-        var result = name.hashCode()
-        result = 31 * result + code.hashCode()
-        return result
+        other as ProgramModel
+
+        if (viewType != other.viewType) return false
+        if (dictionary != other.dictionary) return false
+
+        return true
     }
 }

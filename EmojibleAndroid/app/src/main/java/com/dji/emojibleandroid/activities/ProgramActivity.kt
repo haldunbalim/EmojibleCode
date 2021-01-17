@@ -10,14 +10,14 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.ProgramsAdapter
+import com.dji.emojibleandroid.dataSources.ProgramDataSource
+import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.ProgramModel
 import com.dji.emojibleandroid.showToast
-import com.dji.emojibleandroid.utils.EmojiUtils
 import com.dji.emojibleandroid.utils.EmojiUtils.programs
 import kotlinx.android.synthetic.main.activity_program.*
 import kotlinx.android.synthetic.main.activity_program.emojiLayoutToolbar
@@ -30,7 +30,6 @@ import java.io.File
 private const val FILE_NAME = "photo.jpg"
 private const val REQUEST_CODE = 42
 private lateinit var photoFile: File
-
 
 
 class ProgramActivity : AppCompatActivity() {
@@ -47,19 +46,13 @@ class ProgramActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program)
-
         val type = intent.getStringExtra("type")
-        var title: EditText = findViewById(R.id.titleEditText)
+        val titleEditText: EditText = findViewById(R.id.titleEditText)
         if (type == "editProgram") {
-
-
-            title.setText(intent.getStringExtra("title"))
-
+            titleEditText.setText(intent.getStringExtra("title"))
         }
 
         cameraImageView.setOnClickListener {
-
-            showToast("Camera!")
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             photoFile = getPhotoFile(FILE_NAME)
 
@@ -101,26 +94,27 @@ class ProgramActivity : AppCompatActivity() {
 
         processButton.setOnClickListener {
 
-            val title: EditText = findViewById(R.id.titleEditText)
-            val code: EditText = findViewById(R.id.codeTextView)
+            val codeEditText: EditText = findViewById(R.id.codeEditText)
             var sameExists = false
             for (program in programs) {
 
-                if (program.name.equals(title.text.toString())) {
-
-                    program.code = code.text.toString()
-                    sameExists =true
-
+                if (program.name == titleEditText.text.toString()) {
+                    ProgramDataSource.instance.editProgram(
+                        program as CodeModel,
+                        CodeModel(program.name, codeEditText.text.toString())
+                    )
+                    program.code = codeEditText.text.toString()
+                    sameExists = true
                 }
             }
-            if(!sameExists) {
+            if (!sameExists) {
+                val codeModel =
+                    CodeModel(titleEditText.text.toString(), codeEditText.text.toString())
+                ProgramDataSource.instance.writeProgram(codeModel)
+                val programModel = ProgramModel(ProgramsAdapter.VIEW_TYPE_TWO, codeModel)
                 programs.add(
                     programs.size,
-                    ProgramModel(
-                        ProgramsAdapter.VIEW_TYPE_TWO,
-                        title.text.toString(),
-                        code.text.toString()
-                    )
+                    programModel
                 )
             }
             val intent = Intent(this, GridProgramActivity::class.java)
