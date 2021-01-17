@@ -7,10 +7,11 @@
     tools:context=".activities.CodeRunActivity">
 
     <EditText
-        android:id="@+id/userInputEditText"
+        android:id="@+id/inputConsoleEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:enabled="true"
         android:hint="Input Console"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +22,21 @@
         app:layout_constraintVertical_bias="0.133" />
 
     <Button
-        android:id="@+id/enterButton"
+        android:id="@+id/enterConsoleInputButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:onClick="passInput"
+        android:text="Enter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputConsoleEditText"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <Button
+        android:id="@+id/terminateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="terminate"
@@ -29,18 +44,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/terminateButton" />
-
-    <Button
-        android:id="@+id/terminateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Enter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userInputEditText"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintTop_toBottomOf="@+id/enterConsoleInputButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

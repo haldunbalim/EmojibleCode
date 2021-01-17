@@ -3,7 +3,7 @@ package com.dji.emojibleandroid.interpreter
 import java.lang.Exception
 
 
-class Parser(val lexerOut: List<Token>, val memory: Memory) {
+class Parser(private val lexerOut: List<Token>, private val memory: Memory) {
     var currIdx: Int = 0
     var currentToken: Token = lexerOut[currIdx]
 

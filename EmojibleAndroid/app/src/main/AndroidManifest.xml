@@ -57,7 +57,6 @@
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".activities.CodeRunActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="sensorLandscape" />
     </application>
 

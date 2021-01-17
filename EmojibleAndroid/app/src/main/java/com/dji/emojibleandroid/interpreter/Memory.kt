@@ -18,7 +18,11 @@ open class Memory(assignments: List<AssignmentModel>?) {
     }
 
     open fun addAssignment(assignment: AssignmentModel) {
-        assignments.add(assignment)
+        if (assignment in assignments){
+            editAssignment(assignment)
+        } else {
+            assignments.add(assignment)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.N)

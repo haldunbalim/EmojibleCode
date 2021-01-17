@@ -24,10 +24,6 @@ class GlobalMemory private constructor(assignments: List<AssignmentModel>? = nul
     }
 
     override fun addAssignment(assignment: AssignmentModel) {
-        if (assignment in assignments) {
-            editAssignment(assignment)
-            return
-        }
         super.addAssignment(assignment)
         writeAssignmentsToJson(assignments)
     }

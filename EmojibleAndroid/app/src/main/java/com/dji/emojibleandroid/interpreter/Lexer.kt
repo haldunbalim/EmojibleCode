@@ -43,10 +43,9 @@ class Lexer(val text: String) {
     }
 
     private fun skipComment() {
-        while (currentChar != "\n") {
+        while (currentChar != null && currentChar != "\n") {
             advance()
         }
-        advance()
     }
 
     private fun number(): Any {
@@ -89,7 +88,7 @@ class Lexer(val text: String) {
         return Token(TokenType.ID.value, result, currentLineNumber)
     }
 
-    private fun getNextToken(): Any? {
+    private fun getNextToken(): Any {
         while (currentChar != null) {
 
             if (currentChar == " ") {
@@ -169,9 +168,12 @@ class Lexer(val text: String) {
     }
 
     fun lex() {
-        lexedText.add(Token("PROGRAM", "PROGRAM", currentLineNumber))
+        lexedText.add(Token("PROGRAM", "PROGRAM", 0))
         while (currentChar != null) {
             lexedText.add(getNextToken() as Token)
+        }
+        if (lexedText[lexedText.size - 1].type != TokenType.EOF) {
+            lexedText.add(Token("EOF", null, currentLineNumber + 1))
         }
     }
 }

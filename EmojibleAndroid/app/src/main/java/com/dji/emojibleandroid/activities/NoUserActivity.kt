@@ -64,7 +64,6 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
 
             programLayoutPopup.setOnClickListener {
 
-                showToast("Program")
                 val intent = Intent(this, GridProgramActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -72,7 +71,6 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
 
             emojiLayoutPopup.setOnClickListener {
 
-                showToast("Emoji")
                 val intent = Intent(this, EmojiActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -81,7 +79,6 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
 
             tutorialLayoutPopup.setOnClickListener {
 
-                showToast("Tutorial")
                 val intent = Intent(this, TutorialActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -94,7 +91,6 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
         }
 
         loginButton.setOnClickListener {
-            showToast("Login")
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

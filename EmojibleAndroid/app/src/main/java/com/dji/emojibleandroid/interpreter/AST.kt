@@ -1,40 +1,42 @@
 package com.dji.emojibleandroid.interpreter
 
-import com.dji.emojibleandroid.activities.CodeRunActivity
 import com.dji.emojibleandroid.models.AssignmentModel
-import java.lang.Exception
+import com.dji.emojibleandroid.models.Value
+import com.dji.emojibleandroid.models.ValueType
+import com.dji.emojibleandroid.utils.CodeScreenUtils
 
-val runScreen = CodeRunActivity()
-val cancelled = Interpreter.instance.cancelled
+val runScreen = CodeScreenUtils.runScreen
+val cancelled = Interpreter.instance.job!!.isCancelled
 
 abstract class AST {
-    open fun visit(): Any? {
+    open suspend fun visit(): Any? {
         return null
     }
 
-    fun safeVisit(): Any? {
-        if (cancelled!!) {
+    suspend fun safeVisit(): Any? {
+        if (cancelled) {
             return null
         }
         return visit()
     }
 }
 
-class BinOpNode(val left: AST, val op: Token, val right: AST) : AST() {
+class BinOpNode(private val left: AST, private val op: Token, private val right: AST) : AST() {
     val token: Token = op
-    override fun visit(): Any? {
-        val leftVal = left.safeVisit()
-        val rightVal = right.safeVisit()
+    override suspend fun visit(): Any? {
+        val leftVal = left.safeVisit() as Value?
+        val rightVal = right.safeVisit() as Value?
+        println(leftVal?.javaClass?.name)
         if (leftVal == null) {
             throw Exception("Left element of the binary operation is null")
         }
         if (rightVal == null) {
             throw Exception("Right element of the binary operation is null")
         }
-        if (leftVal is Float || rightVal is Float) {
-            return visitFloat(leftVal as Float, rightVal as Float)
-        } else if (leftVal is Int && rightVal is Int) {
-            return visitInt(leftVal, rightVal)
+        if ((leftVal.type == ValueType.Float) || rightVal.type == ValueType.Float) {
+            return visitFloat(leftVal.value as Float, rightVal.value as Float)
+        } else if (leftVal.type == ValueType.Integer && rightVal.type == ValueType.Integer) {
+            return visitInt(leftVal.value as Int, rightVal.value as Int)
         }
         throw Exception("Unknown type for binary operation")
     }
@@ -67,9 +69,9 @@ class BinOpNode(val left: AST, val op: Token, val right: AST) : AST() {
     }
 }
 
-open class ValueNode(val token: Token) : AST() {
+open class ValueNode(private val token: Token) : AST() {
     val value: Any? = token.value
-    override fun visit(): Any? {
+    override suspend fun visit(): Any? {
         return token.value
     }
 
@@ -79,22 +81,43 @@ class NumNode(token: Token) : ValueNode(token)
 class BoolNode(token: Token) : ValueNode(token)
 class ColorNode(token: Token) : ValueNode(token)
 class GetNumericUserInputNode(val tokenType: TokenType) : AST() {
-    override fun visit(): Any {
-        TODO()
-//        return readLine()!!.toFloat()
+    override suspend fun visit(): Any? {
+        CodeScreenUtils.runScreen?.userInputRequested()
+        Interpreter.instance.inputSemaphore?.acquire()
+        if (cancelled)
+            return null
+        var userInput = CodeScreenUtils.runScreen?.input
+        while (userInput == "") {
+            Interpreter.instance.inputSemaphore?.release()
+            CodeScreenUtils.runScreen?.userInputRequested()
+            Interpreter.instance.inputSemaphore?.acquire()
+            userInput = CodeScreenUtils.runScreen?.input
+        }
+        Interpreter.instance.inputSemaphore?.release()
+        return when {
+            userInput?.toIntOrNull() != null -> {
+                userInput.toInt()
+            }
+            userInput?.toFloatOrNull() != null -> {
+                userInput.toFloat()
+            }
+            else -> {
+                null
+            }
+        }
     }
 }
 
 class SetScreenColorNode(val tokenType: TokenType, color: ColorNode) : AST() {
     val color: String = color.value as String
-    override fun visit() {
-        println("Screen color is set to $color")
-        TODO()
+    override suspend fun visit(): Any? {
+        CodeScreenUtils.runScreen?.changeBackgroundColor(color)
+        return null
     }
 }
 
 class UnaryOpNode(private val op: Token, private val expr: AST) : AST() {
-    override fun visit(): Any? {
+    override suspend fun visit(): Any? {
         val num = expr.safeVisit()
         if (num is Int) {
             if (op.type == TokenType.PLUS)
@@ -114,10 +137,10 @@ class UnaryOpNode(private val op: Token, private val expr: AST) : AST() {
 
 class CompoundNode() : AST() {
     val children: MutableList<AST> = mutableListOf()
-    override fun visit(): Any? {
+    override suspend fun visit(): Any? {
         for (child in children) {
             child.safeVisit()
-            if (cancelled!!)
+            if (cancelled)
                 return null
         }
         return null
@@ -131,10 +154,10 @@ class AssignNode(
     private val memory: Memory
 ) : AST() {
     val token: Token = op
-    override fun visit(): Any? {
+    override suspend fun visit(): Any? {
         val varName = left.value
         val varValue = right.visit()
-        if (cancelled!!)
+        if (cancelled)
             return null
         varValue?.let { AssignmentModel(varName as CharSequence, it) }?.let {
             memory.addAssignment(
@@ -151,7 +174,7 @@ class GetRandomNumberNode(
     private val upperBound: AST
 ) : AST() {
     val op: TokenType = token
-    override fun visit(): Any {
+    override suspend fun visit(): Any {
         val lowerBound = lowerBound.safeVisit()
         val upperBound = upperBound.safeVisit()
         if (lowerBound !is Int && !(lowerBound is Float && lowerBound as Int == lowerBound)) {
@@ -175,7 +198,7 @@ class IfNode(
         falseStatement = if (falseStatement != null) falseStatement as BlockNode else NoOpNode()
     }
 
-    override fun visit() {
+    override suspend fun visit() {
         val boolSt = boolStatement.safeVisit()
         if (boolSt !is Boolean) {
             throw Exception("The statement after for keyword must be a boolean")
@@ -190,14 +213,14 @@ class IfNode(
 
 class ForNode(op: TokenType, val times: AST, private val body: BlockNode) : AST() {
     val token: TokenType = op
-    override fun visit(): Any? {
+    override suspend fun visit(): Any? {
         val times = times.safeVisit()
         if (times !is Int || (times is Float && times == times as Int)) {
             throw Exception("$times is not an integer")
         }
         for (i in 0..times) {
             body.safeVisit()
-            if (cancelled!!)
+            if (cancelled)
                 return null
         }
         return null
@@ -206,7 +229,7 @@ class ForNode(op: TokenType, val times: AST, private val body: BlockNode) : AST(
 
 class WhileNode(op: TokenType, private val boolStatement: AST, private val body: AST) : AST() {
     val token: TokenType = op
-    override fun visit() {
+    override suspend fun visit() {
         while (true) {
             val boolCond = boolStatement.safeVisit()
             if (boolCond !is Boolean) {
@@ -222,7 +245,7 @@ class WhileNode(op: TokenType, private val boolStatement: AST, private val body:
 
 class VarNode(token: Token, private val memory: Memory) : AST() {
     val value: Any? = token.value
-    override fun visit(): Any {
+    override suspend fun visit(): Any {
         val varName = value as CharSequence
         for (assignment in memory.assignments) {
             if (assignment.identifier == varName) {
@@ -234,18 +257,18 @@ class VarNode(token: Token, private val memory: Memory) : AST() {
 }
 
 class NoOpNode() : AST() {
-    override fun visit() {}
+    override suspend fun visit() {}
 }
 
 class ProgramNode(private val blockNode: BlockNode) : AST() {
-    override fun visit() {
+    override suspend fun visit() {
         blockNode.safeVisit()
     }
 }
 
 class BlockNode(private val compoundNodeStatement: CompoundNode) : AST() {
     //    var declarations: MutableList<AST> = mutableListOf()
-    override fun visit() {
+    override suspend fun visit() {
         compoundNodeStatement.safeVisit()
     }
 }

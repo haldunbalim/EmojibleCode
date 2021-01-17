@@ -46,7 +46,6 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
 
         registerButton.setOnClickListener() {
 
-            showToast("Sign Up")
             Log.i(TAG, "Button was clicked")
             val intent = Intent(this, NoUserActivity::class.java)
             startActivity(intent)
