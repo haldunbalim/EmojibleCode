@@ -152,13 +152,13 @@ extension AssignmentScreenVC: UICollectionViewDataSource{
         if indexPath.section == 0{
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier1, for: indexPath) as! SectionHeader
 
-            headerView.setLabel(text: "Assignments")
+            headerView.setLabel(text: "Assigned Emojis".localized())
             return headerView
         }
         else {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier2, for: indexPath) as! SectionHeader
             
-            headerView.setLabel(text: "Available Emojis")
+            headerView.setLabel(text: "Available Emojis".localized())
             return headerView
         }
     }

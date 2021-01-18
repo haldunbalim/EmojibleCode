@@ -15,9 +15,18 @@ class RemoveAlert: CustomAlertViewController{
     var removeTeacherClassDelegate: TeacherClassRemovalAlert?
     
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var areYouSureLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLanguage()
+    }
+    
+    func configureLanguage(){
+        areYouSureLabel.text = "Are you sure?".localized()
+        deleteButton.setTitle("Delete".localized(), for: .normal)
+        cancelButton.setTitle("Cancel".localized(), for: .normal)
     }
     
     @IBAction func cancelButtonOnPress(_ sender: Any) {
@@ -42,14 +51,14 @@ class RemoveAlert: CustomAlertViewController{
             TeacherClassDataSource.getInstance().removeClass(classroom: teacherClass)
         }
         
-        if deleteButton.currentTitle == "LogOut"{
+        if deleteButton.currentTitle == "Logout".localized(){
             UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
                 guard let userModel = userModel else {return}
                 _ = AuthenticationManager.getInstance().signOut()
             }
         }
         
-        if deleteButton.currentTitle == "Leave" {
+        if deleteButton.currentTitle == "Leave".localized() {
             UserDataSource.getInstance().resetUserClassId()
         }
         
@@ -57,7 +66,7 @@ class RemoveAlert: CustomAlertViewController{
      }
     
     private func dismiss(){
-        deleteButton.setTitle("Delete", for: .normal)
+        deleteButton.setTitle("Delete".localized(), for: .normal)
         deleteButton.setTitleColor(#colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1), for: .normal)
         removeAssignmentDelegate?.assignmentToBeRemoved = nil
         removeProgramDelegate?.programToBeRemoved = nil

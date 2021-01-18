@@ -16,6 +16,7 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var createMyAccountButton: UIButton!
     @IBOutlet weak var birthDatePicker: UIDatePicker!
     @IBOutlet weak var birthDatePickerToolbar: UIToolbar!
     
@@ -30,8 +31,21 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
         configureViews()
+        configureLanguage()
         configureBirthDatePicker()
         guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
+    }
+    
+    func configureLanguage(){
+        backButton.setTitle("BACK".localized(), for: .normal)
+        createMyAccountButton.setTitle("Create my account".localized(), for: .normal)
+        
+        emailTextField.placeholder = "Enter your e-mail".localized()
+        passwordTextField.placeholder = "Choose a password".localized()
+        nameTextField.placeholder = "Enter your name".localized()
+        surnameTextField.placeholder = "Enter your surname".localized()
+        birthDateTextField.placeholder = "Enter your birthdate".localized()
+        
     }
     
     func configureViews(){
@@ -54,7 +68,7 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         birthDatePicker.isHidden = true
         birthDateTextField.addTarget(self, action: #selector(birthDateTextFieldTouched), for: .touchDown)
         birthDateTextField.addTarget(self, action: #selector(birthDateTextEditingEnded), for: .editingDidEnd)
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(datePickerToolbarDoneButtonPressed))
+        let doneButton = UIBarButtonItem(title: "Pick".localized(), style: .plain, target: self, action: #selector(datePickerToolbarDoneButtonPressed))
         birthDatePickerToolbar.setItems([doneButton], animated: false)
     }
     
@@ -91,27 +105,27 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, email != "" else {
-            showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)
+            showMessagePrompt("E-mail cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
         guard let password = passwordTextField.text, password != "" else {
-            showMessagePrompt("Password cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Password cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
         guard let name = nameTextField.text, name != "" else {
-            showMessagePrompt("Name cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Name cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
         guard let surname = surnameTextField.text, surname != "" else {
-            showMessagePrompt("Surname cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Surname cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
         guard let birthDate = birthDateTextField.text, birthDate != "" else {
-            showMessagePrompt("Birth Date cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Birthdate cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
@@ -129,10 +143,8 @@ class RegisterVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
                             self.hideSpinner()
                             showMessagePrompt(error, vcToBePresented: self)
                         }else{
-                            resetFields()
-                            AuthenticationCoordinator.getInstance().reset()
                             self.hideSpinner()
-                            
+                            resetFields()
                         }
                     }
                 }

@@ -32,6 +32,12 @@ class TeacherTutorialScreenVC: UIViewController, Coordinated{
         self.title = "Programs"
         configureCollectionView()
         configureRemoveAlert()
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTutorialObserver(_:)), name: .userModelChanged, object: nil)
+        UserDataSource.getInstance().startObservingUserModel()
+    }
+    
+    @objc func notifyTutorialObserver(_ notification: NSNotification){
+        TeacherTutorialDataSource.getInstance().stopObservingTutorials()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .teacherTutorialsChanged, object: nil)
         TeacherTutorialDataSource.getInstance().startObservingTutorials()
     }
@@ -145,8 +151,8 @@ extension TeacherTutorialScreenVC: TeacherTutorialTabButtonAction{
         (self.coordinator as! TeacherTutorialCoordinator).openScreen(screenName: .SavedTutorialScreen)
     }
     
-    func runAction() {
-        
+    func runAction(code: String) {
+        TeacherCoordinator.getInstance().runCode(code: code)
     }
     
     func trashAction(tutorialModel: CodeModel) {

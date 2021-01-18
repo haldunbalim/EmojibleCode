@@ -32,9 +32,9 @@ class TeacherTutorialCoordinator: Coordinator {
         var vc: Coordinated!
         
         switch screenName{
-        
         case .TutorialScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherScreenVC") as? TeacherTutorialScreenVC
+            //(vc as? TeacherTutorialScreenVC)?.viewDidLoad()
         case .CodingScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "TeacherCodingScreenVC") as? TeacherCodingScreenVC
         case .SavedTutorialScreen:
@@ -48,8 +48,8 @@ class TeacherTutorialCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
+    func pop(animated: Bool = true){
+        navigationController.popViewController(animated: animated)
     }
     
     private init(){

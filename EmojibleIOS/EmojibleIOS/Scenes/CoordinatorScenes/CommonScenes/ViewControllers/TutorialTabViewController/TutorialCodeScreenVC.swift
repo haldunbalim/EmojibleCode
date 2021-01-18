@@ -19,11 +19,16 @@ class TutorialCodeScreenVC: UIViewController, Coordinated {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        configureLanguage()
         configureViews()
         configureTextView()
         configureTitleLabel()
+        configureLanguage()
     }
-    
+    func configureLanguage(){
+        runButton.setTitle("Run".localized().uppercased(), for: .normal)
+        backButton.setTitle("TUTORIALS".localized(), for: .normal)
+    }
     func configureViews(){
         NSLayoutConstraint.activate([
             tutorialTextView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
@@ -47,10 +52,15 @@ class TutorialCodeScreenVC: UIViewController, Coordinated {
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
+        let code = (self.coordinator as! TutorialsCoordinator).tutorialCode
+        if let _ = self.coordinator?.parentCoordinator as? CommonCoordinator {
+            CommonCoordinator.getInstance().runCode(code: code!)
+        }else if let _ = self.coordinator?.parentCoordinator as? StudentCoordinator {
+            StudentCoordinator.getInstance().runCode(code: code!)
+        }
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
         (self.coordinator as! TutorialsCoordinator).pop()
     }
-    
 }

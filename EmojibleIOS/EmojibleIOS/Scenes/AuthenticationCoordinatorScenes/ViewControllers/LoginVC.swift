@@ -24,6 +24,16 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         configureViews()
+        configureLanguage()
+    }
+    
+    func configureLanguage(){
+        emailTextField.placeholder = "E-mail".localized()
+        passwordTextField.placeholder = "Password".localized()
+        loginButton.setTitle("Login".localized(), for: .normal)
+        forgetYourPasswordButton.setTitle("Forgot your password?".localized(), for: .normal)
+        createStudentAccountButton.setTitle("Create an account as student".localized(), for: .normal)
+        createTeacherAccountButton.setTitle("Create an account as teacher".localized(), for: .normal)
     }
     
     func configureViews(){
@@ -37,12 +47,12 @@ class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, email != "" else {
-            showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)
+            showMessagePrompt("E-mail cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
         guard let password = passwordTextField.text, password != "" else {
-            showMessagePrompt("Password cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Password cannot be empty".localized(), vcToBePresented: self)
             return
         }
         self.showSpinner(){

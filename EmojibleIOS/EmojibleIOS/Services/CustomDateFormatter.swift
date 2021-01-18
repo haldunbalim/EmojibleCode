@@ -19,6 +19,7 @@ class CustomDateFormatter{
     
     private init(){
         dateFormatter.dateFormat = "dd MMM yyyy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
     }
     private static let instance = CustomDateFormatter()
     public static func getInstance() -> CustomDateFormatter{

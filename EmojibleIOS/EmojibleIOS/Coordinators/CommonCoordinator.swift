@@ -20,46 +20,56 @@ class CommonCoordinator: Coordinator {
     var runCodeNC = RunCodeCoordinator.getInstance().navigationController
     
     var lastIdx = -1
+    var isStarted:Bool = false
     
     func start() {
         let configuration = UIImage.SymbolConfiguration(pointSize: 0, weight: .semibold, scale: .large)
         
-        let programTabBarItem =  UITabBarItem(title: "Programs", image: UIImage(named: "terminal", in: .none, with: configuration), tag: 0)
+        let programTabBarItem =  UITabBarItem(title: "Create Program".localized(), image: UIImage(named: "terminal", in: .none, with: configuration), tag: 0)
         
-        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image:UIImage(named: "book", in: .none, with: configuration), tag: 1)
+        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials".localized(), image:UIImage(named: "book", in: .none, with: configuration), tag: 1)
         
-        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 2)
+        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings".localized(), image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 2)
 
-        let loginTabBarItem =  UITabBarItem(title: "Login", image: UIImage(named: "person", in: .none, with: configuration), tag: 3)
+        let loginTabBarItem =  UITabBarItem(title: "Login".localized(), image: UIImage(named: "person", in: .none, with: configuration), tag: 3)
         
         programsNC.tabBarItem = programTabBarItem
         tutorialsNC.tabBarItem = tutorialsTabBarItem
         emojiAssignmentNC.tabBarItem = assignmentTabBarItem
         authNC.tabBarItem = loginTabBarItem
         
+        tabBarController.selectedIndex = 0
         tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, authNC, runCodeNC]
         
-        tabBarController.selectedIndex = 0
-        
+        resetToInitialState()
         tabBarController.loadTabBar()
-        startChildren()
+        setParent()
+        
+        if !isStarted{
+            startChildren()
+            isStarted = true
+        }
+    }
+    
+    func resetToInitialState(){
+        TutorialsCoordinator.getInstance().pop()
+        AuthenticationCoordinator.getInstance().pop()
     }
     
     func startChildren(){
-        OpeningCodingScreenCoordinator.getInstance().parentCoordinator = self
         OpeningCodingScreenCoordinator.getInstance().start()
-    
-        TutorialsCoordinator.getInstance().parentCoordinator = self
         TutorialsCoordinator.getInstance().start()
-
-        EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         EmojiAssignmentCoordinator.getInstance().start()
-        
-        AuthenticationCoordinator.getInstance().parentCoordinator = self
         AuthenticationCoordinator.getInstance().start()
- 
-        RunCodeCoordinator.getInstance().parentCoordinator = self
         RunCodeCoordinator.getInstance().start()
+    }
+    
+    func setParent(){
+        OpeningCodingScreenCoordinator.getInstance().parentCoordinator = self
+        TutorialsCoordinator.getInstance().parentCoordinator = self
+        EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
+        AuthenticationCoordinator.getInstance().parentCoordinator = self
+        RunCodeCoordinator.getInstance().parentCoordinator = self
     }
     
     private init(){

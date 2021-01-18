@@ -13,14 +13,22 @@ class AddTextAlert: CustomAlertViewController{
     var editAssignmentDelegate: AssignmentEditAlert?
     
     @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var assignButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLanguage()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         valueTextField.becomeFirstResponder()
     }
     
+    func configureLanguage(){
+        valueTextField.placeholder = "Text".localized()
+        cancelButton.setTitle("Cancel".localized(), for: .normal)
+        assignButton.setTitle("Assign".localized(), for: .normal)
+    }
     
     @IBAction func cancelButtonOnPress(_ sender: Any) {
         dismiss()

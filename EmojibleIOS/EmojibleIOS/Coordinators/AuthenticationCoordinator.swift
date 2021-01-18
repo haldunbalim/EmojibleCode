@@ -26,13 +26,6 @@ class AuthenticationCoordinator: Coordinator {
         openScreen(screenName: currentScreen)
     }
     
-    func reset(){
-        for _ in 0...navigationController.viewControllers.count{
-            pop()
-        }
-        openScreen(screenName: .Login)
-    }
-    
     func openScreen(screenName: screenEnum, pop: Bool = false){
         var vc: Coordinated!
         
@@ -51,8 +44,8 @@ class AuthenticationCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
+    func pop(animated:Bool = true){
+        navigationController.popViewController(animated: animated)
     }
     
     private init(){

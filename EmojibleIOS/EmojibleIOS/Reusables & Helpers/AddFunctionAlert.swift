@@ -13,14 +13,21 @@ class AddFunctionAlert: CustomAlertViewController{
     var editAssignmentDelegate: AssignmentEditAlert?
     
     @IBOutlet weak var valueTextField: UITextView!
+    @IBOutlet weak var assignButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLanguage()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         valueTextField.becomeFirstResponder()
     }
-    
+    func configureLanguage(){
+        valueTextField.text = "Write your code...".localized()
+        cancelButton.setTitle("Cancel".localized(), for: .normal)
+        assignButton.setTitle("Assign".localized(), for: .normal)
+    }
 
     @IBAction func cancelButtonOnPress(_ sender: Any) {
         dismiss()
@@ -45,7 +52,7 @@ class AddFunctionAlert: CustomAlertViewController{
      }
     
     private func dismiss(){
-        valueTextField.text = "Program.."
+        valueTextField.text = "Write your code...".localized()
         valueTextField.resignFirstResponder()
         newFunctiontAssignmentDelegate?.newAssignmentIdentifier = nil
         editAssignmentDelegate?.assignmentToBeEdited = nil

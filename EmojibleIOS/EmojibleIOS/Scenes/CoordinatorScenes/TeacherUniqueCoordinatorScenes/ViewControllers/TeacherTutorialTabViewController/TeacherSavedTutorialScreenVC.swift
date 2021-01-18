@@ -24,8 +24,14 @@ class TeacherSavedTutorialScreenVC: UIViewController, Coordinated {
         view.addGestureRecognizer(tap)
         tutorialModel = (self.coordinator as! TeacherTutorialCoordinator).tutorialModel
         configureViews()
+        configureLanguage()
         configureTextView()
         configureTitleLabel()
+    }
+    func configureLanguage(){
+        backButton.setTitle("TUTORIALS".localized(), for: .normal)
+        runButton.setTitle("Run & Share".localized().uppercased(), for: .normal)
+        titleField.placeholder = "Enter title...".localized()
     }
     
     func configureViews(){
@@ -49,6 +55,7 @@ class TeacherSavedTutorialScreenVC: UIViewController, Coordinated {
         if titleField.text != self.tutorialModel?.name || savedProgramTextView.text != self.tutorialModel?.code {
             TeacherTutorialDataSource.getInstance().editTutorial(oldTutorial: self.tutorialModel!, newTutorial: CodeModel(name: titleField.text!, code: savedProgramTextView.text))
         }
+        TeacherCoordinator.getInstance().runCode(code: savedProgramTextView.text)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

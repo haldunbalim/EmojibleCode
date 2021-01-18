@@ -8,7 +8,6 @@
 import UIKit
 
 class ProgramViewModel: UICollectionViewCell {
-    
     var editDelegate: ProgramTabButtonAction?
     var runDelegate: ProgramTabButtonAction?
     var trashDelegate: ProgramTabButtonAction?
@@ -17,6 +16,8 @@ class ProgramViewModel: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var runButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +31,7 @@ class ProgramViewModel: UICollectionViewCell {
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
-        runDelegate?.runAction()
+        runDelegate?.runAction(code: self.codeModel!.code)
     }
     
     @IBAction func trashPressed(_ sender: UIButton) {
@@ -44,8 +45,9 @@ class ProgramViewModel: UICollectionViewCell {
         nameLabel.text = codeModel.name
         nameLabel.minimumScaleFactor = 0.5
         nameLabel.adjustsFontSizeToFitWidth = true
-        
         codeLabel.text = removeComments(codeModel.code)
+        editButton.setTitle("Edit".localized(), for: .normal)
+        runButton.setTitle("Run".localized(), for: .normal)
     }
     
     private func removeComments(_ code:String) -> String{

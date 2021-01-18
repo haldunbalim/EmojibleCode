@@ -21,7 +21,12 @@ class ClassCodeScreenVC: UIViewController, Coordinated{
         configureViews()
         configureTextView()
         configureTitleLabel()
+        configureLanguage()
         self.navigationController?.navigationBar.isHidden = true
+    }
+    func configureLanguage(){
+        backButton.setTitle("Class".localized().uppercased(), for: .normal)
+        runButton.setTitle("Run".localized().uppercased(), for: .normal)
     }
     
     func configureViews(){
@@ -44,7 +49,10 @@ class ClassCodeScreenVC: UIViewController, Coordinated{
         titleLabel.text = (self.coordinator as! ClassCoordinator).tutorialTitle
     }
     
-    @IBAction func runPressed(_ sender: UIButton) {}
+    @IBAction func runPressed(_ sender: UIButton) {
+        let code = (self.coordinator as! ClassCoordinator).tutorialCode
+        StudentCoordinator.getInstance().runCode(code: code!)
+    }
     
     @IBAction func backPressed(_ sender: UIButton) {
         (self.coordinator as! ClassCoordinator).pop()

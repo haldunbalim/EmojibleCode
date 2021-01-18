@@ -20,3 +20,14 @@ extension StringProtocol {
     subscript(range: PartialRangeThrough<Int>) -> SubSequence { self[...index(startIndex, offsetBy: range.upperBound)] }
     subscript(range: PartialRangeUpTo<Int>) -> SubSequence { self[..<index(startIndex, offsetBy: range.upperBound)] }
 }
+
+extension String{
+    func localized() -> String{
+        return NSLocalizedString(
+            self,
+            tableName: "Localized",
+            bundle:.main,
+            value: self,
+            comment: self)
+    }
+}

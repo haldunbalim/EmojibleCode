@@ -35,7 +35,8 @@ class SettingsScreenVC: UIViewController, Coordinated{
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SettingsViewModel", bundle: .main), forCellReuseIdentifier: reuseIdentifier)
         tableView.tableFooterView = UIView()
-        tableView.tableFooterView?.backgroundColor = UIColor.white
+        tableView.tableFooterView?.backgroundColor = .white
+        tableView.backgroundColor = .white
 
         NSLayoutConstraint.activate([tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 20)])
     }
@@ -54,7 +55,7 @@ extension SettingsScreenVC:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,18 +77,16 @@ extension SettingsScreenVC:UITableViewDataSource{
                 UserDataSource.getInstance().getCurrentUserInfo(){ userModel in
                     guard let userModel = userModel else {return}
                     if userModel is StudentModel {
-                        cell.configureAccountCell(accountType:"Student")
+                        cell.configureAccountCell(accountType:"Student".localized())
                     }else {
-                        cell.configureAccountCell(accountType:"Teacher")
+                        cell.configureAccountCell(accountType:"Teacher".localized())
                     }
                 }
             }else if indexPath.row == 3{
-                cell.configureLanguageButton()
-            }else if indexPath.row == 4{
                 cell.changePasswordDelegate = self
                 cell.configureChangePasswordButton()
             }
-            else if indexPath.row == 5{
+            else if indexPath.row == 4{
                 cell.logoutDelegate = self
                 cell.configureLogOutButton()
             }
@@ -115,6 +114,6 @@ extension SettingsScreenVC:SettingsTabButtonActions{
     func logoutAction() {
         self.removeAlert.presentOver(viewController: self)
         self.removeAlert.deleteButton.setTitleColor(.red, for: .normal)
-        self.removeAlert.deleteButton.setTitle("LogOut", for: .normal)
+        self.removeAlert.deleteButton.setTitle("Logout".localized(), for: .normal)
     }
 }

@@ -211,6 +211,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-Dw-FcA">
                                         <rect key="frame" x="0.0" y="36.666666666666671" width="400" height="30.333333333333329"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -222,6 +223,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="taO-ri-gGF">
                                         <rect key="frame" x="0.0" y="73" width="400" height="30.666666666666671"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -257,6 +259,7 @@
                     <connections>
                         <outlet property="classCodeTextField" destination="fgg-Dw-FcA" id="jAO-x7-jCj"/>
                         <outlet property="classPasswordTextField" destination="taO-ri-gGF" id="hLh-cG-8qE"/>
+                        <outlet property="enrollButton" destination="aCk-dg-0ks" id="81J-gJ-HB9"/>
                         <outlet property="enrollLabel" destination="cGn-K2-bWd" id="UYh-SC-GQb"/>
                     </connections>
                 </viewController>
@@ -301,9 +304,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKD-jY-rEb">
-                                <rect key="frame" x="44" y="5" width="120" height="40"/>
+                                <rect key="frame" x="44" y="5" width="140" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="I5T-7O-AgJ"/>
+                                    <constraint firstAttribute="width" constant="140" id="I5T-7O-AgJ"/>
                                     <constraint firstAttribute="height" constant="40" id="VVu-xh-qZo"/>
                                 </constraints>
                                 <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -358,7 +361,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNJ-EN-J7M">
-                                <rect key="frame" x="214" y="5" width="374" height="40"/>
+                                <rect key="frame" x="234" y="5" width="354" height="40"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -526,10 +529,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFt-Xy-xUr">
-                                <rect key="frame" x="44" y="5" width="120" height="40"/>
+                                <rect key="frame" x="44" y="5" width="140" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d1a-AK-sgH"/>
-                                    <constraint firstAttribute="width" constant="120" id="wf3-X6-IXD"/>
+                                    <constraint firstAttribute="width" constant="140" id="wf3-X6-IXD"/>
                                 </constraints>
                                 <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="PROGRAMS" image="chevron.backward" catalog="system">
@@ -556,7 +559,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TITLE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4L7-DH-iKR">
-                                <rect key="frame" x="214" y="5" width="384" height="40"/>
+                                <rect key="frame" x="234" y="5" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -1134,6 +1137,7 @@
                     <connections>
                         <outlet property="collectionLayout" destination="2Rl-75-1p4" id="AGb-9O-UVZ"/>
                         <outlet property="collectionView" destination="P5E-mU-9Qs" id="cJD-fg-Dk8"/>
+                        <outlet property="leaveButton" destination="oRF-Gc-qwj" id="TMC-OT-Xf3"/>
                         <outlet property="titleLabel" destination="9Um-Rt-cIc" id="mkU-mD-ax9"/>
                     </connections>
                 </viewController>
@@ -1336,10 +1340,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="3785"/>
         </scene>
-        <!--Forget Your PasswordVC-->
+        <!--Reset PasswordVC-->
         <scene sceneID="ALM-IX-rYv">
             <objects>
-                <viewController storyboardIdentifier="ForgetYourPasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y4F-e9-Y54" customClass="ForgetYourPasswordVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y4F-e9-Y54" customClass="ResetPasswordVC" customModule="EmojibleIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dyD-kw-I40">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1350,6 +1354,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wx0-rI-Pxs">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="34"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
@@ -1409,6 +1414,7 @@
             <point key="canvasLocation" x="1731" y="2758"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="arrow.up.left" catalog="system" width="128" height="111"/>
         <image name="camera" catalog="system" width="128" height="94"/>

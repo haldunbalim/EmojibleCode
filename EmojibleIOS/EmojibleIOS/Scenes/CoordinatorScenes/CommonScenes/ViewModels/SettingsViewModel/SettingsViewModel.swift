@@ -36,18 +36,18 @@ class SettingsViewModel: UITableViewCell{
     }
     
     func configureAccountCell(accountType: String){
-        configureLabel(text: "Account type: \(accountType)")
+        configureLabel(text: "Account type".localized() + ": \(accountType)")
     }
     
     func configureUserNameCell(name: String, surname:String){
-        configureLabel(text: "User name: \(name) \(surname)")
+        configureLabel(text: "User name".localized() + ": \(name) \(surname)")
     }
     func configureAgeCell(age: String){
-        configureLabel(text: "User age: \(age)")
+        configureLabel(text: "User age".localized() + ": \(age)")
     }
     
     func configureLogOutButton(){
-        logoutButton.setTitle("LogOut", for: .normal)
+        logoutButton.setTitle("Logout".localized(), for: .normal)
         logoutButton.titleLabel?.font = .systemFont(ofSize: 17)
         logoutButton.setTitleColor(.red, for: .normal)
         logoutButton.titleLabel?.textAlignment = .center
@@ -65,7 +65,7 @@ class SettingsViewModel: UITableViewCell{
     }
     
     func configureChangePasswordButton(){
-        changePasswordButton.setTitle("Change Password", for: .normal)
+        changePasswordButton.setTitle("Change Password".localized(), for: .normal)
         changePasswordButton.titleLabel?.font = .systemFont(ofSize: 17)
         changePasswordButton.setTitleColor(#colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1), for: .normal)
         changePasswordButton.titleLabel?.textAlignment = .center

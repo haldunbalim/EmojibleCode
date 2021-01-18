@@ -18,21 +18,33 @@ class RunScreenVC:UIViewController, Coordinated{
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var outputLabel: UILabel!
     @IBOutlet weak var enterButton: UIButton!
+    @IBOutlet weak var terminateButton: UIButton!
     
     override func viewDidLoad(){
+        configureLanguage()
         self.navigationController?.navigationBar.isHidden = true
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
+    func configureLanguage(){
+        enterButton.setTitle("Enter".localized(), for: .normal)
+        terminateButton.setTitle("Terminate".localized(), for: .normal)
+        inputTextField.placeholder = "Enter input".localized()
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         guard let coordinator = coordinator as? RunCodeCoordinator else { return }
+        
+        (coordinator.parentCoordinator as? CommonCoordinator)?.tabBarController.setHidden()
+        (coordinator.parentCoordinator as? StudentCoordinator)?.tabBarController.setHidden()
+        (coordinator.parentCoordinator as? TeacherCoordinator)?.tabBarController.setHidden()
+        
         runningCode = coordinator.runningCode
         Interpreter.getInstance().runCode(code: runningCode)
         outputLabel.isHidden = true
         inputTextField.isHidden = true
         enterButton.isHidden = true
-
     }
     
     @objc func numericInputRequested(){
@@ -56,6 +68,11 @@ class RunScreenVC:UIViewController, Coordinated{
         Interpreter.getInstance().finish()
         inputTextField.text = ""
         self.view.backgroundColor = UIColor.white
+        
+        guard let coordinator = coordinator as? RunCodeCoordinator else { return }
+        (coordinator.parentCoordinator as? CommonCoordinator)?.tabBarController.setVisible()
+        (coordinator.parentCoordinator as? StudentCoordinator)?.tabBarController.setVisible()
+        (coordinator.parentCoordinator as? TeacherCoordinator)?.tabBarController.setVisible()
     }
     
     @IBAction func terminateOnPress(_ sender:UIButton){

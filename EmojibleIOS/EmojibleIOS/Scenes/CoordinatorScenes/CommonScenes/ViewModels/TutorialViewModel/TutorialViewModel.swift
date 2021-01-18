@@ -14,6 +14,8 @@ class TutorialViewModel: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var viewButton: UIButton!
+    @IBOutlet weak var runButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +29,8 @@ class TutorialViewModel: UICollectionViewCell {
         nameLabel.adjustsFontSizeToFitWidth = true
         
         codeLabel.text = removeComments(codeModel.code)
+        viewButton.setTitle("View".localized(), for: .normal)
+        runButton.setTitle("Run".localized(), for: .normal)
     }
     
     @IBAction func viewPressed(_ sender: UIButton) {

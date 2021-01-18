@@ -19,6 +19,11 @@ class OpeningCodingScreen: UIViewController, Coordinated{
         view.addGestureRecognizer(tap)
         self.navigationController?.navigationBar.isHidden = true
         configureViews()
+        configureLanguage()
+    }
+    func configureLanguage(){
+        codingScreen.text = "Write your code...".localized()
+        runButton.setTitle("Run".localized().uppercased(), for: .normal)
     }
     
     func configureViews(){
@@ -48,7 +53,7 @@ class OpeningCodingScreen: UIViewController, Coordinated{
     
     @IBAction func runPressed(_ sender: UIButton) {
         if codingScreen.text != "" {
-            //run
+            CommonCoordinator.getInstance().runCode(code: codingScreen.text)
         }
     }
 }

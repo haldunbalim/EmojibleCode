@@ -26,6 +26,13 @@ class SavedProgramCodeScreenVC: UIViewController, Coordinated {
         configureViews()
         configureTextView()
         configureTitleLabel()
+        configureLanguage()
+    }
+    
+    func configureLanguage(){
+        backButton.setTitle("Programs".localized().uppercased(), for: .normal)
+        runButton.setTitle("Run".localized().uppercased(), for: .normal)
+        titleField.placeholder = "Enter title...".localized()
     }
     
     func configureViews(){
@@ -49,6 +56,8 @@ class SavedProgramCodeScreenVC: UIViewController, Coordinated {
         if titleField.text != self.programModel?.name || savedProgramTextView.text != self.programModel?.code {
             ProgramDataSource.getInstance().editProgram(oldProgram: self.programModel!, newProgram: CodeModel(name: titleField.text!, code: savedProgramTextView.text))
         }
+        StudentCoordinator.getInstance().runCode(code: savedProgramTextView.text)
+        
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

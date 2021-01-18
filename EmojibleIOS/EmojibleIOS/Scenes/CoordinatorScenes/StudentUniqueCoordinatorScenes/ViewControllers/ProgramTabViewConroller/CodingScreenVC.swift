@@ -21,6 +21,14 @@ class CodingScreenVC: UIViewController, Coordinated{
         view.addGestureRecognizer(tap)
         self.navigationController?.navigationBar.isHidden = true
         configureViews()
+        configureLanguage()
+    }
+    
+    func configureLanguage(){
+        backButton.setTitle("Programs".localized().uppercased(), for: .normal)
+        runButton.setTitle("Run".localized().uppercased(), for: .normal)
+        codingScreen.text = "Write your code...".localized()
+        titleField.placeholder = "Enter title...".localized()
     }
     
     func configureViews(){
@@ -56,11 +64,12 @@ class CodingScreenVC: UIViewController, Coordinated{
                 ProgramDataSource.getInstance().writeProgram(program: CodeModel(name: titleField.text!, code: codingScreen.text))
             }
         }
+        StudentCoordinator.getInstance().runCode(code: codingScreen.text)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
-        titleField.placeholder = "Enter title..."
-        codingScreen.text = "Write your code..."
+        titleField.placeholder = "Enter title...".localized()
+        codingScreen.text = "Write your code...".localized()
         (self.coordinator as! ProgramsCoordinator).pop()
     }
 }

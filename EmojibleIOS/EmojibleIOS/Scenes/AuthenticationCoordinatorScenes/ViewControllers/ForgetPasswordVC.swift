@@ -21,6 +21,12 @@ class ForgetPasswordVC: UIViewController, Coordinated, UIViewControllerWithAlert
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         configureViews()
+        configureLanguage()
+    }
+    func configureLanguage(){
+        backButton.setTitle("BACK".localized(), for: .normal)
+        getLinkButton.setTitle("Get reset link".localized(), for: .normal)
+        emailTextField.placeholder = "Enter your e-mail".localized()
     }
     
     func configureViews(){

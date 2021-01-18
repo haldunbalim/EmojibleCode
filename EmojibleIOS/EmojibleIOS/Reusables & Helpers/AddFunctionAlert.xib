@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFunctionAlert" customModule="EmojibleIOS" customModuleProvider="target">
             <connections>
                 <outlet property="alertView" destination="BAn-kj-x1A" id="KSx-br-3hO"/>
+                <outlet property="assignButton" destination="zfu-TS-zQ0" id="hRI-Ia-t0i"/>
+                <outlet property="cancelButton" destination="yEk-B1-2f1" id="mz2-nq-SaO"/>
                 <outlet property="valueTextField" destination="Vmd-eh-ETX" id="lMW-8v-qGd"/>
                 <outlet property="view" destination="hTg-JQ-snH" id="FVN-Bl-Gah"/>
             </connections>
@@ -29,10 +31,11 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dgp-9b-CGz">
                                     <rect key="frame" x="5" y="0.0" width="350" height="120"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Program.." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmd-eh-ETX">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Program..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmd-eh-ETX">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="120"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="textColor" red="0.28627450980000002" green="0.3294117647" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="textColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <userDefinedRuntimeAttributes>
@@ -51,6 +54,8 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wtI-Zx-nsm">
                                     <rect key="frame" x="156" y="120" width="48" height="120"/>

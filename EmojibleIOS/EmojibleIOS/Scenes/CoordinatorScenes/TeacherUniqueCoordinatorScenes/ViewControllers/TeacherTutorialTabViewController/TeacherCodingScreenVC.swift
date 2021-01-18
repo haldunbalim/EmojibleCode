@@ -21,6 +21,14 @@ class TeacherCodingScreenVC: UIViewController, Coordinated{
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         configureViews()
+        configureLanguage()
+    }
+    
+    func configureLanguage(){
+        backButton.setTitle("TUTORIALS".localized(), for: .normal)
+        runButton.setTitle("Run & Share".localized().uppercased(), for: .normal)
+        titleField.placeholder = "Enter title...".localized()
+        codingScreen.text = "Write your code...".localized()
     }
     
     func configureViews(){
@@ -54,11 +62,12 @@ class TeacherCodingScreenVC: UIViewController, Coordinated{
         if titleField.text != "" && codingScreen.text != "" {
             TeacherTutorialDataSource.getInstance().writeTutorial(tutorial: CodeModel(name: titleField.text!, code: codingScreen.text))
         }
+        TeacherCoordinator.getInstance().runCode(code: codingScreen.text)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
-        titleField.placeholder = "Enter title..."
-        codingScreen.text = "Write your code..."
+        titleField.placeholder = "Enter title...".localized()
+        codingScreen.text = "Write your code...".localized()
         (self.coordinator as! TeacherTutorialCoordinator).pop()
     }
 }

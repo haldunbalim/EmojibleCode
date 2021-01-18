@@ -14,9 +14,19 @@ class AssignmentAlert: CustomAlertViewController{
     var funcDelegate: AssignmentPopUpAlert?
     
     @IBOutlet weak var emojiLabel: UILabel!
+    @IBOutlet weak var textButton: UIButton!
+    @IBOutlet weak var voiceButton: UIButton!
+    @IBOutlet weak var functionButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLanguage()
+        
+    }
+    func configureLanguage(){
+        textButton.setTitle("Text".localized(), for: .normal)
+        voiceButton.setTitle("Voice".localized(), for: .normal)
+        functionButton.setTitle("Function".localized(), for: .normal)
     }
     
     @IBAction func cancelButtonOnPress(_ sender: Any) {

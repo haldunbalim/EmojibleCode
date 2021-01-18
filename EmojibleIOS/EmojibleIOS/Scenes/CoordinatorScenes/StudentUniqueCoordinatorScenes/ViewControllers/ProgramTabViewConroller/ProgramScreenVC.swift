@@ -31,6 +31,12 @@ class ProgramScreenVC: UIViewController, Coordinated{
         self.navigationController?.navigationBar.isHidden = true
         configureCollectionView()
         configureRemoveAlert()
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyProgramObserver(_:)), name: .userModelChanged, object: nil)
+        UserDataSource.getInstance().startObservingUserModel()
+    }
+    
+    @objc func notifyProgramObserver(_ notification: NSNotification){
+        ProgramDataSource.getInstance().stopObservingProgram()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .programsChanged, object: nil)
         ProgramDataSource.getInstance().startObservingProgram()
     }
@@ -144,12 +150,12 @@ extension ProgramScreenVC: ProgramTabButtonAction{
         (self.coordinator as! ProgramsCoordinator).openScreen(screenName: .SavedCodeScreen)
     }
     
-    func runAction() {
-        
-    }
-    
     func trashAction(programModel: CodeModel) {
         self.trashButtonPressed(program: programModel)
+    }
+    
+    func runAction(code: String) {
+        StudentCoordinator.getInstance().runCode(code: code)
     }
 }
 

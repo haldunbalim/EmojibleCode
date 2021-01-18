@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ForgetYourPasswordVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
+class ResetPasswordVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     var pleaseWaitAlert: UIAlertController?
     var coordinator: Coordinator?
     
@@ -21,6 +21,12 @@ class ForgetYourPasswordVC: UIViewController, Coordinated, UIViewControllerWithA
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         configureViews()
+        configureLanguage()
+    }
+    func configureLanguage(){
+        emailTextField.placeholder = "Enter your e-mail".localized()
+        backButton.setTitle("BACK".localized(), for: .normal)
+        getLinkButton.setTitle("Get reset link".localized(), for: .normal)
     }
     
     func configureViews(){
@@ -37,7 +43,7 @@ class ForgetYourPasswordVC: UIViewController, Coordinated, UIViewControllerWithA
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text, email != "" else {
-            showMessagePrompt("E-mail cannot be empty", vcToBePresented: self)
+            showMessagePrompt("E-mail cannot be empty".localized(), vcToBePresented: self)
             return
         }
         

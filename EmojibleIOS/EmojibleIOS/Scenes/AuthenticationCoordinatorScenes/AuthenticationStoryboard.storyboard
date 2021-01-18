@@ -274,6 +274,7 @@
                         <outlet property="birthDatePicker" destination="KfU-T6-4rd" id="o6c-J5-BLd"/>
                         <outlet property="birthDatePickerToolbar" destination="B40-X4-K1K" id="qty-ud-dUG"/>
                         <outlet property="birthDateTextField" destination="N5s-FE-fw7" id="AmA-G0-SqG"/>
+                        <outlet property="createMyAccountButton" destination="Axi-Sm-Vt7" id="b67-s9-N9t"/>
                         <outlet property="emailTextField" destination="euJ-hC-URj" id="XSU-I2-g91"/>
                         <outlet property="nameTextField" destination="zRW-vZ-UFl" id="Oka-qP-lW1"/>
                         <outlet property="passwordTextField" destination="9Yj-UX-M3h" id="Php-AE-VT3"/>
@@ -358,6 +359,7 @@
             <point key="canvasLocation" x="2354" y="274"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
     </resources>

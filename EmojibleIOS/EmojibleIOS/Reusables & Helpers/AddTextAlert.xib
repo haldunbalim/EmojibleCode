@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTextAlert" customModule="EmojibleIOS" customModuleProvider="target">
             <connections>
                 <outlet property="alertView" destination="kMY-F1-IIV" id="2vK-fy-ZlX"/>
+                <outlet property="assignButton" destination="I7a-sO-3Tl" id="rKZ-yp-VAp"/>
+                <outlet property="cancelButton" destination="PjU-fq-TTS" id="pnr-Bu-mtA"/>
                 <outlet property="valueTextField" destination="mPJ-Jw-SSP" id="Wqk-jP-zbt"/>
                 <outlet property="view" destination="9OP-8L-OVG" id="CEM-UT-Q4u"/>
             </connections>

@@ -13,14 +13,21 @@ class AddVoiceAlert: CustomAlertViewController, AVAudioRecorderDelegate{
     var newVoiceAssignmentDelegate: AssignmentNewAssignmentAlert?
     var editAssignmentDelegate: AssignmentEditAlert?
     
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var assignButton: UIButton!
     @IBOutlet weak var recordingLabel: UILabel!
     fileprivate let temporaryAudioFilePath = "temp.m4a"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLanguage()
         AudioRecorder.getInstance().delegate = self
         recordingLabel.isHidden = true
+    }
+    func configureLanguage(){
+        assignButton.setTitle("Assign".localized(), for: .normal)
+        recordingLabel.text = "Recording".localized()
+        cancelButton.setTitle("Cancel".localized(), for: .normal)
     }
     
     @IBAction func microphoneButtonOnPress(_ sender: Any) {

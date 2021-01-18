@@ -23,7 +23,7 @@ extension UIViewControllerWithAlerts{
             return
         }
         
-        pleaseWaitAlert = UIAlertController(title: nil, message: "Please Wait...\n\n\n\n", preferredStyle: .alert)
+        pleaseWaitAlert = UIAlertController(title: nil, message: "Please Wait".localized() + "...\n\n\n\n", preferredStyle: .alert)
         
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.color = UIColor.black

@@ -74,7 +74,7 @@ class TeacherClassDataSource{
                     return
                 }
                 if docs.count == 0{
-                    completion("No class with this ClassId and Password")
+                    completion("No class with this id and password".localized())
                 }else {
                     UserDataSource.getInstance().editUserData(newData: ["classId" : classId])
                     completion(nil)

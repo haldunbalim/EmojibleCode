@@ -16,7 +16,6 @@ class TeacherClassVC: UIViewController, Coordinated{
     
     var removeAlert: RemoveAlert!
     var newClassAlert: CreateNewClassAlert!
-    var wrongInput: DisplayWarningAlert!
     
     var classToBeRemoved: ClassModel?
     
@@ -26,9 +25,15 @@ class TeacherClassVC: UIViewController, Coordinated{
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         configureTableView()
-        configureWrongInputAlert()
         configureRemoveAlert()
         configureNewClassAlert()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyClassObserver(_:)), name: .userModelChanged, object: nil)
+        UserDataSource.getInstance().startObservingUserModel()
+    }
+    
+    @objc func notifyClassObserver(_ notification: NSNotification){
+        TeacherClassDataSource.getInstance().stopObservingClass()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .teacherClassChanged, object: nil)
         TeacherClassDataSource.getInstance().startObservingClass()
     }
@@ -46,7 +51,8 @@ class TeacherClassVC: UIViewController, Coordinated{
         tableView.register(UINib(nibName: "TeacherClassViewModel", bundle: .main), forCellReuseIdentifier: reuseIdentifier)
         
         tableView.tableFooterView = UIView()
-        tableView.tableFooterView?.backgroundColor = UIColor.white
+        tableView.tableFooterView?.backgroundColor = .white
+        tableView.backgroundColor = .white
 
         NSLayoutConstraint.activate([tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 20)])
     }
@@ -61,11 +67,6 @@ class TeacherClassVC: UIViewController, Coordinated{
         newClassAlert = CreateNewClassAlert()
         newClassAlert.delegate = self
         newClassAlert.warningDelegate = self
-    }
-    
-    func configureWrongInputAlert(){
-        wrongInput = DisplayWarningAlert()
-        wrongInput.delegate = self
     }
 }
 
@@ -125,8 +126,7 @@ extension TeacherClassVC:TeacherClassTabButtonAction{
 
 extension TeacherClassVC: WarningAlert{
     func warningAction(warning: String) {
-        self.wrongInput.presentOver(viewController: self)
-        self.wrongInput.configureWarning(text: warning)
+        showMessagePrompt(warning, vcToBePresented: self)
     }
 }
 

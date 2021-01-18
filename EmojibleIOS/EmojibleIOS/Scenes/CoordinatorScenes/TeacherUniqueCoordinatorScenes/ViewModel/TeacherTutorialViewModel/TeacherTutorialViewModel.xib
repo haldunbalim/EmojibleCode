@@ -116,7 +116,9 @@
             <connections>
                 <outlet property="backgroundView" destination="r3V-jo-CpW" id="7EE-Yr-r8v"/>
                 <outlet property="codeLabel" destination="B6B-NG-o3V" id="Sj1-Wt-dkM"/>
+                <outlet property="editButton" destination="3SQ-lk-rqQ" id="W1h-tH-GYC"/>
                 <outlet property="nameLabel" destination="Tmj-Bh-s80" id="CZb-Mm-Cgn"/>
+                <outlet property="runButton" destination="oUU-pO-qbg" id="H5u-Rg-jbQ"/>
             </connections>
             <point key="canvasLocation" x="-218.11594202898553" y="271.54017857142856"/>
         </collectionViewCell>

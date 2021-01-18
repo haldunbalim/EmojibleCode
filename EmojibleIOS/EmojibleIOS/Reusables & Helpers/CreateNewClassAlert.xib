@@ -11,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateNewClassAlert" customModule="EmojibleIOS" customModuleProvider="target">
             <connections>
                 <outlet property="alertView" destination="ago-7F-OVe" id="F4k-6L-Yxw"/>
+                <outlet property="cancelButton" destination="CQ3-Py-FhG" id="fGl-1X-OKp"/>
                 <outlet property="classNameTextField" destination="iWm-Ph-8QD" id="qHx-vq-EBL"/>
+                <outlet property="createButton" destination="yxs-qe-7tq" id="VDh-0S-R9a"/>
                 <outlet property="passwordTextField" destination="6Fe-1K-Z1Q" id="rf8-oi-Z7k"/>
                 <outlet property="view" destination="Dr9-dv-ESS" id="ZDD-Fh-XGg"/>
             </connections>
