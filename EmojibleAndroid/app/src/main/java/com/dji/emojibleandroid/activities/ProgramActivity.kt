@@ -66,6 +66,7 @@ class ProgramActivity : AppCompatActivityWithAlerts() {
         val titleEditText: EditText = findViewById(R.id.titleEditText)
         if (type == "editProgram") {
             titleEditText.setText(intent.getStringExtra("title"))
+            codeEditText.setText(intent.getStringExtra("code"))
         } else {
             deleteCodeButton.text = "Return"
         }

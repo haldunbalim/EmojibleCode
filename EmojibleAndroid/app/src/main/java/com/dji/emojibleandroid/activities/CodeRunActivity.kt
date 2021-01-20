@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 class CodeRunActivity : AppCompatActivity() {
 
-    var looperCalled = false
     var input: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +52,7 @@ class CodeRunActivity : AppCompatActivity() {
         }
     }
 
-    private fun prepareLooper() {
+    fun prepareLooper() {
         if (!CodeScreenUtils.looperCalled) {
             Looper.prepare()
             CodeScreenUtils.looperCalled = true
@@ -61,10 +60,7 @@ class CodeRunActivity : AppCompatActivity() {
     }
 
     fun terminate(view: View) {
-        GlobalScope.launch {
-            Interpreter.instance.finish()
-        }
-        finish()
+        terminate()
     }
 
     fun passInput(view: View) {
@@ -85,5 +81,12 @@ class CodeRunActivity : AppCompatActivity() {
         runOnUiThread {
             terminateButton.text = "Exit"
         }
+    }
+
+    fun terminate() {
+        GlobalScope.launch {
+            Interpreter.instance.finish()
+        }
+        finish()
     }
 }

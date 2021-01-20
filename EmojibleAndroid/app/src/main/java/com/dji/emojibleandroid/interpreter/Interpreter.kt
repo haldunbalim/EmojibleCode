@@ -1,11 +1,13 @@
 package com.dji.emojibleandroid.interpreter
 
+import com.dji.emojibleandroid.showToast
 import com.dji.emojibleandroid.utils.CodeScreenUtils
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Semaphore
+import java.lang.Exception
 
 
 class Interpreter private constructor() {
@@ -16,15 +18,32 @@ class Interpreter private constructor() {
     }
 
     fun runCode(code: String) {
-        val lexer = Lexer(code)
-        lexer.lex()
-        val localMemory = Memory(GlobalMemory.instance.assignments)
-        val parser = Parser(lexer.lexedText, localMemory)
-        val tree = parser.parse()
+        var tree: ProgramNode? = null
+        try {
+            val lexer = Lexer(code)
+            lexer.lex()
+            val localMemory = Memory(GlobalMemory.instance.assignments)
+            val parser = Parser(lexer.lexedText, localMemory)
+            tree = parser.parse()
+        } catch (e: Exception) {
+            CodeScreenUtils.runScreen?.showToast("An error occurred due to ${e.message}")
+        }
         inputSemaphore = Semaphore(1)
-        job = GlobalScope.launch {
-            interpret(tree)
+        if (tree != null){
+            job = GlobalScope.launch {
+                try {
+                    interpret(tree)
+                    CodeScreenUtils.runScreen?.codeFinished()
+                } catch (e: Exception) {
+                    if (e.message != "StandaloneCoroutine was cancelled") {
+                        CodeScreenUtils.runScreen?.prepareLooper()
+                        CodeScreenUtils.runScreen?.showToast("An error occurred due to ${e.message}")
+                    }
+                }
+            }
+        } else {
             CodeScreenUtils.runScreen?.codeFinished()
+            CodeScreenUtils.runScreen?.terminate()
         }
     }
 
