@@ -33,8 +33,6 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
         val TAG: String = LoginActivity::class.java.simpleName
     }
 
-    private lateinit var auth: FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

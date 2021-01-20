@@ -34,7 +34,6 @@ class UserActivity : AppCompatActivity(), Observer {
 
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseFirestore
 
     companion object {
         val TAG: String = UserActivity::class.java.simpleName
@@ -48,7 +47,13 @@ class UserActivity : AppCompatActivity(), Observer {
         NotificationCenter.instance.addObserver(Changes.userModelChagend, this)
         UserDataSource.instance.startObservingUserModel()
 
-        setupToolbar(this, programLayoutToolbar, tutorialLayoutToolbar, emojiLayoutToolbar, userLayoutToolbar)
+        setupToolbar(
+            this,
+            programLayoutToolbar,
+            tutorialLayoutToolbar,
+            emojiLayoutToolbar,
+            userLayoutToolbar
+        )
 
         signoutButton.setOnClickListener {
 
@@ -70,33 +75,6 @@ class UserActivity : AppCompatActivity(), Observer {
 
         passwordButton.setOnClickListener {
             changePassword()
-        }
-        //showFeatures()
-    }
-
-    private fun showFeatures() {
-
-        val docRef = auth.currentUser?.email?.let { db.collection("Users").document(it) }
-        docRef?.get()
-            ?.addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    nameEditText.text = document.data?.get("name").toString()
-                    surnameEditText.text = document.data?.get("surname").toString()
-                    userTypeEditText.text = document.data?.get("userType").toString()
-                    emailEditText.text = document.data?.get("email").toString()
-                    birthEditText.text = document.data?.get("birthDate").toString()
-                    classIdEditText.text = document.data?.get("classId").toString()
-                } else {
-                    Log.d(TAG, "No such document")
-                }
-            }
-            ?.addOnFailureListener { exception ->
-                Log.d(TAG, "get failed with ", exception)
-            }
-
-        if (auth.currentUser == null) {
-            signOutUser()
         }
     }
 
@@ -149,7 +127,7 @@ class UserActivity : AppCompatActivity(), Observer {
     private fun signOutUser() {
         AuthenticationManager.instance.signOut()
         UserDataSource.instance.stopObservingUserModel()
-        val intent = Intent(this,LoginActivity::class.java)
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
 

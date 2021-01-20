@@ -14,7 +14,7 @@ fun setupToolbar(
     userLayoutToolbar: View
 ) {
 
-    if (context !is ProgramActivity) {
+    if (context !is GridProgramActivity) {
         programLayoutToolbar.setOnClickListener {
             val intent = Intent(context, GridProgramActivity::class.java)
             context.startActivity(intent)

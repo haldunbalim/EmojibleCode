@@ -10,20 +10,34 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.ProgramsAdapter
 import com.dji.emojibleandroid.dataSources.ProgramDataSource
+import com.dji.emojibleandroid.extensions.AppCompatActivityWithAlerts
+import com.dji.emojibleandroid.extensions.hideProgressBar
+import com.dji.emojibleandroid.extensions.showProgressBar
 import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.ProgramModel
+import com.dji.emojibleandroid.services.VisionModelApi
+import com.dji.emojibleandroid.services.VisionModelResponse
 import com.dji.emojibleandroid.showToast
 import com.dji.emojibleandroid.utils.EmojiUtils.programs
+import com.dji.emojibleandroid.utils.URIPathHelper
+import com.dji.emojibleandroid.utils.setupToolbar
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_program.*
-import kotlinx.android.synthetic.main.activity_program.emojiLayoutToolbar
-import kotlinx.android.synthetic.main.activity_program.programLayoutToolbar
-import kotlinx.android.synthetic.main.activity_program.tutorialLayoutToolbar
-import kotlinx.android.synthetic.main.activity_program.userLayoutToolbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.OkHttpClient
+import okhttp3.RequestBody.Companion.asRequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
 
@@ -32,7 +46,7 @@ private const val REQUEST_CODE = 42
 private lateinit var photoFile: File
 
 
-class ProgramActivity : AppCompatActivity() {
+class ProgramActivity : AppCompatActivityWithAlerts() {
 
     internal companion object {
         //image pick code
@@ -40,6 +54,8 @@ class ProgramActivity : AppCompatActivity() {
 
         //Permission code
         private val PERMISSION_CODE = 1001;
+
+        val BASE_URL = "http://ec2-54-93-47-160.eu-central-1.compute.amazonaws.com:8000"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +66,8 @@ class ProgramActivity : AppCompatActivity() {
         val titleEditText: EditText = findViewById(R.id.titleEditText)
         if (type == "editProgram") {
             titleEditText.setText(intent.getStringExtra("title"))
+        } else {
+            deleteCodeButton.text = "Return"
         }
 
         cameraImageView.setOnClickListener {
@@ -92,36 +110,45 @@ class ProgramActivity : AppCompatActivity() {
 
         }
 
-        processButton.setOnClickListener {
-
-            val codeEditText: EditText = findViewById(R.id.codeEditText)
-            var sameExists = false
-            for (program in programs) {
-
-                if (program.name == titleEditText.text.toString()) {
-                    ProgramDataSource.instance.editProgram(
-                        program as CodeModel,
-                        CodeModel(program.name, codeEditText.text.toString())
-                    )
-                    program.code = codeEditText.text.toString()
-                    sameExists = true
-                }
-            }
-            if (!sameExists) {
-                val codeModel =
-                    CodeModel(titleEditText.text.toString(), codeEditText.text.toString())
-                ProgramDataSource.instance.writeProgram(codeModel)
-                val programModel = ProgramModel(ProgramsAdapter.VIEW_TYPE_TWO, codeModel)
-                programs.add(
-                    programs.size,
-                    programModel
+        saveCodeButton.setOnClickListener {
+            val codeTitle = titleEditText.text.toString()
+            val newCodeModel = CodeModel(codeTitle, codeEditText.text.toString())
+            val newProgramModel = ProgramModel(ProgramsAdapter.VIEW_TYPE_TWO, newCodeModel)
+            if (type == "editProgram") {
+                val oldIndex = intent.getIntExtra("position", -1)
+                ProgramDataSource.instance.editProgram(
+                    programs[oldIndex] as CodeModel,
+                    newCodeModel
                 )
+                programs[oldIndex] = newProgramModel
+            } else {
+                val same = programs.find { it.name == codeTitle }
+                if (same != null) {
+                    programs[programs.indexOf(same)] = newProgramModel
+                    ProgramDataSource.instance.editProgram(same as CodeModel, newCodeModel)
+                } else {
+                    programs.add(newProgramModel)
+                    ProgramDataSource.instance.writeProgram(newCodeModel)
+                }
             }
             val intent = Intent(this, GridProgramActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
-        com.dji.emojibleandroid.utils.setupToolbar(
+        deleteCodeButton.setOnClickListener {
+            if (type == "editProgram") {
+                val idx = intent.getIntExtra("position", -1)
+                val oldProgramModel = programs[idx]
+                ProgramDataSource.instance.removeProgram(oldProgramModel as CodeModel)
+                programs.removeAt(idx)
+            }
+            val intent = Intent(this, GridProgramActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        setupToolbar(
             this,
             programLayoutToolbar,
             tutorialLayoutToolbar,
@@ -169,8 +196,8 @@ class ProgramActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-
-            TODO("Galeriden foto alınıyor burda işle")
+            showProgressBar()
+            GlobalScope.launch { requestImageResult(data) }
 
         } else if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
 
@@ -182,5 +209,40 @@ class ProgramActivity : AppCompatActivity() {
             super.onActivityResult(requestCode, resultCode, data)
 
         }
+    }
+
+    fun requestImageResult(data: Intent?) {
+        val httpClient = OkHttpClient.Builder()
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .client(httpClient.build())
+            .build()
+
+        val service = retrofit.create(VisionModelApi::class.java)
+        val filepath = data?.data?.let { URIPathHelper().getPath(this, it) }
+
+        val file = File(filepath!!)
+
+        val requestFile = file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+
+        val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+
+        val call = service.getCodeFromImage(body)
+        call.enqueue(object : Callback<VisionModelResponse> {
+            override fun onResponse(
+                call: Call<VisionModelResponse>,
+                response: Response<VisionModelResponse>
+            ) {
+                hideProgressBar()
+                codeEditText.setText(response.body()?.code)
+            }
+
+            override fun onFailure(call: Call<VisionModelResponse>, t: Throwable) {
+                hideProgressBar()
+                showToast("Call to API failed due to ${t.message}")
+            }
+
+        })
     }
 }

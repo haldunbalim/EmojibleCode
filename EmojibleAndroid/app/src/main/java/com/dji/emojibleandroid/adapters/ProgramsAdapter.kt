@@ -55,6 +55,7 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
 
                 val intent = Intent(context, ProgramActivity::class.java)
                 intent.putExtra("type", "editProgram")
+                intent.putExtra("position", position)
                 intent.putExtra("title", title.text.toString())
                 context.startActivity(intent)
 
@@ -122,12 +123,6 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
         var currentPosition: Int = 0
 
         init {
-
-            itemView.setOnClickListener() {
-
-                context.showToast(currentProgram?.name + " is clicked")
-
-            }
         }
 
     }

@@ -19,8 +19,11 @@ import com.dji.emojibleandroid.extensions.hideProgressBar
 import com.dji.emojibleandroid.extensions.showProgressBar
 import com.dji.emojibleandroid.models.modelFactories.UserFactory
 import com.dji.emojibleandroid.services.AuthenticationManager
+import com.dji.emojibleandroid.services.Changes
+import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
 import com.dji.emojibleandroid.utils.setupToolbar
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_no_user.*
 import kotlinx.android.synthetic.main.activity_no_user.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_no_user.programLayoutToolbar
@@ -30,7 +33,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class NoUserActivity : AppCompatActivityWithAlerts() {
+class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
 
     private lateinit var popupLayout: ViewGroup
     private lateinit var toggle: Switch
@@ -48,6 +51,8 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_no_user)
+        NotificationCenter.instance.addObserver(Changes.authStateChanged, this)
+        AuthenticationManager.instance.startListeningForAuthChanges()
         popupLayout = findViewById(R.id.popUpLayout)
         toggle = findViewById(R.id.teacherSwitch)
         classID = findViewById(R.id.classIDEditText)
@@ -231,6 +236,23 @@ class NoUserActivity : AppCompatActivityWithAlerts() {
             }
         }
 
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+
+        if (currentUser != null) {
+            val intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
+            finish()
+        } else {
+
+            showToast("Login Failed")
+
+        }
+    }
+
+    override fun update(o: Observable?, arg: Any?) {
+        updateUI(AuthenticationManager.instance.currentUser)
     }
 
 }

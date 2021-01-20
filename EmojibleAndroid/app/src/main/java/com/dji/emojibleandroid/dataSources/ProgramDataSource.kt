@@ -48,16 +48,12 @@ class ProgramDataSource {
 
     fun removeProgram(program: CodeModel) {
         val currentUser = AuthenticationManager.instance.currentUser
-        var index: Int? = null
-        programs.forEachIndexed { i, p ->
-            if (p == program)
-                index = i
-            return
-        }
+        val pModel = programs.find { it == program } ?: return
+        val index = programs.indexOf(pModel)
         val uid = currentUser?.uid
         uid?.let {
             database.collection("Users").document(it).collection("Programs")
-                .document(programDataSourceIndices[index!!]).delete()
+                .document(programDataSourceIndices[index]).delete()
         }
     }
 

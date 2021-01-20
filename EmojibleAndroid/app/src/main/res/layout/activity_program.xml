@@ -64,19 +64,35 @@
             <EditText
                 android:id="@+id/codeEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="15"
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:gravity="center"
                 android:hint="Text your program here..." />
 
-            <Button
-                android:id="@+id/processButton"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="Process" />
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/saveCodeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:text="Save" />
+
+                <Button
+                    android:id="@+id/deleteCodeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorAccent"
+                    android:text="Delete" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
@@ -96,6 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:foregroundGravity="left"
             android:orientation="vertical">
 
             <ImageView
