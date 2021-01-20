@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "293053743528",
+    "firebase_url": "https://emojible-be1c2.firebaseio.com",
+    "project_id": "emojible-be1c2",
+    "storage_bucket": "emojible-be1c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293053743528:android:14fb097650443923addd9d",
+        "android_client_info": {
+          "package_name": "com.dji.emojibleandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293053743528-5v98errt2b9c6engk1pg0s0mfsmlb973.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3_Otu12Wwz-t3HkfBaCaizhh9_IKy-lA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293053743528-5v98errt2b9c6engk1pg0s0mfsmlb973.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "293053743528-ukac83e09vrtpl75sfkl7r9alrie88ut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.EmojibleIOS.EmojibleIOS.COMP491"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
