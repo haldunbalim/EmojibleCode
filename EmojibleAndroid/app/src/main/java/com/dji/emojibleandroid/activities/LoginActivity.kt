@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.dji.emojibleandroid.R
@@ -15,16 +16,9 @@ import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.emojiLayoutToolbar
 import kotlinx.android.synthetic.main.activity_login.loginButton
-import kotlinx.android.synthetic.main.activity_login.programLayoutToolbar
-import kotlinx.android.synthetic.main.activity_login.tutorialLayoutToolbar
-import kotlinx.android.synthetic.main.activity_login.userLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.*
-import kotlinx.android.synthetic.main.activity_user.*
 import java.util.*
 
 class LoginActivity : AppCompatActivityWithAlerts(), Observer {
@@ -65,14 +59,28 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
 
         }
 
-        com.dji.emojibleandroid.utils.setupToolbar(
-            this,
-            programLayoutToolbar,
-            tutorialLayoutToolbar,
-            emojiLayoutToolbar,
-            userLayoutToolbar
-        )
+    }
 
+    fun openProgramTab(view: View) {
+        val intent = Intent(this, GridProgramActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openTutorialTab(view: View) {
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openEmojiTab(view: View) {
+        val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openLoginTab(view: View) {
+        return
     }
 
     private fun forgotPassword(email: String) {
@@ -146,10 +154,6 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
             val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
             finish()
-        } else {
-
-            showToast("Login Failed")
-
         }
     }
 

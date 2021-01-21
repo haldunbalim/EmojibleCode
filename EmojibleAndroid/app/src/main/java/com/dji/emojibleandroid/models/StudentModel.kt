@@ -1,9 +1,5 @@
 package com.dji.emojibleandroid.models
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import java.time.LocalDate
-
 class StudentModel(
     email: String,
     name: String,
@@ -16,7 +12,7 @@ class StudentModel(
         dictionary["name"] as String,
         dictionary["surname"] as String,
         dictionary["birthDate"] as String,
-        dictionary["classId"] as String
+        dictionary["classId"] as String?
     ) {
         if (classId == "") {
             classId = null
@@ -24,6 +20,8 @@ class StudentModel(
     }
 
     override var dictionary: HashMap<String, Any> = super.dictionary.let {
+        if (classId == null)
+            classId = ""
         it["classId"] = classId as Any
         it["userType"] = "Student"
         it

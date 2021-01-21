@@ -59,15 +59,6 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/classIDEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Enter your class ID"
-                android:inputType="text" />
-
             <Switch
                 android:id="@+id/teacherSwitch"
                 android:layout_width="wrap_content"
@@ -132,7 +123,6 @@
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/parentLinearLayout"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -219,109 +209,10 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/toolbarLayout"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:orientation="vertical"
+    <include
+        layout="@layout/no_user_toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:id="@+id/programLayoutToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/navImageView4"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_coding" />
-
-            <TextView
-                android:id="@+id/navTextView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Program Oluştur"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/tutorialLayoutToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/navImageView5"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_tutorials" />
-
-            <TextView
-                android:id="@+id/navTextView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Öğren"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/emojiLayoutToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/navImageView6"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_happy" />
-
-            <TextView
-                android:id="@+id/navTextView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Emojileri Düzenle"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/userLayoutToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/navImageView7"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/ic_user" />
-
-            <TextView
-                android:id="@+id/navTextView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kullanıcı Ayarları"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

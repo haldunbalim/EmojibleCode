@@ -13,7 +13,6 @@ import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.activities.CodeRunActivity
 import com.dji.emojibleandroid.activities.ProgramActivity
 import com.dji.emojibleandroid.models.ProgramModel
-import com.dji.emojibleandroid.showToast
 
 class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramModel>) :
     RecyclerView.Adapter<ProgramsAdapter.MyViewHolder>() {

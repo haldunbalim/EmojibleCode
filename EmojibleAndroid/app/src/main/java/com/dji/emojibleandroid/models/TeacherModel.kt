@@ -9,7 +9,7 @@ class TeacherModel(
     name: String,
     surname: String,
     birthDate: String,
-    var classIds: MutableList<String> = mutableListOf()
+    var classIds: MutableList<String>? = mutableListOf()
 ) : UserModel(email, name, surname, birthDate) {
     constructor(dictionary: HashMap<String, Any>) : this(
         dictionary["email"] as String,
@@ -17,7 +17,7 @@ class TeacherModel(
         dictionary["surname"] as String,
         dictionary["birthDate"] as String
     ) {
-        classIds = dictionary["classIds"] as MutableList<String>
+        classIds = dictionary["classIds"] as MutableList<String>?
     }
 
     override var dictionary: HashMap<String, Any> = super.dictionary.let {
