@@ -55,6 +55,7 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
 
                 val intent = Intent(context, ProgramActivity::class.java)
                 intent.putExtra("type", "editProgram")
+                intent.putExtra("code", code.text.toString())
                 intent.putExtra("position", position)
                 intent.putExtra("title", title.text.toString())
                 context.startActivity(intent)

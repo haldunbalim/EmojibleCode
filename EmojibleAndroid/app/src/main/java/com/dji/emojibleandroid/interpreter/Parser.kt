@@ -33,15 +33,15 @@ class Parser(private val lexerOut: List<Token>, private val memory: Memory) {
         currentToken = lexerOut[currIdx]
     }
 
-    private fun error() {
-        throw Exception("Invalid Syntax")
+    private fun error(lineNumber: Int) {
+        throw Exception("Invalid Syntax at line Number $lineNumber")
     }
 
     private fun eat(tokenType: TokenType) {
         if (currentToken.type == tokenType) {
             advance()
         } else {
-            error()
+            error(currentToken.lineNumber)
         }
     }
 
@@ -88,9 +88,16 @@ class Parser(private val lexerOut: List<Token>, private val memory: Memory) {
             whileStatement()
         } else if (currentToken.type == TokenType.LBRACKET && peek()?.type == TokenType.SET_SCREEN_COLOR) {
             setScreenColor()
-        } else {
+        } else if (currentToken.type == TokenType.PLAY_RECORDING) {
+            playRecording()
+        }else {
             empty()
         }
+    }
+
+    private fun playRecording(): PlayRecordingNode {
+        eat(TokenType.PLAY_RECORDING)
+        return PlayRecordingNode(TokenType.PLAY_RECORDING, variable())
     }
 
     private fun assignmentStatement(): AssignNode {
@@ -243,7 +250,7 @@ class Parser(private val lexerOut: List<Token>, private val memory: Memory) {
     fun parse(): ProgramNode {
         val node = program()
         if (currentToken.type != TokenType.EOF) {
-            error()
+            error(currentToken.lineNumber)
         }
         return node
     }

@@ -14,6 +14,7 @@ enum class TokenType constructor(val value: String) {
     SET_SCREEN_COLOR("📱"),
     GET_RANDOM_NUMBER("👻"),
     GET_NUMERIC_USER_INPUT("🔢"),
+    PLAY_RECORDING("📣"),
     PLUS("➕"),
     MINUS("➖"),
     MUL("✖️"),

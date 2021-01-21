@@ -1,9 +1,14 @@
 package com.dji.emojibleandroid.interpreter
 
+import android.media.MediaPlayer
+import android.util.Log
 import com.dji.emojibleandroid.models.AssignmentModel
 import com.dji.emojibleandroid.models.Value
 import com.dji.emojibleandroid.models.ValueType
 import com.dji.emojibleandroid.utils.CodeScreenUtils
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import java.io.IOException
 
 val runScreen = CodeScreenUtils.runScreen
 val cancelled = Interpreter.instance.job!!.isCancelled
@@ -239,6 +244,22 @@ class WhileNode(op: TokenType, private val boolStatement: AST, private val body:
                 break
             }
             body.safeVisit()
+        }
+    }
+}
+
+class PlayRecordingNode(private val op: TokenType, private val variable: VarNode) : AST() {
+    lateinit var player: MediaPlayer
+    override suspend fun visit() {
+        val variableValue = (variable.safeVisit() as Value).value as String
+        player = MediaPlayer().apply {
+            try {
+                setDataSource(variableValue)
+                prepare()
+                start()
+            } catch (e: IOException) {
+                throw Exception("An error occured while playing the recording")
+            }
         }
     }
 }
