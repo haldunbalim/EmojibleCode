@@ -84,23 +84,19 @@ class UserActivity : AppCompatActivity(), Observer {
                 .isNotEmpty() && repeatPasswordET.text.isNotEmpty()
         ) {
             if (newPasswordET.text.toString().equals(repeatPasswordET.text.toString())) {
-                val user = auth.currentUser
+                val user = AuthenticationManager.instance.currentUser
                 if (user != null && user.email != null) {
                     val credential = EmailAuthProvider.getCredential(
                         user.email!!.toString(),
                         currentPasswordET.text.toString()
                     )
-                    user?.reauthenticate(credential)?.addOnCompleteListener {
+                    user.reauthenticate(credential).addOnCompleteListener {
                         if (it.isSuccessful) {
                             showToast("Re-Authentication success")
-                            user!!.updatePassword(newPasswordET.text.toString())
+                            user.updatePassword(newPasswordET.text.toString())
                                 .addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
                                         showToast("Password changed successfully")
-                                        auth.signOut()
-                                        val intent = Intent(this, LoginActivity::class.java)
-                                        startActivity(intent)
-                                        finish()
                                     } else {
                                         showToast("Password wasn't changed")
                                         showToast(task.exception!!.message.toString())

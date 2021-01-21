@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Current Password"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/newPasswordET"
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="New Password"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/repeatPasswordET"
@@ -217,7 +217,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Repeat Password"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/passwordButton"

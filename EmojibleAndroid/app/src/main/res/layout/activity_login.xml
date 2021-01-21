@@ -138,7 +138,7 @@
             android:layout_marginBottom="1dp"
             android:layout_weight="1"
             android:hint="Enter your password"
-            android:password="true" />
+            android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="match_parent"
