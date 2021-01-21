@@ -36,10 +36,6 @@ class RunScreenVC:UIViewController, Coordinated{
     override func viewWillAppear(_ animated: Bool) {
         guard let coordinator = coordinator as? RunCodeCoordinator else { return }
         
-        (coordinator.parentCoordinator as? CommonCoordinator)?.tabBarController.setHidden()
-        (coordinator.parentCoordinator as? StudentCoordinator)?.tabBarController.setHidden()
-        (coordinator.parentCoordinator as? TeacherCoordinator)?.tabBarController.setHidden()
-        
         runningCode = coordinator.runningCode
         Interpreter.getInstance().runCode(code: runningCode)
         outputLabel.isHidden = true
@@ -68,21 +64,10 @@ class RunScreenVC:UIViewController, Coordinated{
         Interpreter.getInstance().finish()
         inputTextField.text = ""
         self.view.backgroundColor = UIColor.white
-        
-        guard let coordinator = coordinator as? RunCodeCoordinator else { return }
-        (coordinator.parentCoordinator as? CommonCoordinator)?.tabBarController.setVisible()
-        (coordinator.parentCoordinator as? StudentCoordinator)?.tabBarController.setVisible()
-        (coordinator.parentCoordinator as? TeacherCoordinator)?.tabBarController.setVisible()
     }
     
     @IBAction func terminateOnPress(_ sender:UIButton){
-        if let _ = self.coordinator?.parentCoordinator as? CommonCoordinator {
-            CommonCoordinator.getInstance().terminateCode()
-        }else if let _ = self.coordinator?.parentCoordinator as? StudentCoordinator {
-            StudentCoordinator.getInstance().terminateCode()
-        }else if let _ = self.coordinator?.parentCoordinator as? TeacherCoordinator{
-            TeacherCoordinator.getInstance().terminateCode()
-        }
+        AppCoordinator.getInstance().terminateCode()
     }
     
     @IBAction func enterButtonOnPress(_ sender:UIButton){

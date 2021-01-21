@@ -152,7 +152,7 @@ extension TeacherTutorialScreenVC: TeacherTutorialTabButtonAction{
     }
     
     func runAction(code: String) {
-        TeacherCoordinator.getInstance().runCode(code: code)
+        AppCoordinator.getInstance().runCode(code: code)
     }
     
     func trashAction(tutorialModel: CodeModel) {

@@ -155,7 +155,7 @@ extension ProgramScreenVC: ProgramTabButtonAction{
     }
     
     func runAction(code: String) {
-        StudentCoordinator.getInstance().runCode(code: code)
+        AppCoordinator.getInstance().runCode(code: code)
     }
 }
 

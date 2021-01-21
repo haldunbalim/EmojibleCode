@@ -56,7 +56,7 @@ class SavedProgramCodeScreenVC: UIViewController, Coordinated {
         if titleField.text != self.programModel?.name || savedProgramTextView.text != self.programModel?.code {
             ProgramDataSource.getInstance().editProgram(oldProgram: self.programModel!, newProgram: CodeModel(name: titleField.text!, code: savedProgramTextView.text))
         }
-        StudentCoordinator.getInstance().runCode(code: savedProgramTextView.text)
+        AppCoordinator.getInstance().runCode(code: savedProgramTextView.text)
         
     }
     

@@ -53,11 +53,7 @@ class TutorialCodeScreenVC: UIViewController, Coordinated {
     
     @IBAction func runPressed(_ sender: UIButton) {
         let code = (self.coordinator as! TutorialsCoordinator).tutorialCode
-        if let _ = self.coordinator?.parentCoordinator as? CommonCoordinator {
-            CommonCoordinator.getInstance().runCode(code: code!)
-        }else if let _ = self.coordinator?.parentCoordinator as? StudentCoordinator {
-            StudentCoordinator.getInstance().runCode(code: code!)
-        }
+        AppCoordinator.getInstance().runCode(code: code!)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

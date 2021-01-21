@@ -18,7 +18,6 @@ class TeacherCoordinator: Coordinator {
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
     var classNC = TeacherClassCoordinator.getInstance().navigationController
     var settingsNC = SettingsCoordinator.getInstance().navigationController
-    var runCodeNC = RunCodeCoordinator.getInstance().navigationController
     
     var lastIdx = -1
     var isStarted: Bool = false
@@ -41,7 +40,7 @@ class TeacherCoordinator: Coordinator {
         
         
         tabBarController.selectedIndex = 0
-        tabBarController.viewControllers = [tutorialsNC, emojiAssignmentNC, classNC, settingsNC, runCodeNC]
+        tabBarController.viewControllers = [tutorialsNC, emojiAssignmentNC, classNC, settingsNC]
         
         resetToInitialState()
         tabBarController.loadTabBar()
@@ -64,7 +63,6 @@ class TeacherCoordinator: Coordinator {
         EmojiAssignmentCoordinator.getInstance().start()
         TeacherClassCoordinator.getInstance().start()
         SettingsCoordinator.getInstance().start()
-        RunCodeCoordinator.getInstance().start()
     }
     
     func setParent(){
@@ -72,7 +70,6 @@ class TeacherCoordinator: Coordinator {
         EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         TeacherClassCoordinator.getInstance().parentCoordinator = self
         SettingsCoordinator.getInstance().parentCoordinator = self
-        RunCodeCoordinator.getInstance().parentCoordinator = self
     }
     
     private init(){
@@ -87,18 +84,7 @@ class TeacherCoordinator: Coordinator {
         }
         return .instance
     }
-    
-    public func runCode(code:String){
-        RunCodeCoordinator.getInstance().runningCode = code
-        lastIdx = tabBarController.selectedIndex
-        tabBarController.selectedIndex = 4
-        tabBarController.setHidden()
-    }
-    
-    public func terminateCode(){
-        tabBarController.selectedIndex = lastIdx
-        tabBarController.setVisible()
-    }
+
     
     func changeTab(tab: Int) {
         self.tabBarController.changeTab(tab: tab)

@@ -26,8 +26,8 @@ class TabNavigationMenu: UIView {
         self.isUserInteractionEnabled = true
         self.clipsToBounds = true
         
-        for i in 0 ..< menuItems.count-1 {
-            let itemHeight = self.frame.height / CGFloat(menuItems.count - 1)
+        for i in 0 ..< menuItems.count{
+            let itemHeight = self.frame.height / CGFloat(menuItems.count)
             let topAnchor = itemHeight * CGFloat(i)
             
             let itemView = self.createTabItem(item: menuItems[i])

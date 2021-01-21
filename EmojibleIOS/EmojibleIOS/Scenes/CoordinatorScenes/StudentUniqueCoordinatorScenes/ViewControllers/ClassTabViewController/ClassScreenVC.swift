@@ -150,6 +150,6 @@ extension ClassScreenVC:TutorialTabButtonAction{
         coordinator.runningCode = code
         coordinator.openScreen(screenName: .RunScreen)
          */
-        StudentCoordinator.getInstance().runCode(code: code)
+        AppCoordinator.getInstance().runCode(code: code)
     }
 }

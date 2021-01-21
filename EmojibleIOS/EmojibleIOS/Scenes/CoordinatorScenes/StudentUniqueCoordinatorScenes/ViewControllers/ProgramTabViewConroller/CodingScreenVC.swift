@@ -59,7 +59,7 @@ class CodingScreenVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
                 ProgramDataSource.getInstance().writeProgram(program: CodeModel(name: titleField.text!, code: codingScreen.text))
             }
         }
-        StudentCoordinator.getInstance().runCode(code: codingScreen.text)
+        AppCoordinator.getInstance().runCode(code: codingScreen.text)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

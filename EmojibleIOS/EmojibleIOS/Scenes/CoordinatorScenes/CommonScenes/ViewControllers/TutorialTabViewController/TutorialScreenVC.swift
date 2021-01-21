@@ -113,13 +113,7 @@ extension TutorialScreenVC:TutorialTabButtonAction{
     }
     
     func runAction(code:String) {
-        
-        if let _ = self.coordinator?.parentCoordinator as? CommonCoordinator {
-            CommonCoordinator.getInstance().runCode(code: code)
-        }else if let _ = self.coordinator?.parentCoordinator as? StudentCoordinator {
-            StudentCoordinator.getInstance().runCode(code: code)
-        }
-
+        AppCoordinator.getInstance().runCode(code: code)
     }
 }
 

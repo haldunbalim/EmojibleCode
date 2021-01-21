@@ -17,7 +17,6 @@ class CommonCoordinator: Coordinator {
     var tutorialsNC = TutorialsCoordinator.getInstance().navigationController
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
     var authNC = AuthenticationCoordinator.getInstance().navigationController
-    var runCodeNC = RunCodeCoordinator.getInstance().navigationController
     
     var lastIdx = -1
     var isStarted:Bool = false
@@ -39,7 +38,7 @@ class CommonCoordinator: Coordinator {
         authNC.tabBarItem = loginTabBarItem
         
         tabBarController.selectedIndex = 0
-        tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, authNC, runCodeNC]
+        tabBarController.viewControllers = [programsNC, tutorialsNC, emojiAssignmentNC, authNC]
         
         resetToInitialState()
         tabBarController.loadTabBar()
@@ -61,7 +60,6 @@ class CommonCoordinator: Coordinator {
         TutorialsCoordinator.getInstance().start()
         EmojiAssignmentCoordinator.getInstance().start()
         AuthenticationCoordinator.getInstance().start()
-        RunCodeCoordinator.getInstance().start()
     }
     
     func setParent(){
@@ -69,7 +67,6 @@ class CommonCoordinator: Coordinator {
         TutorialsCoordinator.getInstance().parentCoordinator = self
         EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         AuthenticationCoordinator.getInstance().parentCoordinator = self
-        RunCodeCoordinator.getInstance().parentCoordinator = self
     }
     
     private init(){
@@ -83,18 +80,6 @@ class CommonCoordinator: Coordinator {
             instance = CommonCoordinator()
         }
         return .instance
-    }
-    
-    public func runCode(code:String){
-        RunCodeCoordinator.getInstance().runningCode = code
-        lastIdx = tabBarController.selectedIndex
-        tabBarController.selectedIndex = 4
-        tabBarController.setHidden()
-    }
-    
-    public func terminateCode(){
-        tabBarController.selectedIndex = lastIdx
-        tabBarController.setVisible()
     }
     
     func changeTab(tab: Int) {

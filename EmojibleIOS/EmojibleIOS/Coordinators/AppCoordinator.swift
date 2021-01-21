@@ -15,12 +15,13 @@ class AppCoordinator: Coordinator{
     var studentCoordinator = StudentCoordinator.getInstance()
     var teacherCoordinator = TeacherCoordinator.getInstance()
     var commonCoordinator = CommonCoordinator.getInstance()
+    var runCodeCoordinator =  RunCodeCoordinator.getInstance()
     let notificationCenter = NotificationCenter.default
     
     
-    var window: UIWindow
-    var currentCoordinator: Coordinator?
     
+    var window: UIWindow
+    var currentCoordinator: coordinatorEnum = .Common
     
     enum coordinatorEnum: Int{
         case Common
@@ -37,6 +38,8 @@ class AppCoordinator: Coordinator{
         teacherCoordinator.parentCoordinator = self
         notificationCenter.addObserver(self, selector: #selector(notify), name: .authStateChanged, object: nil)
         AuthenticationManager.getInstance().startListeningForAuthStateChanges()
+        runCodeCoordinator.start()
+
     }
     
     @objc func notify() {
@@ -50,22 +53,47 @@ class AppCoordinator: Coordinator{
                 if userModel is StudentModel {
                     self.studentCoordinator.start()
                     self.window.rootViewController = self.studentCoordinator.tabBarController
-                    self.currentCoordinator = self.studentCoordinator
                     self.window.makeKeyAndVisible()
+                    self.currentCoordinator = .Student
                     
                 }else{
                     self.teacherCoordinator.start()
                     self.window.rootViewController = self.teacherCoordinator.tabBarController
-                    self.currentCoordinator = self.teacherCoordinator
                     self.window.makeKeyAndVisible()
+                    self.currentCoordinator = .Teacher
                 }
                 UserDataSource.getInstance().startObservingUserModel()
             }
         }else{
             self.commonCoordinator.start()
             self.window.rootViewController = self.commonCoordinator.tabBarController
-            self.currentCoordinator = self.commonCoordinator
+            self.currentCoordinator = .Common
             self.window.makeKeyAndVisible()
+        }
+    }
+    
+    public static func getInstance()->AppCoordinator{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.appCoordinator!
+    }
+    
+    
+    public func runCode(code:String){
+        runCodeCoordinator.runningCode = code
+        self.window.rootViewController = runCodeCoordinator.navigationController
+       
+    }
+    
+    public func terminateCode(){
+        switch self.currentCoordinator {
+        case .Student:
+            self.window.rootViewController = studentCoordinator.tabBarController
+        case .Teacher:
+            self.window.rootViewController = teacherCoordinator.tabBarController
+        case .Common:
+            self.window.rootViewController = commonCoordinator.tabBarController
+        default:
+            return
         }
     }
 }

@@ -49,7 +49,7 @@ class OpeningCodingScreen: UIViewController, Coordinated, UIViewControllerWithAl
     
     @IBAction func runPressed(_ sender: UIButton) {
         if codingScreen.text != "" {
-            CommonCoordinator.getInstance().runCode(code: codingScreen.text)
+            AppCoordinator.getInstance().runCode(code: codingScreen.text)
         }
     }
 }

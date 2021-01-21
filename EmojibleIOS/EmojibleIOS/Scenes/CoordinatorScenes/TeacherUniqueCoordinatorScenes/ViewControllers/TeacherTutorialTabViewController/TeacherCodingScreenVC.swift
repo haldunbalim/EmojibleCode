@@ -60,7 +60,7 @@ class TeacherCodingScreenVC: UIViewController, Coordinated, UIViewControllerWith
         if titleField.text != "" && codingScreen.text != "" {
             TeacherTutorialDataSource.getInstance().writeTutorial(tutorial: CodeModel(name: titleField.text!, code: codingScreen.text))
         }
-        TeacherCoordinator.getInstance().runCode(code: codingScreen.text)
+        AppCoordinator.getInstance().runCode(code: codingScreen.text)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

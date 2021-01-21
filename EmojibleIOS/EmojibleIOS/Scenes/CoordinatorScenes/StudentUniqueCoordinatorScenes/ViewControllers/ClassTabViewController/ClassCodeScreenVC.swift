@@ -51,7 +51,7 @@ class ClassCodeScreenVC: UIViewController, Coordinated{
     
     @IBAction func runPressed(_ sender: UIButton) {
         let code = (self.coordinator as! ClassCoordinator).tutorialCode
-        StudentCoordinator.getInstance().runCode(code: code!)
+        AppCoordinator.getInstance().runCode(code: code!)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {

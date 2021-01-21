@@ -55,7 +55,7 @@ class TeacherSavedTutorialScreenVC: UIViewController, Coordinated {
         if titleField.text != self.tutorialModel?.name || savedProgramTextView.text != self.tutorialModel?.code {
             TeacherTutorialDataSource.getInstance().editTutorial(oldTutorial: self.tutorialModel!, newTutorial: CodeModel(name: titleField.text!, code: savedProgramTextView.text))
         }
-        TeacherCoordinator.getInstance().runCode(code: savedProgramTextView.text)
+        AppCoordinator.getInstance().runCode(code: savedProgramTextView.text)
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
