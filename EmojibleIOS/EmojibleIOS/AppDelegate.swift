@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        VisionModel.getInstance().imageToEmojiString(img: UIImage(named: "guess_game_editted")!)
         //forcedLogOut()
         self.window = UIWindow()
         self.appCoordinator = AppCoordinator(window: self.window!)

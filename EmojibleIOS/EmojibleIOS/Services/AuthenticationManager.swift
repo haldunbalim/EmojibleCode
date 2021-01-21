@@ -7,8 +7,7 @@
 
 import Foundation
 import Firebase
-import FBSDKCoreKit
-import FBSDKLoginKit
+
 
 class AuthenticationManager {
     let firebaseAuth = Auth.auth()
@@ -78,60 +77,7 @@ extension AuthenticationManager{
     
     
 }
-    
-// facebook login functions
-extension AuthenticationManager{
-    
-    
-    func facebookSignIn(completion: @escaping ((String?) -> Void)){
-        //also registers user if there is no user registered with that username
-        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        self.firebaseLogin(credential, completion: completion)
-    }
-    
-    /*
-    func createUserInfoInFromFacebook(completion: @escaping (Error?, UserInfo?) -> Void){
-        if isLoggedInWithFBAuth{
-            self.requestInfoFromFacebook(){ result in
-                if let error = result as? NSError{
-                    //handle error here or above
-                    completion(error, nil)
-                }else if let result = result as? [String: String]{
-                    self.createUserInfoIfDoesNotExist(name: result["first_name"]!, surname: result["last_name"]!, authenticationType: .Facebook){ userInfo in
-                        completion(nil, userInfo)
-                    }
-                }
-            }
-        }
-    }
-    */
-    
-    private func requestInfoFromFacebook(completion: @escaping (Any) -> Void){
-        if(AccessToken.current != nil){
-            GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start{ (connection, result, error)  in
-                if let error = error{
-                    completion(error)
-                }else if let result = result{
-                    completion(result)
-                }
-            }
-        }
-    }
-    
-    
-    private func firebaseLogin(_ credential: AuthCredential, completion: @escaping ((String?) -> Void)){
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-            if let error = error {
-                completion(error.localizedDescription)
-            }else{
-                completion(nil)
-            }
-        }
-        
-    }
-}
-    
+
     
 // utility functions
 extension AuthenticationManager{

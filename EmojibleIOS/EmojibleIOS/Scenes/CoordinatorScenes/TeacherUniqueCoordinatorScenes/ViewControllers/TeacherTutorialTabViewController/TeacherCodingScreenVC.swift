@@ -7,13 +7,17 @@
 
 import UIKit
 
-class TeacherCodingScreenVC: UIViewController, Coordinated{
+class TeacherCodingScreenVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
+    var pleaseWaitAlert: UIAlertController?
+    
     var coordinator: Coordinator?
  
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var codingScreen: UITextView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var runButton: UIButton!
+    var imagePicker: ImagePicker!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,8 @@ class TeacherCodingScreenVC: UIViewController, Coordinated{
         view.addGestureRecognizer(tap)
         configureViews()
         configureLanguage()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+
     }
     
     func configureLanguage(){
@@ -42,20 +48,12 @@ class TeacherCodingScreenVC: UIViewController, Coordinated{
     
     
     @IBAction func cameraPressed(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraView = UIImagePickerController()
-            cameraView.delegate = self as?
-                UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            cameraView.sourceType = .camera
-            self.present(cameraView, animated: true, completion: nil)
-        }
+        self.imagePicker.presentCamera(from: sender)
+
     }
     
     @IBAction func photoLibraryPressed(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        self.imagePicker.presentImagePicker(from: sender)
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
@@ -71,3 +69,25 @@ class TeacherCodingScreenVC: UIViewController, Coordinated{
         (self.coordinator as! TeacherTutorialCoordinator).pop()
     }
 }
+
+extension TeacherCodingScreenVC: ImagePickerDelegate {
+
+    func didSelect(image: UIImage?) {
+        guard let image = image else { return }
+        showSpinner(){
+            VisionModel.getInstance().predictEmojis(image: image){ result in
+                self.hideSpinner()
+                if let res = result{
+                    self.codingScreen.text = res
+                }else{
+                    return
+                }
+            
+            }
+        }
+    }
+}
+
+
+
+

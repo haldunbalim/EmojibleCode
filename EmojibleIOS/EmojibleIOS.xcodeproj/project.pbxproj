@@ -19,6 +19,7 @@
 		8B20D3D12594258900AE985F /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D02594258900AE985F /* VisionModel.swift */; };
 		8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */; };
 		8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B20D3E62594272D00AE985F /* opencv2.framework */; };
+		8B30AEC325B9FADA00DFAF9B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30AEC225B9FADA00DFAF9B /* ImagePicker.swift */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
 		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
 		8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */; };
@@ -185,6 +186,7 @@
 		8B20D3D02594258900AE985F /* VisionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
 		8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		8B20D3E62594272D00AE985F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		8B30AEC225B9FADA00DFAF9B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		8B69332B255FE9FB00CE97CB /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				8B3E751B255D952D00AAA915 /* Sensors */,
+				8B30AEC225B9FADA00DFAF9B /* ImagePicker.swift */,
 				8BE90D2C2550497700A34B37 /* AuthenticationManager.swift */,
 				8B7FF7D0255CB34F0043B0DB /* CustomDateFormatter.swift */,
 				8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */,
@@ -1280,6 +1283,7 @@
 				8BBD5D16257BF9B70089F2D9 /* RunCodeCoordinator.swift in Sources */,
 				FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */,
 				FC6C0F272580BA57000596D4 /* Flip.swift in Sources */,
+				8B30AEC325B9FADA00DFAF9B /* ImagePicker.swift in Sources */,
 				FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */,
 				FCCA5C79255469720018FC6D /* AssignmentModels.swift in Sources */,
 				8BE90CB42550387300A34B37 /* AppCoordinator.swift in Sources */,
@@ -1490,7 +1494,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1500,7 +1504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP491;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.EmojibleIOS.COMP491-hb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
@@ -1519,7 +1523,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FQM5R73TP7;
+				DEVELOPMENT_TEAM = 8JBPMURZH5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1529,7 +1533,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP491;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.EmojibleIOS.COMP491-hb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";

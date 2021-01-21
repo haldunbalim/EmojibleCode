@@ -7,11 +7,14 @@
 
 import UIKit
 
-class OpeningCodingScreen: UIViewController, Coordinated{
+class OpeningCodingScreen: UIViewController, Coordinated, UIViewControllerWithAlerts{
+    var pleaseWaitAlert: UIAlertController?
+    
     var coordinator: Coordinator?
     
     @IBOutlet weak var codingScreen: UITextView!
     @IBOutlet weak var runButton: UIButton!
+    var imagePicker: ImagePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,7 @@ class OpeningCodingScreen: UIViewController, Coordinated{
         self.navigationController?.navigationBar.isHidden = true
         configureViews()
         configureLanguage()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     func configureLanguage(){
         codingScreen.text = "Write your code...".localized()
@@ -35,20 +39,12 @@ class OpeningCodingScreen: UIViewController, Coordinated{
     
     
     @IBAction func cameraPressed(_ sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraView = UIImagePickerController()
-            cameraView.delegate = self as?
-                UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            cameraView.sourceType = .camera
-            self.present(cameraView, animated: true, completion: nil)
-        }
+        self.imagePicker.presentCamera(from: sender)
     }
     
     @IBAction func photoLibraryPressed(_ sender: UIButton) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        self.imagePicker.presentImagePicker(from: sender)
+        
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
@@ -57,3 +53,22 @@ class OpeningCodingScreen: UIViewController, Coordinated{
         }
     }
 }
+
+extension OpeningCodingScreen: ImagePickerDelegate {
+
+    func didSelect(image: UIImage?) {
+        guard let image = image else { return }
+        showSpinner(){
+            VisionModel.getInstance().predictEmojis(image: image){ result in
+                self.hideSpinner()
+                if let res = result{
+                    self.codingScreen.text = res
+                }else{
+                    return
+                }
+            
+            }
+        }
+    }
+}
+
