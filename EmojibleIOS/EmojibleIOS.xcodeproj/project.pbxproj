@@ -14,11 +14,8 @@
 		8B02EA4B2579331D00480AFA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4A2579331D00480AFA /* Lexer.swift */; };
 		8B02EA502579344E00480AFA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA4F2579344E00480AFA /* StringExtensions.swift */; };
 		8B02EA5E25795D9500480AFA /* AST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02EA5D25795D9500480AFA /* AST.swift */; };
-		8B20D3B92594255700AE985F /* emoji_resnet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */; };
-		8B20D3C22594256700AE985F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3C12594256600AE985F /* OpenCVWrapper.mm */; };
 		8B20D3D12594258900AE985F /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D02594258900AE985F /* VisionModel.swift */; };
 		8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */; };
-		8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B20D3E62594272D00AE985F /* opencv2.framework */; };
 		8B30AEC325B9FADA00DFAF9B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30AEC225B9FADA00DFAF9B /* ImagePicker.swift */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
 		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
@@ -109,7 +106,6 @@
 		FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F122580BA0A000596D4 /* SpeechToText.swift */; };
 		FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F172580BA16000596D4 /* TextToSpeech.swift */; };
 		FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F1C2580BA3F000596D4 /* Shake.swift */; };
-		FC6C0F222580BA4D000596D4 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F212580BA4D000596D4 /* Light.swift */; };
 		FC6C0F272580BA57000596D4 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F262580BA57000596D4 /* Flip.swift */; };
 		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
 		FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* RemoveAlert.swift */; };
@@ -178,11 +174,6 @@
 		8B02EA4A2579331D00480AFA /* Lexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 		8B02EA4F2579344E00480AFA /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		8B02EA5D25795D9500480AFA /* AST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AST.swift; sourceTree = "<group>"; };
-		8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = emoji_resnet.mlmodel; sourceTree = "<group>"; };
-		8B20D3BE2594256600AE985F /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		8B20D3BF2594256600AE985F /* OpenCVWrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = OpenCVWrapper.h; sourceTree = "<group>"; };
-		8B20D3C02594256600AE985F /* EmojibleIOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EmojibleIOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		8B20D3C12594256600AE985F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		8B20D3D02594258900AE985F /* VisionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
 		8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		8B20D3E62594272D00AE985F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
@@ -281,7 +272,6 @@
 		FC6C0F122580BA0A000596D4 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 		FC6C0F172580BA16000596D4 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		FC6C0F1C2580BA3F000596D4 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
-		FC6C0F212580BA4D000596D4 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
 		FC6C0F262580BA57000596D4 /* Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
 		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
 		FC7384202566A85C00432AC6 /* RemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAlert.swift; sourceTree = "<group>"; };
@@ -334,7 +324,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B20D3E72594272D00AE985F /* opencv2.framework in Frameworks */,
 				2AE3EC61E30FA63BB8C4E294 /* Pods_EmojibleIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,17 +399,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		8B20D3C62594256D00AE985F /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				8B20D3C02594256600AE985F /* EmojibleIOS-Bridging-Header.h */,
-				8B20D3BF2594256600AE985F /* OpenCVWrapper.h */,
-				8B20D3C12594256600AE985F /* OpenCVWrapper.mm */,
-				8B20D3BE2594256600AE985F /* PrefixHeader.pch */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
 		8B3E751B255D952D00AAA915 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,7 +407,6 @@
 				FC6C0F122580BA0A000596D4 /* SpeechToText.swift */,
 				FC6C0F172580BA16000596D4 /* TextToSpeech.swift */,
 				FC6C0F1C2580BA3F000596D4 /* Shake.swift */,
-				FC6C0F212580BA4D000596D4 /* Light.swift */,
 				FC6C0F262580BA57000596D4 /* Flip.swift */,
 			);
 			path = Sensors;
@@ -883,7 +860,6 @@
 				8BE90CA2255037CD00A34B37 /* Models */,
 				FCA64FDF257FA00F0010E20D /* StaticData */,
 				8B7FF865255D653F0043B0DB /* Interpreter */,
-				8B20D3C62594256D00AE985F /* Headers */,
 				8BE90CA1255037A000A34B37 /* Default Files */,
 				FC118D3425B4EA73002D26DA /* Localized.strings */,
 			);
@@ -911,7 +887,6 @@
 		FCA64FDF257FA00F0010E20D /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
-				8B20D3B82594255700AE985F /* emoji_resnet.mlmodel */,
 				FCA64FE0257FA02B0010E20D /* Emojis.json */,
 				FCA64FED257FA04C0010E20D /* EmojisIndexes.json */,
 			);
@@ -1217,7 +1192,6 @@
 				8BDC8FEF255ECE4B00A2E229 /* AddTextAlert.swift in Sources */,
 				8B02EA5E25795D9500480AFA /* AST.swift in Sources */,
 				FC970B74259268710010933E /* OpeningCodingScreenCoordinator.swift in Sources */,
-				FC6C0F222580BA4D000596D4 /* Light.swift in Sources */,
 				FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */,
 				8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */,
 				8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */,
@@ -1227,7 +1201,6 @@
 				8BDC8FE7255ECB4F00A2E229 /* CustomAlertViewController.swift in Sources */,
 				8B7FF845255D5C220043B0DB /* NotificationExtensions.swift in Sources */,
 				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
-				8B20D3C22594256700AE985F /* OpenCVWrapper.mm in Sources */,
 				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
 				FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */,
@@ -1243,7 +1216,6 @@
 				FC6BEDAC2588B72C004E8724 /* TeacherClassCoordinator.swift in Sources */,
 				FCA9A490256ECDCE009F81B5 /* SectionHeader.swift in Sources */,
 				8B7FF77A255C82C30043B0DB /* EmojiAssignmentCoordinator.swift in Sources */,
-				8B20D3B92594255700AE985F /* emoji_resnet.mlmodel in Sources */,
 				FC1FA83B25780CA8008E4B29 /* ProgramDataSource.swift in Sources */,
 				8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */,
 				8BE90CAF2550384500A34B37 /* Coordinator.swift in Sources */,
@@ -1507,7 +1479,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.EmojibleIOS.COMP491-hb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1536,7 +1507,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.EmojibleIOS.COMP491-hb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "EmojibleIOS/Headers/EmojibleIOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -23,6 +23,7 @@ enum TokenType: String, CaseIterable, CustomStringConvertible{
     case SET_SCREEN_COLOR = "📱"
     case GET_RANDOM_NUMBER = "👻"
     case GET_NUMERIC_USER_INPUT = "🔢"
+    case DISPLAY = "📣"
     case PLUS = "➕"
     case MINUS = "➖"
     case MUL = "✖️"

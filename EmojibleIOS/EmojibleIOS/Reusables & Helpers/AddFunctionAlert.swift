@@ -35,12 +35,13 @@ class AddFunctionAlert: CustomAlertViewController{
     
     @IBAction func assignButtonOnPress(_ sender: Any) {
         
-        guard let text = valueTextField.text, text != "" else {
+        guard var text = valueTextField.text, text != "" else {
             showMessagePrompt("Text cannot be empty", vcToBePresented: delegate!)
             return
         }
         
         if let identifier = newFunctiontAssignmentDelegate?.newAssignmentIdentifier{
+            text = Constants.FUNCTION_IDENTIFIER_PREFIX + text
             GlobalMemory.getInstance().addAssignment(assignment: AssignmentModel(identifier: identifier, value: text))
         }
         

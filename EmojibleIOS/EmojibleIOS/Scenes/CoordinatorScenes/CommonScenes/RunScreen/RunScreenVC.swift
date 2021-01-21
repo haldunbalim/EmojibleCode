@@ -14,6 +14,7 @@ class RunScreenVC:UIViewController, Coordinated{
     var runningCode:String!
     var input:String!
     var backgroundColor:String!
+    var outText:String!
     
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var outputLabel: UILabel!
@@ -41,6 +42,11 @@ class RunScreenVC:UIViewController, Coordinated{
         outputLabel.isHidden = true
         inputTextField.isHidden = true
         enterButton.isHidden = true
+    }
+    
+    @objc func changeLabelText(){
+        outputLabel.isHidden = false
+        outputLabel.text = outText
     }
     
     @objc func numericInputRequested(){

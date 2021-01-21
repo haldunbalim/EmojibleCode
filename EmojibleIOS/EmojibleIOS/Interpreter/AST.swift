@@ -77,11 +77,11 @@ class BinOpNode:AST{
             return result
         }
         
-        let resultFloat = result as! Float
+        let resultInt:Int = Int((result as! Float).rounded(.down))
         
         
         
-        return resultFloat
+        return resultInt
     }
     
 }
@@ -159,6 +159,38 @@ class SetScreenColorNode:AST{
         return nil
     }
 }
+
+class DisplayNode:AST{
+    var token:Token
+    var op:Token
+    var expr:AST
+    init(op:Token, expr:AST){
+        self.token = op
+        self.op = op
+        self.expr = expr
+        
+    }
+    
+    override func visit() -> Any? {
+        // add also voice
+        if let str = expr.safeVisit() as? String {
+            runScreen.outText = str
+            runScreen.performSelector(onMainThread: #selector(runScreen.changeLabelText), with: nil, waitUntilDone: false)
+        }else if let str = expr.safeVisit() as? Int {
+            runScreen.outText = String(describing: str)
+            runScreen.performSelector(onMainThread: #selector(runScreen.changeLabelText), with: nil, waitUntilDone: false)
+        }else if let str = expr.safeVisit() as? Float {
+            runScreen.outText = String(describing: str)
+            runScreen.performSelector(onMainThread: #selector(runScreen.changeLabelText), with: nil, waitUntilDone: false)
+        }
+
+        
+        return nil
+    }
+        
+}
+
+
 
 class UnaryOpNode:AST{
     var token:Token

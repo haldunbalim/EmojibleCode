@@ -65,7 +65,7 @@ class Lexer:CustomStringConvertible{
             result += String(describing: currentChar)
             self.advance()
         }
-        if currentChar! == "."{
+        if currentChar != nil  && currentChar! == "."{
             result += String(describing: currentChar)
             self.advance()
             while let currentChar = self.currentChar, currentChar.isNumber{
@@ -151,11 +151,39 @@ class Lexer:CustomStringConvertible{
                     self.skipComment()
                     continue
                 }
+                
                 return token!
             }
 
             if EmojiChecker.getInstance().isValidIdentifier(String(describing:self.currentChar!)){
-                return self.id()
+                let id = self.id()
+                var found = false
+                for assignment in GlobalMemory.getInstance().getAssignments(){
+                    if assignment.identifier == id.value as! String && assignment.type == .Function{
+                        
+                        var desc = assignment.getValue() as! String
+                        let index = desc.index(desc.startIndex, offsetBy: Constants.FUNCTION_IDENTIFIER_PREFIX.count)
+                        desc = String(desc[index..<desc.endIndex])
+                        
+                        let func_lexer = Lexer(text: desc)
+                        func_lexer.lex()
+                        var func_tokens = func_lexer.lexedText
+                        func_tokens = Array(func_tokens[1..<func_tokens.count-1])
+                        for token in func_tokens{
+                            token.lineNumber = currentLineNumber
+                        }
+                        func_tokens.append(Token(type: "\n", value: "\n", lineNumber: currentLineNumber))
+                        self.lexedText.append(contentsOf: func_tokens)
+                        found = true
+                        break
+                    }
+                }
+                if found{
+                    continue
+                }
+                
+                
+                return id
             }
 
             self.error()

@@ -49,8 +49,13 @@ class Parser{
         let node: AST
         if self.current_token.type == TokenType.PROGRAM{
             node = self.compound_statement()
-        }else if self.current_token.type == TokenType.ID{
+        }else if self.current_token.type == TokenType.ID && self.peek() != nil && self.peek()!.type == TokenType.ASSIGN{
             node = self.assignment_statement()
+        }else if self.current_token.type == TokenType.ID{
+            //node = self.read_value_statement()
+            node = self.assignment_statement()
+        }else if self.current_token.type == TokenType.LBRACKET && self.peek() != nil && self.peek()!.type == TokenType.DISPLAY{
+            node = self.display_statement()
         }else if self.current_token.type == TokenType.IF{
             node = self.if_statement()
         }else if self.current_token.type == TokenType.LBRACKET && self.peek() != nil && self.peek()!.type == TokenType.FOR{
@@ -181,6 +186,17 @@ class Parser{
 }
 
 extension Parser{
+    
+    private func display_statement() -> DisplayNode{
+        self.eat(TokenType.LBRACKET)
+        let token = self.current_token
+        self.eat(TokenType.DISPLAY)
+        let expr = self.expr()
+        self.eat(TokenType.RBRACKET)
+        let node = DisplayNode(op: token, expr: expr)
+        return node
+    }
+    
     private func assignment_statement() -> AssignNode{
         let left = self.variable()
         let token = self.current_token
