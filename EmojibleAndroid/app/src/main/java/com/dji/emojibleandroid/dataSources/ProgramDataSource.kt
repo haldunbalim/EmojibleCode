@@ -8,7 +8,7 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class ProgramDataSource {
+class ProgramDataSource private constructor(){
     var database = Firebase.firestore
     var snapShotListener: ListenerRegistration? = null
     val notificationCenter: NotificationCenter = NotificationCenter.instance

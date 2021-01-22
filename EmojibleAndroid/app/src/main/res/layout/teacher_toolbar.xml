@@ -19,7 +19,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
-        android:onClick="openProgramTab"
+        android:onClick="openTutorialAddTab"
         android:orientation="vertical">
 
         <ImageView
@@ -76,6 +76,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
+        android:onClick="openClassesTab"
         android:orientation="vertical">
 
         <ImageView

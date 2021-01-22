@@ -19,7 +19,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.dji.emojibleandroid.fileprovider"
@@ -62,6 +61,21 @@
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".activities.CodeRunActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.TutorialAddActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.CreateClassActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.StudentsInClassActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.EnrollInClassActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".activities.ClassTutorialsActivity"
             android:screenOrientation="sensorLandscape" />
     </application>
 

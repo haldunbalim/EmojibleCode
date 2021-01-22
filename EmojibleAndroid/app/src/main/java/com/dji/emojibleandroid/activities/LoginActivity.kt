@@ -61,8 +61,8 @@ class LoginActivity : AppCompatActivityWithAlerts(), Observer {
 
     }
 
-    fun openProgramTab(view: View) {
-        val intent = Intent(this, GridProgramActivity::class.java)
+    fun openIDETab(view: View) {
+        val intent = Intent(this, ProgramActivity::class.java)
         startActivity(intent)
         finish()
     }

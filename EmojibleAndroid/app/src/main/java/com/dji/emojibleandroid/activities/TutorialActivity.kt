@@ -15,7 +15,6 @@ import com.dji.emojibleandroid.dataSources.TutorialDataSource
 import com.dji.emojibleandroid.dataSources.UserDataSource
 import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.StudentModel
-import com.dji.emojibleandroid.models.TeacherModel
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import kotlinx.android.synthetic.main.activity_tutorial.*
@@ -34,19 +33,15 @@ class TutorialActivity : AppCompatActivity(), Observer {
             if (it is StudentModel) {
                 toolbarLayout.removeAllViews()
                 toolbarLayout.addView(View.inflate(this, R.layout.student_toolbar, null))
-            } else if (it is TeacherModel){
-                toolbarLayout.removeAllViews()
-                toolbarLayout.addView(View.inflate(this, R.layout.teacher_toolbar, null))
             }
         }
         NotificationCenter.instance.addObserver(Changes.defaultTutorialsChanged, this)
         TutorialDataSource.instance.startObservingProgram()
         setupRecyclerView()
-
     }
 
-    fun openProgramTab(view: View) {
-        val intent = Intent(this, GridProgramActivity::class.java)
+    fun openIDETab(view: View) {
+        val intent = Intent(this, ProgramActivity::class.java)
         startActivity(intent)
         finish()
     }
@@ -57,6 +52,12 @@ class TutorialActivity : AppCompatActivity(), Observer {
 
     fun openEmojiTab(view: View) {
         val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openStudentClassTab(view: View) {
+        val intent = Intent(this, EnrollInClassActivity::class.java)
         startActivity(intent)
         finish()
     }

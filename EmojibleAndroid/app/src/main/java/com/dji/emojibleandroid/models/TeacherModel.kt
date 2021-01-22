@@ -1,9 +1,5 @@
 package com.dji.emojibleandroid.models
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import java.time.LocalDate
-
 class TeacherModel(
     email: String,
     name: String,

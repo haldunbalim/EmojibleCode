@@ -11,16 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.ProgramsAdapter
 import com.dji.emojibleandroid.dataSources.ProgramDataSource
-import com.dji.emojibleandroid.dataSources.UserDataSource
 import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.ProgramModel
-import com.dji.emojibleandroid.models.StudentModel
-import com.dji.emojibleandroid.models.TeacherModel
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.utils.EmojiUtils.programs
 import kotlinx.android.synthetic.main.activity_grid_program.*
-import kotlinx.android.synthetic.main.no_user_toolbar.*
 import java.util.*
 
 class GridProgramActivity : AppCompatActivity(), Observer {
@@ -29,15 +25,6 @@ class GridProgramActivity : AppCompatActivity(), Observer {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grid_program)
-        UserDataSource.instance.getCurrentUserInfo {
-            if (it is StudentModel) {
-                toolbarLayout.removeAllViews()
-                toolbarLayout.addView(View.inflate(this, R.layout.student_toolbar, null))
-            } else if (it is TeacherModel){
-                toolbarLayout.removeAllViews()
-                toolbarLayout.addView(View.inflate(this, R.layout.teacher_toolbar, null))
-            }
-        }
         NotificationCenter.instance.addObserver(Changes.programsChanged, this)
         ProgramDataSource.instance.startObservingProgram()
         setupRecyclerView()
@@ -60,14 +47,14 @@ class GridProgramActivity : AppCompatActivity(), Observer {
         finish()
     }
 
-    fun openUserTab(view: View) {
-        val intent = Intent(this, UserActivity::class.java)
+    fun openStudentClassTab(view: View) {
+        val intent = Intent(this, EnrollInClassActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun openLoginTab(view: View) {
-        val intent = Intent(this, LoginActivity::class.java)
+    fun openUserTab(view: View) {
+        val intent = Intent(this, UserActivity::class.java)
         startActivity(intent)
         finish()
     }

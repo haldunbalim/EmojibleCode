@@ -74,6 +74,12 @@ class UserActivity : AppCompatActivity(), Observer {
         }
     }
 
+    fun openTutorialAddTab(view: View) {
+        val intent = Intent(this, TutorialAddActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     fun openProgramTab(view: View) {
         val intent = Intent(this, GridProgramActivity::class.java)
         startActivity(intent)
@@ -88,6 +94,18 @@ class UserActivity : AppCompatActivity(), Observer {
 
     fun openEmojiTab(view: View) {
         val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openStudentClassTab(view: View) {
+        val intent = Intent(this, EnrollInClassActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openClassesTab(view: View) {
+        val intent = Intent(this, CreateClassActivity::class.java)
         startActivity(intent)
         finish()
     }
