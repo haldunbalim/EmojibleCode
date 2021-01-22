@@ -8,7 +8,6 @@ import android.util.Patterns
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import android.widget.EditText
 import android.widget.Switch
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -22,28 +21,22 @@ import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
-import com.dji.emojibleandroid.utils.setupToolbar
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_no_user.*
-import kotlinx.android.synthetic.main.activity_no_user.emojiLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.programLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.tutorialLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.userLayoutToolbar
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
 class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
 
-    private lateinit var popupLayout: ViewGroup
     private lateinit var toggle: Switch
     private var birthDate: String? = null
     private var userType: String = "Student"
-    private lateinit var classID : EditText
+    private lateinit var popupLayout: ViewGroup
 
     companion object {
         val TAG: String = NoUserActivity::class.java.simpleName
-        var firstTime: Int = 0
+        var firstTime = true
     }
 
 
@@ -53,12 +46,13 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
         setContentView(R.layout.activity_no_user)
         NotificationCenter.instance.addObserver(Changes.authStateChanged, this)
         AuthenticationManager.instance.startListeningForAuthChanges()
-        popupLayout = findViewById(R.id.popUpLayout)
         toggle = findViewById(R.id.teacherSwitch)
-        classID = findViewById(R.id.classIDEditText)
-        if (firstTime == 0) {
+
+
+        popupLayout = findViewById(R.id.popUpLayout)
+        if (firstTime) {
             popupLayout.bringToFront()
-            firstTime++
+            firstTime = false
 
             shutdownButtonPopup.setOnClickListener {
 
@@ -69,7 +63,7 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
 
             programLayoutPopup.setOnClickListener {
 
-                val intent = Intent(this, GridProgramActivity::class.java)
+                val intent = Intent(this, ProgramActivity::class.java)
                 startActivity(intent)
                 finish()
             }
@@ -103,11 +97,9 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
 
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (!isChecked) {
-                classID.hint = "Enter your Class ID"
                 userType = "Student"
 
             } else {
-                classID.hint = "Enter your Teacher Code"
                 userType = "Teacher"
             }
         }
@@ -138,14 +130,28 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
             builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
             builder.show()
         }
+    }
 
-        setupToolbar(
-            this,
-            programLayoutToolbar,
-            tutorialLayoutToolbar,
-            emojiLayoutToolbar,
-            userLayoutToolbar
-        )
+    fun openIDETab(view: View) {
+        val intent = Intent(this, ProgramActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openTutorialTab(view: View) {
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openEmojiTab(view: View) {
+        val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openLoginTab(view: View) {
+        return
     }
 
     override fun onBackPressed() {
@@ -205,7 +211,6 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
         val surname: String = surnameTextView.text.toString()
         val password: String = passwordTextView.text.toString()
         val email = emailTextView.text.toString()
-        val classId = "123123"
         showProgressBar()
         AuthenticationManager.instance.createUserWithEmailAndPassword(email, password) { error ->
             if (error != null) {
@@ -224,8 +229,7 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
                                 email,
                                 name,
                                 surname,
-                                birthDate!!,
-                                classId = classId
+                                birthDate!!
                             )
                         )
                     }
@@ -244,10 +248,6 @@ class NoUserActivity : AppCompatActivityWithAlerts(), Observer {
             val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
             finish()
-        } else {
-
-            showToast("Login Failed")
-
         }
     }
 

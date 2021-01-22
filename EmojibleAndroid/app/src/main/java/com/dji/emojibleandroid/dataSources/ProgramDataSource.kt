@@ -8,7 +8,7 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class ProgramDataSource {
+class ProgramDataSource private constructor(){
     var database = Firebase.firestore
     var snapShotListener: ListenerRegistration? = null
     val notificationCenter: NotificationCenter = NotificationCenter.instance
@@ -33,12 +33,8 @@ class ProgramDataSource {
 
     fun editProgram(oldProgram: CodeModel, newProgram: CodeModel) {
         val currentUser = AuthenticationManager.instance.currentUser
-        var index: Int? = null
-        programs.forEachIndexed { i, program ->
-            if (program == oldProgram)
-                index = i
-            return
-        }
+        val pModel = programs.find { it == oldProgram } ?: return
+        val index = programs.indexOf(pModel)
         val uid = currentUser?.uid
         uid?.let {
             database.collection("Users").document(it).collection("Programs")

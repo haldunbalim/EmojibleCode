@@ -1,12 +1,8 @@
 package com.dji.emojibleandroid.models.modelFactories
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.dji.emojibleandroid.models.StudentModel
 import com.dji.emojibleandroid.models.TeacherModel
 import com.dji.emojibleandroid.models.UserModel
-import java.lang.Exception
-import java.time.LocalDate
 
 
 class UserFactory private constructor(){

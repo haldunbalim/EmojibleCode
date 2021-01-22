@@ -41,5 +41,8 @@ enum class Changes(value: String) {
     assignmentsChanged("assignmentsChanged"),
     defaultTutorialsChanged("defaultTutorialsChanged"),
     programsChanged("programsChanged"),
-    teacherTutorialsChanged("teacherTutorialsChanged");
+    teacherTutorialsChanged("teacherTutorialsChanged"),
+    teacherClassChanged("teacherClassChanged"),
+    studentsInClassChanged("studentsInClassChanged"),
+    classTutorialChanged("classTutorialChanged");
 }

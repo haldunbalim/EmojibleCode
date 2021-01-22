@@ -9,24 +9,31 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.View
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.ProgramsAdapter
 import com.dji.emojibleandroid.dataSources.ProgramDataSource
+import com.dji.emojibleandroid.dataSources.TeacherTutorialDataSource
+import com.dji.emojibleandroid.dataSources.UserDataSource
 import com.dji.emojibleandroid.extensions.AppCompatActivityWithAlerts
 import com.dji.emojibleandroid.extensions.hideProgressBar
 import com.dji.emojibleandroid.extensions.showProgressBar
 import com.dji.emojibleandroid.models.CodeModel
 import com.dji.emojibleandroid.models.ProgramModel
+import com.dji.emojibleandroid.models.StudentModel
+import com.dji.emojibleandroid.models.TeacherModel
+import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.VisionModelApi
 import com.dji.emojibleandroid.services.VisionModelResponse
 import com.dji.emojibleandroid.showToast
 import com.dji.emojibleandroid.utils.EmojiUtils.programs
 import com.dji.emojibleandroid.utils.URIPathHelper
-import com.dji.emojibleandroid.utils.setupToolbar
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_program.*
+import kotlinx.android.synthetic.main.no_user_toolbar.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -55,18 +62,32 @@ class ProgramActivity : AppCompatActivityWithAlerts() {
         //Permission code
         private val PERMISSION_CODE = 1001;
 
-        val BASE_URL = "http://ec2-54-93-47-160.eu-central-1.compute.amazonaws.com:8000"
+        const val BASE_URL = "http://ec2-18-197-151-213.eu-central-1.compute.amazonaws.com:8000"
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program)
+        UserDataSource.instance.getCurrentUserInfo {
+            if (it is StudentModel) {
+                toolbarLayout.removeAllViews()
+                toolbarLayout.addView(View.inflate(this, R.layout.student_toolbar, null))
+            } else if (it is TeacherModel) {
+                toolbarLayout.removeAllViews()
+                toolbarLayout.addView(View.inflate(this, R.layout.teacher_toolbar, null))
+            }
+        }
         val type = intent.getStringExtra("type")
         val titleEditText: EditText = findViewById(R.id.titleEditText)
         if (type == "editProgram") {
             titleEditText.setText(intent.getStringExtra("title"))
             codeEditText.setText(intent.getStringExtra("code"))
+        } else if (!AuthenticationManager.instance.userLoggedIn()) {
+            deleteCodeButton.visibility = View.GONE
+            saveCodeButton.text = "Run"
+            titleEditText.visibility = View.INVISIBLE
+            inClassNameTextView.visibility = View.INVISIBLE
         } else {
             deleteCodeButton.text = "Return"
         }
@@ -112,50 +133,138 @@ class ProgramActivity : AppCompatActivityWithAlerts() {
         }
 
         saveCodeButton.setOnClickListener {
-            val codeTitle = titleEditText.text.toString()
-            val newCodeModel = CodeModel(codeTitle, codeEditText.text.toString())
-            val newProgramModel = ProgramModel(ProgramsAdapter.VIEW_TYPE_TWO, newCodeModel)
-            if (type == "editProgram") {
-                val oldIndex = intent.getIntExtra("position", -1)
-                ProgramDataSource.instance.editProgram(
-                    programs[oldIndex] as CodeModel,
-                    newCodeModel
-                )
-                programs[oldIndex] = newProgramModel
-            } else {
-                val same = programs.find { it.name == codeTitle }
-                if (same != null) {
-                    programs[programs.indexOf(same)] = newProgramModel
-                    ProgramDataSource.instance.editProgram(same as CodeModel, newCodeModel)
-                } else {
-                    programs.add(newProgramModel)
-                    ProgramDataSource.instance.writeProgram(newCodeModel)
+            if (AuthenticationManager.instance.userLoggedIn()) {
+                val codeTitle = titleEditText.text.toString()
+                val newCodeModel = CodeModel(codeTitle, codeEditText.text.toString())
+                UserDataSource.instance.getCurrentUserInfo {
+                    if (it is StudentModel) {
+                        val newProgramModel =
+                            ProgramModel(ProgramsAdapter.VIEW_TYPE_TWO, newCodeModel)
+                        if (type == "editProgram") {
+                            val oldIndex = intent.getIntExtra("position", -1)
+                            ProgramDataSource.instance.editProgram(
+                                programs[oldIndex] as CodeModel,
+                                newCodeModel
+                            )
+                            programs[oldIndex] = newProgramModel
+                        } else {
+                            val same = programs.find { p -> p.name == codeTitle }
+                            if (same != null) {
+                                programs[programs.indexOf(same)] = newProgramModel
+                                ProgramDataSource.instance.editProgram(
+                                    same as CodeModel,
+                                    newCodeModel
+                                )
+                            } else {
+                                programs.add(newProgramModel)
+                                ProgramDataSource.instance.writeProgram(newCodeModel)
+                            }
+                        }
+                        val intent = Intent(this, GridProgramActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else if (it is TeacherModel) {
+                        if (type == "editProgram") {
+                            val oldIndex = intent.getIntExtra("position", -1) - 1
+                            TeacherTutorialDataSource.instance.editTutorial(
+                                TeacherTutorialDataSource.instance.tutorials[oldIndex],
+                                newCodeModel
+                            )
+                        } else {
+                            val oldT =
+                                TeacherTutorialDataSource.instance.tutorials.find { t -> t.name == newCodeModel.name }
+                            if (oldT != null) {
+                                TeacherTutorialDataSource.instance.editTutorial(oldT, newCodeModel)
+                            } else {
+                                TeacherTutorialDataSource.instance.writeTutorial(newCodeModel)
+                            }
+                        }
+                        val intent = Intent(this, TutorialAddActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 }
+            } else {
+                val intent = Intent(this, CodeRunActivity::class.java)
+                intent.putExtra("CODE", codeEditText.text.toString())
+                startActivity(intent)
             }
-            val intent = Intent(this, GridProgramActivity::class.java)
-            startActivity(intent)
-            finish()
         }
 
         deleteCodeButton.setOnClickListener {
-            if (type == "editProgram") {
-                val idx = intent.getIntExtra("position", -1)
-                val oldProgramModel = programs[idx]
-                ProgramDataSource.instance.removeProgram(oldProgramModel as CodeModel)
-                programs.removeAt(idx)
+            if (AuthenticationManager.instance.userLoggedIn()) {
+                UserDataSource.instance.getCurrentUserInfo {
+                    if (it is StudentModel) {
+                        if (type == "editProgram") {
+                            val idx = intent.getIntExtra("position", -1)
+                            val oldProgramModel = programs[idx]
+                            ProgramDataSource.instance.removeProgram(oldProgramModel as CodeModel)
+                            programs.removeAt(idx)
+                        }
+                        val intent = Intent(this, GridProgramActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else if (it is TeacherModel) {
+                        if (type == "editProgram") {
+                            val idx = intent.getIntExtra("position", -1) - 1
+                            if (idx != -1)
+                                TeacherTutorialDataSource.instance.removeTutorial(
+                                    TeacherTutorialDataSource.instance.tutorials[idx]
+                                )
+                        }
+                        val intent = Intent(this, TutorialAddActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
             }
-            val intent = Intent(this, GridProgramActivity::class.java)
-            startActivity(intent)
-            finish()
         }
+    }
 
-        setupToolbar(
-            this,
-            programLayoutToolbar,
-            tutorialLayoutToolbar,
-            emojiLayoutToolbar,
-            userLayoutToolbar
-        )
+    fun openTutorialAddTab(view: View) {
+        val intent = Intent(this, TutorialAddActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openIDETab(view: View) {
+        return
+    }
+
+    fun openTutorialTab(view: View) {
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openEmojiTab(view: View) {
+        val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openStudentClassTab(view: View) {
+        val intent = Intent(this, EnrollInClassActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openClassesTab(view: View) {
+        val intent = Intent(this, CreateClassActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openUserTab(view: View) {
+        val intent = Intent(this, UserActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openLoginTab(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
 

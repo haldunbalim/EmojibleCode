@@ -1,6 +1,10 @@
 package com.dji.emojibleandroid.activities
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,30 +16,47 @@ import com.dji.emojibleandroid.models.ProgramModel
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.utils.EmojiUtils.programs
-import kotlinx.android.synthetic.main.activity_emoji.emojiLayoutToolbar
-import kotlinx.android.synthetic.main.activity_emoji.programLayoutToolbar
-import kotlinx.android.synthetic.main.activity_emoji.tutorialLayoutToolbar
-import kotlinx.android.synthetic.main.activity_emoji.userLayoutToolbar
 import kotlinx.android.synthetic.main.activity_grid_program.*
 import java.util.*
 
 class GridProgramActivity : AppCompatActivity(), Observer {
 
-
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grid_program)
         NotificationCenter.instance.addObserver(Changes.programsChanged, this)
         ProgramDataSource.instance.startObservingProgram()
         setupRecyclerView()
-        com.dji.emojibleandroid.utils.setupToolbar(
-            this,
-            programLayoutToolbar,
-            tutorialLayoutToolbar,
-            emojiLayoutToolbar,
-            userLayoutToolbar
-        )
 
+    }
+
+    fun openProgramTab(view: View) {
+        return
+    }
+
+    fun openTutorialTab(view: View) {
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openEmojiTab(view: View) {
+        val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openStudentClassTab(view: View) {
+        val intent = Intent(this, EnrollInClassActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openUserTab(view: View) {
+        val intent = Intent(this, UserActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun setupRecyclerView() {

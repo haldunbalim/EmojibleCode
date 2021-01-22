@@ -3,31 +3,26 @@ package com.dji.emojibleandroid.activities
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
-import android.widget.Button
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.R
+import com.dji.emojibleandroid.adapters.ProgramsAdapter
 import com.dji.emojibleandroid.dataSources.UserDataSource
+import com.dji.emojibleandroid.models.ProgramModel
+import com.dji.emojibleandroid.models.StudentModel
+import com.dji.emojibleandroid.models.TeacherModel
 import com.dji.emojibleandroid.models.UserModel
 import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.dji.emojibleandroid.showToast
-import com.dji.emojibleandroid.utils.setupToolbar
+import com.dji.emojibleandroid.utils.EmojiUtils.programs
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_no_user.emojiLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.programLayoutToolbar
-import kotlinx.android.synthetic.main.activity_no_user.tutorialLayoutToolbar
 import kotlinx.android.synthetic.main.activity_user.*
-import kotlinx.android.synthetic.main.activity_user.signoutButton
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import kotlinx.android.synthetic.main.no_user_toolbar.*
 import java.util.*
-import kotlin.collections.HashMap
 
 
 class UserActivity : AppCompatActivity(), Observer {
@@ -44,16 +39,17 @@ class UserActivity : AppCompatActivity(), Observer {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
+        UserDataSource.instance.getCurrentUserInfo {
+            if (it is StudentModel) {
+                toolbarLayout.removeAllViews()
+                toolbarLayout.addView(View.inflate(this, R.layout.student_toolbar, null))
+            } else if (it is TeacherModel) {
+                toolbarLayout.removeAllViews()
+                toolbarLayout.addView(View.inflate(this, R.layout.teacher_toolbar, null))
+            }
+        }
         NotificationCenter.instance.addObserver(Changes.userModelChagend, this)
         UserDataSource.instance.startObservingUserModel()
-
-        setupToolbar(
-            this,
-            programLayoutToolbar,
-            tutorialLayoutToolbar,
-            emojiLayoutToolbar,
-            userLayoutToolbar
-        )
 
         signoutButton.setOnClickListener {
 
@@ -78,29 +74,65 @@ class UserActivity : AppCompatActivity(), Observer {
         }
     }
 
+    fun openTutorialAddTab(view: View) {
+        val intent = Intent(this, TutorialAddActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openProgramTab(view: View) {
+        val intent = Intent(this, GridProgramActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openTutorialTab(view: View) {
+        val intent = Intent(this, TutorialActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openEmojiTab(view: View) {
+        val intent = Intent(this, EmojiActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openStudentClassTab(view: View) {
+        val intent = Intent(this, EnrollInClassActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openClassesTab(view: View) {
+        val intent = Intent(this, CreateClassActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun openUserTab(view: View) {
+        return
+    }
+
     private fun changePassword() {
         if (currentPasswordET.text
                 .isNotEmpty() && newPasswordET.text
                 .isNotEmpty() && repeatPasswordET.text.isNotEmpty()
         ) {
             if (newPasswordET.text.toString().equals(repeatPasswordET.text.toString())) {
-                val user = auth.currentUser
+                val user = AuthenticationManager.instance.currentUser
                 if (user != null && user.email != null) {
                     val credential = EmailAuthProvider.getCredential(
                         user.email!!.toString(),
                         currentPasswordET.text.toString()
                     )
-                    user?.reauthenticate(credential)?.addOnCompleteListener {
+                    user.reauthenticate(credential).addOnCompleteListener {
                         if (it.isSuccessful) {
                             showToast("Re-Authentication success")
-                            user!!.updatePassword(newPasswordET.text.toString())
+                            user.updatePassword(newPasswordET.text.toString())
                                 .addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
                                         showToast("Password changed successfully")
-                                        auth.signOut()
-                                        val intent = Intent(this, LoginActivity::class.java)
-                                        startActivity(intent)
-                                        finish()
                                     } else {
                                         showToast("Password wasn't changed")
                                         showToast(task.exception!!.message.toString())
@@ -127,6 +159,7 @@ class UserActivity : AppCompatActivity(), Observer {
     private fun signOutUser() {
         AuthenticationManager.instance.signOut()
         UserDataSource.instance.stopObservingUserModel()
+        programs = mutableListOf<ProgramModel>(ProgramModel(ProgramsAdapter.VIEW_TYPE_ONE, "", ""))
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
@@ -140,6 +173,5 @@ class UserActivity : AppCompatActivity(), Observer {
         userTypeEditText.text = userModelDict["userType"] as String
         emailEditText.text = userModelDict["email"] as String
         birthEditText.text = userModelDict["birthDate"] as String
-        classIdEditText.text = userModelDict["classId"] as String
     }
 }

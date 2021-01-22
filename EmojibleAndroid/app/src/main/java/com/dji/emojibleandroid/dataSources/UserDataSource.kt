@@ -10,8 +10,9 @@ import com.dji.emojibleandroid.services.NotificationCenter
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.lang.Exception
 
-class UserDataSource {
+class UserDataSource private constructor(){
     private val database = Firebase.firestore
     var snapShotListener: ListenerRegistration? = null
     private val notificationCenter = NotificationCenter.instance
@@ -61,6 +62,30 @@ class UserDataSource {
     fun writeData(user: UserModel) {
         val currentUser = AuthenticationManager.instance.currentUser
         currentUser?.uid?.let { database.collection("Users").document(it).set(user.dictionary) }
+    }
+
+    fun editUserData(newData: HashMap<String, Any?>) {
+        val currentUser = AuthenticationManager.instance.currentUser ?: return
+        val uid = currentUser.uid
+        database.collection("Users").document(uid).update(newData)
+    }
+
+    fun resetUserClassId() {
+        val currentUser = AuthenticationManager.instance.currentUser ?: return
+        val uid = currentUser.uid
+        database.collection("Users").document(uid).update(mapOf<String, String>("classId" to ""))
+    }
+
+    fun resetUserClassIdForAllUsers(classId: String) {
+        database.collection("Users").whereEqualTo("classId", classId).get().addOnCompleteListener {
+            if (it.isSuccessful) {
+                for (document in it.result?.documents!!) {
+                    database.collection("Users").document(document.id).update(mapOf<String, String>("classId" to ""))
+                }
+            } else if (it.isCanceled) {
+                throw Exception("Error getting documents ${it.exception?.message}")
+            }
+        }
     }
 
     private object HOLDER {

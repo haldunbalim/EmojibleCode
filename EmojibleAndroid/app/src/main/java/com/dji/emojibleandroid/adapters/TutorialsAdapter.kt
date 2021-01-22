@@ -90,15 +90,15 @@ class TutorialsAdapter(val context: Context, var tutorials: MutableList<CodeMode
         }
 
 
-    fun setData(tutorial: CodeModel?, pos: Int) {
-        tutorial?.let {
+        fun setData(tutorial: CodeModel?, pos: Int) {
+            tutorial?.let {
 
-            itemView.titleTextView.text = tutorial.name
-            itemView.tutorialCode.text = tutorial.code
+                itemView.titleTextView.text = tutorial.name
+                itemView.tutorialCode.text = tutorial.code
+            }
+            this.currentTutorial = tutorial
+            this.currentPosition = pos
         }
-        this.currentTutorial = tutorial
-        this.currentPosition = pos
     }
-}
 }
 

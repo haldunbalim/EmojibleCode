@@ -14,22 +14,21 @@ import com.dji.emojibleandroid.activities.CodeRunActivity
 import com.dji.emojibleandroid.activities.ProgramActivity
 import com.dji.emojibleandroid.models.ProgramModel
 
-class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramModel>) :
-    RecyclerView.Adapter<ProgramsAdapter.MyViewHolder>() {
+class TeacherTutorialAdapter (val context: Context, var tutorials: MutableList<ProgramModel>) :
+    RecyclerView.Adapter<TeacherTutorialAdapter.MyViewHolder>() {
 
     companion object {
 
-        val TAG: String = ProgramsAdapter::class.java.simpleName
+        val TAG: String = TeacherTutorialAdapter::class.java.simpleName
         const val VIEW_TYPE_ONE = 1
         const val VIEW_TYPE_TWO = 2
 
     }
 
-    private inner class View1ViewHolder(itemView: View) :
-        ProgramsAdapter.MyViewHolder(itemView) {
+    private inner class View1ViewHolder(itemView: View) : MyViewHolder(itemView) {
         val add: ImageView = itemView.findViewById(R.id.addProgramImageView)
         fun bind(position: Int) {
-            val recyclerViewModel = programs[position]
+            val recyclerViewModel = tutorials[position]
             add.setOnClickListener {
                 val intent = Intent(context, ProgramActivity::class.java)
                 context.startActivity(intent)
@@ -37,14 +36,13 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
         }
     }
 
-    private inner class View2ViewHolder(itemView: View) :
-        ProgramsAdapter.MyViewHolder(itemView) {
+    private inner class View2ViewHolder(itemView: View) : MyViewHolder(itemView) {
         val edit: Button = itemView.findViewById(R.id.editButton)
         val run: Button = itemView.findViewById(R.id.runButton)
         var title: TextView = itemView.findViewById(R.id.titleTextView)
         var code: TextView = itemView.findViewById(R.id.programCodeTextView)
         fun bind(position: Int) {
-            val recyclerViewModel = programs[position]
+            val recyclerViewModel = tutorials[position]
 
             title.text = recyclerViewModel.name
             code.text = recyclerViewModel.code
@@ -67,17 +65,16 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
         }
     }
 
-
-    fun update(program: MutableList<ProgramModel>) {
-        this.programs = program
+    fun update(tutorials: MutableList<ProgramModel>) {
+        this.tutorials = tutorials
         notifyDataSetChanged()
     }
 
-    fun updateSingle(program: ProgramModel, index: Int) {
+    fun updateSingle(tutorial: ProgramModel, index: Int) {
         if (index > itemCount - 1) {
             throw IndexOutOfBoundsException("Supplied index $index is larger than the length $itemCount of the list")
         }
-        programs[index] = program
+        tutorials[index] = tutorial
         notifyDataSetChanged()
     }
 
@@ -95,8 +92,8 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
 
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        if (programs[position].viewType == VIEW_TYPE_ONE) {
+    override fun onBindViewHolder(holder: TeacherTutorialAdapter.MyViewHolder, position: Int) {
+        if (tutorials[position].viewType == VIEW_TYPE_ONE) {
 
             (holder as View1ViewHolder).bind(position)
 
@@ -108,11 +105,11 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
     }
 
     override fun getItemViewType(position: Int): Int {
-        return programs[position].viewType
+        return tutorials[position].viewType
     }
 
     override fun getItemCount(): Int {
-        return programs.size
+        return tutorials.size
     }
 
     open inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -120,9 +117,6 @@ class ProgramsAdapter(val context: Context, var programs: MutableList<ProgramMod
         var currentProgram: ProgramModel? = null
         var currentPosition: Int = 0
 
-        init {
-        }
-
     }
-}
 
+}

@@ -1,5 +1,6 @@
 package com.dji.emojibleandroid.interpreter
 
+import com.dji.emojibleandroid.models.AssignmentModel
 import com.dji.emojibleandroid.showToast
 import com.dji.emojibleandroid.utils.CodeScreenUtils
 import kotlinx.coroutines.GlobalScope
@@ -23,6 +24,7 @@ class Interpreter private constructor() {
             val lexer = Lexer(code)
             lexer.lex()
             val localMemory = Memory(GlobalMemory.instance.assignments)
+            addDefaultVariables(localMemory)
             val parser = Parser(lexer.lexedText, localMemory)
             tree = parser.parse()
         } catch (e: Exception) {
@@ -31,12 +33,12 @@ class Interpreter private constructor() {
         inputSemaphore = Semaphore(1)
         if (tree != null){
             job = GlobalScope.launch {
+                CodeScreenUtils.runScreen?.prepareLooper()
                 try {
                     interpret(tree)
                     CodeScreenUtils.runScreen?.codeFinished()
                 } catch (e: Exception) {
                     if (e.message != "StandaloneCoroutine was cancelled") {
-                        CodeScreenUtils.runScreen?.prepareLooper()
                         CodeScreenUtils.runScreen?.showToast("An error occurred due to ${e.message}")
                     }
                 }
@@ -45,6 +47,11 @@ class Interpreter private constructor() {
             CodeScreenUtils.runScreen?.codeFinished()
             CodeScreenUtils.runScreen?.terminate()
         }
+    }
+
+    fun addDefaultVariables(localMemory: Memory) {
+        localMemory.addAssignment(AssignmentModel("🔉", 0)) // Sound Level
+//        localMemory.addAssignment(AssignmentModel("👋", 0)) // Shake Level
     }
 
     suspend fun finish() {

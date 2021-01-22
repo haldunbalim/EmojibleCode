@@ -1,14 +1,13 @@
 package com.dji.emojibleandroid.dataSources
 
 import com.dji.emojibleandroid.models.CodeModel
-import com.dji.emojibleandroid.services.AuthenticationManager
 import com.dji.emojibleandroid.services.Changes
 import com.dji.emojibleandroid.services.NotificationCenter
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class TutorialDataSource {
+class TutorialDataSource private constructor(){
     var database = Firebase.firestore
     var snapShotListener: ListenerRegistration? = null
     val notificationCenter: NotificationCenter = NotificationCenter.instance

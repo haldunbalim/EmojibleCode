@@ -1,10 +1,10 @@
 package com.dji.emojibleandroid.activities
 
 import android.graphics.Color
+import android.media.AudioManager
 import android.os.Bundle
 import android.os.Looper
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.interpreter.Interpreter
@@ -46,10 +46,14 @@ class CodeRunActivity : AppCompatActivity() {
     }
 
     fun changeBackgroundColor(color: String) {
-        prepareLooper()
         runOnUiThread {
             window.decorView.setBackgroundColor(Color.parseColor(color))
         }
+    }
+
+    fun getAudioLevel(): Int {
+        val audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        return audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
     }
 
     fun prepareLooper() {

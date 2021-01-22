@@ -10,7 +10,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-val runScreen = CodeScreenUtils.runScreen
 val cancelled = Interpreter.instance.job!!.isCancelled
 
 abstract class AST {
@@ -270,6 +269,8 @@ class VarNode(token: Token, private val memory: Memory) : AST() {
         val varName = value as CharSequence
         for (assignment in memory.assignments) {
             if (assignment.identifier == varName) {
+                if (assignment.identifier == "🔉")
+                    return CodeScreenUtils.runScreen?.getAudioLevel()!!
                 return assignment.value
             }
         }
