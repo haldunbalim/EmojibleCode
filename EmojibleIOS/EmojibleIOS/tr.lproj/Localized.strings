@@ -1,0 +1,101 @@
+"Tutorials" = "Eğitimler";
+"TUTORIALS" = "EĞİTİMLER";
+"Create Program" = "Program Yarat";
+"Programs" = "Programlar";
+"Emoji Settings" = "Emoji Ayarları";
+"Login" = "Giriş Yap";
+"Class" = "Sınıf";
+"Settings" = "Ayarlar";
+"Edit" = "Düzenle";
+"Run" = "Çalıştır";
+"View" = "İncele";
+"Assignments" = "Atamalar";
+"Available Emojis" = "Kullanılabilir Emojiler";
+"Function" = "Fonksiyon";
+"Voice" = "Ses";
+"Text" = "Metin";
+"Leave" = "Ayrıl";
+"User name" = "Kullanıcı adı";
+"User age" = "Kullanıcı yaşı";
+"Account type" = "Kullanıcı tipi";
+"Student" = "Öğrenci";
+"Teacher" = "Öğretmen";
+"Change Password" = "Şifreyi Değiştir";
+"Logout" = "Çıkış yap";
+"Are you sure?" = "Emin misiniz?";
+"Cancel" = "İptal";
+"Write your code..." = "Kodunuzu yazınız...";
+"Assign" = "Kaydet";
+"Delete" = "Sil";
+"Recording" = "Kaydediliyor";
+"Assigned Emojis" = "Kullanılan Emojiler";
+"E-mail" = "E-posta";
+"Password" = "Şifre";
+"Forgot your password?" = "Şifrenizi mi unuttunuz?";
+"Create an account as student" = "Öğrenci hesabı yarat";
+"Create an account as teacher" = "Öğretmen hesabı yarat";
+
+"E-mail cannot be empty" = "E-posta alanı boş bırakılamaz";
+"Password cannot be empty" = "Şifre alanı boş bırakılamaz";
+"Name cannot be empty" = "İsim alanı boş bırakılamaz";
+"Surname cannot be empty" = "Soyisim alanı boş bırakılamaz";
+"Birthdate cannot be empty" = "Doğum tarihi alanı boş bırakılamaz";
+
+
+"OK" = "Tamam";
+"BACK" = "GERİ";
+"Enter your e-mail" = "E-postanızı giriniz";
+"Get reset link" = "Sıfırlama bağlantısını alın";
+
+"Pick" = "Seç";
+
+
+"Enter your name" = "İsminizi giriniz";
+"Enter your surname" = "Soyisminizi giriniz";
+"Enter your birthdate" = "Doğum tarihinizi giriniz";
+"Choose a password" = "Şifre seçiniz";
+"Create my account" = "Hesabımı oluştur";
+
+"Please Wait" = "Lütfen Bekleyiniz";
+"Enter title..." = "Başlığı giriniz...";
+
+"Class id cannot be empty" = "Sınıf kodu alanı boş bırakılamaz";
+"Class password cannot be empty" = "Sınıf şifresi alanı boş bırakılamaz";
+"Class name cannot be empty" = "Sınıf ismi alanı boş bırakılamaz";
+
+"Class password" = "Sınıf şifresi";
+"Class id" = "Sınıf kodu";
+"Class name" = "Sınıf ismi";
+"Create new class" = "Yeni sınıf oluştur";
+"Enroll in a class" = "Sınıfa kaydolun";
+"Enroll" = "Kaydol";
+
+"No class with this id or password" = "Bu kodta veya şifrede bir sınıf bulunamadı";
+"Password reset e-mail has been sent" = "Şifre sıfırlama e-postası gönderildi";
+
+"Run & Share" = "Kaydet & Paylaş";
+"Create" = "Oluştur";
+
+"Number of students in the class" = "Sınıfa kayıtlı öğrenci sayısı";
+"This class already exists" = "Bu sınıf zaten oluşturulmuş";
+"Class name should be different" = "Farklı bir sınıf ismi seçmelisiniz";
+"You are in class" = "Bulunduğunuz sınıf";
+"Enter" = "Onayla";
+"Terminate" = "Sonlandır";
+"Enter input" = "Veri giriniz";
+
+" is an undefined variable" = " değişkeni tanımlanmamış";
+"For statement must have integer times argument" = "For ifadesi tam sayı değerleri almak zorunda";
+"If statement must have boolean first argument" = "If ifadesinin ilk argümanı doğru veya yanlış değeri almak zorunda";
+"lower bound cannot be greater than upper bound" = "alt sınır üst sınırdan büyük olamaz";
+"Random number cannot be called with non integer upper bound" = "Ratgele sayı fonksiyonu tam sayı olmayan bir üst sınırla kullanılamaz";
+"Random number cannot be called with non integer lower bound" = "Ratgele sayı fonksiyonu tam sayı olmayan bir alt sınırla kullanılamaz";
+"Expected Number or Boolean for binary operator at line " = "İkili işlem için sayı veya doğru-yanlış değeri girilmeli, satır numarası ";
+" be converted to number" = " sayıya dönüştürün";
+
+"Unknown Error occured" = "Bilinmeyen bir hata oluştu";
+"End of Line Expected" = "Satır Sonu Bekleniyor";
+"Unknown Character: " = "Bilinmeyen karakter: ";
+" at line: " = " satır: ";
+"Unexpected Token: " = "Beklenilmeyen simge: ";
+". Expected: " = ". Beklenen: ";

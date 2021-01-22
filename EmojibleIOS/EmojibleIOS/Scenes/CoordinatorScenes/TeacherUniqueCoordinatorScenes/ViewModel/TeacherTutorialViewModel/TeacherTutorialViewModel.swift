@@ -17,6 +17,8 @@ class TeacherTutorialViewModel: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var runButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +32,7 @@ class TeacherTutorialViewModel: UICollectionViewCell {
     }
     
     @IBAction func runPressed(_ sender: UIButton) {
-        runDelegate?.runAction()
+        runDelegate?.runAction(code: self.codeModel!.code)
     }
     
     @IBAction func trashPressed(_ sender: UIButton) {
@@ -45,6 +47,8 @@ class TeacherTutorialViewModel: UICollectionViewCell {
         nameLabel.minimumScaleFactor = 0.5
         nameLabel.adjustsFontSizeToFitWidth = true
         codeLabel.text = removeComments(codeModel.code)
+        editButton.setTitle("Edit".localized(), for: .normal)
+        runButton.setTitle("Run".localized(), for: .normal)
     }
     
     private func removeComments(_ code:String) -> String{

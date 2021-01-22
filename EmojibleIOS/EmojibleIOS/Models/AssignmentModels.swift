@@ -12,6 +12,7 @@ enum ValueType{
     case Boolean
     case String
     case Voice
+    case Function
 }
 class AssignmentModel: Equatable, Hashable, CustomStringConvertible{
     
@@ -82,7 +83,10 @@ class Value{
         }else{
             if (value as! String).contains(".m4a") && FileSystemManager.getInstance().fileExists(filename: (value as! String)){
                 return .Voice
-            }else{
+            }else if (value as! String).contains(Constants.FUNCTION_IDENTIFIER_PREFIX){
+                return .Function
+            }
+            else{
                 return .String
             }
         }
@@ -98,6 +102,10 @@ class Value{
             return value as! Bool == true ? "👍":"👎"
         case .String:
             return value as! String
+        case .Function:
+            let desc = value as! String
+            let index = desc.index(desc.startIndex, offsetBy: Constants.FUNCTION_IDENTIFIER_PREFIX.count)
+            return String(desc[index..<desc.endIndex])
         case .Voice:
             return ""
         }

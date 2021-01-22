@@ -7,8 +7,12 @@
 
 import Foundation
 
-fileprivate let colorDict: [Character:String] = ["🟦": "Blue","🟥": "Red","🟩": "Green"]
+fileprivate let colorDict: [Character:String] = ["🟦": "Blue","🟥": "Red","🟩": "Green", "🟨": "Yellow"]
 fileprivate let boolDict: [Character:Bool] = ["👍": true,"👎": false]
+
+enum LexerErrors: Error {
+    case UnknownCharacter (lineNumber: String, char:String)
+}
 
 class Lexer:CustomStringConvertible{
     var text:String
@@ -65,7 +69,7 @@ class Lexer:CustomStringConvertible{
             result += String(describing: currentChar)
             self.advance()
         }
-        if currentChar! == "."{
+        if currentChar != nil  && currentChar! == "."{
             result += String(describing: currentChar)
             self.advance()
             while let currentChar = self.currentChar, currentChar.isNumber{
@@ -116,7 +120,7 @@ class Lexer:CustomStringConvertible{
         }
     }
     
-    private func getNextToken() -> Token?{
+    private func getNextToken() throws -> Token?{
         while let currentChar = self.currentChar{
 
             if currentChar == " "{
@@ -151,26 +155,64 @@ class Lexer:CustomStringConvertible{
                     self.skipComment()
                     continue
                 }
+                
                 return token!
             }
 
             if EmojiChecker.getInstance().isValidIdentifier(String(describing:self.currentChar!)){
-                return self.id()
+                let id = self.id()
+                var found = false
+                for assignment in GlobalMemory.getInstance().getAssignments(){
+                    if assignment.identifier == id.value as! String && assignment.type == .Function{
+                        
+                        var desc = assignment.getValue() as! String
+                        let index = desc.index(desc.startIndex, offsetBy: Constants.FUNCTION_IDENTIFIER_PREFIX.count)
+                        desc = String(desc[index..<desc.endIndex])
+                        
+                        let func_lexer = Lexer(text: desc)
+                        do{
+                            try func_lexer.lex()
+                        }catch LexerErrors.UnknownCharacter(let linenumber, let char){
+                            throw LexerErrors.UnknownCharacter(lineNumber: String(describing:self.currentLineNumber), char:char)
+                        }catch{
+                            throw error
+                        }
+                        var func_tokens = func_lexer.lexedText
+                        func_tokens = Array(func_tokens[1..<func_tokens.count-1])
+                        for token in func_tokens{
+                            token.lineNumber = currentLineNumber
+                        }
+                        func_tokens.append(Token(type: "\n", value: "\n", lineNumber: currentLineNumber))
+                        self.lexedText.append(contentsOf: func_tokens)
+                        found = true
+                        break
+                    }
+                }
+                if found{
+                    continue
+                }
+                
+                
+                return id
             }
 
-            self.error()
+            throw LexerErrors.UnknownCharacter(lineNumber: String(describing:currentLineNumber),char:String(describing:currentChar))
         }
         return nil
     }
     
-    func lex(){
-        self.lexedText.append(Token(type: "PROGRAM", value: "PROGRAM",lineNumber: 0))
-        while self.currentChar != nil{
-            if let token = self.getNextToken(){
-                self.lexedText.append(token)
+    func lex() throws{
+        do{
+            self.lexedText.append(Token(type: "PROGRAM", value: "PROGRAM",lineNumber: 0))
+            while self.currentChar != nil{
+                if let token = try self.getNextToken(){
+                    self.lexedText.append(token)
+                }
             }
+            self.lexedText.append(Token(type: "EOF", value: "EOF", lineNumber: self.currentLineNumber+1))
+        }catch{
+            throw error
         }
-        self.lexedText.append(Token(type: "EOF", value: "EOF", lineNumber: self.currentLineNumber+1))
     }
     
     public var description: String { return self.lexedText.description}

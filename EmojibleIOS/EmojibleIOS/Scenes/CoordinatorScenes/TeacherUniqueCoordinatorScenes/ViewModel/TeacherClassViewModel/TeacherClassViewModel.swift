@@ -41,7 +41,8 @@ class TeacherClassViewModel: UITableViewCell{
                                      trashButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
                                      trashButton.widthAnchor.constraint(equalToConstant: 40)])
         
-        let clasTitle = "Class name: " + classroom.className + "               Class id: " + classroom.id
+        let clasTitle = "Class name".localized() + ": " + classroom.className + "               " + "Class id".localized() + ": " + classroom.id
+        
         classButton.setTitle(clasTitle, for: .normal)
         classButton.titleLabel?.font = .systemFont(ofSize: 17)
         classButton.setTitleColor(#colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1), for: .normal)
@@ -57,7 +58,7 @@ class TeacherClassViewModel: UITableViewCell{
     }
     
     func configureCreateButton(){
-        createButton.setTitle("Create new class", for: .normal)
+        createButton.setTitle("Create new class".localized(), for: .normal)
         createButton.titleLabel?.font = .systemFont(ofSize: 17)
         createButton.setTitleColor(#colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1), for: .normal)
         createButton.titleLabel?.textAlignment = .center

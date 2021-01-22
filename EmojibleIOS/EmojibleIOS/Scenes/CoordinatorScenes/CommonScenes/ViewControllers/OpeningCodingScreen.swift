@@ -7,21 +7,27 @@
 
 import UIKit
 
-class OpeningCodingScreen: UIViewController, Coordinated{
+class OpeningCodingScreen: UIViewController, Coordinated, UIViewControllerWithAlerts{
+    var pleaseWaitAlert: UIAlertController?
+    
     var coordinator: Coordinator?
-
-    @IBOutlet weak var codingTextBox: UITextView!
     
     @IBOutlet weak var codingScreen: UITextView!
     @IBOutlet weak var runButton: UIButton!
+    var imagePicker: ImagePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
-<<<<<<< HEAD:EmojibleIOS/EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/OpeningCodingScreen.swift
         self.navigationController?.navigationBar.isHidden = true
         configureViews()
+        configureLanguage()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+    }
+    func configureLanguage(){
+        codingScreen.text = "Write your code...".localized()
+        runButton.setTitle("Run".localized().uppercased(), for: .normal)
     }
     
     func configureViews(){
@@ -33,39 +39,36 @@ class OpeningCodingScreen: UIViewController, Coordinated{
     
     
     @IBAction func cameraPressed(_ sender: UIButton) {
-=======
+        self.imagePicker.presentCamera(from: sender)
     }
     
-    @IBAction func cameraButtonPressed(_ sender: UIButton) {
->>>>>>> main:EmojibleIOS/EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/CodingScreenVC.swift
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraView = UIImagePickerController()
-            cameraView.delegate = self as?
-                UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            cameraView.sourceType = .camera
-            self.present(cameraView, animated: true, completion: nil)
-        }
-    }
-    
-<<<<<<< HEAD:EmojibleIOS/EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/OpeningCodingScreen.swift
     @IBAction func photoLibraryPressed(_ sender: UIButton) {
-=======
-    @IBAction func photosButtonPressed(_ sender: UIButton) {
->>>>>>> main:EmojibleIOS/EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/CodingScreenVC.swift
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        self.imagePicker.presentImagePicker(from: sender)
+        
     }
     
-<<<<<<< HEAD:EmojibleIOS/EmojibleIOS/Scenes/CoordinatorScenes/CommonScenes/ViewControllers/OpeningCodingScreen.swift
     @IBAction func runPressed(_ sender: UIButton) {
         if codingScreen.text != "" {
-            //run
+            AppCoordinator.getInstance().runCode(code: codingScreen.text)
         }
-=======
-    @IBAction func runButtonPressed(_ sender: UIButton) {
-    
->>>>>>> main:EmojibleIOS/EmojibleIOS/Scenes/StudentCoordinatorScenes/ViewControllers/CodingScreenVC.swift
     }
 }
+
+extension OpeningCodingScreen: ImagePickerDelegate {
+
+    func didSelect(image: UIImage?) {
+        guard let image = image else { return }
+        showSpinner(){
+            VisionModel.getInstance().predictEmojis(image: image){ result in
+                self.hideSpinner()
+                if let res = result{
+                    self.codingScreen.text = res
+                }else{
+                    return
+                }
+            
+            }
+        }
+    }
+}
+

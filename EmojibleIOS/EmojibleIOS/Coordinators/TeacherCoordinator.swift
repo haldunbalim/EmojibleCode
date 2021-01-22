@@ -18,49 +18,58 @@ class TeacherCoordinator: Coordinator {
     var emojiAssignmentNC = EmojiAssignmentCoordinator.getInstance().navigationController
     var classNC = TeacherClassCoordinator.getInstance().navigationController
     var settingsNC = SettingsCoordinator.getInstance().navigationController
-    var runCodeNC = RunCodeCoordinator.getInstance().navigationController
     
     var lastIdx = -1
+    var isStarted: Bool = false
     
-    func start(){
+    func start() {
         let configuration = UIImage.SymbolConfiguration(pointSize: 0, weight: .semibold, scale: .large)
         
-        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials", image: UIImage(named: "book", in: .none, with: configuration), tag: 0)
+        let tutorialsTabBarItem =  UITabBarItem(title: "Tutorials".localized(), image: UIImage(named: "book", in: .none, with: configuration), tag: 0)
         
-        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings", image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 1)
+        let assignmentTabBarItem =  UITabBarItem(title: "Emoji Settings".localized(), image:UIImage(named: "face.smiling", in: .none, with: configuration), tag: 1)
         
-        let classTabBarItem = UITabBarItem(title: "Class", image:UIImage(named: "studentdesk", in: .none, with: configuration), tag: 2)
+        let classTabBarItem = UITabBarItem(title: "Class".localized(), image:UIImage(named: "studentdesk", in: .none, with: configuration), tag: 2)
 
-        let settingsTabBarItem =  UITabBarItem(title: "Settings", image: UIImage(named: "gear", in: .none, with: configuration), tag: 3)
-        
+        let settingsTabBarItem =  UITabBarItem(title: "Settings".localized(), image: UIImage(named: "gear", in: .none, with: configuration), tag: 3)
         
         tutorialsNC.tabBarItem = tutorialsTabBarItem
         emojiAssignmentNC.tabBarItem = assignmentTabBarItem
         classNC.tabBarItem = classTabBarItem
         settingsNC.tabBarItem = settingsTabBarItem
-
-        tabBarController.viewControllers = [tutorialsNC, emojiAssignmentNC, classNC, settingsNC, runCodeNC]
-        tabBarController.selectedIndex = 0
         
+        
+        tabBarController.selectedIndex = 0
+        tabBarController.viewControllers = [tutorialsNC, emojiAssignmentNC, classNC, settingsNC]
+        
+        resetToInitialState()
         tabBarController.loadTabBar()
-        startChildren()
+        setParent()
+        
+        if !isStarted{
+            startChildren()
+            isStarted = true
+        }
+    }
+    
+    func resetToInitialState(){
+        TeacherTutorialCoordinator.getInstance().pop()
+        TeacherClassCoordinator.getInstance().pop()
+        SettingsCoordinator.getInstance().pop()
     }
     
     func startChildren(){
-        TeacherTutorialCoordinator.getInstance().parentCoordinator = self
         TeacherTutorialCoordinator.getInstance().start()
-
-        EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
         EmojiAssignmentCoordinator.getInstance().start()
-        
-        TeacherClassCoordinator.getInstance().parentCoordinator = self
         TeacherClassCoordinator.getInstance().start()
-        
-        SettingsCoordinator.getInstance().parentCoordinator = self
         SettingsCoordinator.getInstance().start()
- 
-        RunCodeCoordinator.getInstance().parentCoordinator = self
-        RunCodeCoordinator.getInstance().start()
+    }
+    
+    func setParent(){
+        TeacherTutorialCoordinator.getInstance().parentCoordinator = self
+        EmojiAssignmentCoordinator.getInstance().parentCoordinator = self
+        TeacherClassCoordinator.getInstance().parentCoordinator = self
+        SettingsCoordinator.getInstance().parentCoordinator = self
     }
     
     private init(){
@@ -68,27 +77,14 @@ class TeacherCoordinator: Coordinator {
         self.tabBarController.navigationController?.navigationBar.isHidden = true
     }
     
-<<<<<<< HEAD
     private static var instance:TeacherCoordinator!
-=======
-    private init(){}
-    private static let instance = TeacherCoordinator()
->>>>>>> main
     public static func getInstance() -> TeacherCoordinator{
+        if instance == nil{
+            instance = TeacherCoordinator()
+        }
         return .instance
     }
-    
-    public func runCode(code:String){
-        RunCodeCoordinator.getInstance().runningCode = code
-        lastIdx = tabBarController.selectedIndex
-        tabBarController.selectedIndex = 4
-        tabBarController.setHidden()
-    }
-    
-    public func terminateCode(){
-        tabBarController.selectedIndex = lastIdx
-        tabBarController.setVisible()
-    }
+
     
     func changeTab(tab: Int) {
         self.tabBarController.changeTab(tab: tab)

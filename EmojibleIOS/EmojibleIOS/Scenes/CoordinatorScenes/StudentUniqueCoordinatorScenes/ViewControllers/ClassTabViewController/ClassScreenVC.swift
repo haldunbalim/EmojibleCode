@@ -17,6 +17,7 @@ class ClassScreenVC: UIViewController, Coordinated{
     
     var removeAlert: RemoveAlert!
     
+    @IBOutlet weak var leaveButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
@@ -32,14 +33,19 @@ class ClassScreenVC: UIViewController, Coordinated{
         configureTitleLabel()
         configureCollectionView()
         configureRemoveAlert()
+        configureLanguage()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .classTutorialChanged, object: nil)
         TeacherClassDataSource.getInstance().startObservingClassTutorials()
+    }
+    
+    func configureLanguage(){
+        leaveButton.setTitle("Leave".localized(), for: .normal)
     }
     
     @IBAction func leavePressed(_ sender: UIButton) {
         self.removeAlert.presentOver(viewController: self)
         self.removeAlert.deleteButton.setTitleColor(.red, for: .normal)
-        self.removeAlert.deleteButton.setTitle("Leave", for: .normal)
+        self.removeAlert.deleteButton.setTitle("Leave".localized(), for: .normal)
     }
     
     @objc func notify(_ notification: NSNotification){
@@ -52,7 +58,7 @@ class ClassScreenVC: UIViewController, Coordinated{
         NSLayoutConstraint.activate([self.titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 10)])
         TeacherClassDataSource.getInstance().getClassName() { className in
             guard let className = className else {return}
-            self.titleLabel.text = " You are in " + className
+            self.titleLabel.text = "You are in class".localized() + ": " + className
         }
     }
     
@@ -144,13 +150,6 @@ extension ClassScreenVC:TutorialTabButtonAction{
         coordinator.runningCode = code
         coordinator.openScreen(screenName: .RunScreen)
          */
-        
-        if let _ = self.coordinator?.parentCoordinator as? CommonCoordinator {
-            CommonCoordinator.getInstance().runCode(code: code)
-        }else if let _ = self.coordinator?.parentCoordinator as? StudentCoordinator {
-            StudentCoordinator.getInstance().runCode(code: code)
-        }else if let _ = self.coordinator?.parentCoordinator as? TeacherCoordinator{
-            TeacherCoordinator.getInstance().runCode(code: code)
-        }
+        AppCoordinator.getInstance().runCode(code: code)
     }
 }

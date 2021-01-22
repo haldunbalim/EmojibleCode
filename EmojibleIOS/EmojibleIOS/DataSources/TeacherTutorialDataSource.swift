@@ -15,6 +15,7 @@ class TeacherTutorialDataSource {
     let notificationCenter = NotificationCenter.default
     var tutorials: [CodeModel] = []
     var tutorialsDataSourceIndices: [String] = []
+    var lastPrevEditIndex = 0
     
     func startObservingTutorials(){
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
@@ -36,15 +37,16 @@ class TeacherTutorialDataSource {
     func editTutorial(oldTutorial: CodeModel, newTutorial:CodeModel){
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
 
-        var index: Int?
         for (i, document) in self.tutorials.enumerated(){
             if document == oldTutorial{
-                index = i
+                self.tutorials[i] = newTutorial
+                lastPrevEditIndex = i
                 break
             }
         }
+
         let uid = currentUser.uid
-        database.collection("Users").document(uid).collection("Tutorials").document(self.tutorialsDataSourceIndices[index!]).setData(newTutorial.dictionary)
+        database.collection("Users").document(uid).collection("Tutorials").document(self.tutorialsDataSourceIndices[lastPrevEditIndex]).setData(newTutorial.dictionary)
     }
     
     func removeTutorial(tutorial: CodeModel){

@@ -11,7 +11,7 @@ import UIKit
 protocol ProgramTabButtonAction{
     func newCodeAction()
     func editAction(programModel: CodeModel)
-    func runAction()
+    func runAction(code: String)
     func trashAction(programModel: CodeModel)
 }
 //MARK: - Program Alert
@@ -59,7 +59,7 @@ protocol AssignmentPopUpAlert{
 protocol TeacherTutorialTabButtonAction{
     func newTutorialAction()
     func editAction(tutorialModel: CodeModel)
-    func runAction()
+    func runAction(code: String)
     func trashAction(tutorialModel: CodeModel)
 }
 //MARK: - Teacher Tutorial Alert

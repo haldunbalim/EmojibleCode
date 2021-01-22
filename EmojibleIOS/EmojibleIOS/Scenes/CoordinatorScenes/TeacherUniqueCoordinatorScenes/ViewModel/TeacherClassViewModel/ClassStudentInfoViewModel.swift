@@ -32,13 +32,7 @@ class ClassStudentInfoViewModel: UITableViewCell{
     }
     
     func configureSumCell(sum: Int){
-        if sum == 0 {
-            sumLabel.text = "No student in class"
-        }else if sum == 1{
-            sumLabel.text = "\(sum) student in class"
-        }else {
-            sumLabel.text = "\(sum) students in class"
-        }
+        sumLabel.text = "Number of students in the class".localized() + ": \(sum)"
         sumLabel.textColor = #colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1)
         sumLabel.font = .systemFont(ofSize: 17)
         sumLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +48,7 @@ class ClassStudentInfoViewModel: UITableViewCell{
     }
     
     func configureNameCell(name: String, id: String){
-        sumLabel.text = "Class name: " + name + "               Class id: " + id
+        sumLabel.text = "Class name".localized() + ": " + name + "              " + "Class id".localized() + ": " + id
         sumLabel.textColor = #colorLiteral(red: 0.007333596703, green: 0.2443790138, blue: 0.5489466786, alpha: 1)
         sumLabel.font = .systemFont(ofSize: 17)
         sumLabel.translatesAutoresizingMaskIntoConstraints = false

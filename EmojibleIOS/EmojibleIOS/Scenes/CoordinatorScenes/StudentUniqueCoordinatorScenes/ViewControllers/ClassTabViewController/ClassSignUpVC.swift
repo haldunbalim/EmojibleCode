@@ -14,13 +14,24 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
 
     @IBOutlet weak var enrollLabel: UILabel!
     
+    @IBOutlet weak var enrollButton: UIButton!
     @IBOutlet weak var classCodeTextField: UITextField!
     @IBOutlet weak var classPasswordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        configureLanguage()
         self.navigationController?.navigationBar.isHidden = true
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func configureLanguage(){
+        enrollLabel.text = "Enroll in a class".localized()
+        classCodeTextField.placeholder = "Class id".localized()
+        classPasswordTextField.placeholder = "Class password".localized()
+        enrollButton.setTitle("Enroll".localized(), for: .normal)
     }
     
     func configureViews(){
@@ -33,12 +44,12 @@ class ClassSignUpVC:UIViewController, Coordinated, UIViewControllerWithAlerts{
     @IBAction func signUpButtonPressed(_ sender: Any) {
         
         guard let classCode = classCodeTextField.text, classCode != "" else {
-            showMessagePrompt("Class Code cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Class id cannot be empty".localized(), vcToBePresented: self)
             return
         }
         
         guard let classPassword = classPasswordTextField.text, classPassword != "" else {
-            showMessagePrompt("Class Password cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Class password cannot be empty".localized(), vcToBePresented: self)
             return
         }
         self.showSpinner(){

@@ -60,8 +60,8 @@ class ClassCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
+    func pop(animated: Bool = true){
+        navigationController.popViewController(animated: animated)
     }
     
     private init(){

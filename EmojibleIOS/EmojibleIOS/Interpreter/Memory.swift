@@ -37,7 +37,11 @@ class Memory{
     }
     
     public func addAssignment(assignment:AssignmentModel){
-        assignments.append(assignment)
+        if assignments.contains(assignment){
+            editAssignment(assignment: assignment, newValue: assignment.getValue())
+        }else{
+            assignments.append(assignment)
+        }
     }
 
     

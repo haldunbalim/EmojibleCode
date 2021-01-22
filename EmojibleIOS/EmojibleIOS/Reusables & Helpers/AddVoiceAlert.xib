@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="alertView" destination="Nd0-Wn-Vye" id="biZ-Sd-3bX"/>
                 <outlet property="assignButton" destination="nj3-01-Y5W" id="E7u-P7-ThA"/>
+                <outlet property="cancelButton" destination="NCH-Wd-Dff" id="6nN-XD-7OZ"/>
                 <outlet property="recordingLabel" destination="y80-xI-41F" id="60d-g6-ow7"/>
                 <outlet property="view" destination="ZEF-XG-utp" id="BNU-CL-MuO"/>
             </connections>

@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 
-class LoginVC: UIViewController, Coordinated{
+class LoginVC: UIViewController, Coordinated, UIViewControllerWithAlerts{
     var coordinator: Coordinator?
+    var pleaseWaitAlert: UIAlertController?
 
-    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var forgetYourPasswordButton: UIButton!
@@ -23,6 +24,16 @@ class LoginVC: UIViewController, Coordinated{
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         configureViews()
+        configureLanguage()
+    }
+    
+    func configureLanguage(){
+        emailTextField.placeholder = "E-mail".localized()
+        passwordTextField.placeholder = "Password".localized()
+        loginButton.setTitle("Login".localized(), for: .normal)
+        forgetYourPasswordButton.setTitle("Forgot your password?".localized(), for: .normal)
+        createStudentAccountButton.setTitle("Create an account as student".localized(), for: .normal)
+        createTeacherAccountButton.setTitle("Create an account as teacher".localized(), for: .normal)
     }
     
     func configureViews(){
@@ -35,13 +46,13 @@ class LoginVC: UIViewController, Coordinated{
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        guard let coordinator = coordinator else{
+        guard let email = emailTextField.text, email != "" else {
+            showMessagePrompt("E-mail cannot be empty".localized(), vcToBePresented: self)
             return
         }
-<<<<<<< HEAD
         
         guard let password = passwordTextField.text, password != "" else {
-            showMessagePrompt("Password cannot be empty", vcToBePresented: self)
+            showMessagePrompt("Password cannot be empty".localized(), vcToBePresented: self)
             return
         }
         self.showSpinner(){
@@ -62,25 +73,16 @@ class LoginVC: UIViewController, Coordinated{
         passwordTextField.text = ""
     }
     
-=======
-        AuthenticationManager.getInstance().isLoggedIn = true
-        (coordinator.parentCoordinator as! AppCoordinator).start()
-    }
->>>>>>> main
     @IBAction func forgetYourPasswordButtonPressed(_ sender: UIButton) {
         resetFields()
         (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .ForgetPassword)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton) {
-<<<<<<< HEAD
         resetFields()
         guard let coordinator = coordinator as? AuthenticationCoordinator else { return }
         coordinator.registeringUserType = sender.tag == 0 ? "Student":"Teacher"
         coordinator.openScreen(screenName: .Register)
-=======
-        (self.coordinator as! AuthenticationCoordinator).openScreen(screenName: .Register)
->>>>>>> main
     }
     
 }

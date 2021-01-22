@@ -31,7 +31,7 @@ class SettingsCoordinator: Coordinator {
         case .SettingsScreen:
             vc = self.storyboard.instantiateViewController(withIdentifier: "SettingsScreenVC") as? SettingsScreenVC
         case .ResetPasswordScreen:
-            vc = self.storyboard.instantiateViewController(withIdentifier: "ForgetYourPasswordVC") as? ForgetYourPasswordVC
+            vc = self.storyboard.instantiateViewController(withIdentifier: "ResetPasswordVC") as? ResetPasswordVC
         }
         
         vc.coordinator = self
@@ -40,8 +40,9 @@ class SettingsCoordinator: Coordinator {
         navigationController.pushViewController(vc as! UIViewController, animated: true)
         currentScreen = screenName
     }
-    func pop(){
-        navigationController.popViewController(animated: true)
+    
+    func pop(animated: Bool = true){
+        navigationController.popViewController(animated: animated)
     }
     
     private init(){

@@ -24,11 +24,15 @@ class TeacherStudentEnrollmentVC: UIViewController, Coordinated{
         self.navigationController?.navigationBar.isHidden = true
         self.classroom = (self.coordinator as! TeacherClassCoordinator).classroom
         configureView()
+        configureLanguage()
         configureTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(notify), name: .studentsInClassChanged, object: nil)
         StudentsInClassDataSource.getInstance().startObservingStudentsInAClass(classId: classroom!.id)
     }
     
+    func configureLanguage(){
+        backButton.setTitle("BACK".localized(), for: .normal)
+    }
     
     @objc func notify(_ notification: NSNotification){
         guard let studentsFromDB = notification.userInfo?["studentsInClassChanged"] else { return }
@@ -52,7 +56,8 @@ class TeacherStudentEnrollmentVC: UIViewController, Coordinated{
         tableView.register(UINib(nibName: "ClassStudentInfoViewModel", bundle: .main), forCellReuseIdentifier: reuseIdentifier)
         
         tableView.tableFooterView = UIView()
-        tableView.tableFooterView?.backgroundColor = UIColor.white
+        tableView.tableFooterView?.backgroundColor = .white
+        tableView.backgroundColor = .white
 
         NSLayoutConstraint.activate([tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.TAB_BAR_WIDTH + 20)])
     }

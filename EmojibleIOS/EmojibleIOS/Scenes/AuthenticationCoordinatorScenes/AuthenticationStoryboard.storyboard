@@ -2,10 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="landscape" appearance="light"/>
     <dependencies>
-<<<<<<< HEAD
         <deployment identifier="iOS"/>
-=======
->>>>>>> main
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,7 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-nR-F4C">
                                 <rect key="frame" x="206" y="87" width="400" height="100"/>
                                 <subviews>
@@ -117,58 +113,7 @@
                         <outlet property="emailTextField" destination="xrc-Jr-Oii" id="s3v-Hp-g1o"/>
                         <outlet property="forgetYourPasswordButton" destination="S5J-7D-lnc" id="X8P-Ra-wOb"/>
                         <outlet property="loginButton" destination="p6C-jH-6VO" id="erU-yG-22C"/>
-=======
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7YQ-9G-xsZ">
-                                <rect key="frame" x="151" y="430" width="127" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6C-jH-6VO">
-                                <rect key="frame" x="151" y="472" width="127" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98039215686274506" green="0.95294117647058818" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" systemColor="systemGray2Color"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButtonPressed:" destination="06c-oy-q2F" eventType="touchUpInside" id="ff7-ss-xm3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtI-By-P1E">
-                                <rect key="frame" x="144" y="759" width="126" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create an account"/>
-                                <connections>
-                                    <action selector="createAccountButtonPressed:" destination="06c-oy-q2F" eventType="touchUpInside" id="TU3-Aj-5Oe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-7D-lnc">
-                                <rect key="frame" x="123" y="728" width="169" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Forgot your password?"/>
-                                <connections>
-                                    <action selector="forgetYourPasswordButtonPressed:" destination="06c-oy-q2F" eventType="touchUpInside" id="Z2w-Cu-H3u"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xrc-Jr-Oii">
-                                <rect key="frame" x="151" y="388" width="127" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="jbi-rX-C24"/>
-                        <color key="backgroundColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9DJ-jR-Y4Z"/>
-                    <connections>
->>>>>>> main
                         <outlet property="passwordTextField" destination="7YQ-9G-xsZ" id="XrC-wM-zBg"/>
-                        <outlet property="userNameTextField" destination="xrc-Jr-Oii" id="s3v-Hp-g1o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCO-ut-1CP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -199,7 +144,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="0hU-kk-NPk">
                                 <rect key="frame" x="206" y="87.666666666666686" width="400" height="200"/>
                                 <subviews>
@@ -307,58 +251,10 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="H5F-x0-8BQ" eventType="touchUpInside" id="yPN-JH-ixU"/>
-=======
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Yj-UX-M3h">
-                                <rect key="frame" x="113" y="333" width="188" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ip-S9-1xU">
-                                <rect key="frame" x="113" y="375" width="188" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jcH-xg-Sj3">
-                                <rect key="frame" x="113" y="417" width="188" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="adM-gB-o2B">
-                                <rect key="frame" x="113" y="291" width="188" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5s-FE-fw7">
-                                <rect key="frame" x="113" y="457" width="188" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axi-Sm-Vt7">
-                                <rect key="frame" x="113" y="520" width="188" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.95294117649999999" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Create my account">
-                                    <color key="titleColor" systemColor="systemGray2Color"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAccountButtonPressed:" destination="H5F-x0-8BQ" eventType="touchUpInside" id="b00-zU-S0f"/>
-                                    <action selector="loginButtonPressed:" destination="06c-oy-q2F" eventType="touchUpInside" id="IWr-YN-4rm"/>
->>>>>>> main
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QlL-wt-s7K"/>
-<<<<<<< HEAD
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0hU-kk-NPk" firstAttribute="centerY" secondItem="Oat-Fn-p4p" secondAttribute="centerY" id="0RL-Vm-aFP"/>
@@ -378,20 +274,11 @@
                         <outlet property="birthDatePicker" destination="KfU-T6-4rd" id="o6c-J5-BLd"/>
                         <outlet property="birthDatePickerToolbar" destination="B40-X4-K1K" id="qty-ud-dUG"/>
                         <outlet property="birthDateTextField" destination="N5s-FE-fw7" id="AmA-G0-SqG"/>
+                        <outlet property="createMyAccountButton" destination="Axi-Sm-Vt7" id="b67-s9-N9t"/>
                         <outlet property="emailTextField" destination="euJ-hC-URj" id="XSU-I2-g91"/>
                         <outlet property="nameTextField" destination="zRW-vZ-UFl" id="Oka-qP-lW1"/>
                         <outlet property="passwordTextField" destination="9Yj-UX-M3h" id="Php-AE-VT3"/>
                         <outlet property="surnameTextField" destination="nMo-q5-agu" id="9Oy-ul-Owr"/>
-=======
-                        <color key="backgroundColor" red="0.76294112209999998" green="0.81735074519999995" blue="0.96472519639999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <connections>
-                        <outlet property="ageTextField" destination="N5s-FE-fw7" id="l9j-x9-LPZ"/>
-                        <outlet property="emailTextField" destination="6ip-S9-1xU" id="XSm-7N-Nvh"/>
-                        <outlet property="passwordTextField" destination="9Yj-UX-M3h" id="63q-V3-d10"/>
-                        <outlet property="schoolTextField" destination="jcH-xg-Sj3" id="ncL-Ub-BvO"/>
-                        <outlet property="userNameTextField" destination="adM-gB-o2B" id="hOT-ts-y6P"/>
->>>>>>> main
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LyX-j3-0g6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -472,6 +359,7 @@
             <point key="canvasLocation" x="2354" y="274"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.093929089610000002" green="0.24021449689999999" blue="0.52943992610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
     </resources>

@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RemoveAlert" customModule="EmojibleIOS" customModuleProvider="target">
             <connections>
                 <outlet property="alertView" destination="xim-jU-5pm" id="5ay-vz-vZa"/>
+                <outlet property="areYouSureLabel" destination="U4m-t9-pny" id="pfn-fC-1oK"/>
+                <outlet property="cancelButton" destination="Pcn-C0-B9U" id="5wP-e2-Wg5"/>
                 <outlet property="deleteButton" destination="maB-XI-jOH" id="xoS-nM-L5B"/>
                 <outlet property="view" destination="A3u-Z4-tt2" id="XTq-Lb-yvB"/>
             </connections>

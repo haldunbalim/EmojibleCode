@@ -25,7 +25,7 @@ class CodeModel:Equatable{
     }
     
     init (dictionary: [String:Any]) {
-        name = dictionary["name"] as! String
+        name = dictionary["name"] as? String ?? ""
         code = (dictionary["code"] as! String).replacingOccurrences(of: "\\n", with: "\n")
     }
     

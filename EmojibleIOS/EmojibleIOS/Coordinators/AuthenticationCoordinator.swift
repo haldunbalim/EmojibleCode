@@ -12,6 +12,7 @@ class AuthenticationCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var storyboard = UIStoryboard.init(name: "AuthenticationStoryboard", bundle: Bundle.main)
     var navigationController: UINavigationController
+    var registeringUserType:String?
     
     enum screenEnum{
         case Login
@@ -23,13 +24,6 @@ class AuthenticationCoordinator: Coordinator {
 
     func start() {
         openScreen(screenName: currentScreen)
-    }
-    
-    func reset(){
-        for _ in 0...navigationController.viewControllers.count{
-            pop()
-        }
-        openScreen(screenName: .Login)
     }
     
     func openScreen(screenName: screenEnum, pop: Bool = false){
@@ -50,8 +44,8 @@ class AuthenticationCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    func pop(){
-        navigationController.popViewController(animated: true)
+    func pop(animated:Bool = true){
+        navigationController.popViewController(animated: animated)
     }
     
     private init(){
@@ -59,8 +53,11 @@ class AuthenticationCoordinator: Coordinator {
         self.navigationController.navigationBar.isHidden = true
     }
     
-    private static let instance = AuthenticationCoordinator()
+    private static var instance: AuthenticationCoordinator!
     public static func getInstance() -> AuthenticationCoordinator{
+        if instance == nil{
+            instance = AuthenticationCoordinator()
+        }
         return .instance
     }
 }

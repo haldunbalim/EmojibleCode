@@ -15,7 +15,10 @@
             <connections>
                 <outlet property="alertView" destination="Law-rX-aYz" id="frJ-TU-ff7"/>
                 <outlet property="emojiLabel" destination="Z7H-10-sga" id="o6u-MX-wJ5"/>
+                <outlet property="functionButton" destination="XJN-2z-rDW" id="SlF-56-2qT"/>
+                <outlet property="textButton" destination="pnB-rX-X7S" id="tOv-Rb-4kb"/>
                 <outlet property="view" destination="SPb-N5-dO3" id="9MQ-CA-uRu"/>
+                <outlet property="voiceButton" destination="S2H-bc-agQ" id="At6-bE-OD4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

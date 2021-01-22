@@ -39,7 +39,6 @@ class OpeningCodingScreenCoordinator: Coordinator {
         currentScreen = screenName
     }
     
-    
     private init(){
         navigationController = self.storyboard.instantiateViewController(withIdentifier: "OpeningCodeScreenNavController") as! UINavigationController
         self.navigationController.navigationBar.isHidden = true

@@ -6,16 +6,13 @@ target 'EmojibleIOS' do
   use_frameworks!
 
   # Pods for EmojibleIOS
+  pod 'FBSDKCoreKit'
+
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
-
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit'
-  pod 'FBSDKShareKit'
-
-
+  pod 'Alamofire', '~> 4.8'
 
   target 'EmojibleIOSTests' do
     inherit! :search_paths

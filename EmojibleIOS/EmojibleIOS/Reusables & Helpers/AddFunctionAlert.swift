@@ -13,14 +13,21 @@ class AddFunctionAlert: CustomAlertViewController{
     var editAssignmentDelegate: AssignmentEditAlert?
     
     @IBOutlet weak var valueTextField: UITextView!
+    @IBOutlet weak var assignButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLanguage()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         valueTextField.becomeFirstResponder()
     }
-    
+    func configureLanguage(){
+        valueTextField.text = "Write your code...".localized()
+        cancelButton.setTitle("Cancel".localized(), for: .normal)
+        assignButton.setTitle("Assign".localized(), for: .normal)
+    }
 
     @IBAction func cancelButtonOnPress(_ sender: Any) {
         dismiss()
@@ -28,12 +35,13 @@ class AddFunctionAlert: CustomAlertViewController{
     
     @IBAction func assignButtonOnPress(_ sender: Any) {
         
-        guard let text = valueTextField.text, text != "" else {
+        guard var text = valueTextField.text, text != "" else {
             showMessagePrompt("Text cannot be empty", vcToBePresented: delegate!)
             return
         }
         
         if let identifier = newFunctiontAssignmentDelegate?.newAssignmentIdentifier{
+            text = Constants.FUNCTION_IDENTIFIER_PREFIX + text
             GlobalMemory.getInstance().addAssignment(assignment: AssignmentModel(identifier: identifier, value: text))
         }
         
@@ -45,7 +53,7 @@ class AddFunctionAlert: CustomAlertViewController{
      }
     
     private func dismiss(){
-        valueTextField.text = "Program.."
+        valueTextField.text = "Write your code...".localized()
         valueTextField.resignFirstResponder()
         newFunctiontAssignmentDelegate?.newAssignmentIdentifier = nil
         editAssignmentDelegate?.assignmentToBeEdited = nil
