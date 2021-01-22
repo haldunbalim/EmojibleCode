@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dji.emojibleandroid.R
 import com.dji.emojibleandroid.adapters.ProgramsAdapter
 import com.dji.emojibleandroid.dataSources.UserDataSource
+import com.dji.emojibleandroid.extensions.AppCompatActivityWithAlerts
+import com.dji.emojibleandroid.extensions.hideProgressBar
+import com.dji.emojibleandroid.extensions.showProgressBar
 import com.dji.emojibleandroid.models.ProgramModel
 import com.dji.emojibleandroid.models.StudentModel
 import com.dji.emojibleandroid.models.TeacherModel
@@ -25,7 +28,7 @@ import kotlinx.android.synthetic.main.no_user_toolbar.*
 import java.util.*
 
 
-class UserActivity : AppCompatActivity(), Observer {
+class UserActivity : AppCompatActivityWithAlerts(), Observer {
 
 
     private lateinit var auth: FirebaseAuth
@@ -39,10 +42,12 @@ class UserActivity : AppCompatActivity(), Observer {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
+        showProgressBar()
         UserDataSource.instance.getCurrentUserInfo {
             if (it is StudentModel) {
                 toolbarLayout.removeAllViews()
                 toolbarLayout.addView(View.inflate(this, R.layout.student_toolbar, null))
+                hideProgressBar()
             } else if (it is TeacherModel) {
                 toolbarLayout.removeAllViews()
                 toolbarLayout.addView(View.inflate(this, R.layout.teacher_toolbar, null))
