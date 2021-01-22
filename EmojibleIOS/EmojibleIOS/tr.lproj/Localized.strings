@@ -83,3 +83,19 @@
 "Enter" = "Onayla";
 "Terminate" = "Sonlandır";
 "Enter input" = "Veri giriniz";
+
+" is an undefined variable" = " değişkeni tanımlanmamış";
+"For statement must have integer times argument" = "For ifadesi tam sayı değerleri almak zorunda";
+"If statement must have boolean first argument" = "If ifadesinin ilk argümanı doğru veya yanlış değeri almak zorunda";
+"lower bound cannot be greater than upper bound" = "alt sınır üst sınırdan büyük olamaz";
+"Random number cannot be called with non integer upper bound" = "Ratgele sayı fonksiyonu tam sayı olmayan bir üst sınırla kullanılamaz";
+"Random number cannot be called with non integer lower bound" = "Ratgele sayı fonksiyonu tam sayı olmayan bir alt sınırla kullanılamaz";
+"Expected Number or Boolean for binary operator at line " = "İkili işlem için sayı veya doğru-yanlış değeri girilmeli, satır numarası ";
+" be converted to number" = " sayıya dönüştürün";
+
+"Unknown Error occured" = "Bilinmeyen bir hata oluştu";
+"End of Line Expected" = "Satır Sonu Bekleniyor";
+"Unknown Character: " = "Bilinmeyen karakter: ";
+" at line: " = " satır: ";
+"Unexpected Token: " = "Beklenilmeyen simge: ";
+". Expected: " = ". Beklenen: ";

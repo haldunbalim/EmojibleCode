@@ -70,7 +70,6 @@
 		8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CA257A4ECD00C24085 /* Memory.swift */; };
 		8BEB38D0257A80C400C24085 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CF257A80C400C24085 /* Parser.swift */; };
 		8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */; };
-		8BED7D3C25BA7199000D66EC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BED7D3B25BA7199000D66EC /* logo.png */; };
 		FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */; };
 		FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */; };
 		FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */; };
@@ -99,6 +98,7 @@
 		FC228F6D256A56C200A1A66F /* TabNavigationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */; };
 		FC259E26256FE3B30066E02A /* TutorialCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */; };
 		FC259E32256FFF240066E02A /* SavedProgramCodeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */; };
+		FC3633BA25BAD3A000C1184B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FC3633B925BAD39F00C1184B /* logo.png */; };
 		FC45C5E725896B0300E355C6 /* ClassStudentInfoViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC45C5E625896B0300E355C6 /* ClassStudentInfoViewModel.xib */; };
 		FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC57E7DF256FA65100584686 /* TabProtocols.swift */; };
 		FC6BED9925889223004E8724 /* TeacherClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BED9825889223004E8724 /* TeacherClassVC.swift */; };
@@ -231,7 +231,6 @@
 		8BEB38CA257A4ECD00C24085 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		8BEB38CF257A80C400C24085 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunScreenVC.swift; sourceTree = "<group>"; };
-		8BED7D3B25BA7199000D66EC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../Downloads/logo.png; sourceTree = "<group>"; };
 		ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +264,7 @@
 		FC228F6C256A56C200A1A66F /* TabNavigationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNavigationMenu.swift; sourceTree = "<group>"; };
 		FC259E25256FE3B30066E02A /* TutorialCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCodeScreenVC.swift; sourceTree = "<group>"; };
 		FC259E31256FFF240066E02A /* SavedProgramCodeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedProgramCodeScreenVC.swift; sourceTree = "<group>"; };
+		FC3633B925BAD39F00C1184B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		FC45C5E625896B0300E355C6 /* ClassStudentInfoViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassStudentInfoViewModel.xib; sourceTree = "<group>"; };
 		FC57E7DF256FA65100584686 /* TabProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabProtocols.swift; sourceTree = "<group>"; };
 		FC6BED9825889223004E8724 /* TeacherClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassVC.swift; sourceTree = "<group>"; };
@@ -504,12 +504,12 @@
 		8BE90CA1255037A000A34B37 /* Default Files */ = {
 			isa = PBXGroup;
 			children = (
+				FC3633B925BAD39F00C1184B /* logo.png */,
 				8B9CF22225753B7000743E8E /* GoogleService-Info.plist */,
 				FC9C42A6254AE8890061E220 /* AppDelegate.swift */,
 				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
 				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
 				FC9C42B4254AE88D0061E220 /* Info.plist */,
-				8BED7D3B25BA7199000D66EC /* logo.png */,
 			);
 			name = "Default Files";
 			sourceTree = "<group>";
@@ -1024,6 +1024,7 @@
 			files = (
 				8BBD5D1C257C05100089F2D9 /* RunScreenVC.xib in Resources */,
 				FCA64FEE257FA04C0010E20D /* EmojisIndexes.json in Resources */,
+				FC3633BA25BAD3A000C1184B /* logo.png in Resources */,
 				FC16C018256C2E9E00180942 /* VariablesViewModel.xib in Resources */,
 				FCB2FC04258683AF00EB2229 /* SettingsViewModel.xib in Resources */,
 				FC9C42B3254AE88D0061E220 /* LaunchScreen.storyboard in Resources */,
@@ -1044,7 +1045,6 @@
 				FCB65F5525B63789005A74BB /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
 				FC000B742585394C003D4C1A /* TeacherCodingScreenViewModel.xib in Resources */,
-				8BED7D3C25BA7199000D66EC /* logo.png in Resources */,
 				FC06B9C92589354A00CEC137 /* CreateNewClassAlert.xib in Resources */,
 				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,
 				FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */,
@@ -1466,7 +1466,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8JBPMURZH5;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1476,7 +1476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.EmojibleIOS.COMP491-hb";
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP491;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1494,7 +1494,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8JBPMURZH5;
+				DEVELOPMENT_TEAM = FQM5R73TP7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1504,7 +1504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.EmojibleIOS.COMP491-hb";
+				PRODUCT_BUNDLE_IDENTIFIER = com.EmojibleIOS.COMP491;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

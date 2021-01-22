@@ -46,13 +46,17 @@ class RunScreenVC:UIViewController, Coordinated{
             enterButton.isHidden = true
             try Interpreter.getInstance().runCode(code: runningCode)
         }catch ParserErrors.EndOfLineExpected{
-            showErrorMessageAndDismiss("End of Line Expected")
+            showErrorMessageAndDismiss("End of Line Expected".localized())
         }catch ParserErrors.UnexpectedToken (let token, let expected){
-            showErrorMessageAndDismiss("Unexpected Token: \(token.type.description). Expected: \(expected) at Line: \(token.lineNumber)")
+            var warning_string = "Unexpected Token: ".localized()
+            warning_string += token.type.description
+            warning_string += ". Expected: ".localized()
+            warning_string += expected
+            showErrorMessageAndDismiss(warning_string)
         }catch LexerErrors.UnknownCharacter(let lineNumber, let char){
-            showErrorMessageAndDismiss("Unknown Character: \(char) at line: \(lineNumber)")
+            showErrorMessageAndDismiss("Unknown Character: ".localized() + char + " at line: ".localized() + lineNumber)
         }catch{
-            showErrorMessageAndDismiss("Unknown Error occured")
+            showErrorMessageAndDismiss("Unknown Error occured".localized())
             
         }
        

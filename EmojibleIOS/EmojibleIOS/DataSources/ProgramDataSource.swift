@@ -15,6 +15,7 @@ class ProgramDataSource {
     let notificationCenter = NotificationCenter.default
     var programs: [CodeModel] = []
     var programDataSourceIndices: [String] = []
+    var lastPrevEditIndex = 0
     
     func startObservingProgram(){
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
@@ -36,15 +37,15 @@ class ProgramDataSource {
     func editProgram(oldProgram: CodeModel, newProgram:CodeModel){
         guard let currentUser = AuthenticationManager.getInstance().currentUser else { return }
 
-        var index: Int?
         for (i, document) in self.programs.enumerated(){
             if document == oldProgram{
-                index = i
+                lastPrevEditIndex = i
                 break
             }
         }
+
         let uid = currentUser.uid
-        database.collection("Users").document(uid).collection("Programs").document(self.programDataSourceIndices[index!]).setData(newProgram.dictionary)
+        database.collection("Users").document(uid).collection("Programs").document(self.programDataSourceIndices[lastPrevEditIndex]).setData(newProgram.dictionary)
     }
     
     func removeProgram(program: CodeModel){

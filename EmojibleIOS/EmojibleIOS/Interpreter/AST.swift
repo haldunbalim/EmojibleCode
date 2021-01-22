@@ -61,7 +61,7 @@ class BinOpNode:AST{
                 return visitFloat(left:Float(truncating: left_val), right:Float(truncating: right_val))
             }
             else{
-                throw InterpreterErrors.GenericError(str: "Expected Number or Boolean for binary operator at line \(String(describing:self.token.lineNumber))")
+                throw InterpreterErrors.GenericError(str: "Expected Number or Boolean for binary operator at line ".localized()  + (String(describing:self.token.lineNumber)))
             }
         }
         catch{
@@ -192,7 +192,7 @@ class GetNumericUserInputNode:AST{
         }else if let inputFloat = Float(input){
             return inputFloat
         }else{
-            throw InterpreterErrors.GenericError(str: "\(input) be converted to number")
+            throw InterpreterErrors.GenericError(str: input + " be converted to number".localized())
         }
     }
     
@@ -389,13 +389,13 @@ class GetRandomNumberNode:AST{
         
         do{
             guard let lower_bound = try self.lower_bound.safeVisit() as? Int else{
-                throw InterpreterErrors.GenericError(str:"Random number cannot be called with non integer lower bound")
+                throw InterpreterErrors.GenericError(str:"Random number cannot be called with non integer lower bound".localized())
             }
             guard let upper_bound = try self.upper_bound.safeVisit() as? Int else{
-                throw InterpreterErrors.GenericError(str:"Random number cannot be called with non integer upper bound")
+                throw InterpreterErrors.GenericError(str:"Random number cannot be called with non integer upper bound".localized())
             }
             if lower_bound >= upper_bound{
-                throw InterpreterErrors.GenericError(str:"lower bound cannot be greater than upper bound")
+                throw InterpreterErrors.GenericError(str:"lower bound cannot be greater than upper bound".localized())
             }
             return Int.random(in: lower_bound ..< upper_bound)
         }catch{
@@ -424,7 +424,7 @@ class IfNode:AST{
     override func visit() throws -> Any? {
         do{
             guard let bool = try bool_statement.safeVisit() as? Bool else {
-                throw InterpreterErrors.GenericError(str:"If statement must have boolean first argument")
+                throw InterpreterErrors.GenericError(str:"If statement must have boolean first argument".localized())
                 return nil
             }
             if bool{
@@ -454,7 +454,7 @@ class ForNode:AST{
     override func visit() throws -> Any? {
         do{
             guard let times = try self.times.safeVisit() as? Int else{
-                throw InterpreterErrors.GenericError(str:"For statement must have integer times argument")
+                throw InterpreterErrors.GenericError(str:"For statement must have integer times argument".localized())
             }
             for _ in 0..<times{
                 _ = try body.safeVisit()
@@ -530,7 +530,7 @@ class VarNode:AST{
                 return assignment.getValue()
             }
         }
-        throw InterpreterErrors.GenericError(str:"\(var_name) is an undefined variable")
+        throw InterpreterErrors.GenericError(str: var_name + " is an undefined variable".localized())
         
     }
 }
