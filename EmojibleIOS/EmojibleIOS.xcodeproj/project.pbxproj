@@ -70,6 +70,7 @@
 		8BEB38CB257A4ECD00C24085 /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CA257A4ECD00C24085 /* Memory.swift */; };
 		8BEB38D0257A80C400C24085 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38CF257A80C400C24085 /* Parser.swift */; };
 		8BEB38D5257AA0D800C24085 /* RunScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */; };
+		8BED7D3C25BA7199000D66EC /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BED7D3B25BA7199000D66EC /* logo.png */; };
 		FC000B62258538C2003D4C1A /* TeacherTutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B61258538C2003D4C1A /* TeacherTutorialViewModel.swift */; };
 		FC000B6725853902003D4C1A /* TeacherCodingScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC000B6625853902003D4C1A /* TeacherCodingScreenViewModel.swift */; };
 		FC000B6F25853931003D4C1A /* TeacherTutorialViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC000B6E25853931003D4C1A /* TeacherTutorialViewModel.xib */; };
@@ -230,6 +231,7 @@
 		8BEB38CA257A4ECD00C24085 /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		8BEB38CF257A80C400C24085 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		8BEB38D4257AA0D800C24085 /* RunScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunScreenVC.swift; sourceTree = "<group>"; };
+		8BED7D3B25BA7199000D66EC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../Downloads/logo.png; sourceTree = "<group>"; };
 		ACB4B3DC6E4C1B2127D4149A /* Pods_EmojibleIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1563012F70B3E8FE18560A /* Pods-EmojibleIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EmojibleIOSTests.release.xcconfig"; path = "Target Support Files/Pods-EmojibleIOSTests/Pods-EmojibleIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3D7D9561EF32FFC12CF4791 /* Pods_EmojibleIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EmojibleIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -507,6 +509,7 @@
 				FC9C42AF254AE88D0061E220 /* Assets.xcassets */,
 				FC9C42B1254AE88D0061E220 /* LaunchScreen.storyboard */,
 				FC9C42B4254AE88D0061E220 /* Info.plist */,
+				8BED7D3B25BA7199000D66EC /* logo.png */,
 			);
 			name = "Default Files";
 			sourceTree = "<group>";
@@ -1041,6 +1044,7 @@
 				FCB65F5525B63789005A74BB /* ProgramViewModel.xib in Resources */,
 				FCBC7375256643F1006361F8 /* AddFunctionAlert.xib in Resources */,
 				FC000B742585394C003D4C1A /* TeacherCodingScreenViewModel.xib in Resources */,
+				8BED7D3C25BA7199000D66EC /* logo.png in Resources */,
 				FC06B9C92589354A00CEC137 /* CreateNewClassAlert.xib in Resources */,
 				FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */,
 				FC16C000256C2C1C00180942 /* AssignmentViewModel.xib in Resources */,

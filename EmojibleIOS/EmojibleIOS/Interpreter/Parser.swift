@@ -8,7 +8,7 @@
 import Foundation
 
 enum ParserErrors: Error {
-    case UnexpectedToken (token:Token)
+    case UnexpectedToken (token:Token, expected:String)
     case EndOfLineExpected 
 }
 
@@ -43,7 +43,7 @@ class Parser{
         if self.current_token.type == token_type{
             self.advance()
         }else{
-            throw ParserErrors.UnexpectedToken(token: self.current_token)
+            throw ParserErrors.UnexpectedToken(token: self.current_token, expected: token_type.description)
         }
     }
     

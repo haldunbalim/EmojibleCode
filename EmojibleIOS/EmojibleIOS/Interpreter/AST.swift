@@ -10,6 +10,9 @@ import Foundation
 fileprivate let runScreen = RunCodeCoordinator.getInstance().runScreen!
 fileprivate var isCancelled: Bool { Interpreter.getInstance().isCancelled }
 
+enum InterpreterErrors: Error {
+    case GenericError(str:String)
+}
 
 enum EmojibleErrors: Error {
     case C1
@@ -58,8 +61,7 @@ class BinOpNode:AST{
                 return visitFloat(left:Float(truncating: left_val), right:Float(truncating: right_val))
             }
             else{
-                //error
-                return nil
+                throw InterpreterErrors.GenericError(str: "Expected Number or Boolean for binary operator at line \(String(describing:self.token.lineNumber))")
             }
         }
         catch{
@@ -176,7 +178,7 @@ class GetNumericUserInputNode:AST{
         
     }
     
-    override func visit()->Any?{
+    override func visit() throws ->Any?{
         runScreen.performSelector(onMainThread: #selector(runScreen.textInputRequested), with: nil, waitUntilDone: false)
         Interpreter.getInstance().inputSemaphore.wait()
         
@@ -190,8 +192,7 @@ class GetNumericUserInputNode:AST{
         }else if let inputFloat = Float(input){
             return inputFloat
         }else{
-            // error
-            return nil
+            throw InterpreterErrors.GenericError(str: "\(input) be converted to number")
         }
     }
     
@@ -208,7 +209,8 @@ class SetScreenColorNode:AST{
     }
     
     override func visit()->Any?{
-        runScreen.backgroundColor = color.token.value as? String
+        let backgroundColor = color.token.value as? String
+        runScreen.backgroundColor = backgroundColor
         runScreen.performSelector(onMainThread: #selector(runScreen.changeBackgroundColor), with: nil, waitUntilDone: false)
         return nil
     }
@@ -387,15 +389,13 @@ class GetRandomNumberNode:AST{
         
         do{
             guard let lower_bound = try self.lower_bound.safeVisit() as? Int else{
-                //raise Exception("Random number cannot be called with non integer lower bound")
-                return nil
+                throw InterpreterErrors.GenericError(str:"Random number cannot be called with non integer lower bound")
             }
             guard let upper_bound = try self.upper_bound.safeVisit() as? Int else{
-                //raise Exception("Random number cannot be called with non integer upper bound")
-                return nil
+                throw InterpreterErrors.GenericError(str:"Random number cannot be called with non integer upper bound")
             }
             if lower_bound >= upper_bound{
-                //raise Exception("lower bound cannot be greater than upper bound")
+                throw InterpreterErrors.GenericError(str:"lower bound cannot be greater than upper bound")
             }
             return Int.random(in: lower_bound ..< upper_bound)
         }catch{
@@ -424,7 +424,7 @@ class IfNode:AST{
     override func visit() throws -> Any? {
         do{
             guard let bool = try bool_statement.safeVisit() as? Bool else {
-                // Exception
+                throw InterpreterErrors.GenericError(str:"If statement must have boolean first argument")
                 return nil
             }
             if bool{
@@ -454,7 +454,7 @@ class ForNode:AST{
     override func visit() throws -> Any? {
         do{
             guard let times = try self.times.safeVisit() as? Int else{
-                return nil
+                throw InterpreterErrors.GenericError(str:"For statement must have integer times argument")
             }
             for _ in 0..<times{
                 _ = try body.safeVisit()
@@ -490,8 +490,8 @@ class WhileNode:AST{
         do{
             while true{
                 guard let bool_cond = try bool_statement.safeVisit() as? Bool else{
-                    // exception: raise Exception("{} is not a boolean".format(bool_cond))
                     return nil
+
                 }
                 if bool_cond{
                     break
@@ -521,7 +521,7 @@ class VarNode:AST{
         self.memory = memory
     }
     
-    override func visit() -> Any? {
+    override func visit() throws -> Any? {
         
         let var_name = value as! String
         
@@ -530,8 +530,8 @@ class VarNode:AST{
                 return assignment.getValue()
             }
         }
-        //raise Exception("{} is an undefined variable".format(var_name))
-        return nil
+        throw InterpreterErrors.GenericError(str:"\(var_name) is an undefined variable")
+        
     }
 }
 

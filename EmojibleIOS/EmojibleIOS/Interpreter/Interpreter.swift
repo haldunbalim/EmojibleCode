@@ -8,6 +8,7 @@
 import Foundation
 fileprivate let runScreen = RunCodeCoordinator.getInstance().runScreen!
 
+
 class Interpreter{
     var dispatchQueue = DispatchQueue(label: "interpreter_queue",qos: .utility)
     private var workItem: DispatchWorkItem?
@@ -23,7 +24,11 @@ class Interpreter{
     private func interpret(tree:AST){
         do{
             _ = try tree.visit()
-        }catch{
+        }catch InterpreterErrors.GenericError(let str){
+            runScreen.errorMessage = str
+            runScreen.performSelector(onMainThread: #selector(runScreen.showErrorMessageAndDismiss), with: nil, waitUntilDone: false)
+        }
+        catch{
             runScreen.errorMessage = error.localizedDescription
             runScreen.performSelector(onMainThread: #selector(runScreen.showErrorMessageAndDismiss), with: nil, waitUntilDone: false)
         }

@@ -16,6 +16,7 @@ class RunScreenVC:UIViewController, Coordinated{
     var backgroundColor:String!
     var outText:String!
     var errorMessage:String!
+    var tap: UITapGestureRecognizer!
     var isBeingTouched:Bool = false
     
     @IBOutlet weak var inputTextField: UITextField!
@@ -26,8 +27,7 @@ class RunScreenVC:UIViewController, Coordinated{
     override func viewDidLoad(){
         configureLanguage()
         self.navigationController?.navigationBar.isHidden = true
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
+        tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
     }
     func configureLanguage(){
         enterButton.setTitle("Enter".localized(), for: .normal)
@@ -42,12 +42,13 @@ class RunScreenVC:UIViewController, Coordinated{
             runningCode = coordinator.runningCode
             outputLabel.isHidden = true
             inputTextField.isHidden = true
+            view.removeGestureRecognizer(tap)
             enterButton.isHidden = true
             try Interpreter.getInstance().runCode(code: runningCode)
         }catch ParserErrors.EndOfLineExpected{
             showErrorMessageAndDismiss("End of Line Expected")
-        }catch ParserErrors.UnexpectedToken (let token){
-            showErrorMessageAndDismiss("Unexpected Token: \(token.type.description) at Line: \(token.lineNumber)")
+        }catch ParserErrors.UnexpectedToken (let token, let expected){
+            showErrorMessageAndDismiss("Unexpected Token: \(token.type.description). Expected: \(expected) at Line: \(token.lineNumber)")
         }catch LexerErrors.UnknownCharacter(let lineNumber, let char){
             showErrorMessageAndDismiss("Unknown Character: \(char) at line: \(lineNumber)")
         }catch{
@@ -78,16 +79,19 @@ class RunScreenVC:UIViewController, Coordinated{
     @objc func changeLabelText(){
         outputLabel.isHidden = false
         outputLabel.text = outText
+        outputLabel.textColor = UIColor.black
     }
     
     @objc func numericInputRequested(){
         inputTextField.isHidden = false
+        view.addGestureRecognizer(tap)
         enterButton.isHidden = false
         inputTextField.keyboardType = .decimalPad
     }
     
     @objc func textInputRequested(){
         inputTextField.isHidden = false
+        view.addGestureRecognizer(tap)
         enterButton.isHidden = false
         inputTextField.keyboardType = .default
     }
