@@ -51,6 +51,7 @@ class UserActivity : AppCompatActivityWithAlerts(), Observer {
             } else if (it is TeacherModel) {
                 toolbarLayout.removeAllViews()
                 toolbarLayout.addView(View.inflate(this, R.layout.teacher_toolbar, null))
+                hideProgressBar()
             }
         }
         NotificationCenter.instance.addObserver(Changes.userModelChagend, this)
