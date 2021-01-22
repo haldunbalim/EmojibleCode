@@ -15,6 +15,8 @@ class RunScreenVC:UIViewController, Coordinated{
     var input:String!
     var backgroundColor:String!
     var outText:String!
+    var errorMessage:String!
+    var isBeingTouched:Bool = false
     
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var outputLabel: UILabel!
@@ -34,15 +36,44 @@ class RunScreenVC:UIViewController, Coordinated{
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        guard let coordinator = coordinator as? RunCodeCoordinator else { return }
-        
-        runningCode = coordinator.runningCode
-        Interpreter.getInstance().runCode(code: runningCode)
-        outputLabel.isHidden = true
-        inputTextField.isHidden = true
-        enterButton.isHidden = true
+    override func viewDidAppear(_ animated: Bool) {
+        do{
+            guard let coordinator = coordinator as? RunCodeCoordinator else { return }
+            runningCode = coordinator.runningCode
+            outputLabel.isHidden = true
+            inputTextField.isHidden = true
+            enterButton.isHidden = true
+            try Interpreter.getInstance().runCode(code: runningCode)
+        }catch ParserErrors.EndOfLineExpected{
+            showErrorMessageAndDismiss("End of Line Expected")
+        }catch ParserErrors.UnexpectedToken (let token){
+            showErrorMessageAndDismiss("Unexpected Token: \(token.type.description) at Line: \(token.lineNumber)")
+        }catch LexerErrors.UnknownCharacter(let lineNumber, let char){
+            showErrorMessageAndDismiss("Unknown Character: \(char) at line: \(lineNumber)")
+        }catch{
+            showErrorMessageAndDismiss("Unknown Error occured")
+            
+        }
+       
     }
+    
+    @objc func showErrorMessageAndDismiss(_ message: String?) {
+        var msg: String
+        if message == nil{
+            msg = self.errorMessage
+        }else{
+            msg = message!
+        }
+        terminateButton.isHidden = true
+        self.view.backgroundColor = UIColor.black
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default){_ in 
+            AppCoordinator.getInstance().terminateCode()
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
+    
     
     @objc func changeLabelText(){
         outputLabel.isHidden = false
@@ -62,7 +93,7 @@ class RunScreenVC:UIViewController, Coordinated{
     }
     
     @objc func changeBackgroundColor(){
-        let colorDict = ["Red":UIColor.red,"Green":UIColor.green,"Blue":UIColor.blue]
+        let colorDict = ["Red":UIColor.red,"Green":UIColor.green,"Blue":UIColor.blue,"Yellow":UIColor.yellow]
         self.view.backgroundColor = colorDict[backgroundColor]
     }
     
@@ -70,6 +101,7 @@ class RunScreenVC:UIViewController, Coordinated{
         Interpreter.getInstance().finish()
         inputTextField.text = ""
         self.view.backgroundColor = UIColor.white
+        terminateButton.isHidden = false
     }
     
     @IBAction func terminateOnPress(_ sender:UIButton){
@@ -81,4 +113,20 @@ class RunScreenVC:UIViewController, Coordinated{
         input = text
         Interpreter.getInstance().inputSemaphore.signal()
     }
+}
+
+extension RunScreenVC{
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            isBeingTouched = true
+        }
+
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            isBeingTouched = false
+        }
+    }
+
 }

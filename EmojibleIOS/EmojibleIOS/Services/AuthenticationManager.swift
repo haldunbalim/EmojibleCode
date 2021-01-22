@@ -102,34 +102,5 @@ extension AuthenticationManager{
             }
         }
     }
-   /*
-     // May not be needed
-    func linkFacebookToAccount(completion: @escaping ((String?) -> Void)){
-        if !isLoggedInWithFBAuth{
-            completion("Hesabınız Facebook ile bağlanmış durumda")
-        }else if let user = Auth.auth().currentUser {
-            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-            user.link(with: credential) { (authResult, error) in
-                if let error = error {
-                    completion(error.localizedDescription)
-                }else{
-                    completion(nil)
-                }
-            }
-        }
-    }
-    
-    func linkPasswordToAccount(password:String, completion: @escaping ((String?) -> Void)){
-        if let user = Auth.auth().currentUser {
-            let credential = EmailAuthProvider.credential(withEmail:UserDatabaseManager.singleton.currentUser!.email, password: password)
-            user.link(with: credential) { (authResult, error) in
-                if let error = error {
-                    completion(error.localizedDescription)
-                }else{
-                    completion(nil)
-                }
-            }
-        }
-    }
-    */
+   
 }

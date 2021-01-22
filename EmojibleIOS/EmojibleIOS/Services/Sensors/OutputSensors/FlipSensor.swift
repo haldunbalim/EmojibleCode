@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-class Flip {
+class FlipSensor {
     
     private init(){}
-    private static var instance: Flip!
+    private static var instance: FlipSensor!
     
-    public static func getInstance() -> Flip{
+    public static func getInstance() -> FlipSensor{
         if instance==nil{
-            instance = Flip()
+            instance = FlipSensor()
         }
         return instance
     }

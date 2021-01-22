@@ -17,6 +17,7 @@
 		8B20D3D12594258900AE985F /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D02594258900AE985F /* VisionModel.swift */; };
 		8B20D3D6259425FA00AE985F /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */; };
 		8B30AEC325B9FADA00DFAF9B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30AEC225B9FADA00DFAF9B /* ImagePicker.swift */; };
+		8B30AEEE25BA50B800DFAF9B /* TouchSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30AEED25BA50B800DFAF9B /* TouchSensor.swift */; };
 		8B3E751D255D954F00AAA915 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E751C255D954F00AAA915 /* AudioPlayer.swift */; };
 		8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B69332B255FE9FB00CE97CB /* TokenType.swift */; };
 		8B70B200255F4E4E00EC3D57 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */; };
@@ -103,10 +104,8 @@
 		FC6BEDA22588A932004E8724 /* TeacherClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BEDA12588A932004E8724 /* TeacherClassViewModel.swift */; };
 		FC6BEDA72588A943004E8724 /* TeacherClassViewModel.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC6BEDA62588A943004E8724 /* TeacherClassViewModel.xib */; };
 		FC6BEDAC2588B72C004E8724 /* TeacherClassCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6BEDAB2588B72C004E8724 /* TeacherClassCoordinator.swift */; };
-		FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F122580BA0A000596D4 /* SpeechToText.swift */; };
 		FC6C0F182580BA16000596D4 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F172580BA16000596D4 /* TextToSpeech.swift */; };
-		FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F1C2580BA3F000596D4 /* Shake.swift */; };
-		FC6C0F272580BA57000596D4 /* Flip.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F262580BA57000596D4 /* Flip.swift */; };
+		FC6C0F272580BA57000596D4 /* FlipSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6C0F262580BA57000596D4 /* FlipSensor.swift */; };
 		FC73841025669D0F00432AC6 /* CodingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */; };
 		FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7384202566A85C00432AC6 /* RemoveAlert.swift */; };
 		FC7384262566A87500432AC6 /* RemoveAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC7384252566A87500432AC6 /* RemoveAlert.xib */; };
@@ -178,6 +177,7 @@
 		8B20D3D5259425FA00AE985F /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		8B20D3E62594272D00AE985F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		8B30AEC225B9FADA00DFAF9B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8B30AEED25BA50B800DFAF9B /* TouchSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSensor.swift; sourceTree = "<group>"; };
 		8B3E751C255D954F00AAA915 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		8B69332B255FE9FB00CE97CB /* TokenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		8B70B1FF255F4E4E00EC3D57 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -269,10 +269,8 @@
 		FC6BEDA12588A932004E8724 /* TeacherClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassViewModel.swift; sourceTree = "<group>"; };
 		FC6BEDA62588A943004E8724 /* TeacherClassViewModel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherClassViewModel.xib; sourceTree = "<group>"; };
 		FC6BEDAB2588B72C004E8724 /* TeacherClassCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassCoordinator.swift; sourceTree = "<group>"; };
-		FC6C0F122580BA0A000596D4 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 		FC6C0F172580BA16000596D4 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
-		FC6C0F1C2580BA3F000596D4 /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
-		FC6C0F262580BA57000596D4 /* Flip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flip.swift; sourceTree = "<group>"; };
+		FC6C0F262580BA57000596D4 /* FlipSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipSensor.swift; sourceTree = "<group>"; };
 		FC73840F25669D0F00432AC6 /* CodingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingScreenVC.swift; sourceTree = "<group>"; };
 		FC7384202566A85C00432AC6 /* RemoveAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAlert.swift; sourceTree = "<group>"; };
 		FC7384252566A87500432AC6 /* RemoveAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveAlert.xib; sourceTree = "<group>"; };
@@ -404,10 +402,6 @@
 			children = (
 				8BDC9004255ED42800A2E229 /* OutputSensors */,
 				8BDC9003255ED41B00A2E229 /* InputSensors */,
-				FC6C0F122580BA0A000596D4 /* SpeechToText.swift */,
-				FC6C0F172580BA16000596D4 /* TextToSpeech.swift */,
-				FC6C0F1C2580BA3F000596D4 /* Shake.swift */,
-				FC6C0F262580BA57000596D4 /* Flip.swift */,
 			);
 			path = Sensors;
 			sourceTree = "<group>";
@@ -497,6 +491,9 @@
 		8BDC9004255ED42800A2E229 /* OutputSensors */ = {
 			isa = PBXGroup;
 			children = (
+				FC6C0F172580BA16000596D4 /* TextToSpeech.swift */,
+				FC6C0F262580BA57000596D4 /* FlipSensor.swift */,
+				8B30AEED25BA50B800DFAF9B /* TouchSensor.swift */,
 				8B3E751C255D954F00AAA915 /* AudioPlayer.swift */,
 			);
 			path = OutputSensors;
@@ -1192,7 +1189,6 @@
 				8BDC8FEF255ECE4B00A2E229 /* AddTextAlert.swift in Sources */,
 				8B02EA5E25795D9500480AFA /* AST.swift in Sources */,
 				FC970B74259268710010933E /* OpeningCodingScreenCoordinator.swift in Sources */,
-				FC6C0F132580BA0A000596D4 /* SpeechToText.swift in Sources */,
 				8B69332C255FE9FB00CE97CB /* TokenType.swift in Sources */,
 				8B7FF7EE255CD6620043B0DB /* ClassModel.swift in Sources */,
 				FC80F0752553DCDA00B5B86B /* RegisterVC.swift in Sources */,
@@ -1203,7 +1199,6 @@
 				8B7FF7E1255CD4CC0043B0DB /* TeacherModel.swift in Sources */,
 				FC57E7E0256FA65100584686 /* TabProtocols.swift in Sources */,
 				8BE90CBE2550397E00A34B37 /* StudentCoordinator.swift in Sources */,
-				FC6C0F1D2580BA3F000596D4 /* Shake.swift in Sources */,
 				8BE90CB92550397600A34B37 /* AuthenticationCoordinator.swift in Sources */,
 				FC96BF6F2576D08B00EA5044 /* AssignmentDataSource.swift in Sources */,
 				8BDC8FC6255EAD4000A2E229 /* AddVoiceAlert.swift in Sources */,
@@ -1230,6 +1225,7 @@
 				8BE90CC32550398600A34B37 /* TeacherCoordinator.swift in Sources */,
 				FC000B9425855CB0003D4C1A /* TeacherTutorialDataSource.swift in Sources */,
 				8B7FF791255C830A0043B0DB /* ProgramsCoordinator.swift in Sources */,
+				8B30AEEE25BA50B800DFAF9B /* TouchSensor.swift in Sources */,
 				FC7384212566A85C00432AC6 /* RemoveAlert.swift in Sources */,
 				FCCA5C74255464AD0018FC6D /* AssignmentScreenVC.swift in Sources */,
 				FC16C01D256C2EBA00180942 /* VariablesViewModel.swift in Sources */,
@@ -1254,7 +1250,7 @@
 				8B7FF7AE255C936D0043B0DB /* ViewControllerExtensions.swift in Sources */,
 				8BBD5D16257BF9B70089F2D9 /* RunCodeCoordinator.swift in Sources */,
 				FCBC737D25665C11006361F8 /* ProgramViewModel.swift in Sources */,
-				FC6C0F272580BA57000596D4 /* Flip.swift in Sources */,
+				FC6C0F272580BA57000596D4 /* FlipSensor.swift in Sources */,
 				8B30AEC325B9FADA00DFAF9B /* ImagePicker.swift in Sources */,
 				FCBC736D2565C2A4006361F8 /* AddFunctionAlert.swift in Sources */,
 				FCCA5C79255469720018FC6D /* AssignmentModels.swift in Sources */,
