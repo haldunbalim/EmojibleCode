@@ -79,7 +79,7 @@ class Lexer(val text: String) {
                 result += doubleCharEmoji
                 advance()
                 advance()
-                doubleCharEmoji = currentChar + peek()
+                break
             } else {
                 result += currentChar
                 advance()
